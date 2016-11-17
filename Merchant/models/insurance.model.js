@@ -16,13 +16,8 @@ var insuranceSchema = new Schema({
     type: Date,
     default: Date.now
   },
-  age: {
-    type: String
-  },
-  sport:{
-    type: String
-  },
-  amount: Number,
+  
+  value: Number,
   users:[{
     type: Schema.Types.ObjectId,
     ref: 'User'
@@ -34,7 +29,8 @@ var insuranceSchema = new Schema({
   houseInsurance:{
     type: Schema.Types.ObjectId,
     ref: 'HouseInsurance'
-  }
+  },
+  amount: Number
 });
 
 var Insurance = mongoose.model('Insurance', insuranceSchema);

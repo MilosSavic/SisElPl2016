@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Payment</title>
+    <link href="./assets/css/bootstrap.css" rel="stylesheet">
+    <link href="./assets/css/company.css" rel="stylesheet">
+    <link href="./assets/css/font-awesome.css" rel="stylesheet">
+    <link href="./assets/css/solution.css" rel="stylesheet">
+</head>
+<body ng-app="company-registry">
+<div>
+
+    <form class="form-horizontal" novalidate name="pay.paymentForm">
+        <div class="form-group" ng-class="{ 'has-error': pay.paymentForm.pan.$touched && pay.paymentForm.pan.$invalid }">
+            <label class="control-label col-sm-2" for="pan" translate>PAN</label>
+            <div class="col-sm-6 col-md-4" busy-indicator>
+                <input type="text" ng-model="pay.payment.pan" id="pan" name="pan" class="form-control" required ng-minlength="10" ng-maxlength="10" >
+
+                 <div ng-messages="pay.paymentForm.pan.$error" ng-show="pay.paymentForm.pan.$touched">
+                    <p ng-message="required"><span translate>{{"PAYMENT.ERROR.REQUIRED"}}</span></p>
+                    <p ng-message="minlength"><span translate>{{"PAYMENT.ERROR.NUM"}}</span></p>
+                    <p ng-message="maxlength"><span translate>{{"PAYMENT.ERROR.NUM"}}</span></p>
+                </div>
+            </div>
+        </div>
+        <div class="form-group" ng-class="{ 'has-error': pay.paymentForm.security_code.$touched && pay.paymentForm.security_code.$invalid }">
+            <label class="control-label col-sm-2" for="code" translate>Security code</label>
+            <div class="col-sm-6 col-md-4">
+                <input type="text" ng-model="pay.payment.security_code" id="security_code" name="security_code" class="form-control" required>
+                 <div ng-messages="pay.paymentForm.security_code.$error" ng-show="pay.paymentForm.security_code.$touched">
+                    <p ng-message="required"><span translate>{{"PAYMENT.ERROR.REQUIRED"}}</span></p>
+                </div>
+            </div>
+        </div>
+        <div class="form-group" ng-class="{ 'has-error': pay.paymentForm.card_holder_name.$touched && pay.paymentForm.card_holder_name.$invalid }">
+            <label class="control-label col-sm-2" for="card_holder_name" translate>Card holder name</label>
+            <div class="col-sm-6 col-md-4">
+                <input type="text" ng-model="pay.payment.card_holder_name" id="card_holder_name" name="card_holder_name" class="form-control" required>
+                <div ng-messages="pay.paymentForm.card_holder_name.$error" ng-show="pay.paymentForm.card_holder_name.$touched">
+                    <p ng-message="required"><span translate>{{"PAYMENT.ERROR.REQUIRED"}}</span></p>
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="control-label col-sm-2" for="expiry_date" translate>Expiry date</label>
+            <div class="col-sm-6 col-md-4">
+                <input id="expiry_date" type="text" class="form-control" ng-model="pay.payment.expiry_date" is-open="pay.datepicker.opened" datepicker-options="pay.datepicker" ng-click="pay.datepicker.opened = true" uib-datepicker-popup="{{pay.datepicker.format}}" required/>
+                <div ng-messages="pay.paymentForm.expiry_date.$error" ng-show="pay.paymentForm.expiry_date.$touched">
+                    <p ng-message="required"><span translate>{{"PAYMENT.ERROR.REQUIRED"}}</span></p>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-offset-2">
+            <button type="button" class="btn btn-primary" ng-click="pay.addPayment()" translate ng-disabled="pay.paymentForm.$invalid">Save</button>
+        </div>
+    </form>
+</div>
+
+
+</body>
+</html>

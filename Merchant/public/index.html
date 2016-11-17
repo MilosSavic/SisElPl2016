@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Insurance sale</title>
+	<link href="./assets/css/bootstrap.css" rel="stylesheet">
+	<link href="./assets/css/font-awesome.css" rel="stylesheet">
+	<link href="./assets/css/company.css" rel="stylesheet">
+	<link href="./assets/css/solution.css" rel="stylesheet">
+</head>
+<body ng-app="company-registry">
+	<div class="container-fluid">
+		<div class="row" ui-view="header"></div>
+		<div class="row">
+			<div class="col-sm-2" ui-view="side-bar"></div>
+			<div class="col-sm-10" ui-view="content"></div>
+		</div>
+	</div>
+	<script src="./assets/js/angular/angular.js"></script>
+	<script src="./assets/js/angular-resource/angular-resource.js"></script>
+	<script src="./assets/js/angular-ui-router/release/angular-ui-router.js"></script>
+	<script src="./app/app.module.js"></script>
+	<script src="./app/components/core/core.module.js"></script>
+	<script src="./app/components/core/core.route.js"></script>
+	<script src="./app/components/core/side-bar.controller.js"></script>
+
+	<script src="./app/components/insurance/insurance.module.js"></script>
+	<script src="./app/components/insurance/insurance.routes.js"></script>
+	<script src="./app/components/insurance/insurance.service.js"></script>
+	<script src="./app/components/insurance/insurance.controller.js"></script>
+	
+	<script src="./app/components/region/region.module.js"></script>
+	<!--<script src="./app/components/region/region.routes.js"></script>
+	<script src="./app/components/region/region.controller.js"></script>-->
+	<script src="./app/components/region/region.service.js"></script>
+	
+		<script src="./app/components/insurance/test.service.js"></script>
+	
+
+</body>
+</html>

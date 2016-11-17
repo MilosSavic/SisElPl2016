@@ -15,7 +15,8 @@ function list(req, res, next){
            message: "Something happened :D"
          }); 
     }else {
-      res.json(regions);
+      var jsObject = {regions};
+      res.json(jsObject);
     }    
   });
 }
