@@ -1,0 +1,12 @@
+<nav class="navbar navbar-default">
+    <a class="col-sm-offset-4 col-sm-4" href="#/home"><h2>Payment Site</h2></a>
+    <div class="btn-group pull-right" uib-dropdown is-open="hc.isopen">
+        <button id="single-button" type="button" class="btn btn-primary" uib-dropdown-toggle ng-disabled="disabled">
+            {{hc.currentLanguage}} <span class="caret"></span>
+        </button>
+        <ul class="dropdown-menu" role="menu" aria-labelledby="single-button">
+            <li role="menuitem"><a ng-href ng-click="hc.setLanguage('en')">English</a></li>
+            <li role="menuitem"><a ng-href ng-click="hc.setLanguage('sr-latn')">Srpski<a></li>
+        </ul>
+    </div>
+</nav>
