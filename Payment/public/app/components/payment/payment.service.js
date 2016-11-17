@@ -8,7 +8,7 @@
 	Payment.$inject = ['$resource'];
 	function Payment($resource) {
 		var collectionName = "payments";
-		var paymentService = $resource("http://localhost:3000/api/:collectionName/:id",
+		var paymentService = $resource("http://localhost:8000/api/:collectionName/:id",
 			{id: "@_id", collectionName: collectionName},
 			{ update: { method: 'PUT' } });
 

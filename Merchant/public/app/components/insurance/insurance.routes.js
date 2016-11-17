@@ -13,7 +13,8 @@
 				views: {
 					'content@': {
 						resolve: {
-							regions: getRegions	
+							regions: getRegions,
+							payments: getPayments
 						},
 						templateUrl: 'app/components/insurance/insurance-form.html',
 						controller: 'InsuranceController',
@@ -25,9 +26,15 @@
 		getRegions.$inject = ['Region'];
 		function getRegions(Region) {
 			var returnValue = Region.get().$promise;
-			console.log(returnValue);
 			return returnValue;
 		}
+
+		getPayments.$inject = ['Test'];
+		function getPayments(Test) {
+			var returnValue = Test.get().$promise;
+			return returnValue;
+		}
+		
 
 	}
 })();

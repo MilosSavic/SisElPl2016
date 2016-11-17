@@ -15,4 +15,4 @@ var userSchema = new Schema({
   sport: String
 });
 
-var User = mongoose.model('User', insuranceSchema);
+var User = mongoose.model('User', userSchema);

@@ -15,7 +15,7 @@ function list(req, res, next){
            message: "Something happened :D"
          });
     }else {
-      res.json(payments);
+      res.json({payments});
     }
   });
 }
