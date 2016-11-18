@@ -13,8 +13,8 @@
 				views: {
 					'content@': {
 						resolve: {
-							regions: getRegions,
-							payments: getPayments
+							//regions: getRegions,
+							//payments: getPayments
 						},
 						templateUrl: 'app/components/insurance/insurance-form.html',
 						controller: 'InsuranceController',
@@ -23,8 +23,10 @@
 				}
 			});	
 
+		/*
 		getRegions.$inject = ['Region'];
 		function getRegions(Region) {
+
 			var returnValue = Region.get().$promise;
 			return returnValue;
 		}
@@ -34,7 +36,6 @@
 			var returnValue = Test.get().$promise;
 			return returnValue;
 		}
-		
-
+		*/
 	}
 })();
