@@ -1,31 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Insurance</title>
+    <link href="./assets/css/bootstrap.css" rel="stylesheet">
+    <link href="./assets/css/company.css" rel="stylesheet">
+    <link href="./assets/css/font-awesome.css" rel="stylesheet">
+    <link href="./assets/css/solution.css" rel="stylesheet">
+</head>
+<body ng-app="company-registry">
 <div>
 
-<div>
-<label>Insurance duration (days)</label><input type="text" id="duration" name="duration"
- ng-model="ic.insurance.insuranceDuration">
- </div>
- <div>
-<label>Insurance value</label><select name="amount" ng-model="ic.insurance.value">
-  <option value="10000">10000</option>
-  <option value="20000">20000</option>
-  <option value="30000">30000</option>
-  <option value="40000">40000</option>
-</select> 
-</div>
-<div>
-<label> Region:</label>
-        <select id="region" ng-model="ic.insurance.region._id">
-          <option ng-repeat="region in ic.regions" value="{{region._id}}">{{ region.name }}</option>
-        </select>
-        <span class="validationText" ng-show="ic.regions.length==0">Your project doesn't have any members </span>
-</select>
-</div>
-<div>
-<label>Number of users:</label><input type="number" min="1" max="5" ng-model="ic.insurance.numberOfUsers"> 
-</div>
+	<form class="form-horizontal" novalidate name="ic.insuranceForm">
+			<div class="form-group">
 
-<div>
-      <button ng-click="ic.addInsurance()">Submit</button>        
-</div>
+				<label class="control-label col-sm-2" for="startDate">Insurance start date</label> 
+				<div class="col-sm-6 col-md-4">
+				<input id="startDate" type="text" class="form-control" ng-model="ic.insurance.startDate" is-open="ic.datepickerStart.opened" datepicker-options="ic.datepickerStart" ng-change="ic.startDatePicked()" ng-click="ic.datepickerStart.opened = true" uib-datepicker-popup="{{ic.datepickerStart.format}}" required/>
+				</div>
+			</div>
 
+
+			 <div class="form-group">
+
+				<label class="control-label col-sm-2" for="endDate">Insurance end date</label> 
+				<div class="col-sm-6 col-md-4">
+				<input id="endDate" type="text" class="form-control" ng-model="ic.insurance.endDate" is-open="ic.datepickerEnd.opened" datepicker-options="ic.datepickerEnd" ng-click="ic.datepickerEnd.opened = true" uib-datepicker-popup="{{ic.datepickerEnd.format}}" required/>
+				</div>
+			</div>
+
+			 <div>
+			<label>Insurance value</label><select name="amount" ng-model="ic.insurance.value">
+			  <option value="10000">10000</option>
+			  <option value="20000">20000</option>
+			  <option value="30000">30000</option>
+			  <option value="40000">40000</option>
+			</select> 
+			</div>
+		<div>
+		<label> Region:</label>
+		        <select id="region" ng-model="ic.insurance.region._id">
+		          <option ng-repeat="region in ic.regions" value="{{region._id}}">{{ region.name }}</option>
+		        </select>
+		        <span class="validationText" ng-show="ic.regions.length==0">Your project doesn't have any members </span>
+		</div>
+		<div>
+		<label>Number of users:</label><input type="number" min="1" max="5" ng-model="ic.insurance.numberOfUsers"> 
+		</div>
+
+		<div>
+		      <button ng-click="ic.goToHouseInsurance()">Next</button>        
+		</div>
+	</form>
 </div>
+</body>
+</html>

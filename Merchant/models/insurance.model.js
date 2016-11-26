@@ -3,9 +3,11 @@ var Schema = mongoose.Schema;
 
 var insuranceSchema = new Schema({
 
-  insuranceDuration: {
-    type: Number
+  startDate: {
+    type: Date
   },
+
+  endDate: Date,
   region: {
     type: Schema.Types.ObjectId,
     ref: 'Region'//,
