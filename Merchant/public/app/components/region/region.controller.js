@@ -10,12 +10,16 @@
 		var rc = this;
 		rc.region = new Region();
 
+		Region.get(function(response){rc.listOfRegions = response.regions;});
+
 		rc.submitRegion = function(){
 			rc.region.$save(success);
 		}
 		function success() {
 			console.log("Region added...")
-			$location.path('/home');
+			Region.get(function(response){rc.listOfRegions = response.regions;});
+			rc.region = new Region();
+			//$state.go('main.regionForm');
 		}
 	}
 })();

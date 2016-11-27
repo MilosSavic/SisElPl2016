@@ -38,6 +38,22 @@
 		
 	</form>
 
+	<table id="t01" align="center" width="75%;">
+  <tr>
+    <th>&nbsp;</th>
+    <th>ID</th>
+    <th>Name</th>  
+    <th>Risk</th>
+
+  </tr>
+  <tr ng-repeat="element in rc.listOfRegions">
+    <td style="width:4%;">{{$index+1}}&nbsp;</td>
+    <td style="width:11%;">{{element._id}}</td>  
+    <td style="width:9%;">{{element.name}}</td>
+    <td style="width:9%;">{{element.risk}}</td>
+  </tr>
+  </table>
+
 </div>
 </body>
 </html>
