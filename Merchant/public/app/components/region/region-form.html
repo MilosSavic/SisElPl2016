@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Add region</title>
+    <link href="./assets/css/bootstrap.css" rel="stylesheet">
+    <link href="./assets/css/company.css" rel="stylesheet">
+    <link href="./assets/css/font-awesome.css" rel="stylesheet">
+    <link href="./assets/css/solution.css" rel="stylesheet">
+</head>
+<body ng-app="company-registry">
+<div>
+
+<form class="form-horizontal" novalidate name="rc.regionForm">
+		<div class="form-group">
+		<div class="col-sm-offset-2 col-sm-4">
+			<label>Region</label>
+		</div>
+		</div>
+		
+		<div class="form-group">
+		<label class="control-label col-sm-2">Name:</label>
+		<div class="col-sm-6 col-md-4">
+		<input class="form-control" type="text" ng-model="rc.region.name"> 
+		</div>
+		</div>
+
+		<div class="form-group">
+		<label class="control-label col-sm-2">Risk:</label>
+		<div class="col-sm-6 col-md-4">
+		<input class="form-control" type="text" ng-model="rc.region.risk"> 
+		</div>
+		</div>
+
+
+		 <div class="col-sm-offset-2">
+		      <button class="btn btn-primary" ng-click="rc.submitRegion()">Submit</button>        
+		</div>
+		
+	</form>
+
+</div>
+</body>
+</html>
