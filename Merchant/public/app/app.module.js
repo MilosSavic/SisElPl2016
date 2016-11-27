@@ -2,5 +2,5 @@
 	"use strict";
 	
 	angular
-		.module('company-registry', ['company-registry.core','company-registry.insurance','company-registry.region']);
+		.module('company-registry', ['company-registry.core','company-registry.insurance','company-registry.region','company-registry.house-insurance','company-registry.users']);
 })();

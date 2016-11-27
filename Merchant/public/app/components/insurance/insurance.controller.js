@@ -5,8 +5,8 @@
 		.module('company-registry.insurance')
 		.controller('InsuranceController', InsuranceController);
 
-	InsuranceController.$inject = ['$location','Insurance','Region','Test','$state'];
-	function InsuranceController($location,Insurance,Region,Test,$state) {
+	InsuranceController.$inject = ['$location','Insurance','Region','Test','$state','$rootScope'];
+	function InsuranceController($location,Insurance,Region,Test,$state,$rootScope) {
 		var ic = this;
 
 		ic.insurance = new Insurance();
@@ -46,13 +46,12 @@
 						
 		};
 
-		ic.goToHouseInsurance = function(){
-			$state.go('main.houseInsuranceForm');
+		ic.goToUsersForm = function(){
+			$rootScope.insurance = ic.insurance;
+			$state.go('main.usersInsuranceForm');
 		}
 
-		ic.goToCarInsurance = function(){
-			$state.go('main.carInsuranceForm');
-		}
+
 
 		function success() {
 			console.log("Insurance added...")

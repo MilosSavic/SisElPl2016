@@ -7,12 +7,15 @@ var userSchema = new Schema({
   surname: String,
   jmbg: String,
   passportNumber: String,
-  adress: String,
+  address: String,
   telephone: String,
   isContractor: Boolean,       //ugovarac na engleskom? :D
   email: String
   age: Number,
-  sport: String
+  sport: {
+    type: Schema.Types.ObjectId,
+    ref: 'Sport'
+  }
 });
 
 var User = mongoose.model('User', userSchema);

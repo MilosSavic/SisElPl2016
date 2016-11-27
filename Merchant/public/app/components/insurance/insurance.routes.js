@@ -22,20 +22,6 @@
 					}
 				}
 			})
-			.state('main.houseInsuranceForm', {
-				url: '/houseInsuranceForm',
-				views: {
-					'content@': {
-						resolve: {
-							//regions: getRegions,
-							//payments: getPayments
-						},
-						templateUrl: 'app/components/insurance/house-insurance-form.html',
-						controller: 'InsuranceController',
-						controllerAs: 'ic'
-					}
-				}
-			})
 			.state('main.carInsuranceForm', {
 				url: '/carInsuranceForm',
 				views: {

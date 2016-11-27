@@ -20,10 +20,12 @@ var insuranceSchema = new Schema({
   },
   
   value: Number,
+  
   users:[{
     type: Schema.Types.ObjectId,
     ref: 'User'
   }],
+
   carInsurance:{
     type: Schema.Types.ObjectId,
     ref: 'CarInsurance'
