@@ -1,7 +1,7 @@
 var mongoose = require('mongoose'),
     Schema = mongoose.Schema;
 
-var houseInsuranceSchema = new houseInsuranceSchema({
+var houseInsuranceSchema = new Schema({
 
   duration:Number,
   size: Number,

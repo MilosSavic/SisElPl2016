@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Payment</title>
+    <link href="./assets/css/bootstrap.css" rel="stylesheet">
+    <link href="./assets/css/company.css" rel="stylesheet">
+    <link href="./assets/css/font-awesome.css" rel="stylesheet">
+    <link href="./assets/css/solution.css" rel="stylesheet">
+</head>
+<body ng-app="company-registry">
+<div>
+
+    <form class="form-horizontal" novalidate name="cic.carInsuranceForm">
+        <div class="form-group" ng-class="{ 'has-error': cic.carInsuranceForm.duration.$touched && cic.carInsuranceForm.duration.$invalid }">
+            <label class="control-label col-sm-2" for="duration" translate>Duration</label>
+            <div class="col-sm-6 col-md-4" busy-indicator>
+                <input type="text" ng-model="cic.carInsurance.duration" id="duration" name="duration" class="form-control" required  >
+            </div>
+        </div>
+        <div class="form-group" ng-class="{ 'has-error': cic.carInsuranceForm.services.$touched && cic.carInsuranceForm.services.$invalid }">
+            <label class="control-label col-sm-2" for="code" translate>Service</label>
+            <div class="col-sm-6 col-md-4">
+                <input type="text" ng-model="cic.carInsurance.services" id="services" name="services" class="form-control" required>
+
+            </div>
+        </div>
+        <div class="form-group" ng-class="{ 'has-error': cic.carInsuranceForm.vehicle.$touched && cic.carInsuranceForm.vehicle.$invalid }">
+            <label class="control-label col-sm-2" for="vehicle" translate>Vehicle</label>
+            <div class="col-sm-6 col-md-4">
+                <input type="text" ng-model="cic.carInsurance.vehicle" id="vehicle" name="vehicle" class="form-control" required>
+
+            </div>
+        </div>
+
+        <div class="form-group" ng-class="{ 'has-error': cic.carInsuranceForm.vehicleYear.$touched && cic.carInsuranceForm.vehicleYear.$invalid }">
+            <label class="control-label col-sm-2" for="vehicleYear" translate>Vehicle year</label>
+            <div class="col-sm-6 col-md-4">
+                <input type="text" ng-model="cic.carInsurance.vehicleYear" id="vehicleYear" name="vehicleYear" class="form-control" required>
+
+            </div>
+        </div>
+
+        <div class="form-group" ng-class="{ 'has-error': cic.carInsuranceForm.plateNumber.$touched && cic.carInsuranceForm.plateNumber.$invalid }">
+            <label class="control-label col-sm-2" for="plateNumber" translate>Plate number</label>
+            <div class="col-sm-6 col-md-4">
+                <input type="text" ng-model="cic.carInsurance.plateNumber" id="plateNumber" name="plateNumber" class="form-control" required>
+
+            </div>
+        </div>
+
+        <div class="form-group" ng-class="{ 'has-error': cic.carInsuranceForm.chassisNumber.$touched && cic.carInsuranceForm.chassisNumber.$invalid }">
+            <label class="control-label col-sm-2" for="chassisNumber" translate>Chassis number</label>
+            <div class="col-sm-6 col-md-4">
+                <input type="text" ng-model="cic.carInsurance.chassisNumber" id="chassisNumber" name="chassisNumber" class="form-control" required>
+
+            </div>
+        </div>
+
+
+        <div class="form-group" ng-class="{ 'has-error': cic.carInsuranceForm.ownerFirstName.$touched && cic.carInsuranceForm.ownerFirstName.$invalid }">
+            <label class="control-label col-sm-2" for="code" translate>Owner first name</label>
+            <div class="col-sm-6 col-md-4">
+                <input type="text" ng-model="cic.carInsurance.ownerFirstName" id="ownerFirstName" name="ownerFirstName" class="form-control" required>
+
+            </div>
+        </div>
+
+        <div class="form-group" ng-class="{ 'has-error': cic.carInsuranceForm.ownerLastName.$touched && cic.carInsuranceForm.ownerLastName.$invalid }">
+            <label class="control-label col-sm-2" for="code" translate>Owner last name</label>
+            <div class="col-sm-6 col-md-4">
+                <input type="text" ng-model="cic.carInsurance.ownerLastName" id="ownerLastName" name="ownerLastName" class="form-control" required>
+
+            </div>
+        </div>
+
+        <div class="form-group" ng-class="{ 'has-error': cic.carInsuranceForm.ownerJmbg.$touched && cic.carInsuranceForm.ownerJmbg.$invalid }">
+            <label class="control-label col-sm-2" for="code" translate>Owner JMBG</label>
+            <div class="col-sm-6 col-md-4">
+                <input type="text" ng-model="cic.carInsurance.ownerJmbg" id="ownerJmbg" name="ownerJmbg" class="form-control" required>
+
+            </div>
+        </div>
+
+
+        <div class="col-sm-offset-2">
+            <button type="button" class="btn btn-primary" ng-click="cic.addCarInsurance()" translate ng-disabled="cic.carInsuranceForm.$invalid">Save</button>
+        </div>
+    </form>
+</div>
+
+
+</body>
+</html>

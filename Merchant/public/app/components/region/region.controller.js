@@ -13,6 +13,7 @@
 		Region.get(function(response){rc.listOfRegions = response.regions;});
 
 		rc.submitRegion = function(){
+			console.log("reg");
 			rc.region.$save(success);
 		}
 		function success() {

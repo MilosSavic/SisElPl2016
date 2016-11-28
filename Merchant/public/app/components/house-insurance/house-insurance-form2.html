@@ -1,0 +1,32 @@
+<div>
+HOUSE INSURANCE
+<div>
+<label>Insurance duration (days)</label><input type="text" id="duration" name="duration"
+ ng-model="ic.insurance.insuranceDuration">
+ </div>
+ <div>
+<label>Insurance value</label><select name="amount" ng-model="ic.insurance.value">
+  <option value="10000">10000</option>
+  <option value="20000">20000</option>
+  <option value="30000">30000</option>
+  <option value="40000">40000</option>
+</select> 
+</div>
+<div>
+<label> Region:</label>
+        <select id="region" ng-model="ic.insurance.region._id">
+          <option ng-repeat="region in ic.regions" value="{{region._id}}">{{ region.name }}</option>
+        </select>
+        <span class="validationText" ng-show="ic.regions.length==0">Your project doesn't have any members </span>
+</select>
+</div>
+<div>
+<label>Number of users:</label><input type="number" min="1" max="5" ng-model="ic.insurance.numberOfUsers"> 
+</div>
+
+<div>
+      <button ng-click="hic.submitHouseInsurance()">Next</button>   
+       <button ng-click="hic.goToCarInsurance()">Skip</button>      
+</div>
+
+</div>

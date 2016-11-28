@@ -22,7 +22,7 @@
 					}
 				}
 			})
-			.state('main.carInsuranceForm', {
+			/*.state('main.carInsuranceForm', {
 				url: '/carInsuranceForm',
 				views: {
 					'content@': {
@@ -35,7 +35,7 @@
 						controllerAs: 'ic'
 					}
 				}
-			})
+			})*/
 
 		/*
 		getRegions.$inject = ['Region'];

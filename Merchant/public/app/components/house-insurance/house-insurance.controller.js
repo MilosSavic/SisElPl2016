@@ -5,15 +5,23 @@
 		.module('company-registry.house-insurance')
 		.controller('HouseInsuranceController', HouseInsuranceController);
 
-	HouseInsuranceController.$inject = ['$location','Insurance','$state'];
-	function HouseInsuranceController($location,Insurance,$state) {
+	HouseInsuranceController.$inject = ['$location','HouseInsurance','$state'];
+	function HouseInsuranceController($location,HouseInsurance,$state) {
 		var hic = this;
+		hic.houseInsurance = new HouseInsurance();
 
-		hic.goToCarInsurance = function(){
-			$state.go('main.carInsuranceForm');
+		hic.goToHouseInsurance = function(){
+			$state.go('main.houseInsuranceForm');
 		}
+
+		hic.addHouseInsurance = function() {
+			 console.log('savee');
+				hic.houseInsurance.$save(success);
+
+		};
+
 		function success() {
-			console.log("Insurance added...")
+			console.log("House Insurance added...")
 			$location.path('/employee');
 		}
 	}

@@ -1,32 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Payment</title>
+    <link href="./assets/css/bootstrap.css" rel="stylesheet">
+    <link href="./assets/css/company.css" rel="stylesheet">
+    <link href="./assets/css/font-awesome.css" rel="stylesheet">
+    <link href="./assets/css/solution.css" rel="stylesheet">
+</head>
+<body ng-app="company-registry">
 <div>
-HOUSE INSURANCE
-<div>
-<label>Insurance duration (days)</label><input type="text" id="duration" name="duration"
- ng-model="ic.insurance.insuranceDuration">
- </div>
- <div>
-<label>Insurance value</label><select name="amount" ng-model="ic.insurance.value">
-  <option value="10000">10000</option>
-  <option value="20000">20000</option>
-  <option value="30000">30000</option>
-  <option value="40000">40000</option>
-</select> 
-</div>
-<div>
-<label> Region:</label>
-        <select id="region" ng-model="ic.insurance.region._id">
-          <option ng-repeat="region in ic.regions" value="{{region._id}}">{{ region.name }}</option>
-        </select>
-        <span class="validationText" ng-show="ic.regions.length==0">Your project doesn't have any members </span>
-</select>
-</div>
-<div>
-<label>Number of users:</label><input type="number" min="1" max="5" ng-model="ic.insurance.numberOfUsers"> 
+
+    <form class="form-horizontal" novalidate name="hic.houseInsuranceForm">
+        <div class="form-group" ng-class="{ 'has-error': hic.houseInsuranceForm.duration.$touched && hic.houseInsuranceForm.duration.$invalid }">
+            <label class="control-label col-sm-2" for="duration" translate>Duration</label>
+            <div class="col-sm-6 col-md-4" busy-indicator>
+                <input type="text" ng-model="hic.houseInsurance.duration" id="duration" name="duration" class="form-control" required  >
+            </div>
+        </div>
+        <div class="form-group" ng-class="{ 'has-error': hic.houseInsuranceForm.age.$touched && hic.houseInsuranceForm.age.$invalid }">
+            <label class="control-label col-sm-2" for="code" translate>Age</label>
+            <div class="col-sm-6 col-md-4">
+                <input type="text" ng-model="hic.houseInsurance.age" id="age" name="age" class="form-control" required>
+
+            </div>
+        </div>
+        <div class="form-group" ng-class="{ 'has-error': hic.houseInsuranceForm.estimatedValue.$touched && hic.houseInsuranceForm.estimatedValue.$invalid }">
+            <label class="control-label col-sm-2" for="estimatedValue" translate>Estimated value</label>
+            <div class="col-sm-6 col-md-4">
+                <input type="text" ng-model="hic.houseInsurance.estimatedValue" id="estimatedValue" name="estimatedValue" class="form-control" required>
+
+            </div>
+        </div>
+
+        <div class="form-group" ng-class="{ 'has-error': hic.houseInsuranceForm.adress.$touched && hic.houseInsuranceForm.adress.$invalid }">
+            <label class="control-label col-sm-2" for="adress" translate>Adress</label>
+            <div class="col-sm-6 col-md-4">
+                <input type="text" ng-model="hic.houseInsurance.adress" id="adress" name="adress" class="form-control" required>
+
+            </div>
+        </div>
+
+        <div class="form-group" ng-class="{ 'has-error': hic.houseInsuranceForm.ownerFirstName.$touched && hic.houseInsuranceForm.ownerFirstName.$invalid }">
+            <label class="control-label col-sm-2" for="code" translate>Owner first name</label>
+            <div class="col-sm-6 col-md-4">
+                <input type="text" ng-model="hic.houseInsurance.ownerFirstName" id="ownerFirstName" name="ownerFirstName" class="form-control" required>
+
+            </div>
+        </div>
+
+        <div class="form-group" ng-class="{ 'has-error': hic.houseInsuranceForm.ownerLastName.$touched && hic.houseInsuranceForm.ownerLastName.$invalid }">
+            <label class="control-label col-sm-2" for="code" translate>Owner last name</label>
+            <div class="col-sm-6 col-md-4">
+                <input type="text" ng-model="hic.houseInsurance.ownerLastName" id="ownerLastName" name="ownerLastName" class="form-control" required>
+
+            </div>
+        </div>
+
+        <div class="form-group" ng-class="{ 'has-error': hic.houseInsuranceForm.ownerJMBG.$touched && hic.houseInsuranceForm.ownerJMBG.$invalid }">
+            <label class="control-label col-sm-2" for="code" translate>Owner JMBG</label>
+            <div class="col-sm-6 col-md-4">
+                <input type="text" ng-model="hic.houseInsurance.ownerJMBG" id="ownerJMBG" name="ownerJMBG" class="form-control" required>
+
+            </div>
+        </div>
+
+
+        <div class="col-sm-offset-2">
+            <button type="button" class="btn btn-primary" ng-click="hic.addHouseInsurance()" translate ng-disabled="hic.houseInsuranceForm.$invalid">Save</button>
+        </div>
+    </form>
 </div>
 
-<div>
-      <button ng-click="hic.submitHouseInsurance()">Next</button>   
-       <button ng-click="hic.goToCarInsurance()">Skip</button>      
-</div>
 
-</div>
+</body>
+</html>

@@ -1,6 +1,6 @@
 var mongoose = require('mongoose'),
     Schema = mongoose.Schema;
-var carInsuranceSchema = new Schema({   
+var carInsuranceSchema = new Schema({
     duration: Number,
     services: String,
     vehicle: String,
@@ -9,7 +9,7 @@ var carInsuranceSchema = new Schema({
     chassisNumber: String,
     ownerFirstName: String,
     ownerLastName: String,
-    ownerJMBD: String
+    ownerJmbg: String
 
 });
 
