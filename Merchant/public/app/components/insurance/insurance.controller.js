@@ -11,7 +11,6 @@
 
 		ic.insurance = new Insurance();
 
-
 		ic.datepickerStart = {
 			minDate: new Date(),
 			maxDate: new Date(2222,11,30),
@@ -48,7 +47,8 @@
 
 		ic.goToUsersForm = function(){
 			$rootScope.insurance = ic.insurance;
-			$state.go('main.usersInsuranceForm');
+			if(ic.insurance.numberOfUsers)
+				$state.go('main.usersInsuranceForm',{userIndex:1});
 		}
 
 

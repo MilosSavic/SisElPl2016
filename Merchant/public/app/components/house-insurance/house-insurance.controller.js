@@ -10,8 +10,8 @@
 		var hic = this;
 		hic.houseInsurance = new HouseInsurance();
 
-		hic.goToHouseInsurance = function(){
-			$state.go('main.houseInsuranceForm');
+		hic.goToCarInsurance = function(){
+			$state.go('main.carInsuranceForm');
 		}
 
 		hic.addHouseInsurance = function() {

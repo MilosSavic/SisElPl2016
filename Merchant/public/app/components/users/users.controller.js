@@ -5,25 +5,44 @@
 		.module('company-registry.users')
 		.controller('UsersController', UsersController);
 
-	UsersController.$inject = ['$location','Insurance','$state','$rootScope','User'];
-	function UsersController($location,Insurance,$state,$rootScope,User) {
+	UsersController.$inject = ['$location','Insurance','$state','$rootScope','User','$stateParams'];
+	function UsersController($location,Insurance,$state,$rootScope,User,$stateParams) {
 		var uc = this;
+		uc.page = $stateParams.userIndex;
 
 		console.log($rootScope.insurance);
+		uc.user = new User();
+		
+		if(uc.page==1)
+		{
+			uc.firstPage = true;
+		}
+		else uc.firstPage = false;
 
+		if(uc.page==$rootScope.insurance.numberOfUsers)
+		{
+			uc.lastPage = true;
+		}
+		else uc.lastPage=false;
 
-		//Determining the number of users in order to create an adequate form
-		var users = [];
-		for(var i=1; i<$rootScope.insurance.numberOfUsers; i++)
-			{
-				var user = new User();
-				users.push(user);
+		uc.next = function(){
+			if(!$rootScope.insurance.users)
+				$rootScope.insurance.users = [];
+			if(!uc.lastPage){
+				if(!$rootScope.insurance.users[uc.page-1])
+					$rootScope.insurance.users.push(uc.user);
+				uc.page++;
+				$state.go('main.usersInsuranceForm',{userIndex:uc.page});
+				
 			}
 
-		uc.contractor = new User();
-		uc.users = users;
+		}
 
 		uc.goToHouseInsurance = function(){
+			if(!$rootScope.insurance.users)
+				$rootScope.insurance.users = [];
+			if(!$rootScope.insurance.users[uc.page-1])
+				$rootScope.insurance.users.push(uc.user);
 			$state.go('main.houseInsuranceForm');
 		}
 		function success() {

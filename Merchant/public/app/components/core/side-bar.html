@@ -6,16 +6,21 @@
         <a ui-sref='main.about'><span>About</span></a>
     </li>
      <li ng-class="{activeItem:sbc.isActive('insuranceForm')}">
-        <a ui-sref='main.insuranceForm'><span>Insurance form</span></a>
-    </li>
-      <li ng-class="{activeItem:sbc.isActive('regionForm')}">
-        <a ui-sref='main.regionForm'><span>Add region</span></a>
-    </li>
+        <a ui-sref='main.insuranceForm'><span>Insurance</span></a>
+    </li>  
+
+  <li ng-class="{activeItem:sbc.isActive('usersInsuranceForm')}">
+        <a ui-sref='main.insuranceForm'><span>Users</span></a>
+    </li> 
+
     <li ng-class="{activeItem:sbc.isActive('houseInsuranceForm')}">
-        <a ui-sref='main.houseInsuranceForm'><span>House insurance form</span></a>
+        <a ui-sref='main.houseInsuranceForm'><span>House insurance</span></a>
     </li>
     <li ng-class="{activeItem:sbc.isActive('carInsuranceForm')}">
-        <a ui-sref='main.carInsuranceForm'><span>Car insurance form</span></a>
+        <a ui-sref='main.carInsuranceForm'><span>Car insurance</span></a>
+    </li>
+       <li ng-class="{activeItem:sbc.isActive('regionForm')}">
+        <a ui-sref='main.regionForm'><span>Add region</span></a>
     </li>
 
 </ul>
