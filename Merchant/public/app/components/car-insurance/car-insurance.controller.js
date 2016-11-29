@@ -16,9 +16,9 @@
 
 		cic.addCarInsurance = function() {
 			 console.log('savee');
-				cic.carInsurance.$save(success);
+			cic.carInsurance.$save(success);
+		}
 
-		};
 		function success() {
 			console.log("Car Insurance added...")
 			$location.path('/employee');
