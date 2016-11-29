@@ -38,6 +38,14 @@
 						templateUrl: 'app/components/core/about.html'
 					}
 				}
+			})
+			.state('main.dataPage', {
+				url: '/data',
+				views: {
+					'content@': {
+						templateUrl: 'app/components/core/data-page.html'
+					}
+				}
 			});
 	}
 })();

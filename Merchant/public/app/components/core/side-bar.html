@@ -8,7 +8,7 @@
      <li ng-class="{activeItem:sbc.isActive('insuranceForm')}">
         <a ui-sref='main.insuranceForm'><span>Insurance</span></a>
     </li>  
-  <li ng-class="{activeItem:sbc.isActive('usersInsuranceForm')}">
+  <li ng-show="sbc.usersActive" ng-class="{activeItem:sbc.isActive('usersInsuranceForm')}">
         <a><span>Users</span></a>
 
         <!-- ja stavio subSideBar umesto sideBar i uneo sitne izmene u css-->
@@ -19,14 +19,37 @@
         </ul>
     </li> 
 
-    <li ng-class="{activeItem:sbc.isActive('houseInsuranceForm')}">
+     <li ng-show="!sbc.usersActive" class="inactive">
+        <a class="inactive"><span>Users</span></a>
+    </li>
+
+    <li ng-show="sbc.houseActive" ng-class="{activeItem:sbc.isActive('houseInsuranceForm')}">
         <a ui-sref='main.houseInsuranceForm'><span>House insurance</span></a>
     </li>
-    <li ng-class="{activeItem:sbc.isActive('carInsuranceForm')}">
+
+    <!--BITNO: promene u css-u: dodat .inactive u company.css-->
+     <li ng-show="!sbc.houseActive" class="inactive">
+        <a class="inactive"><span>House insurance</span></a>
+    </li>
+    <li ng-show="sbc.carActive" ng-class="{activeItem:sbc.isActive('carInsuranceForm')}">
         <a ui-sref='main.carInsuranceForm'><span>Car insurance</span></a>
     </li>
-       <li ng-class="{activeItem:sbc.isActive('regionForm')}">
-        <a ui-sref='main.regionForm'><span>Add region</span></a>
+
+     <li ng-show="!sbc.carActive" class="inactive">
+        <a class="inactive"><span>Car insurance</span></a>
     </li>
+
+     <li ng-show = "sbc.dataActive" ng-class="{activeItem:sbc.isActive('data')}">
+        <a ui-sref='main.dataPage'><span>Your data</span></a>
+    </li>
+
+     <li ng-show="!sbc.dataActive" class="inactive">
+        <a class="inactive"><span>Your data</span></a>
+    </li>
+
+       <li  ng-class="{activeItem:sbc.isActive('regionForm')}">
+        <a  ui-sref='main.regionForm'><span>Add region</span></a>
+    </li>
+
 
 </ul>

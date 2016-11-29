@@ -5,11 +5,12 @@
 		.module('company-registry.insurance')
 		.controller('InsuranceController', InsuranceController);
 
-	InsuranceController.$inject = ['$location','Insurance','Region','Test','$state','$rootScope'];
-	function InsuranceController($location,Insurance,Region,Test,$state,$rootScope) {
+	InsuranceController.$inject = ['$location','Insurance','Region','Test','$state','$rootScope','User','InsuranceData','SideBar'];
+	function InsuranceController($location,Insurance,Region,Test,$state,$rootScope,User,InsuranceData,SideBar) {
 		var ic = this;
-
-		ic.insurance = new Insurance();
+		if(!$rootScope.insurance)
+			$rootScope.insurance = new Insurance();
+		ic.insurance = InsuranceData.getInsuranceData();
 
 		ic.datepickerStart = {
 			minDate: new Date(),
@@ -46,15 +47,26 @@
 		};
 
 		ic.goToUsersForm = function(){
-			$rootScope.insurance = ic.insurance;
-			if(ic.insurance.numberOfUsers)
+			if(ic.insurance.numberOfUsers){
+
+				SideBar.setUsersActive(true);
+				InsuranceData.addUsers(ic.insurance.numberOfUsers);
+				//$rootScope.insurance.users = [];
+				//for(var i=0; i<ic.insurance.numberOfUsers; i++)
+				//	$rootScope.insurance.users.push(new User());
+
 				$state.go('main.usersInsuranceForm',{userIndex:1});
 
-			//side bar
-			$rootScope.usersIndices = [];
-			for(var i=1; i<=$rootScope.insurance.numberOfUsers;i++){
-				$rootScope.usersIndices.push(i);
 			}
+
+
+
+			//side bar
+			//$rootScope.usersIndices = [];
+			//for(var i=1; i<=InsuranceData.getInsuranceData().numberOfUsers;i++){
+			//	$rootScope.usersIndices.push(i);
+			//}
+				SideBar.setUserCount(InsuranceData.getInsuranceData().numberOfUsers);
 		}
 
 

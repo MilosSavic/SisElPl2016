@@ -14,6 +14,11 @@
 	padding-left: 2em;
 }
 
+.inactive{
+	background-color: gray;
+	color: black;
+}
+
 .nav-sidebar > .activeItem > a,
 .nav-sidebar > .activeItem > a:hover,
 .nav-sidebar > .activeItem > a:focus {
