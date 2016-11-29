@@ -18,13 +18,14 @@
 		}
 
 		hic.addHouseInsurance = function() {
-			 console.log('savee');
-				hic.houseInsurance.$save(success);
+			console.log('savee');
+			hic.houseInsurance.$save(success);
+			InsuranceData.setHouseInsuranceChosen(true);
+			hic.goToCarInsurance();
 		};
 
 		function success() {
 			console.log("House Insurance added...")
-			$location.path('/employee');
 		}
 	}
 })();

@@ -15,8 +15,10 @@
 		}
 
 		cic.addCarInsurance = function() {
-			 console.log('savee');
+			console.log('savee');
 			cic.carInsurance.$save(success);
+			InsuranceData.setCarInsuranceChosen(true);
+			cic.goToFinalPage();
 		}
 
 		cic.goToFinalPage = function(){
@@ -26,7 +28,6 @@
 
 		function success() {
 			console.log("Car Insurance added...")
-			$location.path('/employee');
 		}
 	}
 })();

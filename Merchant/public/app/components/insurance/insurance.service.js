@@ -26,7 +26,8 @@
 	InsuranceData.$inject = ['Insurance','User','HouseInsurance','CarInsurance'];
 	function InsuranceData(Insurance,User,HouseInsurance,CarInsurance){
 	  var insurance = new Insurance();
-
+	  var carInsuranceChosen = false;
+	  var houseInsuranceChosen = false;
 
 	  var addUsers = function(userNumber) {
 	  	if(!insurance.users)
@@ -58,13 +59,34 @@
 
 	  var getInsuranceData = function(){
 	      return insurance;
-	  };
+	  }
+
+	  var setCarInsuranceChosen = function(chosen){
+	  	carInsuranceChosen = chosen;
+	  }
+
+	  var getCarInsuranceChosen = function(){
+	  	return carInsuranceChosen;
+	  }
+
+	  var setHouseInsuranceChosen = function(chosen){
+	  	houseInsuranceChosen = chosen;
+	  }
+
+	  var getHouseInsuranceChosen = function(){
+	  	return houseInsuranceChosen;
+	  }
+	  ;
 
 	  return {
 	    addUsers: addUsers,
 	    getInsuranceData: getInsuranceData,
 	    addHouseInsurance: addHouseInsurance,
-	    addCarInsurance: addCarInsurance
+	    addCarInsurance: addCarInsurance,
+	    setCarInsuranceChosen : setCarInsuranceChosen,
+	    setHouseInsuranceChosen: setHouseInsuranceChosen,
+	    getHouseInsuranceChosen : getHouseInsuranceChosen,
+	    getCarInsuranceChosen : getCarInsuranceChosen
 	  };
 	}
 })();

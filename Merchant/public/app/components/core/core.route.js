@@ -45,7 +45,9 @@
 				url: '/data',
 				views: {
 					'content@': {
-						templateUrl: 'app/components/core/data-page.html'
+						templateUrl: 'app/components/core/data-page.html',
+						controller: 'DataPageController',
+						controllerAs: 'dpc'
 					}
 				}
 			});
