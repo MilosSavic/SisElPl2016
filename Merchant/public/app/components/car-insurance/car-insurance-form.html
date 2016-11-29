@@ -14,13 +14,20 @@
         <div class="form-group" ng-class="{ 'has-error': cic.carInsuranceForm.duration.$touched && cic.carInsuranceForm.duration.$invalid }">
             <label class="control-label col-sm-2" for="duration" translate>Duration</label>
             <div class="col-sm-6 col-md-4" busy-indicator>
-                <input type="text" ng-model="cic.carInsurance.duration" id="duration" name="duration" class="form-control" required  >
+                <input type="text" ng-model="cic.carInsurance.duration" id="duration" name="duration" class="form-control" ng-pattern="/^[0-9]+$/" required  >
+                <div ng-messages="cic.carInsuranceForm.duration.$error" ng-show="cic.carInsuranceForm.duration.$touched">
+                    <p ng-message="required"><span translate>{{"CAR.ERROR.REQUIRED"}}</span></p>
+                    <p ng-message="pattern"><span translate>{{"CAR.ERROR.PATTERN"}}</span></p>
+                </div>
             </div>
         </div>
         <div class="form-group" ng-class="{ 'has-error': cic.carInsuranceForm.services.$touched && cic.carInsuranceForm.services.$invalid }">
             <label class="control-label col-sm-2" for="code" translate>Service</label>
             <div class="col-sm-6 col-md-4">
                 <input type="text" ng-model="cic.carInsurance.services" id="services" name="services" class="form-control" required>
+                <div ng-messages="cic.carInsuranceForm.services.$error" ng-show="cic.carInsuranceForm.services.$touched">
+                    <p ng-message="required"><span translate>{{"CAR.ERROR.REQUIRED"}}</span></p>
+                </div>
 
             </div>
         </div>
@@ -28,6 +35,9 @@
             <label class="control-label col-sm-2" for="vehicle" translate>Vehicle</label>
             <div class="col-sm-6 col-md-4">
                 <input type="text" ng-model="cic.carInsurance.vehicle" id="vehicle" name="vehicle" class="form-control" required>
+                <div ng-messages="cic.carInsuranceForm.vehicle.$error" ng-show="cic.carInsuranceForm.vehicle.$touched">
+                    <p ng-message="required"><span translate>{{"CAR.ERROR.REQUIRED"}}</span></p>
+                </div>
 
             </div>
         </div>
@@ -36,6 +46,9 @@
             <label class="control-label col-sm-2" for="vehicleYear" translate>Vehicle year</label>
             <div class="col-sm-6 col-md-4">
                 <input type="text" ng-model="cic.carInsurance.vehicleYear" id="vehicleYear" name="vehicleYear" class="form-control" required>
+                <div ng-messages="cic.carInsuranceForm.vehicleYear.$error" ng-show="cic.carInsuranceForm.vehicleYear.$touched">
+                    <p ng-message="required"><span translate>{{"CAR.ERROR.REQUIRED"}}</span></p>
+                </div>
 
             </div>
         </div>
@@ -44,6 +57,9 @@
             <label class="control-label col-sm-2" for="plateNumber" translate>Plate number</label>
             <div class="col-sm-6 col-md-4">
                 <input type="text" ng-model="cic.carInsurance.plateNumber" id="plateNumber" name="plateNumber" class="form-control" required>
+                <div ng-messages="cic.carInsuranceForm.plateNumber.$error" ng-show="cic.carInsuranceForm.plateNumber.$touched">
+                    <p ng-message="required"><span translate>{{"CAR.ERROR.REQUIRED"}}</span></p>
+                </div>
 
             </div>
         </div>
@@ -52,6 +68,9 @@
             <label class="control-label col-sm-2" for="chassisNumber" translate>Chassis number</label>
             <div class="col-sm-6 col-md-4">
                 <input type="text" ng-model="cic.carInsurance.chassisNumber" id="chassisNumber" name="chassisNumber" class="form-control" required>
+                <div ng-messages="cic.carInsuranceForm.chassisNumber.$error" ng-show="cic.carInsuranceForm.chassisNumber.$touched">
+                    <p ng-message="required"><span translate>{{"CAR.ERROR.REQUIRED"}}</span></p>
+                </div>
 
             </div>
         </div>
@@ -61,6 +80,9 @@
             <label class="control-label col-sm-2" for="code" translate>Owner first name</label>
             <div class="col-sm-6 col-md-4">
                 <input type="text" ng-model="cic.carInsurance.ownerFirstName" id="ownerFirstName" name="ownerFirstName" class="form-control" required>
+                <div ng-messages="cic.carInsuranceForm.ownerFirstName.$error" ng-show="cic.carInsuranceForm.ownerFirstName.$touched">
+                    <p ng-message="required"><span translate>{{"CAR.ERROR.REQUIRED"}}</span></p>
+                </div>
 
             </div>
         </div>
@@ -69,6 +91,9 @@
             <label class="control-label col-sm-2" for="code" translate>Owner last name</label>
             <div class="col-sm-6 col-md-4">
                 <input type="text" ng-model="cic.carInsurance.ownerLastName" id="ownerLastName" name="ownerLastName" class="form-control" required>
+                <div ng-messages="cic.carInsuranceForm.ownerLastName.$error" ng-show="cic.carInsuranceForm.ownerLastName.$touched">
+                    <p ng-message="required"><span translate>{{"CAR.ERROR.REQUIRED"}}</span></p>
+                </div>
 
             </div>
         </div>
@@ -77,6 +102,9 @@
             <label class="control-label col-sm-2" for="code" translate>Owner JMBG</label>
             <div class="col-sm-6 col-md-4">
                 <input type="text" ng-model="cic.carInsurance.ownerJmbg" id="ownerJmbg" name="ownerJmbg" class="form-control" required>
+                <div ng-messages="cic.carInsuranceForm.ownerJmbg.$error" ng-show="cic.carInsuranceForm.ownerJmbg.$touched">
+                    <p ng-message="required"><span translate>{{"CAR.ERROR.REQUIRED"}}</span></p>
+                </div>
 
             </div>
         </div>

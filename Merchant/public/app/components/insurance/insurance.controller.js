@@ -37,12 +37,12 @@
 
 		Region.get(function(response){ic.regions = response.regions;});
 		Test.get(function(response){console.log(response.payments);});
-		
-			
-		
-		ic.addInsurance = function() {	
+
+
+
+		ic.addInsurance = function() {
 				ic.insurance.$save(success);
-						
+
 		};
 
 		ic.goToUsersForm = function(){
