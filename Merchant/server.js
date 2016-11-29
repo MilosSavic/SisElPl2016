@@ -65,3 +65,4 @@ app.route('/api/carInsurances')
 app.listen(3000, function() {
     console.log("Server started");
 });
+

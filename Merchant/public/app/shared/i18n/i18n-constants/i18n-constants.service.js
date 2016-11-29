@@ -49,7 +49,7 @@
 					"REQUIRED":"This field is required."
 				}
 			},
-			"LANGUAGE": "English"
+			"LANGUAGE": "En"
 		},
 		"sr-latn": {
 			"COMMON": {
@@ -69,7 +69,7 @@
 					"REQUIRED":"Ovo polje je obavezno."
 				}
 			},
-			"LANGUAGE": "Srpski"
+			"LANGUAGE": "Sr"
 		},
 	};
 

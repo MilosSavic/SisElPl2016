@@ -16,14 +16,14 @@
 
 		cic.addCarInsurance = function() {
 			 console.log('savee');
-				cic.carInsurance.$save(success);
-
-		};
+			cic.carInsurance.$save(success);
+		}
 
 		cic.goToFinalPage = function(){
 			SideBar.setDataActive(true);
 			$state.go('main.dataPage');
 		}
+
 		function success() {
 			console.log("Car Insurance added...")
 			$location.path('/employee');
