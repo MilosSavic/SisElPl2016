@@ -10,6 +10,10 @@
 	background-color: #F8F8F8;
 }
 
+.subSideBar{
+	padding-left: 2em;
+}
+
 .nav-sidebar > .activeItem > a,
 .nav-sidebar > .activeItem > a:hover,
 .nav-sidebar > .activeItem > a:focus {

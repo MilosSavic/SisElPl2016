@@ -49,6 +49,12 @@
 			$rootScope.insurance = ic.insurance;
 			if(ic.insurance.numberOfUsers)
 				$state.go('main.usersInsuranceForm',{userIndex:1});
+
+			//side bar
+			$rootScope.usersIndices = [];
+			for(var i=1; i<=$rootScope.insurance.numberOfUsers;i++){
+				$rootScope.usersIndices.push(i);
+			}
 		}
 
 

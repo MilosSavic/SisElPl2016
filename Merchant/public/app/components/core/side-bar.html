@@ -8,9 +8,15 @@
      <li ng-class="{activeItem:sbc.isActive('insuranceForm')}">
         <a ui-sref='main.insuranceForm'><span>Insurance</span></a>
     </li>  
-
   <li ng-class="{activeItem:sbc.isActive('usersInsuranceForm')}">
-        <a ui-sref='main.insuranceForm'><span>Users</span></a>
+        <a><span>Users</span></a>
+
+        <!-- ja stavio subSideBar umesto sideBar i uneo sitne izmene u css-->
+        <ul class="nav nav-sidebar nav-sidebar-padding subSideBar">
+            <li ng-repeat="userIndex in sbc.usersIndices" ng-class="{activeItem:sbc.isActive('usersInsuranceForm/{{userIndex}}')}" >
+            <a ui-sref='main.usersInsuranceForm({userIndex:{{userIndex}}})'><span>User {{userIndex}}</span></a>
+            </li>
+        </ul>
     </li> 
 
     <li ng-class="{activeItem:sbc.isActive('houseInsuranceForm')}">
