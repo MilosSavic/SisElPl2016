@@ -17,7 +17,7 @@
                 <input type="text" ng-model="cic.carInsurance.duration" id="duration" name="duration" class="form-control" ng-pattern="/^[0-9]+$/" required  >
                 <div ng-messages="cic.carInsuranceForm.duration.$error" ng-show="cic.carInsuranceForm.duration.$touched">
                     <p ng-message="required"><span translate>{{"CAR.ERROR.REQUIRED"}}</span></p>
-                    <p ng-message="pattern"><span translate>{{"CAR.ERROR.PATTERN"}}</span></p>
+                    <p ng-message="pattern"><span translate>{{"CAR.ERROR.NUMBER"}}</span></p>
                 </div>
             </div>
         </div>
@@ -45,9 +45,10 @@
         <div class="form-group" ng-class="{ 'has-error': cic.carInsuranceForm.vehicleYear.$touched && cic.carInsuranceForm.vehicleYear.$invalid }">
             <label class="control-label col-sm-2" for="vehicleYear" translate>Vehicle year</label>
             <div class="col-sm-6 col-md-4">
-                <input type="text" ng-model="cic.carInsurance.vehicleYear" id="vehicleYear" name="vehicleYear" class="form-control" required>
+                <input type="text" ng-model="cic.carInsurance.vehicleYear" id="vehicleYear" name="vehicleYear" ng-pattern="/^[0-9]+$/" class="form-control" required>
                 <div ng-messages="cic.carInsuranceForm.vehicleYear.$error" ng-show="cic.carInsuranceForm.vehicleYear.$touched">
                     <p ng-message="required"><span translate>{{"CAR.ERROR.REQUIRED"}}</span></p>
+                    <p ng-message="pattern"><span translate>{{"CAR.ERROR.NUMBER"}}</span></p>
                 </div>
 
             </div>
@@ -101,9 +102,10 @@
         <div class="form-group" ng-class="{ 'has-error': cic.carInsuranceForm.ownerJmbg.$touched && cic.carInsuranceForm.ownerJmbg.$invalid }">
             <label class="control-label col-sm-2" for="code" translate>Owner JMBG</label>
             <div class="col-sm-6 col-md-4">
-                <input type="text" ng-model="cic.carInsurance.ownerJmbg" id="ownerJmbg" name="ownerJmbg" class="form-control" required>
+                <input type="text" ng-model="cic.carInsurance.ownerJmbg" id="ownerJmbg" name="ownerJmbg" ng-pattern="/^[0-9]{13}$/" class="form-control" required>
                 <div ng-messages="cic.carInsuranceForm.ownerJmbg.$error" ng-show="cic.carInsuranceForm.ownerJmbg.$touched">
                     <p ng-message="required"><span translate>{{"CAR.ERROR.REQUIRED"}}</span></p>
+                     <p ng-message="pattern"><span translate>{{"CAR.ERROR.JMBG"}}</span></p>
                 </div>
 
             </div>
