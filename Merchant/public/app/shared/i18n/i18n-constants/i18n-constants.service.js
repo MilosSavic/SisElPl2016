@@ -26,7 +26,8 @@
 				"ERROR": {
 
 					"REQUIRED":"This field is required.",
-					"PATTERN":"Only numbers are allowed."
+					"NUMBER":"Only numbers are allowed.",
+					"JMBG":"This field should contain exactly 13 numeric characters."
 				}
 			},
 
@@ -35,7 +36,9 @@
 				"ERROR": {
 
 					"REQUIRED":"This field is required.",
-					"PATTERN":"Only numbers are allowed."
+					"NUMBER":"Only numbers are allowed.",
+					"EMAIL":"E-mail format is not valid.",
+					"JMBG":"This field should contain exactly 13 numeric characters."
 				}
 			},
 
