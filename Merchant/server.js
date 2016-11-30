@@ -15,6 +15,7 @@ require('./models/region.model');
 require('./models/insurance.model');
 require('./models/house-insurance.model');
 require('./models/car-insurance.model');
+require('./models/sport.model')
 
 
 

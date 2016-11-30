@@ -5,14 +5,15 @@
 		.module('company-registry.users')
 		.controller('UsersController', UsersController);
 
-	UsersController.$inject = ['$location','Insurance','$state','User','$stateParams','HouseInsurance','InsuranceData','SideBar'];
-	function UsersController($location,Insurance,$state,User,$stateParams,HouseInsurance,InsuranceData,SideBar) {
+	UsersController.$inject = ['$location','Insurance','$state','User','$stateParams','HouseInsurance','InsuranceData','SideBar','Sport'];
+	function UsersController($location,Insurance,$state,User,$stateParams,HouseInsurance,InsuranceData,SideBar,Sport) {
 		var uc = this;
 		uc.page = $stateParams.userIndex;
 
 		console.log(InsuranceData.getInsuranceData());
 		//uc.user = $rootScope.insurance.users[uc.page-1];
 		uc.user = InsuranceData.getInsuranceData().users[uc.page-1];
+		Sport.get(function(response){uc.sports = response.sports;});
 		
 		if(uc.page==1)
 		{
