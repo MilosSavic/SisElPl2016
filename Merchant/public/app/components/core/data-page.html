@@ -12,12 +12,31 @@
 
 		<div class="form-group">
 		<label class="control-label col-sm-2">House insurance:</label>
-		<label class="control-label col-sm-2">{{dpc.houseInsuranceChosen}}</label>
+		<label class="control-label col-sm-2"><span ng-show="dpc.houseInsuranceChosen">Yes</span><span ng-show="!dpc.houseInsuranceChosen">No</span></label>
+		<button ng-show="dpc.houseInsuranceChosen" type="button" class="btn btn-danger" ng-click="dpc.cancelHouseInsurance()" translate>Cancel</button>
 		</div>
 
 		<div class="form-group">
 		<label class="control-label col-sm-2">Car insurance:</label>
-		<label class="control-label col-sm-2">{{dpc.carInsuranceChosen}}</label>
+		<label class="control-label col-sm-2"><span ng-show="dpc.carInsuranceChosen">Yes</span><span ng-show="!dpc.carInsuranceChosen">No</span></label></label>
+			<button ng-show="dpc.carInsuranceChosen" type="button" class="btn btn-danger" ng-click="dpc.cancelCarInsurance()" translate>Cancel</button>
+		</div>
+
+		<div class="form-group">
+		<label class="control-label col-sm-2">Insurance value:</label>
+		<label class="control-label col-sm-2">{{dpc.value}}</label>
+		</div>
+		<div class="form-group">
+		<label class="control-label col-sm-2">Region:</label>
+		<label class="control-label col-sm-2">{{dpc.region}}</label>
+		</div>
+		<div class="form-group">
+		<label class="control-label col-sm-2">Users:</label>
+		<label class="control-label col-sm-2"></label>
+		</div>
+		<div ng-repeat="user in dpc.users" class="form-group">
+		<label class="control-label col-sm-2"></label>
+		<label class="control-label col-sm-2">{{user.name}} {{user.surname}}</label>
 		</div>
 		</div>
 </div>

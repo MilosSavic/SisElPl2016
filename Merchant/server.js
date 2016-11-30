@@ -43,6 +43,10 @@ var carInsurances = require('./controllers/car-insurance.server.controller.js');
     .get(regions.list)
     .post(regions.createRegion);
 
+app.route('/api/regions/:regionId')
+    .get(regions.getRegionById);
+app.param('regionId', regions.getRegionById);
+
 app.route('/api/insurances')
     .get(insurances.list)
     .post(insurances.createInsurance);

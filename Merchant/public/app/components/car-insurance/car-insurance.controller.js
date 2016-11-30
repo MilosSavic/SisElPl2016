@@ -28,6 +28,11 @@
 
 		function success() {
 			console.log("Car Insurance added...")
+			//VAZNO: ovo (ili nesto slicno) uraditi svuda gde je neophodno
+			//ovo se radi kako bi se omogucilo visestruko memorisanje bez resetovanja cele forme
+			//obratiti paznju kasnije i na suvisne objekte u bazi
+			delete cic.carInsurance._id;
+			console.log(JSON.stringify(cic.carInsurance));
 		}
 	}
 })();

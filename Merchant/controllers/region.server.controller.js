@@ -5,6 +5,7 @@ var mongoose = require('mongoose'),
 
 module.exports.list = list;
 module.exports.createRegion = createRegion;
+module.exports.getRegionById = getRegionById;
 
 function list(req, res, next){
 
@@ -31,4 +32,19 @@ region.save(function (err, region) {
 });
 
     res.json(region); 
+}
+
+
+function getRegionById(req, res, next,id){
+  Region.findById(id).exec(function(err,region){
+    if(err)
+    {
+      return res.status(400).send({
+        message: "Error"
+      });
+    }else {
+      res.json(region);
+    }
+
+  });
 }
