@@ -10,7 +10,7 @@ var userSchema = new Schema({
   address: String,
   telephone: String,
   isContractor: Boolean,       //ugovarac na engleskom? :D
-  email: String
+  email: String,
   age: Number,
   sport: {
     type: Schema.Types.ObjectId,

@@ -40,6 +40,10 @@
 			<button ng-show="dpc.sure==user.index" type="button" class="btn btn-danger" ng-click="dpc.confirmDeleteUser(user.index)" translate>Yes</button>
 			<button ng-show="dpc.sure==user.index" type="button" class="btn btn-secondary" ng-click="dpc.notSure()" translate>No</button>
 			</div>
+			<div class="form-group">
+			<label class="control-label col-sm-2"></label>
+			<button type="button" class="btn btn-primary" ng-click="dpc.saveAll()" translate ng-disabled="cic.carInsuranceForm.$invalid">Payment</button>
+			</div>
 			</form>
 	
 </div>

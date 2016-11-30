@@ -15,7 +15,8 @@ require('./models/region.model');
 require('./models/insurance.model');
 require('./models/house-insurance.model');
 require('./models/car-insurance.model');
-require('./models/sport.model')
+require('./models/sport.model');
+require('./models/user.model');
 
 
 
@@ -39,6 +40,7 @@ var insurances = require('./controllers/insurance.server.controller.js');
 var houseInsurances = require('./controllers/house-insurance.server.controller.js');
 var carInsurances = require('./controllers/car-insurance.server.controller.js');
 var sports = require('./controllers/sport.server.controller.js');
+var users = require('./controllers/user.server.controller.js');
 
 
  app.route('/api/regions')
@@ -57,9 +59,21 @@ app.route('/api/sports/:sportId')
     .get(sports.getSportById);
 app.param('sportsId', sports.getSportById);
 
+app.route('/api/users')
+    .get(users.list)
+    .post(users.createUser);
+
+app.route('/api/users/:userId')
+    .get(users.getUserById);
+app.param('userId', users.getUserById);
+
 app.route('/api/insurances')
     .get(insurances.list)
     .post(insurances.createInsurance);
+
+app.route('/api/insurances/:id')
+    .get(insurances.getInsuranceById);
+app.param('id', insurances.getInsuranceById);
 
 app.route('/api/houseInsurances')
     .get(houseInsurances.list)

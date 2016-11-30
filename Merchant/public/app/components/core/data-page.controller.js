@@ -5,8 +5,8 @@
 		.module('company-registry.core')
 		.controller('DataPageController', DataPageController);
 
-	DataPageController.$inject = ['$location','SideBar','$scope','$state','InsuranceData','Region'];
-	function DataPageController($location,SideBar,$scope,$state,InsuranceData,Region) {
+	DataPageController.$inject = ['$location','SideBar','$scope','$state','InsuranceData','Region','Insurance'];
+	function DataPageController($location,SideBar,$scope,$state,InsuranceData,Region,Insurance) {
 		var dpc = this;
 		
 		var insurance = JSON.parse(JSON.stringify(InsuranceData.getInsuranceData()));
@@ -87,6 +87,29 @@
 			}
 			InsuranceData.getInsuranceData().numberOfUsers--;
 			dpc.sure=0;
+		}
+
+		dpc.saveAll = function(){
+
+			if(!InsuranceData.getHouseInsuranceChosen())
+		{
+			InsuranceData.getInsuranceData().houseInsurance = undefined;
+		}
+
+		if(!InsuranceData.getCarInsuranceChosen())
+		{
+			InsuranceData.getInsuranceData().carInsurance = undefined;
+		}
+			console.log(JSON.stringify(InsuranceData.getInsuranceData()));
+			InsuranceData.getInsuranceData().$save(success);
+		}
+
+		function success() {
+			console.log("Insurance added...")
+			console.log(JSON.stringify(InsuranceData.getInsuranceData()));
+			Region.get({regionId: InsuranceData.getInsuranceData().region},function(response){
+			InsuranceData.getInsuranceData().region = response;
+		});
 		}
 		
 	}
