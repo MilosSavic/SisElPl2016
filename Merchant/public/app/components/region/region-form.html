@@ -16,39 +16,41 @@
 			<label>Region</label>
 		</div>
 		</div>
-		
-		<div class="form-group">
+
+
+        <div class="form-group" ng-class="{ 'has-error': rc.regionForm.name.$touched && rc.regionForm.name.$invalid }">
 		<label class="control-label col-sm-2">Name:</label>
 		<div class="col-sm-6 col-md-4">
-		<input class="form-control" type="text" ng-model="rc.region.name"> 
+		<input class="form-control" type="text" ng-model="rc.region.name" required>
 		</div>
 		</div>
 
-		<div class="form-group">
+
+        <div class="form-group" ng-class="{ 'has-error': rc.regionForm.risk.$touched && rc.regionForm.risk.$invalid }">
 		<label class="control-label col-sm-2">Risk:</label>
 		<div class="col-sm-6 col-md-4">
-		<input class="form-control" type="text" ng-model="rc.region.risk"> 
+		<input class="form-control" type="text" ng-model="rc.region.risk" required>
 		</div>
 		</div>
 
 
 		 <div class="col-sm-offset-2">
-		      <button class="btn btn-primary" ng-click="rc.submitRegion()">Submit</button>        
+		      <button class="btn btn-primary" ng-click="rc.submitRegion()" translate ng-disabled="rc.regionForm.$invalid">Submit</button>
 		</div>
-		
+
 	</form>
 
 	<table id="t01" align="center" width="75%;">
   <tr>
     <th>&nbsp;</th>
     <th>ID</th>
-    <th>Name</th>  
+    <th>Name</th>
     <th>Risk</th>
 
   </tr>
   <tr ng-repeat="element in rc.listOfRegions">
     <td style="width:4%;">{{$index+1}}&nbsp;</td>
-    <td style="width:11%;">{{element._id}}</td>  
+    <td style="width:11%;">{{element._id}}</td>
     <td style="width:9%;">{{element.name}}</td>
     <td style="width:9%;">{{element.risk}}</td>
   </tr>

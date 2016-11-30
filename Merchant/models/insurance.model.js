@@ -13,14 +13,16 @@ var insuranceSchema = new Schema({
     ref: 'Region'//,
     //require:true
   },
+
   numberOfUsers: Number,
+
   created: {
     type: Date,
     default: Date.now
   },
-  
+
   value: Number,
-  
+
   users:[{
     type: Schema.Types.ObjectId,
     ref: 'User'

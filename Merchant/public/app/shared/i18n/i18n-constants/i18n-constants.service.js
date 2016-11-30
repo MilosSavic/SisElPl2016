@@ -49,6 +49,14 @@
 					"REQUIRED":"This field is required."
 				}
 			},
+
+			"REGION": {
+
+				"ERROR": {
+
+					"REQUIRED":"This field is required."
+				}
+			},
 			"LANGUAGE": "En"
 		},
 		"sr-latn": {
@@ -59,7 +67,7 @@
 				"BACK":"Povratak"
 			},
 
-			"INSURANCE": {
+			/*"INSURANCE": {
 
 				"ERROR": {
 					"UNIQUE":"An employee with the given JMBG already exists.",
@@ -68,7 +76,7 @@
 					"EMAIL":"The email you have entered is not valid.",
 					"REQUIRED":"Ovo polje je obavezno."
 				}
-			},
+			},*/
 			"LANGUAGE": "Sr"
 		},
 	};
