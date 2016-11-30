@@ -1,5 +1,5 @@
 .assignment {
-	color:#3389ca;
+	color:#e3103b;
 }
 
 .link {
@@ -10,18 +10,9 @@
 	background-color: #F8F8F8;
 }
 
-.subSideBar{
-	padding-left: 2em;
-}
-
-.inactive{
-	background-color: gray;
-	color: black;
-}
-
 .nav-sidebar > .activeItem > a,
 .nav-sidebar > .activeItem > a:hover,
 .nav-sidebar > .activeItem > a:focus {
   color: #fff;
-  background-color: #428bca;
+  background-color: #d61a2d;
 }

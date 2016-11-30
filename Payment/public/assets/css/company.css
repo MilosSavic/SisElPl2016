@@ -1,5 +1,5 @@
 .assignment {
-	color:#3389ca;
+	color:#e3103b;
 }
 
 .link {
@@ -14,5 +14,5 @@
 .nav-sidebar > .activeItem > a:hover,
 .nav-sidebar > .activeItem > a:focus {
   color: #fff;
-  background-color: #428bca;
+  background-color: #d61a2d;
 }
