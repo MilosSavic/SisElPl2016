@@ -11,54 +11,65 @@
 <div>
 
 	<form class="form-horizontal" novalidate name="ic.insuranceForm">
-			<div class="form-group">
+			<div class="form-group" ng-class="{ 'has-error': ic.insuranceForm.startDate.$touched && ic.insuranceForm.startDate.$invalid }">
 
-				<label class="control-label col-sm-2" for="startDate">Insurance start date</label> 
+				<label class="control-label col-sm-2" for="startDate">Insurance start date</label>
 				<div class="col-sm-6 col-md-4">
 				<input id="startDate" type="text" class="form-control" ng-model="ic.insurance.startDate" is-open="ic.datepickerStart.opened" datepicker-options="ic.datepickerStart" ng-change="ic.startDatePicked()" ng-click="ic.datepickerStart.opened = true" uib-datepicker-popup="{{ic.datepickerStart.format}}" required/>
+
 				</div>
 			</div>
 
 
-			 <div class="form-group">
+			<div class="form-group" ng-class="{ 'has-error': ic.insuranceForm.endDate.$touched && ic.insuranceForm.endDate.$invalid }">
 
-				<label class="control-label col-sm-2" for="endDate">Insurance end date</label> 
+				<label class="control-label col-sm-2" for="endDate">Insurance end date</label>
 				<div class="col-sm-6 col-md-4">
 				<input id="endDate" type="text" class="form-control" ng-model="ic.insurance.endDate" is-open="ic.datepickerEnd.opened" datepicker-options="ic.datepickerEnd" ng-click="ic.datepickerEnd.opened = true" uib-datepicker-popup="{{ic.datepickerEnd.format}}" required/>
 				</div>
 			</div>
 
-			 <div class="form-group">
-			<label class="control-label col-sm-2" for="amount">Insurance value</label>
-			<div class="col-sm-6 col-md-4">
-			<select id="amount" class="form-control" name="amount" ng-model="ic.insurance.value">
+			<div class="form-group" ng-class="{ 'has-error': ic.insuranceForm.value.$touched && ic.insuranceForm.value.$invalid }">
+				<label class="control-label col-sm-2" for="amount">Insurance value</label>
+				<div class="col-sm-6 col-md-4">
+					<select type="text" id="amount" class="form-control" name="amount" ng-model="ic.insurance.value" required>
 
-			  <option value="10000">10000</option>
-			  <option value="20000">20000</option>
-			  <option value="30000">30000</option>
-			  <option value="40000">40000</option>
-			</select> 
+					  <option value="10000">10000</option>
+					  <option value="20000">20000</option>
+					  <option value="30000">30000</option>
+					  <option value="40000">40000</option>
+					</select>
+				</div>
+
 			</div>
 
-			</div>
-		<div class="form-group">
+		<div class="form-group" ng-class="{ 'has-error': ic.insuranceForm.region._id.$touched && ic.insuranceForm.region._id.$invalid }">
 		<label class="control-label col-sm-2"> Region:</label>
 				<div class="col-sm-6 col-md-4">
-		        <select class="form-control" id="region" ng-model="ic.insurance.region._id">
+		        <select class="form-control" id="region" ng-model="ic.insurance.region._id" required>
 		          <option ng-repeat="region in ic.regions" value="{{region._id}}">{{ region.name }}</option>
 		        </select>
 		        <span class="validationText" ng-show="ic.regions.length==0">Your don't have any regions </span>
 		        </div>
 		</div>
-		<div class="form-group">
-		<label class="control-label col-sm-2">Number of users:</label>
-		<div class="col-sm-6 col-md-4">
-		<input class="form-control" type="number" min="1" max="5" ng-model="ic.insurance.numberOfUsers"> 
-		</div>
+
+		<div class="form-group" ng-class="{ 'has-error': ic.insuranceForm.numberOfUsers.$touched && ic.insuranceForm.numberOfUsers.$invalid }">
+			<label class="control-label col-sm-2">Number of users:</label>
+			<div class="col-sm-6 col-md-4">
+			<input id="numberOfUsers" name="numberOfUsers" class="form-control" type="text" min="1" max="5" ng-model="ic.insurance.numberOfUsers"
+			ng-pattern="/^[0-9]+$/" required>
+
+			<div ng-messages="ic.insuranceForm.numberOfUsers.$error" ng-show="ic.insuranceForm.numberOfUsers.$touched">
+                    <p ng-message="required"><span translate>{{"INSURANCE.ERROR.REQUIRED"}}</span></p>
+                    <p ng-message="pattern"><span translate>{{"INSURANCE.ERROR.NUMBER"}}</span></p>
+
+                </div>
+
+			</div>
 		</div>
 
 		 <div class="col-sm-offset-2">
-		      <button class="btn btn-primary" ng-click="ic.goToUsersForm()">Next</button>        
+		      <button class="btn btn-primary" ng-click="ic.goToUsersForm()" translate ng-disabled="ic.insuranceForm.$invalid">Next</button>
 		</div>
 	</form>
 </div>
