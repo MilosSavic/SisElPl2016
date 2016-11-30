@@ -8,9 +8,6 @@
 	SideBarController.$inject = ['$location','SideBar','$scope','$state'];
 	function SideBarController($location,SideBar,$scope,$state) {
 		var sbc = this;
-		//$rootScope.$watch('usersIndices',function(){
-		//	sbc.usersIndices = $rootScope.usersIndices;
-		//}) //da li je ovo dobra praksa?
 
 		$scope.$on('ua',function(response){
 			sbc.usersActive = true;

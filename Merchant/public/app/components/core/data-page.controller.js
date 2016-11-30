@@ -21,6 +21,10 @@
 			dpc.region = response.name;
 		});
 		dpc.users = insurance.users;
+		for(var i=0; i<dpc.users.length; i++)
+		{
+			dpc.users[i].index = i+1;
+		}
 
 		if(!InsuranceData.getHouseInsuranceChosen())
 		{
@@ -60,6 +64,29 @@
 			insurance.carInsurance = undefined;
 			InsuranceData.setCarInsuranceChosen(false);
 			dpc.carInsuranceChosen = false;
+		}
+
+		dpc.sure = 0;
+		dpc.deleteUser = function(index){
+			dpc.sure = index;
+
+		}
+
+		dpc.notSure = function()
+		{
+			dpc.sure = 0;
+		}
+
+		dpc.confirmDeleteUser = function(index){
+			insurance.users.splice(index-1,1);
+			InsuranceData.getInsuranceData().users.splice(index-1,1);
+			SideBar.setUserCount(insurance.users.length);
+			for(var i=0; i<dpc.users.length; i++)
+			{
+				dpc.users[i].index = i+1;
+			}
+			InsuranceData.getInsuranceData().numberOfUsers--;
+			dpc.sure=0;
 		}
 		
 	}
