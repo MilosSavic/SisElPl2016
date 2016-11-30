@@ -13,9 +13,8 @@
 			"INSURANCE": {
 
 				"ERROR": {
-					"UNIQUE":"An employee with the given JMBG already exists.",
-					"LENGTH13":"This field should contain exactly 13 characters.",
-					"NUM":"This field should contain exactly 10 characters.",
+
+					"NUMBER":"Only numbers are allowed.",
 					"EMAIL":"The email you have entered is not valid.",
 					"REQUIRED":"This field is required."
 				}
@@ -46,7 +45,10 @@
 
 				"ERROR": {
 
-					"REQUIRED":"This field is required."
+					"REQUIRED":"This field is required.",
+					"NUMBER":"Only numbers are allowed.",
+					"EMAIL":"E-mail format is not valid.",
+					"JMBG":"This field should contain exactly 13 numeric characters."
 				}
 			},
 
@@ -54,7 +56,8 @@
 
 				"ERROR": {
 
-					"REQUIRED":"This field is required."
+					"REQUIRED":"This field is required.",
+					"NUMBER":"Only numbers are allowed."
 				}
 			},
 			"LANGUAGE": "En"

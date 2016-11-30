@@ -20,66 +20,106 @@
 		<div class="form-group" ng-class="{ 'has-error': uc.usersForm.name.$touched && uc.usersForm.name.$invalid }">
 		<label class="control-label col-sm-2">Name:</label>
 		<div class="col-sm-6 col-md-4">
-		<input class="form-control" type="text" ng-model="uc.user.name" required>
+		<input class="form-control" type="text" name="name" ng-model="uc.user.name" required>
+
+		<div ng-messages="uc.usersForm.name.$error" ng-show="uc.usersForm.name.$touched">
+                    <p ng-message="required"><span translate>{{"USER.ERROR.REQUIRED"}}</span></p>
+                </div>
 		</div>
 		</div>
 
 		<div class="form-group" ng-class="{ 'has-error': uc.usersForm.surname.$touched && uc.usersForm.surname.$invalid }">
 		<label class="control-label col-sm-2">Surname:</label>
 		<div class="col-sm-6 col-md-4">
-		<input class="form-control" type="text" ng-model="uc.user.surname" required>
+		<input class="form-control" type="text" name="surname" ng-model="uc.user.surname" required>
+
+		<div ng-messages="uc.usersForm.surname.$error" ng-show="uc.usersForm.surname.$touched">
+                    <p ng-message="required"><span translate>{{"USER.ERROR.REQUIRED"}}</span></p>
+                </div>
 		</div>
 		</div>
 
 		<div class="form-group" ng-class="{ 'has-error': uc.usersForm.jmbg.$touched && uc.usersForm.jmbg.$invalid }">
 		<label class="control-label col-sm-2">JMBG:</label>
 		<div class="col-sm-6 col-md-4">
-		<input class="form-control" type="text" ng-model="uc.user.jmbg" required>
+		<input class="form-control" type="text" name="jmbg" ng-model="uc.user.jmbg" ng-pattern="/^[0-9]{13}$/" required>
+
+		<div ng-messages="uc.usersForm.jmbg.$error" ng-show="uc.usersForm.jmbg.$touched">
+                    <p ng-message="required"><span translate>{{"USER.ERROR.REQUIRED"}}</span></p>
+                    <p ng-message="pattern"><span translate>{{"USER.ERROR.JMBG"}}</span></p>
+                </div>
 		</div>
 		</div>
 
 		<div class="form-group" ng-class="{ 'has-error': uc.usersForm.passportNumber.$touched && uc.usersForm.passportNumber.$invalid }">
 		<label class="control-label col-sm-2">Passport number:</label>
 		<div class="col-sm-6 col-md-4">
-		<input class="form-control" type="text" ng-model="uc.user.passportNumber" required>
+		<input class="form-control" type="text" name="passportNumber" ng-model="uc.user.passportNumber" required>
+
+		<div ng-messages="uc.usersForm.passportNumber.$error"  ng-show="uc.usersForm.passportNumber.$touched">
+                    <p ng-message="required"><span translate>{{"USER.ERROR.REQUIRED"}}</span></p>
+                </div>
 		</div>
 		</div>
 
 		<div class="form-group" ng-class="{ 'has-error': uc.usersForm.address.$touched && uc.usersForm.address.$invalid }">
 		<label class="control-label col-sm-2">Address:</label>
 		<div class="col-sm-6 col-md-4">
-		<input class="form-control" type="text" ng-model="uc.user.address" required>
+		<input class="form-control" type="text" name="address" ng-model="uc.user.address" required>
+
+		<div ng-messages="uc.usersForm.address.$error" ng-show="uc.usersForm.address.$touched">
+                    <p ng-message="required"><span translate>{{"USER.ERROR.REQUIRED"}}</span></p>
+                </div>
 		</div>
 		</div>
 
 		<div class="form-group" ng-class="{ 'has-error': uc.usersForm.telephone.$touched && uc.usersForm.telephone.$invalid }">
 		<label class="control-label col-sm-2">Telephone number:</label>
 		<div class="col-sm-6 col-md-4">
-		<input class="form-control" type="text" ng-model="uc.user.telephone" required>
+		<input class="form-control" type="text"  name="telephone" ng-model="uc.user.telephone" ng-pattern="/^[0-9]+$/" required>
+
+		<div ng-messages="uc.usersForm.telephone.$error" ng-show="uc.usersForm.telephone.$touched">
+                    <p ng-message="required"><span translate>{{"USER.ERROR.REQUIRED"}}</span></p>
+                    <p ng-message="pattern"><span translate>{{"USER.ERROR.NUMBER"}}</span></p>
+                </div>
 		</div>
 		</div>
 
 		<div class="form-group" ng-class="{ 'has-error': uc.usersForm.age.$touched && uc.usersForm.age.$invalid }">
 		<label class="control-label col-sm-2">Age:</label>
 		<div class="col-sm-6 col-md-4">
-		<input class="form-control" type="number" min="0" max="130" ng-model="uc.user.age" required>
+		<input class="form-control" type="number" name="age" min="0" max="130" ng-pattern="/^[0-9]+$/" ng-model="uc.user.age" required>
+
+		<div ng-messages="uc.usersForm.age.$error" ng-show="uc.usersForm.age.$touched">
+                    <p ng-message="required"><span translate>{{"USER.ERROR.REQUIRED"}}</span></p>
+                    <p ng-message="pattern"><span translate>{{"USER.ERROR.NUMBER"}}</span></p>
+                </div>
 		</div>
 		</div>
 
 		<div class="form-group" ng-class="{ 'has-error': uc.usersForm.sport._id.$touched && uc.usersForm.sport._id.$invalid }">
 		<label class="control-label col-sm-2"> Sport:</label>
 				<div class="col-sm-6 col-md-4">
-		        <select class="form-control" id="sport" ng-model="uc.user.sport._id" required>
+		        <select class="form-control" id="sport" name="sport._id" ng-model="uc.user.sport._id" required>
 		          <option ng-repeat="sport in uc.sports" value="{{sport._id}}">{{ sport.name }}</option>
 		        </select>
 		        <span class="validationText" ng-show="uc.sports.length==0">Your don't have any sports </span>
 		        </div>
+
+		        <div ng-messages="uc.usersForm.sport._id.$error" ng-show="uc.usersForm.sport._id.$touched">
+                    <p ng-message="required"><span translate>{{"USER.ERROR.REQUIRED"}}</span></p>
+                </div>
 		</div>
 
 		<div class="form-group" ng-show="uc.firstPage" ng-class="{ 'has-error': uc.usersForm.email.$touched && uc.usersForm.email.$invalid }">
 		<label class="control-label col-sm-2">Email:</label>
 		<div class="col-sm-6 col-md-4">
-		<input class="form-control" type="email" ng-model="uc.user.email" required>
+		<input class="form-control" type="email" name="email" ng-model="uc.user.email" ng-pattern="/^[a-z]+[a-z0-9._]+@[a-z]+\.[a-z.]{2,5}$/" required>
+
+		<div ng-messages="uc.usersForm.email.$error" ng-show="uc.usersForm.email.$touched">
+                    <p ng-message="required"><span translate>{{"USER.ERROR.REQUIRED"}}</span></p>
+                    <p ng-message="pattern"><span translate>{{"USER.ERROR.EMAIL"}}</span></p>
+                </div>
 		</div>
 		</div>
 

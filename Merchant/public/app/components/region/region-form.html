@@ -21,7 +21,11 @@
         <div class="form-group" ng-class="{ 'has-error': rc.regionForm.name.$touched && rc.regionForm.name.$invalid }">
 		<label class="control-label col-sm-2">Name:</label>
 		<div class="col-sm-6 col-md-4">
-		<input class="form-control" type="text" ng-model="rc.region.name" required>
+		<input class="form-control" type="text" ng-model="rc.region.name"  name="name" required>
+
+        <div ng-messages="rc.regionForm.name.$error" ng-show="rc.regionForm.name.$touched">
+                    <p ng-message="required"><span translate>{{"REGION.ERROR.REQUIRED"}}</span></p>
+                </div>
 		</div>
 		</div>
 
@@ -29,7 +33,12 @@
         <div class="form-group" ng-class="{ 'has-error': rc.regionForm.risk.$touched && rc.regionForm.risk.$invalid }">
 		<label class="control-label col-sm-2">Risk:</label>
 		<div class="col-sm-6 col-md-4">
-		<input class="form-control" type="text" ng-model="rc.region.risk" required>
+		<input class="form-control" type="text" ng-model="rc.region.risk" name="risk" ng-pattern="/^[0-9]+$/" required>
+
+        <div ng-messages="rc.regionForm.risk.$error" ng-show="rc.regionForm.risk.$touched">
+                    <p ng-message="required"><span translate>{{"REGION.ERROR.REQUIRED"}}</span></p>
+                    <p ng-message="pattern"><span translate>{{"REGION.ERROR.NUMBER"}}</span></p>
+                </div>
 		</div>
 		</div>
 
@@ -39,6 +48,8 @@
 		</div>
 
 	</form>
+
+    <br><br><br><br><br>
 
 	<table id="t01" align="center" width="75%;">
   <tr>

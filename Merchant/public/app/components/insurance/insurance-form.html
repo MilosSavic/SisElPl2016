@@ -16,6 +16,7 @@
 				<label class="control-label col-sm-2" for="startDate">Insurance start date</label>
 				<div class="col-sm-6 col-md-4">
 				<input id="startDate" type="text" class="form-control" ng-model="ic.insurance.startDate" is-open="ic.datepickerStart.opened" datepicker-options="ic.datepickerStart" ng-change="ic.startDatePicked()" ng-click="ic.datepickerStart.opened = true" uib-datepicker-popup="{{ic.datepickerStart.format}}" required/>
+
 				</div>
 			</div>
 
@@ -55,7 +56,15 @@
 		<div class="form-group" ng-class="{ 'has-error': ic.insuranceForm.numberOfUsers.$touched && ic.insuranceForm.numberOfUsers.$invalid }">
 			<label class="control-label col-sm-2">Number of users:</label>
 			<div class="col-sm-6 col-md-4">
-			<input id="numberOfUsers" name="numberOfUsers" class="form-control" type="text" min="1" max="5" ng-model="ic.insurance.numberOfUsers" required>
+			<input id="numberOfUsers" name="numberOfUsers" class="form-control" type="text" min="1" max="5" ng-model="ic.insurance.numberOfUsers"
+			ng-pattern="/^[0-9]+$/" required>
+
+			<div ng-messages="ic.insuranceForm.numberOfUsers.$error" ng-show="ic.insuranceForm.numberOfUsers.$touched">
+                    <p ng-message="required"><span translate>{{"INSURANCE.ERROR.REQUIRED"}}</span></p>
+                    <p ng-message="pattern"><span translate>{{"INSURANCE.ERROR.NUMBER"}}</span></p>
+
+                </div>
+
 			</div>
 		</div>
 
