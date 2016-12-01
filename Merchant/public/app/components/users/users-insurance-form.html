@@ -97,7 +97,7 @@
 		</div>
 		</div>
 
-		<div class="form-group" ng-class="{ 'has-error': uc.usersForm.sport._id.$touched && uc.usersForm.sport._id.$invalid }">
+<!-- 		<div class="form-group" ng-class="{ 'has-error': uc.usersForm.sport._id.$touched && uc.usersForm.sport._id.$invalid }">
 		<label class="control-label col-sm-2"> Sport:</label>
 				<div class="col-sm-6 col-md-4">
 		        <select class="form-control" id="sport" name="sport._id" ng-model="uc.user.sport._id" required>
@@ -110,8 +110,10 @@
                     <p ng-message="required"><span translate>{{"USER.ERROR.REQUIRED"}}</span></p>
                 </div>
 		</div>
+ -->
 
-		<div class="form-group" ng-show="uc.firstPage" ng-class="{ 'has-error': uc.usersForm.email.$touched && uc.usersForm.email.$invalid }">
+ 		<!-- ng-show="uc.firstPage" -->
+		<div class="form-group"  ng-class="{ 'has-error': uc.usersForm.email.$touched && uc.usersForm.email.$invalid }">
 		<label class="control-label col-sm-2">Email:</label>
 		<div class="col-sm-6 col-md-4">
 		<input class="form-control" type="email" name="email" ng-model="uc.user.email" ng-pattern="/^[a-z]+[a-z0-9._]+@[a-z]+\.[a-z.]{2,5}$/" required>

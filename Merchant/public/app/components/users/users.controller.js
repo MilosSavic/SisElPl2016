@@ -14,7 +14,7 @@
 		//uc.user = $rootScope.insurance.users[uc.page-1];
 		uc.user = InsuranceData.getInsuranceData().users[uc.page-1];
 		Sport.get(function(response){uc.sports = response.sports;});
-		
+
 		if(uc.page==1)
 		{
 			uc.firstPage = true;
@@ -34,7 +34,7 @@
 				//	$rootScope.insurance.users.push(uc.user);
 				uc.page++;
 				$state.go('main.usersInsuranceForm',{userIndex:uc.page});
-				
+
 			}
 
 		}
