@@ -1,6 +1,8 @@
 "use strict";
 
 //var mongoose = require('./config/mongoose');
+//NOOLS
+var nools = require('nools');
 var mongoose = require('mongoose');
 mongoose.Promise = global.Promise;
 mongoose.connect('mongodb://localhost/insurance2');
