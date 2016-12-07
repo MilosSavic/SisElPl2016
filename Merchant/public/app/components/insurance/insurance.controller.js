@@ -5,8 +5,8 @@
 		.module('company-registry.insurance')
 		.controller('InsuranceController', InsuranceController);
 
-	InsuranceController.$inject = ['$location','Insurance','Region','Test','$state','$rootScope','User','InsuranceData','SideBar'];
-	function InsuranceController($location,Insurance,Region,Test,$state,$rootScope,User,InsuranceData,SideBar) {
+	InsuranceController.$inject = ['$location','Insurance','Region','Test','$state','$rootScope','User','InsuranceData','SideBar','Amount'];
+	function InsuranceController($location,Insurance,Region,Test,$state,$rootScope,User,InsuranceData,SideBar,Amount) {
 		var ic = this;
 		if(!$rootScope.insurance)
 			$rootScope.insurance = new Insurance();
@@ -37,6 +37,7 @@
 		}
 
 		Region.get(function(response){ic.regions = response.regions;});
+		Amount.get(function(response){ic.amounts = response.amounts;});
 		Test.get(function(response){console.log(response.payments);});
 
 

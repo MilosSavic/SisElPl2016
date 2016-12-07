@@ -19,6 +19,7 @@ require('./models/house-insurance.model');
 require('./models/car-insurance.model');
 require('./models/sport.model');
 require('./models/user.model');
+require('./models/amount.model');
 
 
 
@@ -43,6 +44,7 @@ var houseInsurances = require('./controllers/house-insurance.server.controller.j
 var carInsurances = require('./controllers/car-insurance.server.controller.js');
 var sports = require('./controllers/sport.server.controller.js');
 var users = require('./controllers/user.server.controller.js');
+var amounts = require('./controllers/amount.server.controller.js');
 
 
  app.route('/api/regions')
@@ -80,6 +82,14 @@ app.param('id', insurances.getInsuranceById);
 app.route('/api/houseInsurances')
     .get(houseInsurances.list)
     .post(houseInsurances.createHouseInsurance);
+
+app.route('/api/amounts')
+    .get(amounts.list)
+    .post(amounts.createAmount);
+
+app.route('/api/amounts/:amountId')
+    .get(amounts.getAmountById);
+app.param('amountId', amounts.getAmountById);
 
 
 app.route('/api/carInsurances')

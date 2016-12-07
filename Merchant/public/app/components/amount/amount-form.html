@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Add amount</title>
+    <link href="./assets/css/bootstrap.css" rel="stylesheet">
+    <link href="./assets/css/company.css" rel="stylesheet">
+    <link href="./assets/css/font-awesome.css" rel="stylesheet">
+    <link href="./assets/css/solution.css" rel="stylesheet">
+</head>
+<body ng-app="company-registry">
+<div>
+
+<form class="form-horizontal" novalidate name="ac.amountForm">
+		<div class="form-group">
+		<div class="col-sm-offset-2 col-sm-4">
+			<label>Amount</label>
+		</div>
+		</div>
+
+
+        <div class="form-group">
+		<label class="control-label col-sm-2">Amount:</label>
+		<div class="col-sm-6 col-md-4">
+		<input class="form-control" type="text" ng-model="ac.amount.amount"  name="amount" required>
+		</div>
+		</div>
+
+		 <div class="col-sm-offset-2">
+		      <button class="btn btn-primary" ng-click="ac.submitAmount()" translate>Submit</button>
+		</div>
+
+	</form>
+
+    <br><br><br><br><br>
+
+	<table id="t01" align="center" width="75%;">
+  <tr>
+    <th>&nbsp;</th>
+    <th>ID</th>
+    <th>Amount</th>
+
+  </tr>
+  <tr ng-repeat="element in ac.listOfAmounts">
+    <td style="width:4%;">{{$index+1}}&nbsp;</td>
+    <td style="width:11%;">{{element._id}}</td>
+    <td style="width:9%;">{{element.amount}}</td>
+  </tr>
+  </table>
+
+</div>
+</body>
+</html>

@@ -36,7 +36,10 @@ var insuranceSchema = new Schema({
     type: Schema.Types.ObjectId,
     ref: 'HouseInsurance'
   },
-  amount: Number
+  amount: {
+    type: Schema.Types.ObjectId,
+    ref: 'Amount'
+  }
 });
 
 var Insurance = mongoose.model('Insurance', insuranceSchema);
