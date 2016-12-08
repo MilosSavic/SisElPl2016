@@ -10,70 +10,96 @@ define Message {
  factor: 0,
     constructor : function(message,factor){
         this.text = message;
-  this.factor = factor;
+       this.factor = factor;
     }
 }
 
-rule RiskFactor {
-    //priority:3,
+define User {
+  sportRisk: 1,
+  age: 50,
+  constructor: function(sportRisk,age){
+    this.sportRisk = sportRisk;
+    this.age = age;
+  }
+}
+
+//ja samo ovako mogu da sprecim beskonacne petlje!
+define AgeFired{
+  fired: false,
+  constructor: function(fired){
+    this.fired = fired;
+  }
+}
+
+define RiskFired{
+  fired: false,
+  constructor: function(fired){
+    this.fired = fired;
+  }
+}
+
+rule "sport risk"{
+       priority:1,
     when {
-        m : Message m.text == "risk" ;
+        u:User;
        price: Price;
+      fired: RiskFired !fired.fired;
     }
     then {
-  console.log("Risk pravilo: "+m.text);
-  modify(m,function(){m.text += " executed";});
-  modify(price,function(){this.value *= m.factor;});
+  console.log("Risk pravilo USERUSERUSER: ");
+  modify(price,function(){this.value *= u.sportRisk;});
+  modify(fired,function(){this.fired = true;});
   console.log(price.value);
-   
+   halt();
   
     }
-}
+  }
 
-rule "age above 65"{
- // priority:2,
- when {
-        m : Message m.text == "age" && m.factor>=65 ;
-  price: Price;
+   rule "user age above 65"{
+       priority:3,
+    when {
+        u:User u.age>65;
+       price: Price;
+       fired: AgeFired !fired.fired;
     }
     then {
-  console.log("Age pravilo: "+m.text);
-  modify(m,function(){m.text += " executed";});
-  console.log(m.text);
-  modify(price,function(){price.value *=2; });
+  console.log("Age pravilo USERUSERUSER: ");
+  modify(price,function(){this.value *= 2;});
+  modify(fired,function(){this.fired = true;});
   console.log(price.value);
-  
     }
-}
+  }
 
-rule "age between 18 and 65"{
-when {
-        m : Message m.text == "age" && m.factor<65 && m.factor>=18 ;
-  price: Price;
-    }
-    then {
-  console.log("Age pravilo: "+m.text);
-  modify(m,function(){m.text += " executed";});
-  console.log(m.text);
-  //do nothing
-  //modify(price,function(){price.value *=2; });
-  console.log(price.value);
-  
-    }
-}
 
-rule "age below 18"{
-when {
-        m : Message m.text == "age" && m.factor<18 ;
-  price: Price;
+   rule "user age between 20 and 65"{
+       priority:3,
+    when {
+        u:User u.age<=65 && u.age>=20;
+       price: Price;
+       fired: AgeFired !fired.fired;
     }
     then {
-  console.log("Age pravilo: "+m.text);
-  modify(m,function(){m.text += " executed";});
-  console.log(m.text);
-  //do nothing
-  modify(price,function(){price.value /=2; });
+  console.log("Age pravilo USERUSERUSER: ");
+  modify(price,function(){this.value *= 1;});
+  modify(fired,function(){this.fired = true;});
   console.log(price.value);
   
     }
-}
+  }
+
+
+   rule "user age below 20"{
+       priority:3,
+    when {
+        u:User u.age<20;
+       price: Price;
+       fired: AgeFired !fired.fired;
+    }
+    then {
+  console.log("Age pravilo USERUSERUSER: ");
+  modify(price,function(){this.value /= 2;});
+  modify(fired,function(){this.fired = true;});
+  console.log(price.value);
+  
+    }
+  }

@@ -9,9 +9,14 @@ function execute(user,result){
 	var Message = flow.getDefined("message");
 	var Price = flow.getDefined("price");
 	var Sport = mongoose.model('Sport');
+	var User = flow.getDefined("user");
+	var AgeFired = flow.getDefined("ageFired");
+	var RiskFired = flow.getDefined("riskFired");
 
 
 	var session = flow.getSession();
+	session.assert(new AgeFired(false));
+	session.assert(new RiskFired(false));
 
 	//var us = {sport:{name:"fudbal",coefficient:0.75},age:66};
 	//var totalPrice = assertFacts(us,function(result){
@@ -39,10 +44,7 @@ function execute(user,result){
 	function otherStuff(){
 	var age = user.body.age; 
 	//session.assert(new Message("goodbye"));
-		var messageAge = new Message("age",age);
-		session.assert(messageAge);
-		var messageSportRisk = new Message("risk",sportRisk);
-		session.assert(messageSportRisk);
+	session.assert(new User(sportRisk,age));
 
 	session.match(function(err){
 	    if(err){
