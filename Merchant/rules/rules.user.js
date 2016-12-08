@@ -6,7 +6,6 @@ function execute(user,result){
 	var nools = require('nools');
 	var ruleFilePath = __dirname + "/insurance-user-price.nools";
 	var flow = nools.compile(ruleFilePath);
-	var Message = flow.getDefined("message");
 	var Price = flow.getDefined("price");
 	var Sport = mongoose.model('Sport');
 	var User = flow.getDefined("user");
