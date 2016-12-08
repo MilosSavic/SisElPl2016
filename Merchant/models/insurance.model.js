@@ -21,7 +21,7 @@ var insuranceSchema = new Schema({
     default: Date.now
   },
 
-  value: Number,
+  price: Number,
 
   users:[{
     type: Schema.Types.ObjectId,

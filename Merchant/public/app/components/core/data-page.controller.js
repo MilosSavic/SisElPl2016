@@ -5,8 +5,8 @@
 		.module('company-registry.core')
 		.controller('DataPageController', DataPageController);
 
-	DataPageController.$inject = ['$location','SideBar','$scope','$state','InsuranceData','Region','Insurance'];
-	function DataPageController($location,SideBar,$scope,$state,InsuranceData,Region,Insurance) {
+	DataPageController.$inject = ['$location','SideBar','$scope','$state','InsuranceData','Region','Insurance','Amount'];
+	function DataPageController($location,SideBar,$scope,$state,InsuranceData,Region,Insurance,Amount) {
 		var dpc = this;
 		
 		var insurance = JSON.parse(JSON.stringify(InsuranceData.getInsuranceData()));
@@ -16,7 +16,11 @@
 		endDate.setHours(endDate.getHours()+1);
 		dpc.startDate = startDate.toDateString();
 		dpc.endDate = endDate.toDateString();
-		dpc.value = insurance.value;
+		Amount.get({amountId: insurance.amount._id},function(response){
+			dpc.amount = response.amount;
+		})
+
+		dpc.price = insurance.price;
 		Region.get({regionId: insurance.region._id},function(response){
 			dpc.region = response.name;
 		});

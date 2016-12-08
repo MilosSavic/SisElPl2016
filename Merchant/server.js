@@ -12,6 +12,8 @@ db.once('open', function() {
   console.log("Connected to Mongo database");
 });
 
+var path = require('path');
+global.appRoot = path.resolve(__dirname);
 
 require('./models/region.model');
 require('./models/insurance.model');
