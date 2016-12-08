@@ -47,6 +47,9 @@ var carInsurances = require('./controllers/car-insurance.server.controller.js');
 var sports = require('./controllers/sport.server.controller.js');
 var users = require('./controllers/user.server.controller.js');
 var amounts = require('./controllers/amount.server.controller.js');
+//da li je ovo dobro?
+var userRules = require('./rules/rules.user.js');
+var totalRules = require('./rules/rules.total.js');
 
 
  app.route('/api/regions')
@@ -97,6 +100,14 @@ app.param('amountId', amounts.getAmountById);
 app.route('/api/carInsurances')
     .get(carInsurances.list)
     .post(carInsurances.createCarInsurance);
+
+    
+
+app.route('/api/userRules')
+    .post(userRules.execute);
+
+app.route('/api/totalRules')
+    .post(totalRules.execute);
 
 
 

@@ -19,14 +19,17 @@ function execute(user,result){
 	//});
 	var price = new Price(1000);
 	session.assert(price);
-	var sportRisk = -400;
-	Sport.findById(user.sport).exec(function(err,sport){
+	var sportRisk = 1;
+
+	Sport.findById(user.body.sport).exec(function(err,sport){
 	    if(err)
 	    {
 	      return res.status(400).send({
 	        message: "Error"
 	      });
 	    }else {
+	    	//zasto err ne bude definisan?
+	    	if(user.body.sport)
 	      sportRisk = sport.coefficient;
 	      otherStuff();
 	    }
@@ -34,7 +37,7 @@ function execute(user,result){
 	  });
 
 	function otherStuff(){
-	var age = user.age; 
+	var age = user.body.age; 
 	//session.assert(new Message("goodbye"));
 		var messageAge = new Message("age",age);
 		session.assert(messageAge);
@@ -47,7 +50,7 @@ function execute(user,result){
 	    }else{
 	        console.log("done");
 	        nools.deleteFlows();
-	      	result(price);
+	      	result.json(price);
 	    }
 	})
 	}

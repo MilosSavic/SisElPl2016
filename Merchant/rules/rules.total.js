@@ -1,7 +1,7 @@
 "use strict"
 module.exports.execute = execute;
 
-function execute(insurance,totalPrice,result){
+function execute(insurance,result){
 	var mongoose = require('mongoose');
 	var nools = require('nools');
 	var ruleFilePath = __dirname + "/insurance-price.nools";
@@ -17,10 +17,10 @@ function execute(insurance,totalPrice,result){
 	//var totalPrice = assertFacts(us,function(result){
 	//	console.log(result);
 	//});
-	var price = new Price(totalPrice);
+	var price = new Price(insurance.body.totalPrice);
 	session.assert(price);
 	var regionRisk = -400;
-	Region.findById(insurance.region).exec(function(err,region){
+	Region.findById(insurance.body.region).exec(function(err,region){
 	    if(err)
 	    {
 	      return res.status(400).send({
@@ -32,10 +32,10 @@ function execute(insurance,totalPrice,result){
 	    }
 
 	  });
-	console.log(JSON.stringify(insurance));
+	//console.log(JSON.stringify(insurance.body));
 	console.log(JSON.stringify(price));
 	function otherStuff(){
-	var numberOfUsers = insurance.numberOfUsers; 
+	var numberOfUsers = insurance.body.numberOfUsers; 
 	//session.assert(new Message("goodbye"));
 		var messageNumberOfUsers = new Message("number",numberOfUsers);
 		session.assert(messageNumberOfUsers);
@@ -48,7 +48,7 @@ function execute(insurance,totalPrice,result){
 	    }else{
 	        console.log("done");
 	        nools.deleteFlows();
-	      	result(price);
+	      	result.json(price);
 	    }
 	})
 	}

@@ -12,8 +12,6 @@ module.exports.createInsurance = createInsurance;
 module.exports.getInsuranceById = getInsuranceById;
 
 var usersFunctions = require('./user.server.controller.js');
-var priceRules = require(appRoot+'/rules/rules.user.js');
-var priceTotalRules = require(appRoot+'/rules/rules.total.js');
 
 
 function list(req, res, next){
@@ -75,42 +73,12 @@ function createInsurance(req, res, next){
      req.body.carInsurance = carInsurance;
   }
 
-	
-
-  var totalPrice = 0;
-  //form price
-  nextUserPrice(users[0],0);
-
-  function nextUserPrice(user,index){
-    priceRules.execute(user,function(result){
-      console.log(result);
-      totalPrice+=result.value;
-      index++;
-      if(users[index])
-        nextUserPrice(users[index]);
-      else formTotalPrice();
-    })
-  }
-
-    //calculate total price
-  function formTotalPrice(){
-    priceTotalRules.execute(req.body,totalPrice,function(result){
-      console.log(result);
-      req.body.price = result.value;
-      save();
-    })
-  }
-
-function save(){
   var insurance = new Insurance(req.body);
-
 	insurance.save(function (err, insurance) {
 	  if (err) return console.error(err);
 	  console.log("Save successful");
 	});
-
-	res.json(insurance);
-  } 
+	res.json(insurance); 
 
 }
 

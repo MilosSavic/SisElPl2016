@@ -42,6 +42,11 @@
 			</div>
 
 			<div class="form-group">
+			<label class="control-label col-sm-2">Total price:</label>
+			<label class="control-label col-sm-2">{{dpc.price}}</label>
+			</div>
+
+			<div class="form-group">
 			<label class="control-label col-sm-2"></label>
 			<button type="button" class="btn btn-primary" ng-click="dpc.saveAll()" onclick="location.href='http://localhost:8000/#/paymentForm'" translate ng-disabled="cic.carInsuranceForm.$invalid">Payment</button>
 			</div>

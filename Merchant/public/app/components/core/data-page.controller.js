@@ -5,8 +5,8 @@
 		.module('company-registry.core')
 		.controller('DataPageController', DataPageController);
 
-	DataPageController.$inject = ['$location','SideBar','$scope','$state','InsuranceData','Region','Insurance','Amount'];
-	function DataPageController($location,SideBar,$scope,$state,InsuranceData,Region,Insurance,Amount) {
+	DataPageController.$inject = ['$location','SideBar','$scope','$state','InsuranceData','Region','Insurance','Amount','UserRules','TotalRules'];
+	function DataPageController($location,SideBar,$scope,$state,InsuranceData,Region,Insurance,Amount,UserRules,TotalRules) {
 		var dpc = this;
 		
 		var insurance = JSON.parse(JSON.stringify(InsuranceData.getInsuranceData()));
@@ -25,6 +25,8 @@
 			dpc.region = response.name;
 		});
 		dpc.users = insurance.users;
+
+
 		for(var i=0; i<dpc.users.length; i++)
 		{
 			dpc.users[i].index = i+1;
@@ -58,6 +60,34 @@
 			dpc.carInsuranceChosen = false;
 		}
 
+
+		var totalPrice = 0;
+	 	 //form price
+	 	nextUserPrice(insurance.users[0],0);
+
+	 	function nextUserPrice(user,index){
+	 		var userRule = new UserRules(user);
+	 		userRule.$save(function(result){
+	 		console.log(result);
+	     	totalPrice+=result.value;
+	     	index++;
+	     	if(insurance.users[index])
+	        	nextUserPrice(insurance.users[index],index);
+	      	else formTotalPrice();
+	 		})
+	  }
+
+	    //calculate total price
+	  function formTotalPrice(){
+	  	insurance.totalPrice = totalPrice;
+	  	var totalRule = new TotalRules(insurance);
+	  	totalRule.$save(function(result){
+	  		 console.log(result);
+	      dpc.price = result.value;
+	      InsuranceData.getInsuranceData().price = result.value;
+	  	})
+	  }
+
 		dpc.cancelHouseInsurance = function(){
 			insurance.houseInsurance = undefined;
 			InsuranceData.setHouseInsuranceChosen(false);
@@ -90,7 +120,11 @@
 				dpc.users[i].index = i+1;
 			}
 			InsuranceData.getInsuranceData().numberOfUsers--;
+			insurance.numberOfUsers--;
 			dpc.sure=0;
+			totalPrice = 0;
+			//reculcalate price
+			nextUserPrice(insurance.users[0],0);
 		}
 
 		dpc.saveAll = function(){
