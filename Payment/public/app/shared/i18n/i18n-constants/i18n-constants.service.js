@@ -9,30 +9,17 @@
 				"DELETE":"Delete",
 				"BACK":"Back"
 			},
-
-			"EMPLOYEE": {
-				"LIST":"Employee list",
-				"JMBG":"Jmbg",
-				"NAME":"Name",
-				"SURNAME":"Surname",
-				"EMAIL":"E-mail",
-				"PLACEOFBIRTH":"Place of birth",
-				"DATEOFBIRTH":"Date of birth",
-				"NEW":"Add new employee",
-
-				"ADD":"Add employee",
-				"EDIT":"Edit employee with id ",
-
-				"ERROR": {
-					"UNIQUE":"An employee with the given JMBG already exists.",
-					"LENGTH13":"This field should contain exactly 13 characters.",
-					"NUM":"Ovo polje mora sadrzati tacno 10 karaktera.",
-					"EMAIL":"The email you have entered is not valid.",
-					"REQUIRED":"Ovo polje je obavezno."
-				}
-			},
-
+			
 			"PAYMENT": {
+
+				"PAN":"PAN",
+				"SECURITYCODE":"Security code",
+				"CARDHOLDERNAME":"Card holder name",
+				"EXPIRYDATE":"Expiry date",
+				"PAYMENT":"Payment",
+				"PAYMENTSITE":"Payment site",
+				"HOME":"Home",
+				"ABOUT":"About",
 
 				"ERROR": {
 					"UNIQUE":"An employee with the given JMBG already exists.",
@@ -51,30 +38,19 @@
 				"DELETE":"Obriši",
 				"BACK":"Povratak"
 			},
-
-			"EMPLOYEE": {
-				"LIST":"Lista zaposlenih",
-				"JMBG":"Jmbg",
-				"NAME":"Ime",
-				"SURNAME":"Prezime",
-				"EMAIL":"E-mail",
-				"PLACEOFBIRTH":"Mesto rođenja",
-				"DATEOFBIRTH":"Datum rođenja",
-				"NEW":"Dodaj novog zaposlenog",
-
-				"ADD":"Dodaj zaposlenog",
-				"EDIT":"Izmeni zaposlenog sa id-om ",
-
-				"ERROR": {
- 					"UNIQUE":"Radnik sa navedenim JMBG-om već postoji u listi.",
- 					"LENGTH13":"Ovo polje mora imati tačno 13 karaktera.",
- 					"NUM":"Ovo polje treba da sadrži 13 cifri.",
- 					"EMAIL":"Email koji ste uneli nije validan.",
- 					"REQUIRED":"Ovo polje je obavezno."
-				}
-			},
+			
 
 			"PAYMENT": {
+
+				"PAN":"PAN",
+				"SECURITYCODE":"Sigurnosni kod",
+				"CARDHOLDERNAME":"Ime vlasnika kartice",
+				"EXPIRYDATE":"Datum isteka",
+				"PAYMENT":"Naplata",
+				"PAYMENTSITE":"Sajt za naplatu",
+				"HOME":"Početna",
+				"ABOUT":"O nama",
+
 
 				"ERROR": {
 					"UNIQUE":"An employee with the given JMBG already exists.",

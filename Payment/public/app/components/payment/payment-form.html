@@ -12,7 +12,7 @@
 
     <form class="form-horizontal" novalidate name="pay.paymentForm">
         <div class="form-group" ng-class="{ 'has-error': pay.paymentForm.pan.$touched && pay.paymentForm.pan.$invalid }">
-            <label class="control-label col-sm-2" for="pan" translate>PAN</label>
+            <label class="control-label col-sm-2" for="pan" translate>{{"PAYMENT.PAN"}}</label>
             <div class="col-sm-6 col-md-4" busy-indicator>
                 <input type="text" ng-model="pay.payment.pan" id="pan" name="pan" class="form-control" required ng-minlength="10" ng-maxlength="10" >
 
@@ -24,7 +24,7 @@
             </div>
         </div>
         <div class="form-group" ng-class="{ 'has-error': pay.paymentForm.security_code.$touched && pay.paymentForm.security_code.$invalid }">
-            <label class="control-label col-sm-2" for="code" translate>Security code</label>
+            <label class="control-label col-sm-2" for="code" translate>{{"PAYMENT.SECURITYCODE"}}</label>
             <div class="col-sm-6 col-md-4">
                 <input type="text" ng-model="pay.payment.security_code" id="security_code" name="security_code" class="form-control" required>
                  <div ng-messages="pay.paymentForm.security_code.$error" ng-show="pay.paymentForm.security_code.$touched">
@@ -33,7 +33,7 @@
             </div>
         </div>
         <div class="form-group" ng-class="{ 'has-error': pay.paymentForm.card_holder_name.$touched && pay.paymentForm.card_holder_name.$invalid }">
-            <label class="control-label col-sm-2" for="card_holder_name" translate>Card holder name</label>
+            <label class="control-label col-sm-2" for="card_holder_name" translate>{{"PAYMENT.CARDHOLDERNAME"}}</label>
             <div class="col-sm-6 col-md-4">
                 <input type="text" ng-model="pay.payment.card_holder_name" id="card_holder_name" name="card_holder_name" class="form-control" required>
                 <div ng-messages="pay.paymentForm.card_holder_name.$error" ng-show="pay.paymentForm.card_holder_name.$touched">
@@ -43,7 +43,7 @@
         </div>
 
         <div class="form-group">
-            <label class="control-label col-sm-2" for="expiry_date" translate>Expiry date</label>
+            <label class="control-label col-sm-2" for="expiry_date" translate>{{"PAYMENT.EXPIRYDATE"}}</label>
             <div class="col-sm-6 col-md-4">
                 <input id="expiry_date" type="text" class="form-control" ng-model="pay.payment.expiry_date" is-open="pay.datepicker.opened" datepicker-options="pay.datepicker" ng-click="pay.datepicker.opened = true" uib-datepicker-popup="{{pay.datepicker.format}}" required/>
                 <div ng-messages="pay.paymentForm.expiry_date.$error" ng-show="pay.paymentForm.expiry_date.$touched">
@@ -52,7 +52,7 @@
             </div>
         </div>
         <div class="col-sm-offset-2">
-            <button type="button" class="btn btn-primary" ng-click="pay.addPayment()" onclick="location.href='http://localhost:3000/#/insuranceForm'"  translate ng-disabled="pay.paymentForm.$invalid">Save</button>
+            <button type="button" class="btn btn-primary" ng-click="pay.addPayment()" onclick="location.href='http://localhost:3000/#/insuranceForm'"  translate ng-disabled="pay.paymentForm.$invalid">{{"COMMON.SAVE"}}</button>
 
              <!-- <button type="button" class="btn btn-primary" onclick="location.href='http://localhost:3000/#/carInsuranceForm'" translate ng-disabled="pay.paymentForm.$invalid">Merchant</button> -->
         </div>

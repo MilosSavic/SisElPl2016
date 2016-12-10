@@ -13,12 +13,12 @@
 <form class="form-horizontal" novalidate name="uc.usersForm">
 		<div class="form-group" >
 		<div class="col-sm-offset-2 col-sm-4">
-			<label>User {{uc.page}}</label>
+			<label translate>{{"SIDEBAR.USER"}}</label><label>{{uc.page}}</label>
 		</div>
 		</div>
 
 		<div class="form-group" ng-class="{ 'has-error': uc.usersForm.name.$touched && uc.usersForm.name.$invalid }">
-		<label class="control-label col-sm-2">Name:</label>
+		<label class="control-label col-sm-2" translate>{{"USER.NAME"}}</label>
 		<div class="col-sm-6 col-md-4">
 		<input class="form-control" type="text" name="name" ng-model="uc.user.name" required>
 
@@ -29,7 +29,7 @@
 		</div>
 
 		<div class="form-group" ng-class="{ 'has-error': uc.usersForm.surname.$touched && uc.usersForm.surname.$invalid }">
-		<label class="control-label col-sm-2">Surname:</label>
+		<label class="control-label col-sm-2" translate>{{"USER.SURNAME"}}</label>
 		<div class="col-sm-6 col-md-4">
 		<input class="form-control" type="text" name="surname" ng-model="uc.user.surname" required>
 
@@ -40,7 +40,7 @@
 		</div>
 
 		<div class="form-group" ng-class="{ 'has-error': uc.usersForm.jmbg.$touched && uc.usersForm.jmbg.$invalid }">
-		<label class="control-label col-sm-2">JMBG:</label>
+		<label class="control-label col-sm-2" translate>{{"USER.JMBG"}}</label>
 		<div class="col-sm-6 col-md-4">
 		<input class="form-control" type="text" name="jmbg" ng-model="uc.user.jmbg" ng-pattern="/^[0-9]{13}$/" required>
 
@@ -52,7 +52,7 @@
 		</div>
 
 		<div class="form-group" ng-class="{ 'has-error': uc.usersForm.passportNumber.$touched && uc.usersForm.passportNumber.$invalid }">
-		<label class="control-label col-sm-2">Passport number:</label>
+		<label class="control-label col-sm-2" translate>{{"USER.PASSPORTNUMBER"}}</label>
 		<div class="col-sm-6 col-md-4">
 		<input class="form-control" type="text" name="passportNumber" ng-model="uc.user.passportNumber" required>
 
@@ -63,7 +63,7 @@
 		</div>
 
 		<div class="form-group" ng-class="{ 'has-error': uc.usersForm.address.$touched && uc.usersForm.address.$invalid }">
-		<label class="control-label col-sm-2">Address:</label>
+		<label class="control-label col-sm-2" translate>{{"USER.ADDRESS"}}</label>
 		<div class="col-sm-6 col-md-4">
 		<input class="form-control" type="text" name="address" ng-model="uc.user.address" required>
 
@@ -74,7 +74,7 @@
 		</div>
 
 		<div class="form-group" ng-class="{ 'has-error': uc.usersForm.telephone.$touched && uc.usersForm.telephone.$invalid }">
-		<label class="control-label col-sm-2">Telephone number:</label>
+		<label class="control-label col-sm-2" translate>{{"USER.TELEPHONENUMBER"}}</label>
 		<div class="col-sm-6 col-md-4">
 		<input class="form-control" type="text"  name="telephone" ng-model="uc.user.telephone" ng-pattern="/^[0-9]+$/" required>
 
@@ -86,7 +86,7 @@
 		</div>
 
 		<div class="form-group" ng-class="{ 'has-error': uc.usersForm.age.$touched && uc.usersForm.age.$invalid }">
-		<label class="control-label col-sm-2">Age:</label>
+		<label class="control-label col-sm-2" translate>{{"USER.AGE"}}</label>
 		<div class="col-sm-6 col-md-4">
 		<input class="form-control" type="number" name="age" min="0" max="130" ng-pattern="/^[0-9]+$/" ng-model="uc.user.age" required>
 
@@ -98,19 +98,19 @@
 		</div>
 
 		<div class="form-group">
-		<label class="control-label col-sm-2"> Sport:</label>
+		<label class="control-label col-sm-2" translate>{{"USER.SPORT"}}</label>
 				<div class="col-sm-6 col-md-4">
 		        <select class="form-control" id="sport" name="sport._id" ng-model="uc.user.sport._id">
 		          <option ng-repeat="sport in uc.sports" value="{{sport._id}}">{{ sport.name }}</option>
 		        </select>
-		        <span class="validationText" ng-show="uc.sports.length==0">Your don't have any sports </span>
+		        <span class="validationText" ng-show="uc.sports.length==0" translate>{{"USER.ERROR.SPORT"}}</span>
 		        </div>
 		</div>
  
 
  		<!-- ng-show="uc.firstPage" -->
 		<div class="form-group"  ng-class="{ 'has-error': uc.usersForm.email.$touched && uc.usersForm.email.$invalid }">
-		<label class="control-label col-sm-2">Email:</label>
+		<label class="control-label col-sm-2" translate>{{"USER.EMAIL"}}</label>
 		<div class="col-sm-6 col-md-4">
 		<input class="form-control" type="email" name="email" ng-model="uc.user.email" ng-pattern="/^[a-z]+[a-z0-9._]+@[a-z]+\.[a-z.]{2,5}$/" required>
 
@@ -122,10 +122,10 @@
 		</div>
 
 		 <div class="col-sm-offset-2" ng-show="uc.lastPage">
-		      <button class="btn btn-primary" ng-click="uc.goToHouseInsurance()" translate ng-disabled="uc.usersForm.$invalid">Next</button>
+		      <button class="btn btn-primary" ng-click="uc.goToHouseInsurance()" translate ng-disabled="uc.usersForm.$invalid">{{"COMMON.NEXT"}}</button>
 		</div>
 			 <div class="col-sm-offset-2" ng-hide="uc.lastPage">
-		      <button class="btn btn-primary" ng-click="uc.next()" translate ng-disabled="uc.usersForm.$invalid">Next user</button>
+		      <button class="btn btn-primary" ng-click="uc.next()" translate ng-disabled="uc.usersForm.$invalid">{{"COMMON.NEXTUSER"}}</button>
 		</div>
 
 	</form>
