@@ -33,3 +33,21 @@
 	}
 
 })();
+
+(function() {
+	"use strict";
+
+	angular
+		.module('company-registry.core')
+		.factory('HouseInsuranceRules', HouseInsuranceRules);
+
+		//ma daj, mora da ovo moze lepse da se napise
+	HouseInsuranceRules.$inject = ['$resource'];
+	function HouseInsuranceRules($resource) {
+		var collectionName = "houseInsuranceRules";
+		return $resource("http://localhost:3000/api/:collectionName/:id",
+			{id: "@_id", collectionName: collectionName},
+			{ update: { method: 'PUT' } });
+	}
+
+})();

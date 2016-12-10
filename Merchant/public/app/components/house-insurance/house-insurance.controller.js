@@ -32,9 +32,12 @@
 
 		hic.insuranceSelection = [];
 		if(InsuranceData.getInsuranceData().houseInsurance.coveredByInsurance)
+
 			for(var i=0; i<InsuranceData.getInsuranceData().houseInsurance.coveredByInsurance.length;i++)
 			{
+				if(InsuranceData.getInsuranceData().houseInsurance.coveredByInsurance[i]._id)
 				hic.insuranceSelection.push({id: InsuranceData.getInsuranceData().houseInsurance.coveredByInsurance[i]._id});
+				else hic.insuranceSelection.push({id: InsuranceData.getInsuranceData().houseInsurance.coveredByInsurance[i]});
 			}
 		//	else hic.houseInsurance.coveredByInsurance = []; 
 		//console.log(JSON.stringify(hic.houseInsurance.coveredByInsurance));

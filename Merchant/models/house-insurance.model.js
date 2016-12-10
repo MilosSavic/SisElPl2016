@@ -3,7 +3,6 @@ var mongoose = require('mongoose'),
 
 var houseInsuranceSchema = new Schema({
 
-  duration:Number,
   size: Number,
   age: Number,
   estimatedValue: Number,

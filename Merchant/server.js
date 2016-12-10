@@ -117,6 +117,9 @@ app.route('/api/carInsurances')
 
 app.route('/api/userRules')
     .post(userRules.execute);
+    
+app.route('/api/houseInsuranceRules')
+    .post(houseInsuranceRules.execute);
 
 app.route('/api/totalRules')
     .post(totalRules.execute);

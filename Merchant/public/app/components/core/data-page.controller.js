@@ -5,8 +5,8 @@
 		.module('company-registry.core')
 		.controller('DataPageController', DataPageController);
 
-	DataPageController.$inject = ['$location','SideBar','$scope','$state','InsuranceData','Region','Insurance','Amount','UserRules','TotalRules'];
-	function DataPageController($location,SideBar,$scope,$state,InsuranceData,Region,Insurance,Amount,UserRules,TotalRules) {
+	DataPageController.$inject = ['$location','SideBar','$scope','$state','InsuranceData','Region','Insurance','Amount','UserRules','TotalRules','HouseInsuranceRules'];
+	function DataPageController($location,SideBar,$scope,$state,InsuranceData,Region,Insurance,Amount,UserRules,TotalRules,HouseInsuranceRules) {
 		var dpc = this;
 		
 		var insurance = JSON.parse(JSON.stringify(InsuranceData.getInsuranceData()));
@@ -73,14 +73,32 @@
 	     	index++;
 	     	if(insurance.users[index])
 	        	nextUserPrice(insurance.users[index],index);
-	      	else formTotalPrice();
+	      	else formHouseInsurancePrice();
 	 		})
+	  }
+	  function formHouseInsurancePrice(){
+
+	  	if(insurance.houseInsurance){
+	  	if(insurance.houseInsurance._id)
+	    delete insurance.houseInsurance._id;
+	  	var houseInsuranceRule = new HouseInsuranceRules(insurance.houseInsurance);
+	  	houseInsuranceRule.$save(function(result)
+	  	{
+	  		console.log(result);
+	  		totalPrice+=result.value;
+	  		formTotalPrice();
+	  	})
+	  	}
+	  	else {
+	  		formTotalPrice();
+	  	}
 	  }
 
 	    //calculate total price
 	  function formTotalPrice(){
 	  	insurance.totalPrice = totalPrice;
 	  	var totalRule = new TotalRules(insurance);
+
 	  	totalRule.$save(function(result){
 	  		 console.log(result);
 	      dpc.price = result.value;

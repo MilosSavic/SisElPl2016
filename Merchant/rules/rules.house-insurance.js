@@ -1,11 +1,12 @@
 "use strict"
 module.exports.execute = execute;
 
-var hi = {body:{age:50,size:444,estimatedValue:34663, coveredByInsurance:["584bf80f5acf0a2bc4c23b95","584bf7505acf0a2bc4c23b94"]}};
-execute(hi, function(result){
-	console.log(result);
-})
+//var hi = {body:{age:50,size:444,estimatedValue:34663, coveredByInsurance:["584bf80f5acf0a2bc4c23b95","584bf7505acf0a2bc4c23b94"]}};
+//execute(hi, function(result){
+//	console.log(result);
+//})
 function execute(houseInsurance,result){
+	console.log("USLI SMO U HOUSE INSURANCE RULES");
 	var mongoose = require('mongoose');
 	var nools = require('nools');
 	var ruleFilePath = __dirname + "/house-insurance-price.nools";
@@ -65,8 +66,7 @@ function execute(houseInsurance,result){
 	    }else{
 	        console.log("done");
 	        nools.deleteFlows();
-	      //	result.json(price);
-	      result(price);
+	      	result.json(price);
 	    }
 	})
 	}

@@ -11,12 +11,12 @@
 <div>
 
     <form class="form-horizontal" novalidate name="hic.houseInsuranceForm">
-        <div class="form-group" ng-class="{ 'has-error': hic.houseInsuranceForm.duration.$touched && hic.houseInsuranceForm.duration.$invalid }">
-            <label class="control-label col-sm-2" for="duration" translate>Duration</label>
+        <div class="form-group" ng-class="{ 'has-error': hic.houseInsuranceForm.size.$touched && hic.houseInsuranceForm.size.$invalid }">
+            <label class="control-label col-sm-2" for="size" translate>Size</label>
             <div class="col-sm-6 col-md-4" busy-indicator>
-                <input type="text" ng-model="hic.houseInsurance.duration" id="duration" name="duration" class="form-control" ng-pattern="/^[0-9]+$/" required  >
+                <input type="text" ng-model="hic.houseInsurance.size" id="size" name="size" class="form-control" ng-pattern="/^[0-9]+$/" required  >
 
-                <div ng-messages="hic.houseInsuranceForm.duration.$error" ng-show="hic.houseInsuranceForm.duration.$touched">
+                <div ng-messages="hic.houseInsuranceForm.size.$error" ng-show="hic.houseInsuranceForm.size.$touched">
                     <p ng-message="required"><span translate>{{"HOUSE.ERROR.REQUIRED"}}</span></p>
                      <p ng-message="pattern"><span translate>{{"HOUSE.ERROR.NUMBER"}}</span></p>
                 </div>
