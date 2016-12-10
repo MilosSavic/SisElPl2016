@@ -51,6 +51,7 @@ var amounts = require('./controllers/amount.server.controller.js');
 var houseInsuranceCategories = require('./controllers/house-insurance-category.server.controller.js');
 //da li je ovo dobro?
 var userRules = require('./rules/rules.user.js');
+var houseInsuranceRules = require('./rules/rules.house-insurance.js');
 var totalRules = require('./rules/rules.total.js');
 
 
