@@ -12,7 +12,7 @@
 
     <form class="form-horizontal" novalidate name="hic.houseInsuranceForm">
         <div class="form-group" ng-class="{ 'has-error': hic.houseInsuranceForm.size.$touched && hic.houseInsuranceForm.size.$invalid }">
-            <label class="control-label col-sm-2" for="size" translate>Size</label>
+            <label class="control-label col-sm-2" for="size" translate>{{"HOUSE.SIZE"}}</label>
             <div class="col-sm-6 col-md-4" busy-indicator>
                 <input type="text" ng-model="hic.houseInsurance.size" id="size" name="size" class="form-control" ng-pattern="/^[0-9]+$/" required  >
 
@@ -23,7 +23,7 @@
             </div>
         </div>
         <div class="form-group" ng-class="{ 'has-error': hic.houseInsuranceForm.age.$touched && hic.houseInsuranceForm.age.$invalid }">
-            <label class="control-label col-sm-2" for="code" translate>Age</label>
+            <label class="control-label col-sm-2" for="code" translate>{{"HOUSE.AGE"}}</label>
             <div class="col-sm-6 col-md-4">
                 <input type="text" ng-model="hic.houseInsurance.age" id="age" name="age" class="form-control" ng-pattern="/^[0-9]+$/" required>
 
@@ -35,7 +35,7 @@
             </div>
         </div>
         <div class="form-group" ng-class="{ 'has-error': hic.houseInsuranceForm.estimatedValue.$touched && hic.houseInsuranceForm.estimatedValue.$invalid }">
-            <label class="control-label col-sm-2" for="estimatedValue" translate>Estimated value</label>
+            <label class="control-label col-sm-2" for="estimatedValue" translate>{{"HOUSE.ESTIMATEDVALUE"}}</label>
             <div class="col-sm-6 col-md-4">
                 <input type="text" ng-model="hic.houseInsurance.estimatedValue" id="estimatedValue" name="estimatedValue" ng-pattern="/^[0-9]+$/" class="form-control" required>
 
@@ -48,7 +48,7 @@
         </div>
 
         <div class="form-group" ng-class="{ 'has-error': hic.houseInsuranceForm.adress.$touched && hic.houseInsuranceForm.adress.$invalid }">
-            <label class="control-label col-sm-2" for="adress" translate>Adress</label>
+            <label class="control-label col-sm-2" for="address" translate>{{"HOUSE.ADDRESS"}}</label>
             <div class="col-sm-6 col-md-4">
                 <input type="text" ng-model="hic.houseInsurance.adress" id="adress" name="adress" class="form-control" required>
 
@@ -59,7 +59,7 @@
         </div>
 
         <div class="form-group" ng-class="{ 'has-error': hic.houseInsuranceForm.ownerFirstName.$touched && hic.houseInsuranceForm.ownerFirstName.$invalid }">
-            <label class="control-label col-sm-2" for="code" translate>Owner first name</label>
+            <label class="control-label col-sm-2" for="code" translate>{{"HOUSE.OWNERFN"}}</label>
             <div class="col-sm-6 col-md-4">
                 <input type="text" ng-model="hic.houseInsurance.ownerFirstName" id="ownerFirstName" name="ownerFirstName" class="form-control" required>
 
@@ -72,7 +72,7 @@
         </div>
 
         <div class="form-group" ng-class="{ 'has-error': hic.houseInsuranceForm.ownerLastName.$touched && hic.houseInsuranceForm.ownerLastName.$invalid }">
-            <label class="control-label col-sm-2" for="code" translate>Owner last name</label>
+            <label class="control-label col-sm-2" for="code" translate>{{"HOUSE.OWNERLN"}}</label>
             <div class="col-sm-6 col-md-4">
                 <input type="text" ng-model="hic.houseInsurance.ownerLastName" id="ownerLastName" name="ownerLastName" class="form-control" required>
 
@@ -85,7 +85,7 @@
         </div>
 
         <div class="form-group" ng-class="{ 'has-error': hic.houseInsuranceForm.ownerJMBG.$touched && hic.houseInsuranceForm.ownerJMBG.$invalid }">
-            <label class="control-label col-sm-2" for="code" translate>Owner JMBG</label>
+            <label class="control-label col-sm-2" for="code" translate>{{"HOUSE.OWNERJMBG"}}</label>
             <div class="col-sm-6 col-md-4">
                 <input type="text" ng-model="hic.houseInsurance.ownerJMBG" id="ownerJMBG" name="ownerJMBG" ng-pattern="/^[0-9]{13}$/" class="form-control" required>
 
@@ -98,7 +98,7 @@
         </div>
 
          <div class="form-group"">
-            <label class="control-label col-sm-2" for="code" translate>Insurance</label>
+            <label class="control-label col-sm-2" for="code" translate>{{"HOUSE.INSURANCE"}}</label>
             <div class="col-sm-6 col-md-4">
                 <div ng-dropdown-multiselect="" options="hic.insuranceData" selected-model="hic.insuranceSelection" events="hic.selectionEvent" id="coveredByInsurance" name="coveredByInsurance">
                 </div>
@@ -108,8 +108,8 @@
 
 
         <div class="col-sm-offset-2">
-            <button type="button" class="btn btn-primary" ng-click="hic.addHouseInsurance()" translate ng-disabled="hic.houseInsuranceForm.$invalid">Submit</button>
-            <button type="button" class="btn btn-secondary" ng-click="hic.goToCarInsurance()" translate>Skip</button>
+            <button type="button" class="btn btn-primary" ng-click="hic.addHouseInsurance()" translate ng-disabled="hic.houseInsuranceForm.$invalid">{{"COMMON.SUBMIT"}}</button>
+            <button type="button" class="btn btn-secondary" ng-click="hic.goToCarInsurance()" translate>{{"COMMON.SKIP"}}</button>
         </div>
     </form>
 </div>

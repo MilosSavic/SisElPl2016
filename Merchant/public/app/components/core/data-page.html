@@ -2,53 +2,53 @@
 <div>
 	<form class="form-horizontal" novalidate name="dpc.data">
 			<div class="form-group">
-				<label class="control-label col-sm-2">Insurance start</label>
+				<label class="control-label col-sm-2" translate>{{"DATA.START"}}</label>
 				<label class="control-label col-sm-2">{{dpc.startDate}}</label>
 			</div>
 
 			<div class="form-group">
-			<label class="control-label col-sm-2">Insurance end:</label>
+			<label class="control-label col-sm-2" translate>{{"DATA.END"}}</label>
 			<label class="control-label col-sm-2">{{dpc.endDate}}</label>
 			</div>
 
 			<div class="form-group">
-			<label class="control-label col-sm-2">House insurance:</label>
-			<label class="control-label col-sm-2"><span ng-show="dpc.houseInsuranceChosen">Yes</span><span ng-show="!dpc.houseInsuranceChosen">No</span></label>
-			<button ng-show="dpc.houseInsuranceChosen" type="button" class="btn btn-danger" ng-click="dpc.cancelHouseInsurance()" translate>Cancel</button>
+			<label class="control-label col-sm-2" translate>{{"DATA.HOUSE"}}</label>
+			<label class="control-label col-sm-2"><span ng-show="dpc.houseInsuranceChosen" translate>{{"DATA.YES"}}</span><span ng-show="!dpc.houseInsuranceChosen" translate>{{"DATA.NO"}}</span></label>
+			<button ng-show="dpc.houseInsuranceChosen" type="button" class="btn btn-danger" ng-click="dpc.cancelHouseInsurance()" translate>{{"DATA.CANCEL"}}</button>
 			</div>
 
 			<div class="form-group">
-			<label class="control-label col-sm-2">Car insurance:</label>
-			<label class="control-label col-sm-2"><span ng-show="dpc.carInsuranceChosen">Yes</span><span ng-show="!dpc.carInsuranceChosen">No</span></label></label>
-				<button ng-show="dpc.carInsuranceChosen" type="button" class="btn btn-danger" ng-click="dpc.cancelCarInsurance()" translate>Cancel</button>
+			<label class="control-label col-sm-2" translate>{{"DATA.CAR"}}</label>
+			<label class="control-label col-sm-2"><span ng-show="dpc.carInsuranceChosen" translate>{{"DATA.YES"}}</span><span ng-show="!dpc.carInsuranceChosen" translate>{{"DATA.NO"}}</span></label></label>
+				<button ng-show="dpc.carInsuranceChosen" type="button" class="btn btn-danger" ng-click="dpc.cancelCarInsurance()" translate>{{"DATA.CANCEL"}}</button>
 			</div>
 
 			<div class="form-group">
-			<label class="control-label col-sm-2">Insurance amount:</label>
+			<label class="control-label col-sm-2" translate>{{"DATA.AMOUNT"}}</label>
 			<label class="control-label col-sm-2">{{dpc.amount}}</label>
 			</div>
 			<div class="form-group">
-			<label class="control-label col-sm-2">Region:</label>
+			<label class="control-label col-sm-2" translate>{{"DATA.REGION"}}</label>
 			<label class="control-label col-sm-2">{{dpc.region}}</label>
 			</div>
 
 			<div ng-repeat="user in dpc.users" class="form-group">
-			<label class="control-label col-sm-2"><span ng-show="user.index==1">Users: </span></label>
+			<label class="control-label col-sm-2" ><span ng-show="user.index==1" translate>{{"DATA.USERS"}}</span></label>
 			<label class="control-label col-sm-2"><a ui-sref="main.usersInsuranceForm({userIndex:{{user.index}}})">{{user.name}} {{user.surname}}</a></label>
-			<button ng-show="user.index!=1 && dpc.sure!=user.index" type="button" class="btn btn-danger" ng-click="dpc.deleteUser(user.index)" translate>Remove user</button>
-			<label class="control-label col-sm-2" ng-show="dpc.sure==user.index">Are you sure?</label>
-			<button ng-show="dpc.sure==user.index" type="button" class="btn btn-danger" ng-click="dpc.confirmDeleteUser(user.index)" translate>Yes</button>
-			<button ng-show="dpc.sure==user.index" type="button" class="btn btn-secondary" ng-click="dpc.notSure()" translate>No</button>
+			<button ng-show="user.index!=1 && dpc.sure!=user.index" type="button" class="btn btn-danger" ng-click="dpc.deleteUser(user.index)" translate>{{"COMMON.REMOVEUSER"}}</button>
+			<label class="control-label col-sm-2" ng-show="dpc.sure==user.index" translate>{{"DATA.AREYOUSURE"}}</label>
+			<button ng-show="dpc.sure==user.index" type="button" class="btn btn-danger" ng-click="dpc.confirmDeleteUser(user.index)" translate>{{"DATA.YES"}}</button>
+			<button ng-show="dpc.sure==user.index" type="button" class="btn btn-secondary" ng-click="dpc.notSure()" translate>{{"DATA.NO"}}</button>
 			</div>
 
 			<div class="form-group">
-			<label class="control-label col-sm-2">Total price:</label>
+			<label class="control-label col-sm-2" translate>{{"DATA.TOTAL"}}</label>
 			<label class="control-label col-sm-2">{{dpc.price}}</label>
 			</div>
 
 			<div class="form-group">
 			<label class="control-label col-sm-2"></label>
-			<button type="button" class="btn btn-primary" ng-click="dpc.saveAll()" onclick="location.href='http://localhost:8000/#/paymentForm'" translate ng-disabled="cic.carInsuranceForm.$invalid">Payment</button>
+			<button type="button" class="btn btn-primary" ng-click="dpc.saveAll()" onclick="location.href='http://localhost:8000/#/paymentForm'" translate ng-disabled="cic.carInsuranceForm.$invalid" translate>{{"COMMON.BUY"}}</button>
 			</div>
 			</form>
 

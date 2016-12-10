@@ -12,7 +12,7 @@
 
     <form class="form-horizontal" novalidate name="cic.carInsuranceForm">
         <div class="form-group" ng-class="{ 'has-error': cic.carInsuranceForm.duration.$touched && cic.carInsuranceForm.duration.$invalid }">
-            <label class="control-label col-sm-2" for="duration" translate>Duration</label>
+            <label class="control-label col-sm-2" for="duration" translate>{{"CAR.DURATION"}}</label>
             <div class="col-sm-6 col-md-4" busy-indicator>
                 <input type="text" ng-model="cic.carInsurance.duration" id="duration" name="duration" class="form-control" ng-pattern="/^[0-9]+$/" required  >
                 <div ng-messages="cic.carInsuranceForm.duration.$error" ng-show="cic.carInsuranceForm.duration.$touched">
@@ -22,7 +22,7 @@
             </div>
         </div>
         <div class="form-group" ng-class="{ 'has-error': cic.carInsuranceForm.services.$touched && cic.carInsuranceForm.services.$invalid }">
-            <label class="control-label col-sm-2" for="code" translate>Service</label>
+            <label class="control-label col-sm-2" for="code" translate>{{"CAR.SERVICE"}}</label>
             <div class="col-sm-6 col-md-4">
                 <input type="text" ng-model="cic.carInsurance.services" id="services" name="services" class="form-control" required>
                 <div ng-messages="cic.carInsuranceForm.services.$error" ng-show="cic.carInsuranceForm.services.$touched">
@@ -32,7 +32,7 @@
             </div>
         </div>
         <div class="form-group" ng-class="{ 'has-error': cic.carInsuranceForm.vehicle.$touched && cic.carInsuranceForm.vehicle.$invalid }">
-            <label class="control-label col-sm-2" for="vehicle" translate>Vehicle</label>
+            <label class="control-label col-sm-2" for="vehicle" translate>{{"CAR.VEHICLE"}}</label>
             <div class="col-sm-6 col-md-4">
                 <input type="text" ng-model="cic.carInsurance.vehicle" id="vehicle" name="vehicle" class="form-control" required>
                 <div ng-messages="cic.carInsuranceForm.vehicle.$error" ng-show="cic.carInsuranceForm.vehicle.$touched">
@@ -43,7 +43,7 @@
         </div>
 
         <div class="form-group" ng-class="{ 'has-error': cic.carInsuranceForm.vehicleYear.$touched && cic.carInsuranceForm.vehicleYear.$invalid }">
-            <label class="control-label col-sm-2" for="vehicleYear" translate>Vehicle year</label>
+            <label class="control-label col-sm-2" for="vehicleYear" translate>{{"CAR.VEHICLEYEAR"}}</label>
             <div class="col-sm-6 col-md-4">
                 <input type="text" ng-model="cic.carInsurance.vehicleYear" id="vehicleYear" name="vehicleYear" ng-pattern="/^[0-9]+$/" class="form-control" required>
                 <div ng-messages="cic.carInsuranceForm.vehicleYear.$error" ng-show="cic.carInsuranceForm.vehicleYear.$touched">
@@ -55,7 +55,7 @@
         </div>
 
         <div class="form-group" ng-class="{ 'has-error': cic.carInsuranceForm.plateNumber.$touched && cic.carInsuranceForm.plateNumber.$invalid }">
-            <label class="control-label col-sm-2" for="plateNumber" translate>Plate number</label>
+            <label class="control-label col-sm-2" for="plateNumber" translate>{{"CAR.PLATENUMBER"}}</label>
             <div class="col-sm-6 col-md-4">
                 <input type="text" ng-model="cic.carInsurance.plateNumber" id="plateNumber" name="plateNumber" class="form-control" required>
                 <div ng-messages="cic.carInsuranceForm.plateNumber.$error" ng-show="cic.carInsuranceForm.plateNumber.$touched">
@@ -66,7 +66,7 @@
         </div>
 
         <div class="form-group" ng-class="{ 'has-error': cic.carInsuranceForm.chassisNumber.$touched && cic.carInsuranceForm.chassisNumber.$invalid }">
-            <label class="control-label col-sm-2" for="chassisNumber" translate>Chassis number</label>
+            <label class="control-label col-sm-2" for="chassisNumber" translate>{{"CAR.CHASSISNUMBER"}}</label>
             <div class="col-sm-6 col-md-4">
                 <input type="text" ng-model="cic.carInsurance.chassisNumber" id="chassisNumber" name="chassisNumber" class="form-control" required>
                 <div ng-messages="cic.carInsuranceForm.chassisNumber.$error" ng-show="cic.carInsuranceForm.chassisNumber.$touched">
@@ -78,7 +78,7 @@
 
 
         <div class="form-group" ng-class="{ 'has-error': cic.carInsuranceForm.ownerFirstName.$touched && cic.carInsuranceForm.ownerFirstName.$invalid }">
-            <label class="control-label col-sm-2" for="code" translate>Owner first name</label>
+            <label class="control-label col-sm-2" for="code" translate>{{"CAR.OWNERFN"}}</label>
             <div class="col-sm-6 col-md-4">
                 <input type="text" ng-model="cic.carInsurance.ownerFirstName" id="ownerFirstName" name="ownerFirstName" class="form-control" required>
                 <div ng-messages="cic.carInsuranceForm.ownerFirstName.$error" ng-show="cic.carInsuranceForm.ownerFirstName.$touched">
@@ -89,7 +89,7 @@
         </div>
 
         <div class="form-group" ng-class="{ 'has-error': cic.carInsuranceForm.ownerLastName.$touched && cic.carInsuranceForm.ownerLastName.$invalid }">
-            <label class="control-label col-sm-2" for="code" translate>Owner last name</label>
+            <label class="control-label col-sm-2" for="code" translate>{{"CAR.OWNERLN"}}</label>
             <div class="col-sm-6 col-md-4">
                 <input type="text" ng-model="cic.carInsurance.ownerLastName" id="ownerLastName" name="ownerLastName" class="form-control" required>
                 <div ng-messages="cic.carInsuranceForm.ownerLastName.$error" ng-show="cic.carInsuranceForm.ownerLastName.$touched">
@@ -100,7 +100,7 @@
         </div>
 
         <div class="form-group" ng-class="{ 'has-error': cic.carInsuranceForm.ownerJmbg.$touched && cic.carInsuranceForm.ownerJmbg.$invalid }">
-            <label class="control-label col-sm-2" for="code" translate>Owner JMBG</label>
+            <label class="control-label col-sm-2" for="code" translate>{{"CAR.OWNERJMBG"}}</label>
             <div class="col-sm-6 col-md-4">
                 <input type="text" ng-model="cic.carInsurance.ownerJmbg" id="ownerJmbg" name="ownerJmbg" ng-pattern="/^[0-9]{13}$/" class="form-control" required>
                 <div ng-messages="cic.carInsuranceForm.ownerJmbg.$error" ng-show="cic.carInsuranceForm.ownerJmbg.$touched">
@@ -114,10 +114,9 @@
 
         <div class="col-sm-offset-2">
 
-            <button type="button" class="btn btn-primary" ng-click="cic.addCarInsurance()" translate ng-disabled="cic.carInsuranceForm.$invalid">Save</button>
-            <button type="button" class="btn btn-secondary" ng-click="cic.goToFinalPage()" translate>Skip</button>
+            <button type="button" class="btn btn-primary" ng-click="cic.addCarInsurance()" translate ng-disabled="cic.carInsuranceForm.$invalid">{{"COMMON.SUBMIT"}}</button>
+            <button type="button" class="btn btn-secondary" ng-click="cic.goToFinalPage()" translate>{{"COMMON.SKIP"}}</button>
 
-            <!-- <button type="button" class="btn btn-primary"  onclick="location.href='http://localhost:8000/#/paymentForm'" translate ng-disabled="cic.carInsuranceForm.$invalid">Payment</button> -->
         </div>
     </form>
 </div>

@@ -17,6 +17,11 @@
 				"INSURANCESALE":"Insurance sale",
 				"NEXT":"Next",
 				"NEXTUSER":"Next user",
+				"SUBMIT":"Submit",
+				"SKIP":"Skip",
+				"REMOVEUSER":"Remove user",
+				"BUY":"Buy",
+
 				
 			},
 
@@ -53,6 +58,17 @@
 
 			"CAR": {
 
+				"DURATION":"Duration",
+				"SERVICE":"Service",
+				"VEHICLE":"Vehicle",
+				"VEHICLEYEAR":"Vehicle year",
+				"PLATENUMBER":"Plate number",
+				"CHASSISNUMBER":"Chassis number",
+				"OWNERFN":"Owner first name",
+				"OWNERLN":"Owner last name",
+				"OWNERJMBG":"Owner JMBG",
+
+
 				"ERROR": {
 
 					"REQUIRED":"This field is required.",
@@ -62,6 +78,15 @@
 			},
 
 			"HOUSE": {
+
+				"SIZE":"Size",
+				"AGE":"Age",
+				"ESTIMATEDVALUE":"Estimated value",
+				"ADDRESS":"Address",
+				"OWNERFN":"Owner first name",
+				"OWNERLN":"Owner last name",
+				"OWNERJMBG":"Owner jmbg",
+				"INSURANCE":"Insurance",
 
 				"ERROR": {
 
@@ -102,6 +127,22 @@
 					"NUMBER":"Only numbers are allowed."
 				}
 			},
+
+			"DATA": {
+
+				"START":"Insurance start",
+				"END":"Insurance end",
+				"HOUSE":"House insurance",
+				"CAR":"Car insurance",
+				"AMOUNT":"Insurance amount",
+				"REGION":"Region",
+				"USERS":"Users",
+				"TOTAL":"Total price",
+				"AREYOUSURE":"Are you sure ?",
+				"YES":"Yes",
+				"NO":"No",
+				"CANCEL":"Cancel",
+			},
 			"LANGUAGE": "En"
 		},
 		"sr-latn": {
@@ -119,6 +160,10 @@
 				"INSURANCESALE":"Prodaja osiguranja",
 				"NEXT":"Dalje",
 				"NEXTUSER":"Sledeći korisnik",
+				"SUBMIT":"Potvrdi",
+				"SKIP":"Preskoči",
+				"REMOVEUSER":"Izbriši korisnika",
+				"BUY":"Kupi",
 			},
 
 			"SIDEBAR": {
@@ -170,6 +215,63 @@
 					"JMBG":"Ovo polje mora da sadrži tačno 13 numeričkih karaktera.",
 					"SPORT":"Ne postoji nijedan sport.",
 				}
+			},
+
+			"HOUSE": {
+
+				"SIZE":"Veličina",
+				"AGE":"Starost",
+				"ESTIMATEDVALUE":"Procenjena vrednost",
+				"ADDRESS":"Adresa",
+				"OWNERFN":"Ime vlasnika",
+				"OWNERLN":"Prezime vlasnika",
+				"OWNERJMBG":"JMBG vlasnika",
+				"INSURANCE":"Osiguranje",
+
+				"ERROR": {
+
+					"REQUIRED":"Ovo polje je obavezno.",
+					"NUMBER":"Samo brojevi su dozvoljeni.",
+					"EMAIL":"Email koji ste uneli nije validan.",
+					"JMBG":"Ovo polje mora da sadrži tačno 13 numeričkih karaktera.",
+				}
+			},
+
+			"CAR": {
+
+				"DURATION":"Trajanje",
+				"SERVICE":"Usluga",
+				"VEHICLE":"Vozilo",
+				"VEHICLEYEAR":"Godina proizvodnje",
+				"PLATENUMBER":"Broj registarske tablice",
+				"CHASSISNUMBER":"Broj šasije",
+				"OWNERFN":"Ime vlasnika",
+				"OWNERLN":"Prezime vlasnika",
+				"OWNERJMBG":"JMBG vlasnika",
+
+
+				"ERROR": {
+
+					"REQUIRED":"Ovo polje je obavezno.",
+					"NUMBER":"Samo brojevi su dozvoljeni.",
+					"JMBG":"Ovo polje mora da sadrži tačno 13 numeričkih karaktera.",
+				}
+			},
+
+			"DATA": {
+
+				"START":"Početak osiguranja",
+				"END":"Kraj osiguranja",
+				"HOUSE":"Kućno osiguranje",
+				"CAR":"Putno osiguranje",
+				"AMOUNT":"Iznos osiguranja",
+				"REGION":"Region",
+				"USERS":"Korisnici",
+				"TOTAL":"Ukupna cena",
+				"AREYOUSURE":"Da li ste sigurni ?",
+				"YES":"Da",
+				"NO":"Ne",
+				"CANCEL":"Odustani",
 			},
 
 			"LANGUAGE": "Sr"
