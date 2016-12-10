@@ -13,13 +13,13 @@
 <form class="form-horizontal" novalidate name="hicc.houseInsuranceCategoryForm">
 		<div class="form-group">
 		<div class="col-sm-offset-2 col-sm-4">
-			<label>House insurance</label>
+			<label translate>{{"HOUSECATEGORY.HOUSEINSURANCE"}}</label>
 		</div>
 		</div>
 
 
         <div class="form-group">
-		<label class="control-label col-sm-2">Name:</label>
+		<label class="control-label col-sm-2" translate>{{"HOUSECATEGORY.NAME"}}</label>
 		<div class="col-sm-6 col-md-4">
 		<input class="form-control" type="text" ng-model="hicc.houseInsuranceCategory.name"  name="name" required>
 		</div>
@@ -27,7 +27,7 @@
 
 
         <div class="form-group">
-		<label class="control-label col-sm-2">Risk factor:</label>
+		<label class="control-label col-sm-2" translate>{{"HOUSECATEGORY.RISKFACTOR"}}</label>
 		<div class="col-sm-6 col-md-4">
 		<input class="form-control" type="text" ng-model="hicc.houseInsuranceCategory.riskFactor" name="coefficient">
 
@@ -36,7 +36,7 @@
 
 
 		 <div class="col-sm-offset-2">
-		      <button class="btn btn-primary" ng-click="hicc.submit()" translate>Submit</button>
+		      <button class="btn btn-primary" ng-click="hicc.submit()" translate>{{"COMMON.SUBMIT"}}</button>
 		</div>
 
 	</form>
@@ -47,8 +47,8 @@
   <tr>
     <th>&nbsp;</th>
     <th>ID</th>
-    <th>Name</th>
-    <th>Risk factor</th>
+    <th translate>{{"HOUSECATEGORY.NAME"}}</th>
+    <th translate>{{"HOUSECATEGORY.RISKFACTOR"}}</th>
 
   </tr>
   <tr ng-repeat="element in hicc.listOfHouseInsuranceCategories">

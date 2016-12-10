@@ -21,6 +21,7 @@
 				"SKIP":"Skip",
 				"REMOVEUSER":"Remove user",
 				"BUY":"Buy",
+				
 
 				
 			},
@@ -33,6 +34,17 @@
 				"HOUSEINSURANCE":"House insurance",
 				"CARINSURANCE":"Car insurance",
 				"YOURDATA":"Your data",
+			},
+
+			"AMOUNT": {
+
+				"AMOUNT":"Amount",
+
+				"ERROR": {
+
+					"REQUIRED":"This field is required.",
+					"NUMBER":"Only numbers are allowed.",
+				}
 			},
 
 
@@ -97,6 +109,19 @@
 				}
 			},
 
+			"HOUSECATEGORY": {
+
+				"NAME":"Name",
+				"RISKFACTOR":"Risk factor",
+				"HOUSEINSURANCE":"House insurance",
+
+				"ERROR": {
+
+					"REQUIRED":"This field is required.",
+					"NUMBER":"Only numbers are allowed.",
+				}
+			},
+
 			"USER": {
 
 				"NAME":"Name",
@@ -120,6 +145,21 @@
 			},
 
 			"REGION": {
+
+				"NAME":"Name",
+				"RISK":"Risk",
+
+				"ERROR": {
+
+					"REQUIRED":"This field is required.",
+					"NUMBER":"Only numbers are allowed."
+				}
+			},
+
+			"SPORT": {
+
+				"NAME":"Name",
+				"COEFFICIENT":"Coefficient",
 
 				"ERROR": {
 
@@ -164,6 +204,7 @@
 				"SKIP":"Preskoči",
 				"REMOVEUSER":"Izbriši korisnika",
 				"BUY":"Kupi",
+				
 			},
 
 			"SIDEBAR": {
@@ -174,6 +215,19 @@
 				"HOUSEINSURANCE":"Kućno osiguranje",
 				"CARINSURANCE":"Putno osiguranje",
 				"YOURDATA":"Vaši podaci",
+			},
+
+
+			"AMOUNT": {
+
+				"AMOUNT":"Iznos",
+
+
+				"ERROR": {
+
+					"REQUIRED":"Ovo polje je obavezno.",
+					"NUMBER":"Samo brojevi su dozvoljeni.",
+				}
 			},
 
 
@@ -237,6 +291,8 @@
 				}
 			},
 
+			
+
 			"CAR": {
 
 				"DURATION":"Trajanje",
@@ -272,6 +328,44 @@
 				"YES":"Da",
 				"NO":"Ne",
 				"CANCEL":"Odustani",
+			},
+
+			"REGION": {
+
+				"NAME":"Naziv",
+				"RISK":"Rizik",
+
+				"ERROR": {
+
+					"REQUIRED":"Ovo polje je obavezno.",
+					"NUMBER":"Samo brojevi su dozvoljeni.",
+				}
+			},
+
+			"SPORT": {
+
+				"NAME":"Naziv",
+				"COEFFICIENT":"Koeficijent",
+
+
+				"ERROR": {
+
+					"REQUIRED":"Ovo polje je obavezno.",
+					"NUMBER":"Samo brojevi su dozvoljeni.",
+				}
+			},
+
+			"HOUSECATEGORY": {
+
+				"NAME":"Naziv",
+				"RISKFACTOR":"Faktor rizika",
+				"HOUSEINSURANCE":"Kućno osiguranje",
+
+				"ERROR": {
+
+					"REQUIRED":"Ovo polje je obavezno.",
+					"NUMBER":"Samo brojevi su dozvoljeni.",
+				}
 			},
 
 			"LANGUAGE": "Sr"
