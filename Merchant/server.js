@@ -22,6 +22,7 @@ require('./models/car-insurance.model');
 require('./models/sport.model');
 require('./models/user.model');
 require('./models/amount.model');
+require('./models/house-insurance-category.model');
 
 
 
@@ -47,9 +48,11 @@ var carInsurances = require('./controllers/car-insurance.server.controller.js');
 var sports = require('./controllers/sport.server.controller.js');
 var users = require('./controllers/user.server.controller.js');
 var amounts = require('./controllers/amount.server.controller.js');
+var houseInsuranceCategories = require('./controllers/house-insurance-category.server.controller.js');
 //da li je ovo dobro?
 var userRules = require('./rules/rules.user.js');
 var totalRules = require('./rules/rules.total.js');
+
 
 
  app.route('/api/regions')
@@ -96,6 +99,14 @@ app.route('/api/amounts/:amountId')
     .get(amounts.getAmountById);
 app.param('amountId', amounts.getAmountById);
 
+app.route('/api/houseInsuranceCategories')
+    .get(houseInsuranceCategories.list)
+    .post(houseInsuranceCategories.createHouseInsuranceCategory);
+
+app.route('/api/amounts/:amountId')
+    .get(amounts.getAmountById);
+app.param('amountId', amounts.getAmountById);
+
 
 app.route('/api/carInsurances')
     .get(carInsurances.list)
@@ -108,6 +119,7 @@ app.route('/api/userRules')
 
 app.route('/api/totalRules')
     .post(totalRules.execute);
+
 
 
 

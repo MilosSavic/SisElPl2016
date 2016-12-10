@@ -2,5 +2,5 @@
 	"use strict";
 
 	angular
-		.module('company-registry.house-insurance', ['ngResource', 'ui.router','ngAnimate', 'ui.bootstrap']);
+		.module('company-registry.house-insurance', ['ngResource', 'ui.router','ngAnimate', 'ui.bootstrap','angularjs-dropdown-multiselect']);
 })();
