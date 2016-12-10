@@ -110,12 +110,18 @@
 			insurance.houseInsurance = undefined;
 			InsuranceData.setHouseInsuranceChosen(false);
 			dpc.houseInsuranceChosen = false;
+			//reculcalate price
+			totalPrice = 0;
+			nextUserPrice(insurance.users[0],0);
 		}
 
 		dpc.cancelCarInsurance = function(){
 			insurance.carInsurance = undefined;
 			InsuranceData.setCarInsuranceChosen(false);
 			dpc.carInsuranceChosen = false;
+			//reculcalate price
+			totalPrice = 0;
+			nextUserPrice(insurance.users[0],0);
 		}
 
 		dpc.sure = 0;
