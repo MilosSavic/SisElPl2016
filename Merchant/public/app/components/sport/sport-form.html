@@ -18,25 +18,32 @@
 		</div>
 
 
-        <div class="form-group">
+    <div class="form-group" ng-class="{ 'has-error': sc.sportForm.name.$touched && sc.sportForm.name.$invalid }">
 		<label class="control-label col-sm-2" translate>{{"SPORT.NAME"}}</label>
 		<div class="col-sm-6 col-md-4">
 		<input class="form-control" type="text" ng-model="sc.sport.name"  name="name" required>
+    <div ng-messages="sc.sportForm.name.$error" ng-show="sc.sportForm.name.$touched">
+                    <p ng-message="required"><span translate>{{"SPORT.ERROR.REQUIRED"}}</span></p>
+                </div>
 		</div>
 		</div>
 
 
-        <div class="form-group">
+    <div class="form-group" ng-class="{ 'has-error': sc.sportForm.coefficient.$touched && sc.sportForm.coefficient.$invalid }">
 		<label class="control-label col-sm-2" translate>{{"SPORT.COEFFICIENT"}}</label>
 		<div class="col-sm-6 col-md-4">
-		<input class="form-control" type="text" ng-model="sc.sport.coefficient" name="coefficient">
+		<input class="form-control" type="text" ng-model="sc.sport.coefficient" name="coefficient" ng-pattern="/^[0-9]+$/" required>
+    <div ng-messages="sc.sportForm.coefficient.$error" ng-show="sc.sportForm.coefficient.$touched">
+                    <p ng-message="required"><span translate>{{"SPORT.ERROR.REQUIRED"}}</span></p>
+                    <p ng-message="pattern"><span translate>{{"SPORT.ERROR.NUMBER"}}</span></p>
+                </div>
 
 		</div>
 		</div>
 
 
 		 <div class="col-sm-offset-2">
-		      <button class="btn btn-primary" ng-click="sc.submitRegion()" translate>{{"COMMON.SUBMIT"}}</button>
+		      <button class="btn btn-primary" ng-click="sc.submitSPORT()" ng-disabled="sc.sportForm.$invalid" translate>{{"COMMON.SUBMIT"}}</button>
 		</div>
 
 	</form>
