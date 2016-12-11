@@ -90,6 +90,20 @@
 				}
 			},
 
+			"CARSERVICE": {
+
+				"NAME":"Name",
+				"GROUP":"Group",
+				"RISKFACTOR":"Risk factor",
+				"CARINSURANCESERVICE":"Car insurance service",
+
+				"ERROR": {
+
+					"REQUIRED":"This field is required.",
+					"NUMBER":"Only numbers are allowed.",
+				}
+			},
+
 			"HOUSE": {
 
 				"SIZE":"Size",
@@ -114,7 +128,7 @@
 
 				"NAME":"Name",
 				"RISKFACTOR":"Risk factor",
-				"HOUSEINSURANCE":"House insurance",
+				"HOUSEINSURANCECATEGORY":"House insurance category",
 
 				"ERROR": {
 
@@ -186,6 +200,7 @@
 			},
 			"LANGUAGE": "En"
 		},
+
 		"sr-latn": {
 			"COMMON": {
 				"SAVE":"Sačuvaj",
@@ -361,7 +376,7 @@
 
 				"NAME":"Naziv",
 				"RISKFACTOR":"Faktor rizika",
-				"HOUSEINSURANCE":"Kućno osiguranje",
+				"HOUSEINSURANCECATEGORY":"Kategorija kućnog osiguranja",
 
 				"ERROR": {
 
@@ -369,6 +384,21 @@
 					"NUMBER":"Samo brojevi su dozvoljeni.",
 				}
 			},
+
+			"CARSERVICE": {
+
+				"NAME":"Naziv",
+				"GROUP":"Grupa",
+				"RISKFACTOR":"Faktor rizika",
+				"CARINSURANCESERVICE":"Paket za pomoć na putu",
+
+				"ERROR": {
+
+					"REQUIRED":"Ovo polje je obavezno.",
+					"NUMBER":"Samo brojevi su dozvoljeni.",
+				}
+			},
+
 
 			"LANGUAGE": "Sr"
 		},

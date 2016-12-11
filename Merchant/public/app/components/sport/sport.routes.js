@@ -9,7 +9,7 @@
 	function config($stateProvider) {
 		$stateProvider
 			.state('main.sportForm', {
-				url: '/sportForm',
+				url: '/header/add/sportForm',
 				views: {
 					'content@': {
 						resolve: {

@@ -9,7 +9,7 @@
 	function config($stateProvider) {
 		$stateProvider
 			.state('main.amountForm', {
-				url: '/amountForm',
+				url: '/header/add/amountForm',
 				views: {
 					'content@': {
 						resolve: {

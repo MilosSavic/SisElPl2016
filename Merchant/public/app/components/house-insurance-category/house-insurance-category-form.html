@@ -13,7 +13,7 @@
 <form class="form-horizontal" novalidate name="hicc.houseInsuranceCategoryForm">
 		<div class="form-group">
 		<div class="col-sm-offset-2 col-sm-4">
-			<label translate>{{"HOUSECATEGORY.HOUSEINSURANCE"}}</label>
+			<label translate>{{"HOUSECATEGORY.HOUSEINSURANCECATEGORY"}}</label>
 		</div>
 		</div>
 
@@ -32,9 +32,10 @@
       <div class="form-group" ng-class="{ 'has-error': hicc.houseInsuranceCategoryForm.riskFactor.$touched && hicc.houseInsuranceCategoryForm.riskFactor.$invalid }">
 		<label class="control-label col-sm-2" translate>{{"HOUSECATEGORY.RISKFACTOR"}}</label>
 		<div class="col-sm-6 col-md-4">
-		<input class="form-control" type="text" ng-model="hicc.houseInsuranceCategory.riskFactor" name="riskFactor" required>
+		<input class="form-control" type="text" ng-model="hicc.houseInsuranceCategory.riskFactor" name="riskFactor" ng-pattern="/^[0-9]+$/" required>
     <div ng-messages="hicc.houseInsuranceCategoryForm.riskFactor.$error" ng-show="hicc.houseInsuranceCategoryForm.riskFactor.$touched">
                     <p ng-message="required"><span translate>{{"HOUSECATEGORY.ERROR.REQUIRED"}}</span></p>
+                    <p ng-message="pattern"><span translate>{{"HOUSECATEGORY.ERROR.NUMBER"}}</span></p>
                 </div>
 
 		</div>

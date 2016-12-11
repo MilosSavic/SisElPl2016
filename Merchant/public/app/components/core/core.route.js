@@ -42,7 +42,7 @@
 				}
 			})
 			.state('main.dataPage', {
-				url: '/data',
+				url: '/add/data',
 				views: {
 					'content@': {
 						templateUrl: 'app/components/core/data-page.html',

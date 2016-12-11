@@ -9,7 +9,7 @@
 	function config($stateProvider) {
 		$stateProvider
 			.state('main.paymentForm', {
-				url: '/paymentForm',
+				url: '/add/paymentForm',
 				views: {
 					'content@': {
 

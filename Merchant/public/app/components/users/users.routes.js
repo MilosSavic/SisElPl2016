@@ -9,7 +9,7 @@
 	function config($stateProvider) {
 		$stateProvider
 			.state('main.usersInsuranceForm', {
-				url: '/usersInsuranceForm/:userIndex',
+				url: '/add/usersInsuranceForm/:userIndex',
 				views: {
 					'content@': {
 						resolve: {

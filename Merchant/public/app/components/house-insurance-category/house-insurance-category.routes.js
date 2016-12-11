@@ -9,7 +9,7 @@
 	function config($stateProvider) {
 		$stateProvider
 			.state('main.houseInsuranceCategoryForm', {
-				url: '/houseInsuranceCategoryForm',
+				url: '/header/add/houseInsuranceCategoryForm',
 				views: {
 					'content@': {
 						resolve: {

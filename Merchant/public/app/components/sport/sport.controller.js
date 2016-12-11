@@ -12,7 +12,7 @@
 
 		Sport.get(function(response){sc.listOfSports = response.sports;});
 
-		sc.submitRegion = function(){
+		sc.submitSport = function(){
 			sc.sport.$save(success);
 		}
 		function success() {

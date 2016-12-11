@@ -9,7 +9,7 @@
 	function config($stateProvider) {
 		$stateProvider
 			.state('main.houseInsuranceForm', {
-				url: '/houseInsuranceForm',
+				url: '/add/houseInsuranceForm',
 				views: {
 					'content@': {
 						resolve: {

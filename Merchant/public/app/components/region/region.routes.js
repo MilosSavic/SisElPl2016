@@ -9,7 +9,7 @@
 	function config($stateProvider) {
 		$stateProvider
 			.state('main.regionForm', {
-				url: '/regionForm',
+				url: '/header/add/regionForm',
 				views: {
 					'content@': {
 						resolve: {
