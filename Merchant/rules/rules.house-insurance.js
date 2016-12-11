@@ -6,7 +6,6 @@ module.exports.execute = execute;
 //	console.log(result);
 //})
 function execute(houseInsurance,result){
-	console.log("USLI SMO U HOUSE INSURANCE RULES");
 	var mongoose = require('mongoose');
 	var nools = require('nools');
 	var ruleFilePath = __dirname + "/house-insurance-price.nools";

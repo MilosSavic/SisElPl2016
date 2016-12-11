@@ -1,5 +1,5 @@
 define Price {
- value: 1000,
+ value: 10,
  constructor: function(value){
   this.value=value;
  }
@@ -71,6 +71,36 @@ rule "more than 7 users"{
     modify(m,function(){m.text+=" executed";});
     console.log(m.text);
     modify(price,function(){this.value *= 0.7});
+    console.log(price.value);
+  }
+}
+
+rule "duration"{
+ // priority:2,
+ when {
+        m : Message m.text == "duration";
+  price: Price;
+    }
+    then {
+    console.log("Duration pravilo: "+m.text);
+    modify(m,function(){m.text+=" executed";});
+    console.log(m.text);
+    modify(price,function(){this.value *= m.factor});
+    console.log(price.value);
+  }
+}
+
+rule "amount"{
+  priority:10,
+ when {
+        m : Message m.text == "amount";
+  price: Price;
+    }
+    then {
+    console.log("Amount pravilo: "+m.text);
+    modify(m,function(){m.text+=" executed";});
+    console.log(m.text);
+    modify(price,function(){this.value *= m.factor/1000/1000});
     console.log(price.value);
   }
 }

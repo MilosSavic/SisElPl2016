@@ -1,6 +1,7 @@
 "use strict"
 module.exports.execute = execute;
 
+
 function execute(insurance,result){
 	var mongoose = require('mongoose');
 	var nools = require('nools');
@@ -9,6 +10,7 @@ function execute(insurance,result){
 	var Message = flow.getDefined("message");
 	var Price = flow.getDefined("price");
 	var Region = mongoose.model('Region');
+	var Amount = mongoose.model('Amount');
 
 
 	var session = flow.getSession();
@@ -28,19 +30,47 @@ function execute(insurance,result){
 	      });
 	    }else {
 	      regionRisk = region.risk;
-	      otherStuff();
+	      findAmount();
 	    }
 
 	  });
 	//console.log(JSON.stringify(insurance.body));
 	console.log(JSON.stringify(price));
+	var amount = -10000;
+
+	function findAmount(){
+		
+		Amount.findById(insurance.body.amount).exec(function(err,result){
+	    if(err)
+	    {
+	      return res.status(400).send({
+	        message: "Error"
+	      });
+	    }else {
+	      amount = result.amount;
+	      otherStuff();
+	    }
+
+	  });
+	}
 	function otherStuff(){
 	var numberOfUsers = insurance.body.numberOfUsers; 
 	//session.assert(new Message("goodbye"));
-		var messageNumberOfUsers = new Message("number",numberOfUsers);
-		session.assert(messageNumberOfUsers);
-		var messageRegionRisk = new Message("risk",regionRisk);
-		session.assert(messageRegionRisk);
+	var messageNumberOfUsers = new Message("number",numberOfUsers);
+	session.assert(messageNumberOfUsers);
+	var messageRegionRisk = new Message("risk",regionRisk);
+	session.assert(messageRegionRisk);
+
+	var startDate = new Date(insurance.body.startDate);
+	var endDate = new Date(insurance.body.endDate);
+	//milliseconds to days
+	var duration = (endDate-startDate)/1000/60/60/24;
+	var messageDuration = new Message("duration",duration);
+	var messageAmount = new Message("amount",amount);
+	session.assert(messageDuration);
+	session.assert(messageAmount);
+	
+
 
 	session.match(function(err){
 	    if(err){

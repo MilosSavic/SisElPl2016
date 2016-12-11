@@ -1,0 +1,42 @@
+define Price {
+ value: 1000,
+ constructor: function(value){
+  this.value=value;
+ }
+}
+
+
+define CarInsurance {
+  services: [],
+  constructor: function(services){
+    this.services = services;
+  }
+}
+
+
+define ServicesFired{
+  fired: false,
+  constructor: function(fired){
+    this.fired = fired;
+  }
+}
+
+
+rule "services"{
+       priority:3,
+    when {
+        c:CarInsurance;
+       price: Price;
+      fired: ServicesFired !fired.fired;
+    }
+    then {
+  console.log("Services pravilo HOME: ");
+  var totalRisk = 0;
+  for(var i=0; i<c.services.length; i++){
+    totalRisk+=c.services[i]
+  }
+  modify(price,function(){this.value *= totalRisk;});
+  modify(fired,function(){this.fired = true;});
+  console.log(price.value);
+    }
+  }

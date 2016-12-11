@@ -5,8 +5,8 @@
 		.module('company-registry.core')
 		.controller('DataPageController', DataPageController);
 
-	DataPageController.$inject = ['$location','SideBar','$scope','$state','InsuranceData','Region','Insurance','Amount','UserRules','TotalRules','HouseInsuranceRules'];
-	function DataPageController($location,SideBar,$scope,$state,InsuranceData,Region,Insurance,Amount,UserRules,TotalRules,HouseInsuranceRules) {
+	DataPageController.$inject = ['$location','SideBar','$scope','$state','InsuranceData','Region','Insurance','Amount','UserRules','TotalRules','HouseInsuranceRules','CarInsuranceRules'];
+	function DataPageController($location,SideBar,$scope,$state,InsuranceData,Region,Insurance,Amount,UserRules,TotalRules,HouseInsuranceRules,CarInsuranceRules) {
 		var dpc = this;
 		
 		var insurance = JSON.parse(JSON.stringify(InsuranceData.getInsuranceData()));
@@ -86,8 +86,26 @@
 	  	{
 	  		console.log(result);
 	  		totalPrice+=result.value;
-	  		formTotalPrice();
+	  		formCarInsurancePrice();
 	  	})
+	  	}
+	  	else {
+	  		formCarInsurancePrice();
+	  	}
+	  }
+
+	  function formCarInsurancePrice(){
+
+	  	if(insurance.carInsurance){
+	  		if(insurance.carInsurance._id)
+	  			delete insurance.carInsurance._id;
+	  		var carInsuranceRule = new CarInsuranceRules(insurance.carInsurance);
+	  		carInsuranceRule.$save(function(result)
+	  		{
+	  			console.log(result);
+	  			totalPrice+=result.value;
+	  			formTotalPrice();
+	  		})
 	  	}
 	  	else {
 	  		formTotalPrice();

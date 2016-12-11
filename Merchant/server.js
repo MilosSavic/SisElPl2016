@@ -55,6 +55,7 @@ var carInsuranceServices = require('./controllers/car-insurance-service.server.c
 var userRules = require('./rules/rules.user.js');
 var houseInsuranceRules = require('./rules/rules.house-insurance.js');
 var totalRules = require('./rules/rules.total.js');
+var carInsuranceRules = require('./rules/rules.car-insurance.js');
 
 
 
@@ -127,6 +128,9 @@ app.route('/api/userRules')
 
 app.route('/api/houseInsuranceRules')
     .post(houseInsuranceRules.execute);
+
+app.route('/api/carInsuranceRules')
+    .post(carInsuranceRules.execute);
 
 app.route('/api/totalRules')
     .post(totalRules.execute);

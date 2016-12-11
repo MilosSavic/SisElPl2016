@@ -51,3 +51,21 @@
 	}
 
 })();
+
+(function() {
+	"use strict";
+
+	angular
+		.module('company-registry.core')
+		.factory('CarInsuranceRules', CarInsuranceRules);
+
+		//ma daj, mora da ovo moze lepse da se napise
+	CarInsuranceRules.$inject = ['$resource'];
+	function CarInsuranceRules($resource) {
+		var collectionName = "carInsuranceRules";
+		return $resource("http://localhost:3000/api/:collectionName/:id",
+			{id: "@_id", collectionName: collectionName},
+			{ update: { method: 'PUT' } });
+	}
+
+})();
