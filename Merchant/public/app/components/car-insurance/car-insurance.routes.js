@@ -13,7 +13,7 @@
 				views: {
 					'content@': {
 						resolve: {
-							//regions: getRegions,
+							services: getServices,
 							//payments: getPayments
 						},
 						templateUrl: 'app/components/car-insurance/car-insurance-form.html',
@@ -22,6 +22,12 @@
 					}
 				}
 			})
-
+			getServices.$inject = ['CarInsuranceService'];
+			function getServices(CarInsuranceService) {
+				return CarInsuranceService.get().$promise;
+		}
 	}
+
+	
+
 })();

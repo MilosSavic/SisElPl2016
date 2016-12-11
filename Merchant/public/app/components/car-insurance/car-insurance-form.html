@@ -11,26 +11,17 @@
 <div>
 
     <form class="form-horizontal" novalidate name="cic.carInsuranceForm">
-        <div class="form-group" ng-class="{ 'has-error': cic.carInsuranceForm.duration.$touched && cic.carInsuranceForm.duration.$invalid }">
-            <label class="control-label col-sm-2" for="duration" translate>{{"CAR.DURATION"}}</label>
-            <div class="col-sm-6 col-md-4" busy-indicator>
-                <input type="text" ng-model="cic.carInsurance.duration" id="duration" name="duration" class="form-control" ng-pattern="/^[0-9]+$/" required  >
-                <div ng-messages="cic.carInsuranceForm.duration.$error" ng-show="cic.carInsuranceForm.duration.$touched">
-                    <p ng-message="required"><span translate>{{"CAR.ERROR.REQUIRED"}}</span></p>
-                    <p ng-message="pattern"><span translate>{{"CAR.ERROR.NUMBER"}}</span></p>
-                </div>
-            </div>
-        </div>
-        <div class="form-group" ng-class="{ 'has-error': cic.carInsuranceForm.services.$touched && cic.carInsuranceForm.services.$invalid }">
+        
+         <div class="form-group"">
             <label class="control-label col-sm-2" for="code" translate>{{"CAR.SERVICE"}}</label>
             <div class="col-sm-6 col-md-4">
-                <input type="text" ng-model="cic.carInsurance.services" id="services" name="services" class="form-control" required>
-                <div ng-messages="cic.carInsuranceForm.services.$error" ng-show="cic.carInsuranceForm.services.$touched">
-                    <p ng-message="required"><span translate>{{"CAR.ERROR.REQUIRED"}}</span></p>
+                <div ng-dropdown-multiselect="" options="cic.serviceData" selected-model="cic.serviceSelection"  extra-settings="cic.extraSettings" events="cic.selectionEvent" group-by="group" id="services" name="services" required>
                 </div>
 
             </div>
         </div>
+
+     
         <div class="form-group" ng-class="{ 'has-error': cic.carInsuranceForm.vehicle.$touched && cic.carInsuranceForm.vehicle.$invalid }">
             <label class="control-label col-sm-2" for="vehicle" translate>{{"CAR.VEHICLE"}}</label>
             <div class="col-sm-6 col-md-4">

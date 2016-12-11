@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Add car insurance service</title>
+    <link href="./assets/css/bootstrap.css" rel="stylesheet">
+    <link href="./assets/css/company.css" rel="stylesheet">
+    <link href="./assets/css/font-awesome.css" rel="stylesheet">
+    <link href="./assets/css/solution.css" rel="stylesheet">
+</head>
+<body ng-app="company-registry">
+<div>
+
+<form class="form-horizontal" novalidate name="cisc.carInsuranceServiceForm">
+		<div class="form-group">
+		<div class="col-sm-offset-2 col-sm-4">
+			<label translate>{{"HOUSECATEGORY.HOUSEINSURANCE"}}</label>
+		</div>
+		</div>
+
+
+        <div class="form-group">
+		<label class="control-label col-sm-2" translate>Name</label>
+		<div class="col-sm-6 col-md-4">
+		<input class="form-control" type="text" ng-model="cisc.carInsuranceService.name"  name="name" required>
+		</div>
+		</div>
+
+    <div class="form-group">
+    <label class="control-label col-sm-2" translate>Group</label>
+    <div class="col-sm-6 col-md-4">
+    <input class="form-control" type="text" ng-model="cisc.carInsuranceService.serviceGroup"  name="serviceGroup" required>
+    </div>
+
+    </div>
+        <div class="form-group">
+		<label class="control-label col-sm-2" translate>Risk factor</label>
+		<div class="col-sm-6 col-md-4">
+		<input class="form-control" type="text" ng-model="cisc.carInsuranceService.riskFactor" name="riskFactor">
+
+		</div>
+		</div>
+
+
+		 <div class="col-sm-offset-2">
+		      <button class="btn btn-primary" ng-click="cisc.submit()" translate>{{"COMMON.SUBMIT"}}</button>
+		</div>
+
+	</form>
+
+    <br><br><br><br><br>
+
+	<table id="t01" align="center" width="75%;">
+  <tr>
+    <th>&nbsp;</th>
+    <th>ID</th>
+    <th translate>Name</th>
+      <th translate>Group</th>
+    <th translate>Risk factor</th>
+
+
+  </tr>
+  <tr ng-repeat="element in cisc.listOfCarInsuranceServices">
+    <td style="width:4%;">{{$index+1}}&nbsp;</td>
+    <td style="width:11%;">{{element._id}}</td>
+    <td style="width:9%;">{{element.name}}</td>
+    <td style="width:9%;">{{element.serviceGroup}}</td>
+    <td style="width:9%;">{{element.riskFactor}}</td>
+  </tr>
+  </table>
+
+</div>
+</body>
+</html>

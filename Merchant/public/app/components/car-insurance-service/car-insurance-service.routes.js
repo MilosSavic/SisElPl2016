@@ -1,0 +1,26 @@
+(function() {
+	"use strict";
+
+	angular
+		.module('company-registry.car-insurance-service')
+		.config(config);
+
+	config.$inject = ['$stateProvider'];
+	function config($stateProvider) {
+		$stateProvider
+			.state('main.carInsuranceServiceForm', {
+				url: '/carInsuranceServiceForm',
+				views: {
+					'content@': {
+						resolve: {
+
+						},
+						templateUrl: 'app/components/car-insurance-service/car-insurance-service-form.html',
+						controller: 'CarInsuranceServiceController',
+						controllerAs: 'cisc'
+					}
+				}
+			})
+
+	}
+})();

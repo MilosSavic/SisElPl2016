@@ -3,6 +3,10 @@ var mongoose = require('mongoose'),
 
 var carInsuranceServiceSchema = new Schema({ //defining UserScehma object using Schema constructor
       name: String,
+      serviceGroup: {
+      	type: Number,
+      	required: "You have to insert a service group"
+      },
       riskFactor: Number
    });
 
