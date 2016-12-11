@@ -18,25 +18,31 @@
 		</div>
 
 
-        <div class="form-group">
+      <div class="form-group" ng-class="{ 'has-error': hicc.houseInsuranceCategoryForm.name.$touched && hicc.houseInsuranceCategoryForm.name.$invalid }">
 		<label class="control-label col-sm-2" translate>{{"HOUSECATEGORY.NAME"}}</label>
 		<div class="col-sm-6 col-md-4">
 		<input class="form-control" type="text" ng-model="hicc.houseInsuranceCategory.name"  name="name" required>
+    <div ng-messages="hicc.houseInsuranceCategoryForm.name.$error" ng-show="hicc.houseInsuranceCategoryForm.name.$touched">
+                    <p ng-message="required"><span translate>{{"HOUSECATEGORY.ERROR.REQUIRED"}}</span></p>
+                </div>
 		</div>
 		</div>
 
 
-        <div class="form-group">
+      <div class="form-group" ng-class="{ 'has-error': hicc.houseInsuranceCategoryForm.riskFactor.$touched && hicc.houseInsuranceCategoryForm.riskFactor.$invalid }">
 		<label class="control-label col-sm-2" translate>{{"HOUSECATEGORY.RISKFACTOR"}}</label>
 		<div class="col-sm-6 col-md-4">
-		<input class="form-control" type="text" ng-model="hicc.houseInsuranceCategory.riskFactor" name="coefficient">
+		<input class="form-control" type="text" ng-model="hicc.houseInsuranceCategory.riskFactor" name="riskFactor" required>
+    <div ng-messages="hicc.houseInsuranceCategoryForm.riskFactor.$error" ng-show="hicc.houseInsuranceCategoryForm.riskFactor.$touched">
+                    <p ng-message="required"><span translate>{{"HOUSECATEGORY.ERROR.REQUIRED"}}</span></p>
+                </div>
 
 		</div>
 		</div>
 
 
 		 <div class="col-sm-offset-2">
-		      <button class="btn btn-primary" ng-click="hicc.submit()" translate>{{"COMMON.SUBMIT"}}</button>
+		      <button class="btn btn-primary" ng-click="hicc.submit()" ng-disabled="hicc.houseInsuranceCategoryForm.$invalid" translate>{{"COMMON.SUBMIT"}}</button>
 		</div>
 
 	</form>
