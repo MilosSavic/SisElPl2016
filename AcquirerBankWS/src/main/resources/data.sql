@@ -1,0 +1,1 @@
+INSERT INTO DESTINATION VALUES ('PCC', 'Payment Card Center', 'https://localhost:8081/auth');
