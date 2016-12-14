@@ -2,7 +2,7 @@
 	"use strict";
 
 	angular
-		.module('company-registry.region')
+		.module('merchant-app.region')
 		.controller('RegionController', RegionController);
 
 	RegionController.$inject = ['$location','Region','$state'];

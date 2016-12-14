@@ -2,7 +2,7 @@
 	"use strict";
 
 	angular
-		.module('company-registry.payment')
+		.module('payment-app.payment')
 		.factory('Payment', Payment);
 
 	Payment.$inject = ['$resource'];

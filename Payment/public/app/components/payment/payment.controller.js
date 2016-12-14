@@ -2,7 +2,7 @@
 	"use strict";
 
 	angular
-		.module('company-registry.payment')
+		.module('payment-app.payment')
 		.controller('PaymentController', PaymentController);
 
 	PaymentController.$inject = ['$location','Payment'];

@@ -2,7 +2,7 @@
     "use strict";
 
     angular
-        .module('company-registry.car-insurance')
+        .module('merchant-app.car-insurance')
         .factory('CarInsurance', CarInsurance);
 
     CarInsurance.$inject = ['$resource'];

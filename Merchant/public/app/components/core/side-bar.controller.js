@@ -2,7 +2,7 @@
 	"use strict";
 	
 	angular
-		.module('company-registry.core')
+		.module('merchant-app.core')
 		.controller('SideBarController', SideBarController);
 
 	SideBarController.$inject = ['$location','SideBar','$scope','$state'];

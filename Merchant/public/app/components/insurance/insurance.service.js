@@ -2,7 +2,7 @@
 	"use strict";
 
 	angular
-		.module('company-registry.insurance')
+		.module('merchant-app.insurance')
 		.factory('Insurance', Insurance);
 
 
@@ -21,7 +21,7 @@
 
 	
 		angular
-		.module('company-registry.insurance')
+		.module('merchant-app.insurance')
 		.factory('InsuranceData', InsuranceData);
 	InsuranceData.$inject = ['Insurance','User','HouseInsurance','CarInsurance'];
 	function InsuranceData(Insurance,User,HouseInsurance,CarInsurance){

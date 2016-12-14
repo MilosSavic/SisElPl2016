@@ -2,7 +2,7 @@
 	"use strict";
 	
 	angular
-		.module('company-registry.core')
+		.module('payment-app.core')
 		.controller('HeaderController', HeaderController);
 
 	HeaderController.$inject = ['crTranslator', 'crTranslations'];

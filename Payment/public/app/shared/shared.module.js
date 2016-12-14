@@ -2,5 +2,5 @@
 	"use strict";
 	
 	angular
-		.module('company-registry.shared', ['company-registry.i18n', 'ngMessages']);
+		.module('payment-app.shared', ['payment-app.i18n', 'ngMessages']);
 })();

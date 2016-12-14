@@ -2,7 +2,7 @@
 	"use strict";
 
 	angular
-		.module('company-registry.shared')
+		.module('merchant-app.shared')
 		.directive('uniqueField', uniqueField);
 
 	uniqueField.$inject = ['$q', '$parse'];

@@ -2,5 +2,5 @@
 	"use strict";
 
 	angular
-		.module('company-registry.car-insurance', ['ngResource', 'ui.router','ngAnimate', 'ui.bootstrap']);
+		.module('merchant-app.car-insurance', ['ngResource', 'ui.router','ngAnimate', 'ui.bootstrap']);
 })();

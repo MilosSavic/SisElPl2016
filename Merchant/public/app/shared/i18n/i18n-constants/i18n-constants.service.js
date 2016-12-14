@@ -425,6 +425,6 @@
 	};
 
 	angular
-		.module('company-registry.i18n.constants')
+		.module('merchant-app.i18n.constants')
 		.constant("crTranslations", crTranslations);
 })();
