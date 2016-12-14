@@ -5,10 +5,18 @@
 		.module('company-registry.car-insurance')
 		.controller('CarInsuranceController', CarInsuranceController);
 
-	CarInsuranceController.$inject = ['$location','CarInsurance','$state','InsuranceData','SideBar','CarInsuranceService','services'];
-	function CarInsuranceController($location,CarInsurance,$state,InsuranceData,SideBar,CarInsuranceService,services) {
+	CarInsuranceController.$inject = ['$location','CarInsurance','$state','InsuranceData','SideBar','CarInsuranceService','crTranslator', 'crTranslations','services'];
+	function CarInsuranceController($location,CarInsurance,$state,InsuranceData,SideBar,CarInsuranceService,crTranslator,crTranslations,services) {
 		var cic = this;
 		cic.carInsurance = InsuranceData.getInsuranceData().carInsurance;
+
+		cic.currentLanguage = crTranslations[crTranslator.getLanguage()].LANGUAGE;
+        cic.setLanguage = setLanguage;
+
+        function setLanguage(language) {
+            crTranslator.setLanguage(language);
+            cic.currentLanguage = crTranslations[language].LANGUAGE;
+        }
 
 		console.log("SERVISI: ");
 		console.log(JSON.stringify(services));
@@ -74,10 +82,18 @@
 				cic.serviceData.push(obj);
 			}
 
+		cic.translate = {checkAll: 'Selektuj sve',
+								uncheckAll: "Deselektuj sve",
+								selectionCount: "čekirano",
+								buttonDefaultText: "Izaberi",
+								dynamicButtonTextSuffix: "čekirano"}
+
 		cic.selectionEvent = {onItemSelect: itemSelected,
 								onItemDeselect: itemDeselected,
 								onSelectAll: allItemsSelected,
 								onDeselectAll: allItemsDeselected}
+
+
 		function itemSelected(item){
 			var group = 0;
 			for(var i=0; i<cic.serviceData.length; i++)
@@ -122,7 +138,7 @@
 			for(var i=0; i<cic.serviceSelection.length; i++){
 			
 			cic.carInsurance.services.push({_id: cic.serviceSelection[i].id});
-		}
+			}
 			console.log(JSON.stringify(cic.carInsurance));
 			InsuranceData.getInsuranceData().carInsurance.services = cic.carInsurance.services;
 

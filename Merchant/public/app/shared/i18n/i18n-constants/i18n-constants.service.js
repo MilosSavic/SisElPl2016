@@ -66,6 +66,7 @@
 					"REQUIRED":"This field is required.",
 					"AMOUNT":"There are no amounts.",
 					"REGION":"There are no regions.",
+					"MIN":"Number of users must be greater than 0",
 				}
 			},
 
@@ -198,6 +199,16 @@
 				"NO":"No",
 				"CANCEL":"Cancel",
 			},
+
+			/*"SELECT": {
+
+				"CHECKALL":"Check All",
+				"UNCHECKALL":"Uncheck All",
+				"CHECKED":"checked",
+				"SELECT":"Select",
+			},*/
+
+
 			"LANGUAGE": "En"
 		},
 
@@ -263,6 +274,7 @@
 					"REQUIRED":"Ovo polje je obavezno.",
 					"AMOUNT":"Ne postoje vrednosti.",
 					"REGION":"Ne postoje regioni.",
+					"MIN":"Broj korisnika mora biti veći od 0",
 				}
 			},
 
@@ -398,6 +410,14 @@
 					"NUMBER":"Samo brojevi su dozvoljeni.",
 				}
 			},
+
+			/*"SELECT": {
+
+				"CHECKALL":"Selektuj sve",
+				"UNCHECKALL":"Deselektuj sve",
+				"CHECKED":"čekirano",
+				"SELECT":"Izaberi",
+			},*/
 
 
 			"LANGUAGE": "Sr"

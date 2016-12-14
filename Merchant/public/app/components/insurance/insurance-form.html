@@ -53,12 +53,13 @@
 		<div class="form-group" ng-class="{ 'has-error': ic.insuranceForm.numberOfUsers.$touched && ic.insuranceForm.numberOfUsers.$invalid }">
 			<label class="control-label col-sm-2" translate>{{"INSURANCE.NUMBEROFUSERS"}}</label>
 			<div class="col-sm-6 col-md-4">
-			<input id="numberOfUsers" name="numberOfUsers" class="form-control" type="text" min="1" max="15" ng-model="ic.insurance.numberOfUsers"
+			<input id="numberOfUsers" name="numberOfUsers" class="form-control" type="number" min="1" max="15" ng-model="ic.insurance.numberOfUsers"
 			ng-pattern="/^[0-9]+$/" required>
 
 			<div ng-messages="ic.insuranceForm.numberOfUsers.$error" ng-show="ic.insuranceForm.numberOfUsers.$touched">
                     <p ng-message="required"><span translate>{{"INSURANCE.ERROR.REQUIRED"}}</span></p>
                     <p ng-message="pattern"><span translate>{{"INSURANCE.ERROR.NUMBER"}}</span></p>
+                    <p ng-message="min"><span translate>{{"INSURANCE.ERROR.MIN"}}</span></p>
 
                 </div>
 

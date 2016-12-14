@@ -2,5 +2,5 @@
 
 Projekat iz sistema elektronskog plaćanja
 
-# Članovi tima 
+## Članovi tima 
 Miloš Savić, Rajko Ilić i Vladimir Baumgartner
