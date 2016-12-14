@@ -5,10 +5,18 @@
 		.module('company-registry.house-insurance')
 		.controller('HouseInsuranceController', HouseInsuranceController);
 
-	HouseInsuranceController.$inject = ['$location','HouseInsuranceCategory','$state','CarInsurance','InsuranceData','SideBar'];
-	function HouseInsuranceController($location,HouseInsuranceCategory,$state,CarInsurance,InsuranceData,SideBar) {
+	HouseInsuranceController.$inject = ['$location','HouseInsuranceCategory','$state','CarInsurance','InsuranceData','SideBar','crTranslator', 'crTranslations'];
+	function HouseInsuranceController($location,HouseInsuranceCategory,$state,CarInsurance,InsuranceData,SideBar,crTranslator,crTranslations) {
 		var hic = this;
 		hic.houseInsurance = InsuranceData.getInsuranceData().houseInsurance;
+
+		hic.currentLanguage = crTranslations[crTranslator.getLanguage()].LANGUAGE;
+        hic.setLanguage = setLanguage;
+
+        function setLanguage(language) {
+            crTranslator.setLanguage(language);
+            hic.currentLanguage = crTranslations[language].LANGUAGE;
+        }
 
 		hic.goToCarInsurance = function(){
 			if(!InsuranceData.getInsuranceData().carInsurance)
@@ -56,6 +64,12 @@
 
 			
 		});
+
+		hic.translate = {checkAll: 'Selektuj sve',
+								uncheckAll: "Deselektuj sve",
+								selectionCount: "čekirano",
+								buttonDefaultText: "Izaberi",
+								dynamicButtonTextSuffix: "čekirano"}
 
 		hic.selectionEvent = {onItemSelect: itemSelected,
 								onItemDeselect: itemDeselected,
