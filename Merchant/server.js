@@ -55,6 +55,8 @@ require('./routes/house-insurance-rules.server.routes')(app);
 require('./routes/car-insurance-rules.server.routes')(app);
 require('./routes/total-rules.server.routes')(app);
 
+require('./rules/all-rules.js');
+
 
 app.listen(3000, function() {
     console.log("Server started");
