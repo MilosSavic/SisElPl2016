@@ -5,6 +5,6 @@ cena_osiguranja_doma = vrednost_kuce/1000 * (velicina/100)^0.5 * starost_faktor 
 
 cena_pomoc_na_putu = bazna_cena * suma_faktora_izabranih_paketa
 
-cena_putnog_osiguranja = (suma_cena_svih_korisnika * regionFaktor + cena_osiguranja_doma + cena_pomoc_na_putu) 
-			* trajanje * amount/10000 * popust_na_broj_korisnika
+cena_putnog_osiguranja = (suma_cena_svih_korisnika * regionFaktor * popust_na_broj_korisnika + cena_osiguranja_doma + cena_pomoc_na_putu) 
+			* trajanje * amount/10000 
 

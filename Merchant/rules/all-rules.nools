@@ -8,8 +8,10 @@ define Price {
 
 define CarInsurance {
   services: [],
+  carInsurancePrice: 100,
   constructor: function(services){
     this.services = services;
+    this.carInsurancePrice = 100;
   }
 }
 
@@ -35,21 +37,7 @@ define HouseInsurance {
   }
 }
 
-define UserBasePrice {
- value: 1000,
- constructor: function(value){
-  this.value=value;
- }
-}
-
 define InsurancePrice {
- value: 1000,
- constructor: function(value){
-  this.value=value;
- }
-}
-
-define HouseInsurancePrice {
  value: 1000,
  constructor: function(value){
   this.value=value;
@@ -63,12 +51,6 @@ define CarInsurancePrice {
  }
 }
 
-define UserCounter{
-  value:0,
-  constructor: function(value){
-    this.value=value;
-  }
-}
 
 define SizeFired{
   fired: false,
@@ -178,21 +160,21 @@ define RegionRiskFired{
 }
 
 rule "services"{
-       priority:3,
+       priority:17,
     when {
         c:CarInsurance;
-       price: Price;
       fired: ServicesFired !fired.fired;
     }
     then {
   console.log("Services pravilo CAR: ");
+  console.log(c);
   var totalRisk = 0;
   for(var i=0; i<c.services.length; i++){
     totalRisk+=c.services[i]
   }
-  modify(price,function(){this.value *= totalRisk;});
+  modify(c,function(){this.carInsurancePrice *= totalRisk;});
   modify(fired,function(){this.fired = true;});
-  console.log(price.value);
+  console.log(c.carInsurancePrice);
     }
   }
 
@@ -328,7 +310,7 @@ rule RegionRiskFactor {
 }
 
 rule "2-4 users"{
-  priority:3,
+  priority:14,
  when {
         ins : Insurance ins.numberOfUsers>=2 && ins.numberOfUsers<=3;
        price: Price;
@@ -344,7 +326,7 @@ rule "2-4 users"{
 }
 
 rule "4-7 users"{
- priority:3,
+ priority:14,
  when {
         ins : Insurance ins.numberOfUsers>=4 && ins.numberOfUsers<=7;
        price: Price;
@@ -359,7 +341,7 @@ rule "4-7 users"{
 }
 
 rule "more than 7 users"{
- priority:3,
+ priority:14,
  when {
         ins : Insurance ins.numberOfUsers>7;
        price: Price;
@@ -395,11 +377,15 @@ rule "amount"{
        price: Price;
        fired: AmountFired !fired.fired;
        users: Users;
+       hi: HouseInsurance;
+       ci: CarInsurance;
     }
     then {
     console.log("Amount pravilo: ");
     modify(fired,function(){this.fired = true;});
     modify(price,function(){
+      this.value +=hi.houseInsurancePrice;
+      this.value +=ci.carInsurancePrice;
       this.value *= ins.amount/1000;
       //(ins.amount/1000);
     });
