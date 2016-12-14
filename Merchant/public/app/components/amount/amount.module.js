@@ -2,5 +2,5 @@
 	"use strict";
 
 	angular
-		.module('company-registry.amount', ['ngResource', 'ui.router']);
+		.module('merchant-app.amount', ['ngResource', 'ui.router']);
 })();

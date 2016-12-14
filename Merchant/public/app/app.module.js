@@ -2,5 +2,5 @@
 	"use strict";
 
 	angular
-		.module('company-registry', ['company-registry.core','company-registry.insurance','company-registry.region','company-registry.house-insurance', 'company-registry.car-insurance','company-registry.users', 'company-registry.sport','company-registry.shared','company-registry.amount','company-registry.house-insurance-category','company-registry.car-insurance-service']);
+		.module('merchant-app', ['merchant-app.core','merchant-app.insurance','merchant-app.region','merchant-app.house-insurance', 'merchant-app.car-insurance','merchant-app.users', 'merchant-app.sport','merchant-app.shared','merchant-app.amount','merchant-app.house-insurance-category','merchant-app.car-insurance-service']);
 })();

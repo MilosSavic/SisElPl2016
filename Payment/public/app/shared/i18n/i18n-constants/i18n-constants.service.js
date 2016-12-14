@@ -65,6 +65,6 @@
 	};
 
 	angular
-		.module('company-registry.i18n.constants')
+		.module('payment-app.i18n.constants')
 		.constant("crTranslations", crTranslations);
 })();

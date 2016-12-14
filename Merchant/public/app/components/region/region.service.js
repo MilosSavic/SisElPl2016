@@ -2,7 +2,7 @@
 	"use strict";
 
 	angular
-		.module('company-registry.region')
+		.module('merchant-app.region')
 		.factory('Region', Region);
 
 	Region.$inject = ['$resource'];

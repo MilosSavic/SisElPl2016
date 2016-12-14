@@ -3,7 +3,7 @@
 
 	
 		angular
-		.module('company-registry.core')
+		.module('merchant-app.core')
 		.factory('SideBar', SideBar);
 
 	SideBar.$inject = ['$rootScope']

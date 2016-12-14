@@ -2,5 +2,5 @@
 	"use strict";
 
 	angular
-		.module('company-registry.region', ['ngResource', 'ui.router']);
+		.module('merchant-app.region', ['ngResource', 'ui.router']);
 })();

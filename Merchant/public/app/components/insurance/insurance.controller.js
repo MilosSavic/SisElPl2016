@@ -2,7 +2,7 @@
 	"use strict";
 
 	angular
-		.module('company-registry.insurance')
+		.module('merchant-app.insurance')
 		.controller('InsuranceController', InsuranceController);
 
 	InsuranceController.$inject = ['$location','Insurance','Region','Test','$state','$rootScope','User','InsuranceData','SideBar','Amount'];

@@ -2,5 +2,5 @@
 	"use strict";
 
 	angular
-		.module('company-registry', ['company-registry.core', 'company-registry.payment', 'company-registry.shared']);
+		.module('payment-app', ['payment-app.core', 'payment-app.payment', 'payment-app.shared']);
 })();

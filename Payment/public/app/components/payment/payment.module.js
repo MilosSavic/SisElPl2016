@@ -2,5 +2,5 @@
 	"use strict";
 
 	angular
-		.module('company-registry.payment', ['ngResource', 'ui.router', 'ngAnimate', 'ui.bootstrap']);
+		.module('payment-app.payment', ['ngResource', 'ui.router', 'ngAnimate', 'ui.bootstrap']);
 })();

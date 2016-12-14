@@ -2,7 +2,7 @@
 	"use strict";
 	
 	angular
-		.module('company-registry.core')
+		.module('merchant-app.core')
 		.controller('DataPageController', DataPageController);
 
 	DataPageController.$inject = ['$location','SideBar','$scope','$state','InsuranceData','Region','Insurance','Amount','UserRules','TotalRules','HouseInsuranceRules','CarInsuranceRules'];

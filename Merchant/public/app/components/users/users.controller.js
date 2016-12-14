@@ -2,7 +2,7 @@
 	"use strict";
 
 	angular
-		.module('company-registry.users')
+		.module('merchant-app.users')
 		.controller('UsersController', UsersController);
 
 	UsersController.$inject = ['$location','Insurance','$state','User','$stateParams','HouseInsurance','InsuranceData','SideBar','Sport'];
