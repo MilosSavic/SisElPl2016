@@ -1,18 +1,21 @@
 package rs.ac.uns.ftn.sep2016.util;
 
+import java.io.Serializable;
 import java.util.Date;
 
 import rs.ac.uns.ftn.sep2016.exception.InvalidAuthentificationAndAuthorizationRequest;
 
-public class AuthRequest {
+public class AuthRequest implements Serializable {
 
-	Integer acquirerOrderId;
-	Date acquirerTimestamp;
-	String pan;
-	String securityCode;
-	String cardHolderName;
-	Date expirationDate;
-	Double transactionAmount;
+	private static final long serialVersionUID = -4151214170561144062L;
+
+	private Integer acquirerOrderId;
+	private Date acquirerTimestamp;
+	private String pan;
+	private String securityCode;
+	private String cardHolderName;
+	private Date expirationDate;
+	private Double transactionAmount;
 	
 	public AuthRequest(){
 		
