@@ -50,10 +50,6 @@ require('./routes/amount.server.routes')(app);
 require('./routes/house-insurance-category.server.routes')(app);
 require('./routes/car-insurance-service.server.routes')(app);
 require('./routes/car-insurance.server.routes')(app);
-require('./routes/user-rules.server.routes')(app);
-require('./routes/house-insurance-rules.server.routes')(app);
-require('./routes/car-insurance-rules.server.routes')(app);
-require('./routes/total-rules.server.routes')(app);
 require('./routes/all-rules.server.routes')(app);
 
 
