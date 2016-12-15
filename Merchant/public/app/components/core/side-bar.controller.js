@@ -9,6 +9,8 @@
 	function SideBarController($location,SideBar,$scope,$state) {
 		var sbc = this;
 
+		console.log($location.path());
+
 		$scope.$on('ua',function(response){
 			sbc.usersActive = true;
 		});
