@@ -2,7 +2,7 @@
 	"use strict";
 
 	angular
-		.module('company-registry.sport')
+		.module('merchant-app.sport')
 		.factory('Sport', Sport);
 
 	Sport.$inject = ['$resource'];

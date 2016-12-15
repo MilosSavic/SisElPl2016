@@ -2,12 +2,18 @@ var mongoose = require('mongoose'),
     Schema = mongoose.Schema;
 
 var carInsuranceServiceSchema = new Schema({ //defining UserScehma object using Schema constructor
-      name: String,
+      name: {
+      	type: String,
+      	required: "Name is required"
+      },
       serviceGroup: {
       	type: Number,
       	required: "You have to insert a service group"
       },
-      riskFactor: Number
+      riskFactor: {
+      	type: Number,
+      	required: "You have to insert a risk factor"
+      }
    });
 
 

@@ -2,7 +2,7 @@
     "use strict";
 
     angular
-        .module('company-registry.house-insurance')
+        .module('merchant-app.house-insurance')
         .factory('HouseInsurance', HouseInsurance);
 
     HouseInsurance.$inject = ['$resource'];

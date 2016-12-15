@@ -7,7 +7,7 @@
     <link href="./assets/css/font-awesome.css" rel="stylesheet">
     <link href="./assets/css/solution.css" rel="stylesheet">
 </head>
-<body ng-app="company-registry">
+<body ng-app="merchant-app">
 <div>
 
     <form class="form-horizontal" novalidate name="hic.houseInsuranceForm">
@@ -97,17 +97,25 @@
             </div>
         </div>
 
-         <div class="form-group"">
+         <div class="form-group" ng-class="{ 'has-error': hic.houseInsuranceForm.coveredByInsurance.$touched && hic.houseInsuranceForm.coveredByInsurance.$invalid }">
             <label class="control-label col-sm-2" for="code" translate>{{"HOUSE.INSURANCE"}}</label>
             <div class="col-sm-6 col-md-4">
-                <div ng-dropdown-multiselect="" options="hic.insuranceData" selected-model="hic.insuranceSelection" events="hic.selectionEvent" id="coveredByInsurance" name="coveredByInsurance">
+                
+                <div ng-if="hic.currentLanguage != 'Sr'">
+                    <div ng-dropdown-multiselect="" options="hic.insuranceData" selected-model="hic.insuranceSelection" events="hic.selectionEvent" id="coveredByInsurance" name="coveredByInsurance" ng-model="hic.houseInsurance.coveredByInsurance" required>
+                     </div>
+                </div>
+
+                 <div ng-if="hic.currentLanguage == 'Sr'">
+                    <div ng-dropdown-multiselect="" options="hic.insuranceData" selected-model="hic.insuranceSelection" events="hic.selectionEvent" id="coveredByInsurance" translation-texts ="hic.translate" name="coveredByInsurance" ng-model="hic.houseInsurance.coveredByInsurance" required>
+                     </div>
                 </div>
 
             </div>
         </div>
 
 
-        <div class="col-sm-offset-2">
+        <div class="col-sm-offset-2" >
             <button type="button" class="btn btn-primary" ng-click="hic.addHouseInsurance()" translate ng-disabled="hic.houseInsuranceForm.$invalid">{{"COMMON.SUBMIT"}}</button>
             <button type="button" class="btn btn-secondary" ng-click="hic.goToCarInsurance()" translate>{{"COMMON.SKIP"}}</button>
         </div>

@@ -2,26 +2,28 @@
 	"use strict";
 	
 	angular
-		.module('company-registry.core')
+		.module('merchant-app.core')
 		.controller('SideBarController', SideBarController);
 
 	SideBarController.$inject = ['$location','SideBar','$scope','$state'];
 	function SideBarController($location,SideBar,$scope,$state) {
 		var sbc = this;
 
-		$scope.$on('ua',function(response){
-			sbc.usersActive = true;
+		console.log($location.path());
+
+		$scope.$on('ua',function(event,obj){
+			sbc.usersActive = obj;
 		});
-		$scope.$on('ha',function(response){
-			sbc.houseActive = true;
+		$scope.$on('ha',function(event,obj){
+			sbc.houseActive = obj;
 		});
 
-		$scope.$on('ca',function(response){
-			sbc.carActive = true;
+		$scope.$on('ca',function(event,obj){
+			sbc.carActive = obj;
 		});
 
-		$scope.$on('da',function(response){
-			sbc.dataActive = true;
+		$scope.$on('da',function(event,obj){
+			sbc.dataActive = obj;
 		});
 		sbc.usersIndices = SideBar.getUserIndices();
 		sbc.usersActive = SideBar.isUsersActive();

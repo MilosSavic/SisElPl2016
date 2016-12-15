@@ -2,5 +2,5 @@
 	"use strict";
 
 	angular
-		.module('company-registry.house-insurance-category', ['ngResource', 'ui.router']);
+		.module('merchant-app.house-insurance-category', ['ngResource', 'ui.router']);
 })();

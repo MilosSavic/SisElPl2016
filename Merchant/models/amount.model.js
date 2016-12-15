@@ -3,7 +3,10 @@ var Schema = mongoose.Schema;
 
 var amountSchema = new Schema({
 
-  amount: Number,
+  amount: {
+  type:	Number,
+  required: "Amount is required"
+  }
 });
 
 var Amount = mongoose.model('Amount', amountSchema);

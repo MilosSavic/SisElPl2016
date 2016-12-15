@@ -2,12 +2,13 @@
 	"use strict";
 
 	angular
-		.module('company-registry.insurance')
+		.module('merchant-app.insurance')
 		.controller('InsuranceController', InsuranceController);
 
 	InsuranceController.$inject = ['$location','Insurance','Region','Test','$state','$rootScope','User','InsuranceData','SideBar','Amount'];
 	function InsuranceController($location,Insurance,Region,Test,$state,$rootScope,User,InsuranceData,SideBar,Amount) {
 		var ic = this;
+		
 		if(!$rootScope.insurance)
 			$rootScope.insurance = new Insurance();
 		ic.insurance = InsuranceData.getInsuranceData();
@@ -51,6 +52,12 @@
 			if(ic.insurance.numberOfUsers){
 
 				SideBar.setUsersActive(true);
+				if(InsuranceData.getInsuranceData().users)
+				if(ic.insurance.numberOfUsers!=InsuranceData.getInsuranceData().users.length){
+				SideBar.setDataActive(false);
+				SideBar.setHouseActive(false);
+				SideBar.setCarActive(false);
+				}
 				InsuranceData.addUsers(ic.insurance.numberOfUsers);
 				//$rootScope.insurance.users = [];
 				//for(var i=0; i<ic.insurance.numberOfUsers; i++)

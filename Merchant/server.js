@@ -25,8 +25,6 @@ require('./models/amount.model');
 require('./models/house-insurance-category.model');
 require('./models/car-insurance-service.model');
 
-
-
 var express = require("express"),
 	app = express(),
     bodyParser = require("body-parser"),
@@ -41,103 +39,18 @@ app.use(cors());
 
 app.use(express.static(__dirname + '/public'));
 
-
-var regions = require('./controllers/region.server.controller.js');
-var insurances = require('./controllers/insurance.server.controller.js');
-var houseInsurances = require('./controllers/house-insurance.server.controller.js');
-var carInsurances = require('./controllers/car-insurance.server.controller.js');
-var sports = require('./controllers/sport.server.controller.js');
-var users = require('./controllers/user.server.controller.js');
-var amounts = require('./controllers/amount.server.controller.js');
-var houseInsuranceCategories = require('./controllers/house-insurance-category.server.controller.js');
-var carInsuranceServices = require('./controllers/car-insurance-service.server.controller.js');
 //da li je ovo dobro?
-var userRules = require('./rules/rules.user.js');
-var houseInsuranceRules = require('./rules/rules.house-insurance.js');
-var totalRules = require('./rules/rules.total.js');
-var carInsuranceRules = require('./rules/rules.car-insurance.js');
 
-
-
- app.route('/api/regions')
-    .get(regions.list)
-    .post(regions.createRegion);
-
-app.route('/api/regions/:regionId')
-    .get(regions.getRegionById);
-app.param('regionId', regions.getRegionById);
-
- app.route('/api/sports')
-    .get(sports.list)
-    .post(sports.createSport);
-
-app.route('/api/sports/:sportId')
-    .get(sports.getSportById);
-app.param('sportsId', sports.getSportById);
-
-app.route('/api/users')
-    .get(users.list)
-    .post(users.createUser);
-
-app.route('/api/users/:userId')
-    .get(users.getUserById);
-app.param('userId', users.getUserById);
-
-app.route('/api/insurances')
-    .get(insurances.list)
-    .post(insurances.createInsurance);
-
-app.route('/api/insurances/:id')
-    .get(insurances.getInsuranceById);
-app.param('id', insurances.getInsuranceById);
-
-app.route('/api/houseInsurances')
-    .get(houseInsurances.list)
-    .post(houseInsurances.createHouseInsurance);
-
-app.route('/api/amounts')
-    .get(amounts.list)
-    .post(amounts.createAmount);
-
-app.route('/api/amounts/:amountId')
-    .get(amounts.getAmountById);
-app.param('amountId', amounts.getAmountById);
-
-app.route('/api/houseInsuranceCategories')
-    .get(houseInsuranceCategories.list)
-    .post(houseInsuranceCategories.createHouseInsuranceCategory);
-
-app.route('/api/amounts/:amountId')
-    .get(amounts.getAmountById);
-app.param('amountId', amounts.getAmountById);
-
-app.route('/api/carInsuranceServices')
-    .get(carInsuranceServices.list)
-    .post(carInsuranceServices.createCarInsuranceService);
-
-app.route('/api/carInsurances')
-    .get(carInsurances.list)
-    .post(carInsurances.createCarInsurance);
-
-
-
-    
-
-app.route('/api/userRules')
-    .post(userRules.execute);
-
-app.route('/api/houseInsuranceRules')
-    .post(houseInsuranceRules.execute);
-
-app.route('/api/carInsuranceRules')
-    .post(carInsuranceRules.execute);
-
-app.route('/api/totalRules')
-    .post(totalRules.execute);
-
-
-
-
+require('./routes/region.server.routes')(app);
+require('./routes/sport.server.routes')(app);
+require('./routes/user.server.routes')(app);
+require('./routes/insurance.server.routes')(app);
+require('./routes/house-insurance.server.routes')(app);
+require('./routes/amount.server.routes')(app);
+require('./routes/house-insurance-category.server.routes')(app);
+require('./routes/car-insurance-service.server.routes')(app);
+require('./routes/car-insurance.server.routes')(app);
+require('./routes/all-rules.server.routes')(app);
 
 
 app.listen(3000, function() {

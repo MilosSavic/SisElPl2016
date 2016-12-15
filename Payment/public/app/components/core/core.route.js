@@ -2,7 +2,7 @@
 	"use strict";
 
 	angular
-		.module('company-registry.core')
+		.module('payment-app.core')
 		.config(config);
 
 	config.$inject = ['$stateProvider', '$urlRouterProvider'];

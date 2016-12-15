@@ -7,16 +7,24 @@
     <link href="./assets/css/font-awesome.css" rel="stylesheet">
     <link href="./assets/css/solution.css" rel="stylesheet">
 </head>
-<body ng-app="company-registry">
+<body ng-app="merchant-app">
 <div>
 
     <form class="form-horizontal" novalidate name="cic.carInsuranceForm">
         
-         <div class="form-group"">
+         <div class="form-group" ng-class="{ 'has-error': cic.carInsuranceForm.services.$touched && cic.carInsuranceForm.services.$invalid }">
             <label class="control-label col-sm-2" for="code" translate>{{"CAR.SERVICE"}}</label>
             <div class="col-sm-6 col-md-4">
-                <div ng-dropdown-multiselect="" options="cic.serviceData" selected-model="cic.serviceSelection"  extra-settings="cic.extraSettings" events="cic.selectionEvent" group-by="group" id="services" name="services" required>
+                <div ng-if="cic.currentLanguage != 'Sr'">
+                    <div ng-dropdown-multiselect=""  options="cic.serviceData" selected-model="cic.serviceSelection"  extra-settings="cic.extraSettings" events="cic.selectionEvent"  group-by="group" id="services" name="services" ng-model="cic.carInsurance.services"  required>
+                    </div>
                 </div>
+                 <div ng-if="cic.currentLanguage == 'Sr'">
+                    <div ng-dropdown-multiselect=""  options="cic.serviceData" selected-model="cic.serviceSelection"  extra-settings="cic.extraSettings" events="cic.selectionEvent" translation-texts ="cic.translate" group-by="group" id="services" name="services" ng-model="cic.carInsurance.services"  required>
+                    </div>
+                </div>
+                
+                
 
             </div>
         </div>

@@ -2,7 +2,7 @@
 	"use strict";
 
 	angular
-		.module('company-registry.house-insurance')
+		.module('merchant-app.house-insurance')
 		.config(config);
 
 	config.$inject = ['$stateProvider'];

@@ -44,8 +44,25 @@
 			<div class="form-group">
 			<label class="control-label col-sm-2" translate>{{"DATA.TOTAL"}}</label>
 			<label class="control-label col-sm-2">{{dpc.price}}</label>
+			<button ng-show="!dpc.displayMoreData" type="button" class="btn btn-primary" ng-click="dpc.morePriceData()" translate>More</button>
+			<button ng-show="dpc.displayMoreData" type="button" class="btn btn-primary" ng-click="dpc.lessPriceData()" translate>Less</button>
 			</div>
-
+			
+			<div ng-show="dpc.displayMoreData" class="form-group">
+			<label class="control-label col-sm-2" translate>Base price</label>
+			<label class="control-label col-sm-2">{{dpc.basePrice}}</label>			
+			</div>
+			
+			<div ng-show="dpc.displayMoreData" class="form-group">
+			<label class="control-label col-sm-2" translate>House insurance price</label>
+			<label class="control-label col-sm-2">{{dpc.houseInsurancePrice}}</label>			
+			</div>
+			
+			<div ng-show="dpc.displayMoreData" class="form-group">
+			<label class="control-label col-sm-2" translate>Car insurance price</label>
+			<label class="control-label col-sm-2">{{dpc.carInsurancePrice}}</label>			
+			</div>
+	
 			<div class="form-group">
 			<label class="control-label col-sm-2"></label>
 			<button type="button" class="btn btn-primary" ng-click="dpc.saveAll()" onclick="location.href='http://localhost:8000/#/paymentForm'" translate ng-disabled="cic.carInsuranceForm.$invalid" translate>{{"COMMON.BUY"}}</button>

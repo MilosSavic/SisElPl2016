@@ -2,7 +2,7 @@
 	"use strict";
 	
 	angular
-		.module('company-registry.i18n')
+		.module('payment-app.i18n')
 		.factory('crTranslator', crTranslator);
 
 	crTranslator.$inject = ['$translate'];
