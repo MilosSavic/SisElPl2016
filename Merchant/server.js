@@ -28,7 +28,9 @@ require('./models/car-insurance-service.model');
 var express = require("express"),
 	app = express(),
     bodyParser = require("body-parser"),
-    cors = require("cors")
+    cors = require("cors"),
+    csrf    = require('csurf');
+
 
 //var db = mongoose(); da li je ovo neophodno?
 
@@ -38,6 +40,12 @@ app.use(bodyParser.json());
 app.use(cors());
 
 app.use(express.static(__dirname + '/public'));
+//HOW TO USE CSURF?
+//app.use(function(req, res, next) {
+ // res.locals._csrf = req.csrfToken();
+ // next();
+//});
+
 
 //da li je ovo dobro?
 

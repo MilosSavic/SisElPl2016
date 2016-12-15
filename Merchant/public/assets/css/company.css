@@ -19,6 +19,41 @@
     color: black;
 }
 
+.activeLink{
+	color: blue;
+}
+
+.btn-myButton{
+	background-color: #012442;
+	border-color: #012442;
+}
+
+.btn-myButton:hover {
+	background-color: #286090;
+-  border-color: #204d74;
+}
+
+.btn-myButton:focus {
+	background-color: #286090;
+-  border-color: #204d74;
+}
+
+.btn-myDanger{
+	background-color: #300247;
+	border-color: #300247;
+}
+
+.btn-myDanger:hover {
+	background-color: #1a0126;
+-  border-color: #300247;
+}
+
+.btn-myDanger:focus {
+	background-color: #1a0126;
+-  border-color: #300247;
+}
+
+
 .nav-sidebar > .activeItem > a,
 .nav-sidebar > .activeItem > a:hover,
 .nav-sidebar > .activeItem > a:focus {

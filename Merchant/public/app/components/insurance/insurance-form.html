@@ -7,10 +7,11 @@
     <link href="./assets/css/font-awesome.css" rel="stylesheet">
     <link href="./assets/css/solution.css" rel="stylesheet">
 </head>
-<body ng-app="merchant-app">
+<body class="bodyForm" ng-app="merchant-app">
 <div>
 
 	<form class="form-horizontal" novalidate name="ic.insuranceForm">
+
 			<div class="form-group" ng-class="{ 'has-error': ic.insuranceForm.startDate.$touched && ic.insuranceForm.startDate.$invalid }">
 
 				<label class="control-label col-sm-2" for="startDate" translate>{{"INSURANCE.INSURANCESTARDATE"}}</label>
@@ -67,7 +68,7 @@
 		</div>
 
 		 <div class="col-sm-offset-2">
-		      <button class="btn btn-primary" ng-click="ic.goToUsersForm()" translate ng-disabled="ic.insuranceForm.$invalid">{{"COMMON.NEXT"}}</button>
+		      <button class="btn btn-primary btn-myButton" ng-click="ic.goToUsersForm()" translate ng-disabled="ic.insuranceForm.$invalid">{{"COMMON.NEXT"}}</button>
 		</div>
 	</form>
 </div>
