@@ -69,3 +69,21 @@
 	}
 
 })();
+
+(function() {
+	"use strict";
+
+	angular
+		.module('merchant-app.core')
+		.factory('AllRules', AllRules);
+
+		//ma daj, mora da ovo moze lepse da se napise
+	AllRules.$inject = ['$resource'];
+	function AllRules($resource) {
+		var collectionName = "allRules";
+		return $resource("http://localhost:3000/api/:collectionName/:id",
+			{id: "@_id", collectionName: collectionName},
+			{ update: { method: 'PUT' } });
+	}
+
+})();

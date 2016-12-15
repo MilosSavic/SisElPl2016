@@ -56,22 +56,22 @@
 
 		var setDataActive = function(active){
 			dataActive = active;
-			$rootScope.$broadcast('da',true);
+			$rootScope.$broadcast('da',dataActive);
 		}
 
 		var setHouseActive = function(active){
 			houseActive = active;
-			$rootScope.$broadcast('ha',true);
+			$rootScope.$broadcast('ha',houseActive);
 		}
 
 		var setCarActive = function(active){
 			carActive=active;
-			$rootScope.$broadcast('ca',true);
+			$rootScope.$broadcast('ca',carActive);
 		}
 
 		var setUsersActive = function(active){
 			usersActive = active;
-			$rootScope.$broadcast('ua',true);
+			$rootScope.$broadcast('ua',usersActive);
 		}
 
 		var emptyUserIndices = function(){

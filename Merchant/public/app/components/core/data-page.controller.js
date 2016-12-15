@@ -5,8 +5,14 @@
 		.module('merchant-app.core')
 		.controller('DataPageController', DataPageController);
 
-	DataPageController.$inject = ['$location','SideBar','$scope','$state','InsuranceData','Region','Insurance','Amount','UserRules','TotalRules','HouseInsuranceRules','CarInsuranceRules'];
-	function DataPageController($location,SideBar,$scope,$state,InsuranceData,Region,Insurance,Amount,UserRules,TotalRules,HouseInsuranceRules,CarInsuranceRules) {
+	DataPageController.$inject = ['$location','SideBar','$scope','$state','InsuranceData','Region','Insurance','Amount','UserRules','TotalRules','HouseInsuranceRules','CarInsuranceRules','AllRules'];
+	function DataPageController($location,SideBar,$scope,$state,InsuranceData,Region,Insurance,Amount,UserRules,TotalRules,HouseInsuranceRules,CarInsuranceRules,AllRules) {
+		
+		if(!SideBar.isDataActive())
+		{
+			$state.go('main.insuranceForm');
+			return;
+		}
 		var dpc = this;
 		
 		var insurance = JSON.parse(JSON.stringify(InsuranceData.getInsuranceData()));
@@ -59,70 +65,22 @@
 		{
 			dpc.carInsuranceChosen = false;
 		}
-
+		
 
 		var totalPrice = 0;
 	 	 //form price
-	 	nextUserPrice(insurance.users[0],0);
-
-	 	function nextUserPrice(user,index){
-	 		var userRule = new UserRules(user);
-	 		userRule.$save(function(result){
-	 		console.log(result);
-	     	totalPrice+=result.value;
-	     	index++;
-	     	if(insurance.users[index])
-	        	nextUserPrice(insurance.users[index],index);
-	      	else formHouseInsurancePrice();
-	 		})
-	  }
-	  function formHouseInsurancePrice(){
-
-	  	if(insurance.houseInsurance){
-	  	if(insurance.houseInsurance._id)
-	    delete insurance.houseInsurance._id;
-	  	var houseInsuranceRule = new HouseInsuranceRules(insurance.houseInsurance);
-	  	houseInsuranceRule.$save(function(result)
-	  	{
-	  		console.log(result);
-	  		totalPrice+=result.value;
-	  		formCarInsurancePrice();
-	  	})
-	  	}
-	  	else {
-	  		formCarInsurancePrice();
-	  	}
-	  }
-
-	  function formCarInsurancePrice(){
-
-	  	if(insurance.carInsurance){
-	  		if(insurance.carInsurance._id)
-	  			delete insurance.carInsurance._id;
-	  		var carInsuranceRule = new CarInsuranceRules(insurance.carInsurance);
-	  		carInsuranceRule.$save(function(result)
-	  		{
-	  			console.log(result);
-	  			totalPrice+=result.value;
-	  			formTotalPrice();
-	  		})
-	  	}
-	  	else {
-	  		formTotalPrice();
-	  	}
-	  }
-
-	    //calculate total price
-	  function formTotalPrice(){
-	  	insurance.totalPrice = totalPrice;
-	  	var totalRule = new TotalRules(insurance);
-
-	  	totalRule.$save(function(result){
-	  		 console.log(result);
-	      dpc.price = result.value;
-	      InsuranceData.getInsuranceData().price = result.value;
-	  	})
-	  }
+		 useAllRules();
+		function useAllRules(){
+			var allRules = new AllRules(insurance);
+			allRules.$save(function(result){
+				totalPrice+=result.value;
+				dpc.price = totalPrice.toFixed(2);
+				console.log(JSON.stringify(result));
+				dpc.basePrice = result.basePrice.toFixed(2);
+				dpc.houseInsurancePrice = result.houseInsurancePrice.toFixed(2);
+				dpc.carInsurancePrice = result.carInsurancePrice.toFixed(2);
+			})
+		}
 
 		dpc.cancelHouseInsurance = function(){
 			insurance.houseInsurance = undefined;
@@ -130,7 +88,7 @@
 			dpc.houseInsuranceChosen = false;
 			//reculcalate price
 			totalPrice = 0;
-			nextUserPrice(insurance.users[0],0);
+			useAllRules();
 		}
 
 		dpc.cancelCarInsurance = function(){
@@ -139,7 +97,7 @@
 			dpc.carInsuranceChosen = false;
 			//reculcalate price
 			totalPrice = 0;
-			nextUserPrice(insurance.users[0],0);
+			useAllRules();
 		}
 
 		dpc.sure = 0;
@@ -166,7 +124,7 @@
 			dpc.sure=0;
 			totalPrice = 0;
 			//reculcalate price
-			nextUserPrice(insurance.users[0],0);
+			useAllRules();
 		}
 
 		dpc.saveAll = function(){
@@ -182,6 +140,14 @@
 		}
 			console.log(JSON.stringify(InsuranceData.getInsuranceData()));
 			InsuranceData.getInsuranceData().$save(success);
+		}
+		
+		dpc.morePriceData = function(){
+			dpc.displayMoreData = true;
+		}
+		
+		dpc.lessPriceData = function(){
+			dpc.displayMoreData = false;
 		}
 
 		function success() {

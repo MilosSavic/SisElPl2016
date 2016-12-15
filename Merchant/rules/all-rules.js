@@ -1,21 +1,23 @@
 "use strict"
 module.exports.execute = execute;
 
-var i = {body:{amount:50000,region:"585012cb27d27e0b80ad1dff",duration:11,numberOfUsers:3,
-	users:[{age:50,sport:"58411ff9e0a20212f8dd8db4"},{age:77,sport:"5851a3bbd55b031f41487e71"}],
-	houseInsurance:{age:35,size:455,estimatedValue:55900,coveredByInsurance:["585026c95eda23124ca18b7e","5851cf33f478070be41d3dd0","5851cf3ef478070be41d3dd1"]},
-	carInsurance: {services:["5850286f5eda23124ca18b82","585028615eda23124ca18b80"]}
-}};
-execute(i, function(result){
-	console.log(result);
-})
+//var i = {body:{amount:50000,region:"585012cb27d27e0b80ad1dff",duration:11,numberOfUsers:3,
+	//users:[{age:50,sport:"58411ff9e0a20212f8dd8db4"},{age:77,sport:"5851a3bbd55b031f41487e71"}],
+//	houseInsurance:{age:35,size:455,estimatedValue:55900,coveredByInsurance:["585026c95eda23124ca18b7e","5851cf33f478070be41d3dd0","5851cf3ef478070be41d3dd1"]},
+//	carInsurance: {services:["5850286f5eda23124ca18b82","585028615eda23124ca18b80"]}
+//}};
+//execute(i, function(result){
+//	console.log(result);
+//})
 function execute(insurance,result){
+	console.log(JSON.stringify(insurance.body));
 	var mongoose = require('mongoose');
 	var nools = require('nools');
 	var ruleFilePath = __dirname + "/all-rules.nools";
 	var flow = nools.compile(ruleFilePath);
 	var Price = flow.getDefined("price");
 	var Region = mongoose.model('Region');
+	var Amount = mongoose.model('Amount');
 	var HouseInsurance = flow.getDefined("houseInsurance");
 	var AmountFired = flow.getDefined("amountFired");
 	var RegionRiskFired = flow.getDefined("regionRiskFired");
@@ -73,7 +75,8 @@ function execute(insurance,result){
 	var users = [];
 	var covers = [];
 	var services = [];
-	Region.findById(insurance.body.region).exec(function(err,region){
+	var amount = 0;
+	Region.findById(insurance.body.region._id).exec(function(err,region){
 	    if(err)
 	    {
 	      return res.status(400).send({
@@ -91,7 +94,7 @@ function execute(insurance,result){
 
 	function findSportRisks(){
 	insurance.body.users.forEach(function(user){
-		var userSport = user.sport;
+		var userSport = user.sport._id;
 		Sport.findById(userSport).exec(function(err,sport){
 	    if(err)
 	    {
@@ -109,7 +112,7 @@ function execute(insurance,result){
 	      		findCarInsuranceServices();
 	      	}
 	      	else {
-	      		otherStuff();
+	      		findAmount();
 	      	}
 	  		}
 	    }
@@ -134,7 +137,7 @@ function execute(insurance,result){
 	      	if(covers.length==insurance.body.houseInsurance.coveredByInsurance.length){
 	      		if(insurance.body.carInsurance)
 	      		findCarInsuranceServices();
-	      		else otherStuff();
+	      		else findAmount();
 	      	}
 	     
 	    }
@@ -155,20 +158,39 @@ function execute(insurance,result){
 	    	if(insurance.body.carInsurance.services)
 	      	services.push(category.riskFactor);
 	      	if(services.length==insurance.body.carInsurance.services.length)
-	      		otherStuff();
+	      		findAmount();
 	     
 	    }
 
 	  });
 }
 	}
+	
+	function findAmount(){
+		
+		Amount.findById(insurance.body.amount._id).exec(function(err,result){
+	    if(err)
+	    {
+	      return res.status(400).send({
+	        message: "Error"
+	      });
+	    }else {
+	      amount = result.amount;
+	      otherStuff();
+	    }
+
+	  });
+		
+	}
 
 	function otherStuff(){
 		//DEFINISEMO OSNOVNU CENU ZA KORISNIKA
     var userPrice = 100;
-	var amount = insurance.body.amount;
 	var numberOfUsers = insurance.body.numberOfUsers;
-	var duration = insurance.body.duration; 
+	var startDate = new Date(insurance.body.startDate);
+	var endDate = new Date(insurance.body.endDate);
+	//milliseconds to days
+	var duration = (endDate-startDate)/1000/60/60/24;
 	var usersFromFlow = [];
 	for(var i=0; i<users.length; i++)
 	{	
@@ -186,20 +208,27 @@ function execute(insurance,result){
 
 
 	//HOME INSURANCE
+	var houseInsurance;
 	if(insurance.body.houseInsurance){
 	var age = insurance.body.houseInsurance.age;
 	var size = insurance.body.houseInsurance.size;
 	var value = insurance.body.houseInsurance.estimatedValue; 
 	//session.assert(new Message("goodbye"));
-	session.assert(new HouseInsurance(size,age,value,covers,0));
+	houseInsurance = new HouseInsurance(size,age,value,covers,0);
 	}
 	//da li je ovo ok?
-	else session.assert(new HouseInsurance(0,0,0,[0],0));
+	else houseInsurance = new HouseInsurance(0,0,0,[0],0);
+	
+	session.assert(houseInsurance);
 	//CAR INSURANCE
-	if(insurance.body.carInsurance)
-		session.assert(new CarInsurance(services));
+	var carInsurance;
+	if(insurance.body.carInsurance){
+		carInsurance = new CarInsurance(services);
+	}
 	//da li je ovo ok?
-	else session.assert(new CarInsurance([0]));
+	else carInsurance = new CarInsurance([0]);
+	
+	session.assert(carInsurance);
 
 	session.match(function(err){
 	    if(err){
@@ -207,7 +236,13 @@ function execute(insurance,result){
 	    }else{
 	        console.log("done");
 	        nools.deleteFlows();
-	      	result(price);
+			console.log('House insurance'+houseInsurance.houseInsurancePrice);
+			console.log('Car insurance'+carInsurance.carInsurancePrice);
+			//for frontend
+			price.houseInsurancePrice = houseInsurance.houseInsurancePrice*amount/1000*duration;
+			price.carInsurancePrice = carInsurance.carInsurancePrice*amount/1000*duration;
+			price.basePrice = price.value-price.carInsurancePrice-price.houseInsurancePrice;
+	      	result.json(price);
 	    }
 	})
 	}

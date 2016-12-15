@@ -54,8 +54,7 @@ require('./routes/user-rules.server.routes')(app);
 require('./routes/house-insurance-rules.server.routes')(app);
 require('./routes/car-insurance-rules.server.routes')(app);
 require('./routes/total-rules.server.routes')(app);
-
-require('./rules/all-rules.js');
+require('./routes/all-rules.server.routes')(app);
 
 
 app.listen(3000, function() {
