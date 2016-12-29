@@ -8,7 +8,7 @@
 	Amount.$inject = ['$resource'];
 	function Amount($resource) {
 		var collectionName = "amounts";
-		return $resource("http://localhost:3000/api/:collectionName/:amountId",
+		return $resource("https://localhost:3000/api/:collectionName/:amountId",
 			{ amountId: "@_id", collectionName: collectionName},
 			{ update: { method: 'PUT' } });
 	}

@@ -9,7 +9,7 @@
 	UserRules.$inject = ['$resource'];
 	function UserRules($resource) {
 		var collectionName = "userRules";
-		return $resource("http://localhost:3000/api/:collectionName/:id",
+		return $resource("https://localhost:3000/api/:collectionName/:id",
 			{id: "@_id", collectionName: collectionName},
 			{ update: { method: 'PUT' } });
 	}
@@ -27,7 +27,7 @@
 	TotalRules.$inject = ['$resource'];
 	function TotalRules($resource) {
 		var collectionName = "totalRules";
-		return $resource("http://localhost:3000/api/:collectionName/:id",
+		return $resource("https://localhost:3000/api/:collectionName/:id",
 			{id: "@_id", collectionName: collectionName},
 			{ update: { method: 'PUT' } });
 	}
@@ -45,7 +45,7 @@
 	HouseInsuranceRules.$inject = ['$resource'];
 	function HouseInsuranceRules($resource) {
 		var collectionName = "houseInsuranceRules";
-		return $resource("http://localhost:3000/api/:collectionName/:id",
+		return $resource("https://localhost:3000/api/:collectionName/:id",
 			{id: "@_id", collectionName: collectionName},
 			{ update: { method: 'PUT' } });
 	}
@@ -63,7 +63,7 @@
 	CarInsuranceRules.$inject = ['$resource'];
 	function CarInsuranceRules($resource) {
 		var collectionName = "carInsuranceRules";
-		return $resource("http://localhost:3000/api/:collectionName/:id",
+		return $resource("https://localhost:3000/api/:collectionName/:id",
 			{id: "@_id", collectionName: collectionName},
 			{ update: { method: 'PUT' } });
 	}
@@ -81,7 +81,7 @@
 	AllRules.$inject = ['$resource'];
 	function AllRules($resource) {
 		var collectionName = "allRules";
-		return $resource("http://localhost:3000/api/:collectionName/:id",
+		return $resource("https://localhost:3000/api/:collectionName/:id",
 			{id: "@_id", collectionName: collectionName},
 			{ update: { method: 'PUT' } });
 	}
