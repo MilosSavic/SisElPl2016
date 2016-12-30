@@ -12,6 +12,7 @@ module.exports.createInsurance = createInsurance;
 module.exports.getInsuranceById = getInsuranceById;
 
 var usersFunctions = require('./user.server.controller.js');
+var crypto = require("./encrypt-decrypt");
 
 
 function list(req, res, next){
@@ -35,7 +36,7 @@ function createInsurance(req, res, next){
   {
     console.log(JSON.stringify(req.body.users[i]));
     user = new User(req.body.users[i]);
-
+    crypto.encryptData(user);
     //ovo ne bi trebalo da bude ovde, vec verovatno u users.server.controller
     user.save(function(err,user){
       if(err) return console.error(err);
@@ -53,6 +54,7 @@ function createInsurance(req, res, next){
   if(req.body.houseInsurance)
   {
     houseInsurance = new HouseInsurance(req.body.houseInsurance);
+    crypto.encryptData(houseInsurance);
     houseInsurance.save(function(err,houseInsurance){
       if(err) return console.error(err);
       console.log('House insurance saved');
@@ -65,6 +67,7 @@ function createInsurance(req, res, next){
   if(req.body.carInsurance)
   {
     carInsurance = new CarInsurance(req.body.carInsurance);
+    crypto.encryptData(carInsurance);
     carInsurance.save(function(err,carInsurance){
       if(err) return console.error(err);
       console.log('Car insurance saved');
@@ -74,6 +77,7 @@ function createInsurance(req, res, next){
   }
 
   var insurance = new Insurance(req.body);
+  crypto.encryptData(insurance);
 	insurance.save(function (err, insurance) {
 	  if (err) return console.error(err);
 	  console.log("Save successful");

@@ -6,6 +6,7 @@ var mongoose = require('mongoose'),
 module.exports.list = list;
 module.exports.createUser = createUser;
 module.exports.getUserById = getUserById;
+var crypto = require("./encrypt-decrypt");
 
 function list(req, res, next){
 
@@ -24,14 +25,14 @@ function list(req, res, next){
 
 function createUser(req, res, next){
     var user = new User(req.body);
+    crypto.encryptData(user);
 
+    user.save(function (err, user) {
+      if (err) return console.error(err);
+      console.log("Save successful");
+    });
 
-user.save(function (err, user) {
-  if (err) return console.error(err);
-  console.log("Save successful");
-});
-
-    res.json(user); 
+        res.json(user); 
 }
 
 

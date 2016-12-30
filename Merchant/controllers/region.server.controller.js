@@ -6,6 +6,7 @@ var mongoose = require('mongoose'),
 module.exports.list = list;
 module.exports.createRegion = createRegion;
 module.exports.getRegionById = getRegionById;
+var crypto = require("./encrypt-decrypt");
 
 function list(req, res, next){
 
@@ -25,7 +26,7 @@ function list(req, res, next){
 function createRegion(req, res, next){
     var region = new Region(req.body);
 
-
+crypto.encryptData(region);
 region.save(function (err, region) {
   if (err) return console.error(err);
   console.log("Save successful");

@@ -23,8 +23,6 @@ require('./models/house-insurance-category.model');
 require('./models/car-insurance-service.model');
 
 
-
-
 //csrf zastita testiranje
 var express = require("express"),
 	app = express(),
@@ -45,38 +43,6 @@ var httpsOptions = {
 
 // Start secure HTTPS server
 
-
-//Testing encryption and decryption
-// Include crtpto module
-var crypto = require("crypto");
-
-//Set keys config object
-var config = {
-    cryptoKey: "a_secure_key_for_crypto_here",
-    cryptoAlgo: "aes256" // or other secure encryption algo here
-};
-
-// Helper methods to encryt / decrypt
-var encrypt = function(toEncrypt) {
-    var cipher = crypto.createCipher(config.cryptoAlgo, config.cryptoKey);
-    return cipher.update(toEncrypt, "utf8", "hex") + cipher.final("hex");
-};
-
-var decrypt = function(toDecrypt) {
-    var decipher = crypto.createDecipher(config.cryptoAlgo, config.cryptoKey);
-    return decipher.update(toDecrypt, "hex", "utf8") + decipher.final("utf8");
-};
-
-var test1 = "String za enkripciju";
-// Encrypt values before saving in database
-test1 = encrypt(test1);
-console.log(test1);
-
-// Decrypt values to show on view
-test1 = decrypt(test1);
-console.log(test1);
-
-
 //var db = mongoose(); da li je ovo neophodno?
 
 app.use(bodyParser.urlencoded({extended:false}));
@@ -91,7 +57,7 @@ app.use(express.static(__dirname + '/public'));
  // next();
 //});
 
-
+require('./controllers/encrypt-decrypt');
 //da li je ovo dobro?
 
 require('./routes/region.server.routes')(app);

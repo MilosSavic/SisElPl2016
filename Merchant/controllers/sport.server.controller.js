@@ -6,6 +6,7 @@ var mongoose = require('mongoose'),
 module.exports.list = list;
 module.exports.createSport = createSport;
 module.exports.getSportById = getSportById;
+var crypto = require("./encrypt-decrypt");
 
 function list(req, res, next){
 
@@ -25,7 +26,7 @@ function list(req, res, next){
 function createSport(req, res, next){
     var sport = new Sport(req.body);
 
-
+crypto.encryptData(sport);
 sport.save(function (err, sport) {
   if (err) return console.error(err);
   console.log("Save successful");

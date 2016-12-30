@@ -5,6 +5,7 @@ var mongoose = require('mongoose'),
 
 module.exports.list = list;
 module.exports.createCarInsurance = createCarInsurance;
+var crypto = require("./encrypt-decrypt");
 
 function list(req, res, next){
 
@@ -23,6 +24,7 @@ function list(req, res, next){
 function createCarInsurance(req, res, next){
 
     var carInsurance = new CarInsurance(req.body);
+    crypto.encryptData(carInsurance);
     carInsurance.save(function (err, carInsurance) {
       if (err) return console.error(err);
       console.log("Save successful");

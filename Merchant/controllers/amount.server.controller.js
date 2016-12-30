@@ -7,6 +7,8 @@ module.exports.list = list;
 module.exports.createAmount = createAmount;
 module.exports.getAmountById = getAmountById;
 
+var crypto = require("./encrypt-decrypt");
+
 function list(req, res, next){
 
   Amount.find()
@@ -16,6 +18,11 @@ function list(req, res, next){
            message: "Something happened :D"
          }); 
     }else {
+      for(var i=0; i<amounts.length; i++)
+      { 
+        var decrypted = crypto.decryptData(amounts[i]);
+        amounts[i] = decrypted;
+      }
       var jsObject = {amounts};
       res.json(jsObject);
     }    
@@ -24,13 +31,13 @@ function list(req, res, next){
 
 function createAmount(req, res, next){
     var amount = new Amount(req.body);
-
+    crypto.encryptData(amount);
 
 amount.save(function (err, amount) {
-  if (err) return console.error(err);
+  if (err) return console.error(err);  
   console.log("Save successful");
 });
-
+    
     res.json(amount); 
 }
 
