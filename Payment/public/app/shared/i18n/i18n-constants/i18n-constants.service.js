@@ -7,7 +7,10 @@
 				"SAVE":"Save",
 				"REVERT":"Revert",
 				"DELETE":"Delete",
-				"BACK":"Back"
+				"BACK":"Back",
+				"ABOUT1":"This is the site for the transfer of funds between users.",
+				"ABOUT2":"You can also contact us at the following e-mail addresses:",
+
 			},
 			
 			"PAYMENT": {
@@ -36,7 +39,9 @@
 				"SAVE":"Sačuvaj",
 				"REVERT":"Poništi",
 				"DELETE":"Obriši",
-				"BACK":"Povratak"
+				"BACK":"Povratak",
+				"ABOUT1":"Ovo je sajt za razmenu novčanih sredstava izmedju korisnika.",
+				"ABOUT2":"Možete nam se obratiti na sledećim e-mail adresama: ",
 			},
 			
 
@@ -50,6 +55,7 @@
 				"PAYMENTSITE":"Sajt za naplatu",
 				"HOME":"Početna",
 				"ABOUT":"O nama",
+				
 
 
 				"ERROR": {

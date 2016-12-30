@@ -3,23 +3,36 @@
 <head>
     <title>Payment</title>
     <link href="./assets/css/bootstrap.css" rel="stylesheet">
+     <link rel="stylesheet" href="assets/css/style.css">
     <link href="./assets/css/company.css" rel="stylesheet">
     <link href="./assets/css/font-awesome.css" rel="stylesheet">
     <link href="./assets/css/solution.css" rel="stylesheet">
+     <link rel="stylesheet" href="assets/css/style.css">
 </head>
 <body ng-app="payment-app">
-<div>
+<div class="container">
 
+
+
+    <div class="form-top">
+       <div class="form-top-left">
+          <h3 translate>{{"PAYMENT.PAYMENT"}}</h3>
+                                    
+      </div>
+      <div class="form-top-right">
+         <i class="fa fa-lock"></i>
+      </div>
+    </div>       
+<!-- ng-minlength="10" ng-maxlength="10" -->
+<div class="form-bottom">
     <form class="form-horizontal" novalidate name="pay.paymentForm">
         <div class="form-group" ng-class="{ 'has-error': pay.paymentForm.pan.$touched && pay.paymentForm.pan.$invalid }">
             <label class="control-label col-sm-2" for="pan" translate>{{"PAYMENT.PAN"}}</label>
             <div class="col-sm-6 col-md-4" busy-indicator>
-                <input type="text" ng-model="pay.payment.pan" id="pan" name="pan" class="form-control" required ng-minlength="10" ng-maxlength="10" >
+                <input type="text" ng-model="pay.payment.pan" id="pan" name="pan" class="form-control" required  >
 
                  <div ng-messages="pay.paymentForm.pan.$error" ng-show="pay.paymentForm.pan.$touched">
                     <p ng-message="required"><span translate>{{"PAYMENT.ERROR.REQUIRED"}}</span></p>
-                    <p ng-message="minlength"><span translate>{{"PAYMENT.ERROR.NUM"}}</span></p>
-                    <p ng-message="maxlength"><span translate>{{"PAYMENT.ERROR.NUM"}}</span></p>
                 </div>
             </div>
         </div>
@@ -52,13 +65,13 @@
             </div>
         </div>
         <div class="col-sm-offset-2">
-            <button type="button" class="btn btn-primary" ng-click="pay.addPayment()" onclick="location.href='http://localhost:3000/#/insuranceForm'"  translate ng-disabled="pay.paymentForm.$invalid">{{"COMMON.SAVE"}}</button>
+            <button type="button" class="btn btn-primary" ng-click="pay.addPayment()" onclick="location.href='https://localhost:3000/#!/home'"  translate ng-disabled="pay.paymentForm.$invalid">{{"COMMON.SAVE"}}</button>
 
              <!-- <button type="button" class="btn btn-primary" onclick="location.href='http://localhost:3000/#/carInsuranceForm'" translate ng-disabled="pay.paymentForm.$invalid">Merchant</button> -->
         </div>
     </form>
 </div>
-
+</div>
 
 </body>
 </html>
