@@ -113,7 +113,7 @@
 				"ADDRESS":"Address",
 				"OWNERFN":"Owner first name",
 				"OWNERLN":"Owner last name",
-				"OWNERJMBG":"Owner jmbg",
+				"OWNERJMBG":"Owner JMBG",
 				"INSURANCE":"Insurance",
 
 				"ERROR": {
@@ -198,6 +198,11 @@
 				"YES":"Yes",
 				"NO":"No",
 				"CANCEL":"Cancel",
+				"MORE":"More",
+				"LESS":"Less",
+				"B_PRICE":"Base price",
+				"HI_PRICE":"House insurance price",
+				"CI_PRICE":"Car insurance price",
 			},
 
 			/*"SELECT": {
@@ -357,6 +362,11 @@
 				"YES":"Da",
 				"NO":"Ne",
 				"CANCEL":"Odustani",
+				"MORE":"Više",
+				"LESS":"Manje",
+				"B_PRICE":"Bazna cena",
+				"HI_PRICE":"Cena kućnog osiguranja",
+				"CI_PRICE":"Cena putnog osiguranja",
 			},
 
 			"REGION": {

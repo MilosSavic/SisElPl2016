@@ -1,15 +1,30 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Payment</title>
+    <title>Insurance</title>
+
+     <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/style.css">
     <link href="./assets/css/bootstrap.css" rel="stylesheet">
     <link href="./assets/css/company.css" rel="stylesheet">
     <link href="./assets/css/font-awesome.css" rel="stylesheet">
     <link href="./assets/css/solution.css" rel="stylesheet">
 </head>
 <body ng-app="merchant-app">
-<div>
+<div class="container">
 
+
+
+  <div class="form-top">
+       <div class="form-top-left">
+           <h3 translate>{{"SIDEBAR.HOUSEINSURANCE"}}</h3>
+                                
+      </div>
+      <div class="form-top-right">
+         <i class="fa fa-lock"></i>
+      </div>
+    </div> 
+<div class="form-bottom">
     <form class="form-horizontal" novalidate name="hic.houseInsuranceForm">
         <div class="form-group" ng-class="{ 'has-error': hic.houseInsuranceForm.size.$touched && hic.houseInsuranceForm.size.$invalid }">
             <label class="control-label col-sm-2" for="size" translate>{{"HOUSE.SIZE"}}</label>
@@ -116,10 +131,11 @@
 
 
         <div class="col-sm-offset-2" >
-            <button type="button" class="btn btn-primary" ng-click="hic.addHouseInsurance()" translate ng-disabled="hic.houseInsuranceForm.$invalid">{{"COMMON.SUBMIT"}}</button>
-            <button type="button" class="btn btn-secondary" ng-click="hic.goToCarInsurance()" translate>{{"COMMON.SKIP"}}</button>
+            <button type="button" class="btn_medium btn-primary" ng-click="hic.addHouseInsurance()" translate ng-disabled="hic.houseInsuranceForm.$invalid">{{"COMMON.SUBMIT"}}</button>
+            <button type="button" class="btn_medium btn-secondary" ng-click="hic.goToCarInsurance()" translate>{{"COMMON.SKIP"}}</button>
         </div>
     </form>
+</div>
 </div>
 
 

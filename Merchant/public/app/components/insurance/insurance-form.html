@@ -2,15 +2,35 @@
 <html>
 <head>
     <title>Insurance</title>
-    <link href="./assets/css/bootstrap.css" rel="stylesheet">
+
+		 
+        <link rel="stylesheet" href="assets/css/style.css">
+
+        <link href="./assets/css/bootstrap.css" rel="stylesheet">
     <link href="./assets/css/company.css" rel="stylesheet">
     <link href="./assets/css/font-awesome.css" rel="stylesheet">
     <link href="./assets/css/solution.css" rel="stylesheet">
 </head>
 <body class="bodyForm" ng-app="merchant-app">
-<div>
 
-	<form class="form-horizontal" novalidate name="ic.insuranceForm">
+	
+  <div class="container">
+
+
+
+	<div class="form-top">
+       <div class="form-top-left">
+          <h3 translate>{{"SIDEBAR.INSURANCE"}}</h3>
+                            		
+      </div>
+      <div class="form-top-right">
+         <i class="fa fa-lock"></i>
+      </div>
+    </div>       
+
+<div class="form-bottom">
+
+	<form role="form" class="form-horizontal" novalidate name="ic.insuranceForm" >
 
 			<div class="form-group" ng-class="{ 'has-error': ic.insuranceForm.startDate.$touched && ic.insuranceForm.startDate.$invalid }">
 
@@ -67,10 +87,14 @@
 			</div>
 		</div>
 
-		 <div class="col-sm-offset-2">
+		 <div class="col-sm-offset-2 ">
 		      <button class="btn btn-primary" ng-click="ic.goToUsersForm()" translate ng-disabled="ic.insuranceForm.$invalid">{{"COMMON.NEXT"}}</button>
 		</div>
 	</form>
 </div>
+
+</div>
+
+
 </body>
 </html>
