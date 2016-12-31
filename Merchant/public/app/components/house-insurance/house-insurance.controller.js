@@ -26,8 +26,6 @@
 		}
 
 		hic.addHouseInsurance = function() {
-			console.log('savee');
-			hic.houseInsurance.$save(success);
 			InsuranceData.setHouseInsuranceChosen(true);
 			hic.goToCarInsurance();
 		};

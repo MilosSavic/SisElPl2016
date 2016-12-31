@@ -1,7 +1,8 @@
 "use strict";
 
 var mongoose = require('mongoose'),
-    User = mongoose.model('User');
+    User = mongoose.model('User'),
+    errorHandler = require(appRoot+'/controllers/errors.server.controller');
 
 module.exports.list = list;
 module.exports.createUser = createUser;
@@ -13,9 +14,11 @@ function list(req, res, next){
   User.find()
     .exec(function(err, users){
     if(err){
-         return res.status(400).send({
-           message: "Something happened :D"
-         }); 
+      var errMessage = errorHandler.getErrorMessage(err);
+      errorHandler.logErrorMessage(errMessage);
+      return res.status(400).send({
+        message: errMessage
+      });
     }else {
       var jsObject = {users};
       res.json(jsObject);
@@ -28,20 +31,31 @@ function createUser(req, res, next){
     crypto.encryptData(user);
 
     user.save(function (err, user) {
-      if (err) return console.error(err);
+      if (err){
+      var errMessage = errorHandler.getErrorMessage(err);
+      errorHandler.logErrorMessage(errMessage);
+      return res.status(400).send({
+        message: errMessage
+      });
+    }
+    else{
       console.log("Save successful");
+      res.json(user);
+      } 
     });
 
-        res.json(user); 
+        
 }
 
 
 function getUserById(req, res, next,id){
   User.findById(id).exec(function(err,user){
     if(err)
-    {
+   {
+      var errMessage = errorHandler.getErrorMessage(err);
+      errorHandler.logErrorMessage(errMessage);
       return res.status(400).send({
-        message: "Error"
+        message: errMessage
       });
     }else {
       res.json(user);

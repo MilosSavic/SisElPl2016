@@ -1,7 +1,8 @@
 "use strict";
 
 var mongoose = require('mongoose'),
-    CarInsuranceService = mongoose.model('CarInsuranceService');
+    CarInsuranceService = mongoose.model('CarInsuranceService'),
+    errorHandler = require(appRoot+'/controllers/errors.server.controller');
 
 module.exports.list = list;
 module.exports.createCarInsuranceService = createCarInsuranceService;
@@ -13,9 +14,11 @@ function list(req, res, next){
   CarInsuranceService.find()
     .exec(function(err, carInsuranceServices){
     if(err){
-         return res.status(400).send({
-           message: "Something happened :D"
-         }); 
+      var errMessage = errorHandler.getErrorMessage(err);
+      errorHandler.logErrorMessage(errMessage);
+      return res.status(400).send({
+        message: errMessage
+      });
     }else {
       for(var i=0; i<carInsuranceServices.length; i++)
       { 
@@ -33,11 +36,20 @@ function createCarInsuranceService(req, res, next){
     crypto.encryptData(carInsuranceService);
     console.log(carInsuranceService);
   carInsuranceService.save(function (err, result) {
-  if (err) return console.error(err);
+  if (err){
+      var errMessage = errorHandler.getErrorMessage(err);
+      errorHandler.logErrorMessage(errMessage);
+      return res.status(400).send({
+        message: errMessage
+      });
+    }
+    else{
   console.log("Save successful");
+  res.json(carInsuranceService); 
+}
 });
 
-    res.json(carInsuranceService); 
+    
 }
 
 
@@ -45,8 +57,10 @@ function getCarInsuranceServiceById(req, res, next,id){
   CarInsuranceService.findById(id).exec(function(err,result){
     if(err)
     {
+      var errMessage = errorHandler.getErrorMessage(err);
+      errorHandler.logErrorMessage(errMessage);
       return res.status(400).send({
-        message: "Error"
+        message: errMessage
       });
     }else {
       res.json(result);

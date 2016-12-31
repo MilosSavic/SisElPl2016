@@ -1,8 +1,11 @@
 var mongoose = require('mongoose'),
     Schema = mongoose.Schema;
 var carInsuranceSchema = new Schema({
-    services: [{type: Schema.Types.ObjectId,
-    ref: 'CarInsuranceService'}],
+    services: {
+        type: [Schema.Types.ObjectId],
+        ref: 'CarInsuranceService',
+        required:true}
+        ,
     vehicle: String,
     vehicleYear: String,
     plateNumber: String,

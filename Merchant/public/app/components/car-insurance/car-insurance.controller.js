@@ -25,8 +25,6 @@
 		}
 
 		cic.addCarInsurance = function() {
-			console.log('savee');
-			cic.carInsurance.$save(success);
 			InsuranceData.setCarInsuranceChosen(true);
 			cic.goToFinalPage();
 		}

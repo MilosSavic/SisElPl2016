@@ -1,7 +1,8 @@
 "use strict";
 
 var mongoose = require('mongoose'),
-    Region = mongoose.model('Region');
+    Region = mongoose.model('Region'),
+    errorHandler = require(appRoot+'/controllers/errors.server.controller');
 
 module.exports.list = list;
 module.exports.createRegion = createRegion;
@@ -13,9 +14,11 @@ function list(req, res, next){
   Region.find()
     .exec(function(err, regions){
     if(err){
-         return res.status(400).send({
-           message: "Something happened :D"
-         }); 
+      var errMessage = errorHandler.getErrorMessage(err);
+      errorHandler.logErrorMessage(errMessage);
+      return res.status(400).send({
+        message: errMessage
+      });
     }else {
       var jsObject = {regions};
       res.json(jsObject);
@@ -28,20 +31,31 @@ function createRegion(req, res, next){
 
 crypto.encryptData(region);
 region.save(function (err, region) {
-  if (err) return console.error(err);
+  if (err){
+      var errMessage = errorHandler.getErrorMessage(err);
+      errorHandler.logErrorMessage(errMessage);
+      return res.status(400).send({
+        message: errMessage
+      });
+    }
+    else{
   console.log("Save successful");
+  res.json(region); 
+}
 });
 
-    res.json(region); 
+    
 }
 
 
 function getRegionById(req, res, next,id){
   Region.findById(id).exec(function(err,region){
     if(err)
-    {
+   {
+      var errMessage = errorHandler.getErrorMessage(err);
+      errorHandler.logErrorMessage(errMessage);
       return res.status(400).send({
-        message: "Error"
+        message: errMessage
       });
     }else {
       res.json(region);

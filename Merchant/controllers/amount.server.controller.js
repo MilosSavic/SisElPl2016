@@ -1,7 +1,8 @@
 "use strict";
 
 var mongoose = require('mongoose'),
-    Amount = mongoose.model('Amount');
+    Amount = mongoose.model('Amount'),
+    errorHandler = require(appRoot+'/controllers/errors.server.controller');
 
 module.exports.list = list;
 module.exports.createAmount = createAmount;
@@ -14,9 +15,11 @@ function list(req, res, next){
   Amount.find()
     .exec(function(err, amounts){
     if(err){
-         return res.status(400).send({
-           message: "Something happened :D"
-         }); 
+      var errMessage = errorHandler.getErrorMessage(err);
+      errorHandler.logErrorMessage(errMessage);
+      return res.status(400).send({
+        message: errMessage
+      });
     }else {
       for(var i=0; i<amounts.length; i++)
       { 
@@ -34,20 +37,31 @@ function createAmount(req, res, next){
     crypto.encryptData(amount);
 
 amount.save(function (err, amount) {
-  if (err) return console.error(err);  
+  if (err){
+      var errMessage = errorHandler.getErrorMessage(err);
+      errorHandler.logErrorMessage(errMessage);
+      return res.status(400).send({
+        message: errMessage
+      });
+    }
+    else{
   console.log("Save successful");
+   res.json(amount); 
+ }
 });
     
-    res.json(amount); 
+   
 }
 
 
 function getAmountById(req, res, next,id){
   Amount.findById(id).exec(function(err,amount){
     if(err)
-    {
+    { 
+     var errMessage = errorHandler.getErrorMessage(err);
+      errorHandler.logErrorMessage(errMessage);
       return res.status(400).send({
-        message: "Error"
+        message: errMessage
       });
     }else {
       res.json(amount);

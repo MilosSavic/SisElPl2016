@@ -1,7 +1,8 @@
 "use strict"
 
 var mongoose = require('mongoose'),
-    HouseInsurance = mongoose.model('HouseInsurance');
+    HouseInsurance = mongoose.model('HouseInsurance'),
+    errorHandler = require(appRoot+'/controllers/errors.server.controller');
 
 module.exports.list = list;
 module.exports.createHouseInsurance = createHouseInsurance;
@@ -13,9 +14,11 @@ console.log("Usao");
   HouseInsurance.find()
     .exec(function(err, houseInsurances){
     if(err){
-         return res.status(400).send({
-           message: "Something happened :D"
-         });
+      var errMessage = errorHandler.getErrorMessage(err);
+      errorHandler.logErrorMessage(errMessage);
+      return res.status(400).send({
+        message: errMessage
+      });
     }else {
       res.json(houseInsurances);
     }
@@ -26,9 +29,18 @@ function createHouseInsurance(req, res, next){
     var houseInsurance = new HouseInsurance(req.body);
     crypto.encryptData(houseInsurance);
     houseInsurance.save(function (err, houseInsurance) {
-      if (err) return console.error(err);
+      if (err){
+      var errMessage = errorHandler.getErrorMessage(err);
+      errorHandler.logErrorMessage(errMessage);
+      return res.status(400).send({
+        message: errMessage
+      });
+    }
+    else{
+      res.json(houseInsurance);
       console.log("Save successful");
+    }
     });
 
-    res.json(houseInsurance);
+  
 }
