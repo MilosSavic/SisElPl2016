@@ -34,7 +34,7 @@ function list(req, res, next){
 function createCarInsuranceService(req, res, next){
     var carInsuranceService = new CarInsuranceService(req.body);
     crypto.encryptData(carInsuranceService);
-    console.log(carInsuranceService);
+    // console.log(carInsuranceService);
   carInsuranceService.save(function (err, result) {
   if (err){
       var errMessage = errorHandler.getErrorMessage(err);
