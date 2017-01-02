@@ -49,8 +49,8 @@
 			for(var i=0; i<InsuranceData.getInsuranceData().carInsurance.services.length;i++)
 			{
 				if(InsuranceData.getInsuranceData().carInsurance.services[i]._id)
-				cic.serviceSelection.push({id: InsuranceData.getInsuranceData().carInsurance.services[i]._id});
-				else cic.serviceSelection.push({id: InsuranceData.getInsuranceData().carInsurance.services[i]});
+				cic.serviceSelection.push(InsuranceData.getInsuranceData().carInsurance.services[i]._id);
+				else cic.serviceSelection.push(InsuranceData.getInsuranceData().carInsurance.services[i]);
 			}
 		//	else hic.houseInsurance.coveredByInsurance = []; 
 		//console.log(JSON.stringify(hic.houseInsurance.coveredByInsurance));
@@ -70,76 +70,94 @@
 
 		//console.log(JSON.stringify(cic.serviceData));	
 		//});
+		var serviceGroups = [];
 
 		for(var i=0; i<services.carInsuranceServices.length;i++)
 			{
 				var obj = {id: services.carInsuranceServices[i]._id,
 							label: services.carInsuranceServices[i].name,
-							group: services.carInsuranceServices[i].serviceGroup};
-				if(obj.label)
-				cic.serviceData.push(obj);
-			}
-
-		cic.translate = {checkAll: 'Selektuj sve',
-								uncheckAll: "Deselektuj sve",
-								selectionCount: "čekirano",
-								buttonDefaultText: "Izaberi",
-								dynamicButtonTextSuffix: "čekirano"}
-
-		cic.selectionEvent = {onItemSelect: itemSelected,
-								onItemDeselect: itemDeselected,
-								onSelectAll: allItemsSelected,
-								onDeselectAll: allItemsDeselected}
-
-
-		function itemSelected(item){
-			var group = 0;
-			for(var i=0; i<cic.serviceData.length; i++)
-			{
-				if(cic.serviceData[i].id == item.id)
+							group: services.carInsuranceServices[i].serviceGroup,
+							selected: false};
+				if(cic.serviceSelection.indexOf(obj.id)>-1)
 				{
-					group = cic.serviceData[i].group;
-					for(var j=0; j<cic.serviceData.length;j++)
+					obj.selected = true;
+				}
+				if(serviceGroups.indexOf(services.carInsuranceServices[i].serviceGroup)>-1)
+				{
+					for(var j=0; j<cic.serviceData.length; j++)
 					{
-						if(cic.serviceData[j].group==group && cic.serviceData[j].id!=item.id)
+						if(cic.serviceData[j][0].group == services.carInsuranceServices[i].serviceGroup)
 						{
-							for(var k=0; k<cic.serviceSelection.length;k++)
-							{
-								if(cic.serviceSelection[k].id == cic.serviceData[j].id)
-									cic.serviceSelection.splice(k,1);
-							}
+							
+							if(obj.label) cic.serviceData[j].push(obj);
+							break;
 						}
 					}
 				}
+				else
+				{	
+					serviceGroups.push(services.carInsuranceServices[i].serviceGroup);
+					var servicesArray = [];
+					if(obj.label) {
+						servicesArray.push(obj);
+						cic.serviceData.push(servicesArray);
+					}
+
+				}
 			}
-			updateCarInsurance();
-			console.log("selected: "+JSON.stringify(item));
-		}
 
-		function itemDeselected(){
-			updateCarInsurance();
-			console.log("deselected");
-		}
+		cic.updateCarInsurance = function(selectedItem){
+			for(var i=0; i<cic.serviceData.length; i++)
+			{
+				if(cic.serviceData[i][0].group==selectedItem.group)
+				{
+					for(var j=0; j<cic.serviceData[i].length; j++)
+					{
+						if(cic.serviceData[i][j].selected)
+						{
+							if(selectedItem.selected)
+							{
+								if(selectedItem.id != cic.serviceData[i][j].id)
+								{
+										cic.serviceData[i][j].selected = false;
+										var index = cic.serviceSelection.indexOf(cic.serviceData[i][j].id);
+										cic.serviceSelection.splice(index,1);
+										break;
+								}
 
-		function allItemsSelected(){
-			updateCarInsurance();
-			console.log(" all selected");
-		}
+							}
+						}
+					}
+					break;
+				}
 
-		function allItemsDeselected(){
-			updateCarInsurance();
-			console.log("all deselected");
-		}
+			}
+			if(selectedItem.selected)
+			{
+				cic.serviceSelection.push(selectedItem.id);
+			}
+			else
+			{
+				var index = cic.serviceSelection.indexOf(selectedItem.id);
+				cic.serviceSelection.splice(index,1);
+			}
 
-		function updateCarInsurance(){
 			cic.carInsurance.services = [];
 			for(var i=0; i<cic.serviceSelection.length; i++){
 			
-			cic.carInsurance.services.push({_id: cic.serviceSelection[i].id});
+			cic.carInsurance.services.push({_id: cic.serviceSelection[i]});
 			}
 			console.log(JSON.stringify(cic.carInsurance));
 			InsuranceData.getInsuranceData().carInsurance.services = cic.carInsurance.services;
 
+		}
+
+		cic.goToMainForm = function(){
+			$state.go('main.carInsuranceForm');
+		}
+
+		cic.goToCheckboxForm = function(){
+			$state.go('main.carInsuranceCheckboxes');
 		}
 
 	}

@@ -1,6 +1,6 @@
 "use strict"
 
-var attributesToEncrypt = ["ownerJMBG","jmbg","passportNumber","address"];
+var attributesToEncrypt = ["ownerJMBG","jmbg","passportNumber","address","name"];
 var needConversionToNumber = ["amount"];
 
 module.exports.encryptData = encryptData;

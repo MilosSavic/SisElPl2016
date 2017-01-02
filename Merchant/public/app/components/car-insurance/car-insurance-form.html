@@ -17,6 +17,7 @@
     <div class="form-top">
        <div class="form-top-left">
           <h3 translate>{{"SIDEBAR.CARINSURANCE"}}</h3>
+          <span>2/2 <button type="button" class="btn_medium btn-primary" ng-click="cic.goToCheckboxForm()" translate>&lt;</button> </span> 
                                     
       </div>
       <div class="form-top-right">
@@ -27,23 +28,6 @@
 <div class="form-bottom">
 
     <form class="form-horizontal" novalidate name="cic.carInsuranceForm">
-        
-         <div class="form-group" ng-class="{ 'has-error': cic.carInsuranceForm.services.$touched && cic.carInsuranceForm.services.$invalid }">
-            <label class="control-label col-sm-2" for="code" translate>{{"CAR.SERVICE"}}</label>
-            <div class="col-sm-6 col-md-4">
-                <div ng-if="cic.currentLanguage != 'Sr'">
-                    <div ng-dropdown-multiselect=""  options="cic.serviceData" selected-model="cic.serviceSelection"  extra-settings="cic.extraSettings" events="cic.selectionEvent"  group-by="group" id="services" name="services" ng-model="cic.carInsurance.services"  required>
-                    </div>
-                </div>
-                 <div ng-if="cic.currentLanguage == 'Sr'">
-                    <div ng-dropdown-multiselect=""  options="cic.serviceData" selected-model="cic.serviceSelection"  extra-settings="cic.extraSettings" events="cic.selectionEvent" translation-texts ="cic.translate" group-by="group" id="services" name="services" ng-model="cic.carInsurance.services"  required>
-                    </div>
-                </div>
-                
-                
-
-            </div>
-        </div>
 
      
         <div class="form-group" ng-class="{ 'has-error': cic.carInsuranceForm.vehicle.$touched && cic.carInsuranceForm.vehicle.$invalid }">

@@ -49,7 +49,7 @@
 			if(!InsuranceData.getInsuranceData().houseInsurance)
 				InsuranceData.addHouseInsurance();
 			SideBar.setHouseActive(true);
-			$state.go('main.houseInsuranceForm');
+			$state.go('main.houseInsuranceCheckboxes');
 		}
 		function success() {
 			console.log("Insurance added...")
