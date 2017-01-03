@@ -89,6 +89,10 @@
 		hic.goToMainForm = function(){
 			$state.go('main.houseInsuranceForm');
 		}
+
+		hic.goToCheckboxForm = function(){
+			$state.go('main.houseInsuranceCheckboxes');
+		}
 		
 	}
 })();

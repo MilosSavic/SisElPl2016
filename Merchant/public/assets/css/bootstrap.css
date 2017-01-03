@@ -3131,6 +3131,11 @@ fieldset[disabled] .btn-default.active {
   background-color: #d61a2d;
   border-color: #ec1127;
 }
+.btn-further {
+  color: #6E6868;
+  background-color: #fff;
+  border-color: #6E6868;
+}
 .btn-primary:focus,
 .btn-primary.focus {
   color: #fff;
