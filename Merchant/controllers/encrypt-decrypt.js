@@ -64,23 +64,27 @@ function decryptData(data)
 }
 // Helper methods to encrypt / decrypt
 function encrypt(toEncrypt) {
+	
 	toEncrypt = toEncrypt.toString();
     var cipher = crypto.createCipher(config.cryptoAlgo, config.cryptoKey);
     return cipher.update(toEncrypt, "utf8", "hex") + cipher.final("hex");
+
 };
 
 function decrypt(toDecrypt) {
-
-	toDecrypt = toDecrypt.toString();
-    var decipher = crypto.createDecipher(config.cryptoAlgo, config.cryptoKey);
-    try{
-  	 	var decrypted = decipher.update(toDecrypt, "hex", "utf8") + decipher.final("utf8");
-    	return decrypted;
+	if(toDecrypt){
+		toDecrypt = toDecrypt.toString();
+	    var decipher = crypto.createDecipher(config.cryptoAlgo, config.cryptoKey);
+	    try{
+	  	 	var decrypted = decipher.update(toDecrypt, "hex", "utf8") + decipher.final("utf8");
+	    	return decrypted;
+		}
+		catch(ex){
+			console.log("Decryption error");
+			return toDecrypt;
+		}
 	}
-	catch(ex){
-		console.log("Decryption error");
-		return toDecrypt;
-	}
+	else return "";
 
 };
 

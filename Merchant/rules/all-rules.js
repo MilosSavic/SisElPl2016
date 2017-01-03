@@ -146,6 +146,7 @@ function execute(insurance,result){
 }
 	}
 	function findCarInsuranceServices(){
+		if(insurance.body.carInsurance.services)
 		for(var i=0; i<insurance.body.carInsurance.services.length; i++){
 		CarInsuranceService.findById(insurance.body.carInsurance.services[i]).exec(function(err,category){
 	    if(err)
@@ -163,7 +164,8 @@ function execute(insurance,result){
 	    }
 
 	  });
-}
+	}
+	else findAmount();
 	}
 	
 	function findAmount(){

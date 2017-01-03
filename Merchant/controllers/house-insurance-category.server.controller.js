@@ -20,6 +20,11 @@ function list(req, res, next){
         message: errMessage
       });
     }else {
+      for(var i=0; i<houseInsuranceCategories.length; i++)
+      { 
+        var decrypted = crypto.decryptData(houseInsuranceCategories[i]);
+        houseInsuranceCategories[i] = decrypted;
+      }
       var jsObject = {houseInsuranceCategories};
       res.json(jsObject);
     }    

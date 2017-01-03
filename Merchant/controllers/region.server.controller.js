@@ -20,6 +20,11 @@ function list(req, res, next){
         message: errMessage
       });
     }else {
+      for(var i=0; i<regions.length; i++)
+      { 
+        var decrypted = crypto.decryptData(regions[i]);
+        regions[i] = decrypted;
+      }
       var jsObject = {regions};
       res.json(jsObject);
     }    

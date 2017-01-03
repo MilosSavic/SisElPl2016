@@ -20,6 +20,11 @@ function list(req, res, next){
         message: errMessage
       });
     }else {
+      for(var i=0; i<sports.length; i++)
+      { 
+        var decrypted = crypto.decryptData(sports[i]);
+        sports[i] = decrypted;
+      }
       var jsObject = {sports};
       res.json(jsObject);
     }    
