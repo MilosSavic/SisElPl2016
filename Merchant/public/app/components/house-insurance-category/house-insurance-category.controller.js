@@ -5,14 +5,15 @@
 		.module('merchant-app.house-insurance-category')
 		.controller('HouseInsuranceCategoryController', HouseInsuranceCategoryController);
 
-	HouseInsuranceCategoryController.$inject = ['$location','HouseInsuranceCategory','$state'];
-	function HouseInsuranceCategoryController($location,HouseInsuranceCategory,$state) {
+	HouseInsuranceCategoryController.$inject = ['$location','HouseInsuranceCategory','$state','$window'];
+	function HouseInsuranceCategoryController($location,HouseInsuranceCategory,$state,$window) {
 		var hicc = this;
 		hicc.houseInsuranceCategory = new HouseInsuranceCategory();
 
 		HouseInsuranceCategory.get(function(response){hicc.listOfHouseInsuranceCategories = response.houseInsuranceCategories;});
 
 		hicc.submit = function(){
+			 $window.location.reload();
 			hicc.houseInsuranceCategory.$save(success);
 		}
 		function success() {

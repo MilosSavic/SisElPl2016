@@ -5,8 +5,8 @@
 		.module('merchant-app.region')
 		.controller('RegionController', RegionController);
 
-	RegionController.$inject = ['$location','Region','$state'];
-	function RegionController($location,Region,$state) {
+	RegionController.$inject = ['$location','Region','$state','$window'];
+	function RegionController($location,Region,$state, $window) {
 		var rc = this;
 		rc.region = new Region();
 
@@ -14,7 +14,9 @@
 
 		rc.submitRegion = function(){
 			console.log("reg");
+			 $window.location.reload();
 			rc.region.$save(success);
+			
 		}
 		function success() {
 			console.log("Region added...")

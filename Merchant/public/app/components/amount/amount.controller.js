@@ -5,14 +5,15 @@
 		.module('merchant-app.amount')
 		.controller('AmountController', AmountController);
 
-	AmountController.$inject = ['$location','Amount','$state'];
-	function AmountController($location,Amount,$state) {
+	AmountController.$inject = ['$location','Amount','$state','$window'];
+	function AmountController($location,Amount,$state,$window) {
 		var ac = this;
 		ac.amount = new Amount();
 
 		Amount.get(function(response){ac.listOfAmounts = response.amounts;});
 
 		ac.submitAmount = function(){
+			 $window.location.reload();
 			ac.amount.$save(success);
 		}
 		function success() {
