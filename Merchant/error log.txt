@@ -128,3 +128,5 @@ Sat Dec 31 2016 16:52:36 GMT+0100 (Central Europe Standard Time):     Cast to Ob
 Sat Dec 31 2016 17:19:58 GMT+0100 (Central Europe Standard Time):     Cast to ObjectID failed for value "{ _id: 'f58496d3a24d4140b4411695b' }" at path "sport"
 Sat Dec 31 2016 17:24:15 GMT+0100 (Central Europe Standard Time):     Cast to ObjectID failed for value "{ _id: 'f58496d3a24d4140b4411695b' }" at path "sport"
 Sat Dec 31 2016 17:37:31 GMT+0100 (Central Europe Standard Time):     Path `services` is required.
+Thu Jan 05 2017 11:55:59 GMT+0100 (Central Europe Standard Time):     Amount in transaction is required
+Thu Jan 05 2017 16:20:55 GMT+0100 (Central Europe Standard Time):     Cast to ObjectId failed for value "{$ne:null}" at path "_id" for model "Insurance"

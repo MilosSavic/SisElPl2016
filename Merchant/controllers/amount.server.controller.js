@@ -35,7 +35,7 @@ function list(req, res, next){
 function createAmount(req, res, next){
     var amount = new Amount(req.body);
     crypto.encryptData(amount);
-
+	console.log(amount.amount);
 amount.save(function (err, amount) {
   if (err){
       var errMessage = errorHandler.getErrorMessage(err);

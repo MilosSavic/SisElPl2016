@@ -21,6 +21,7 @@ require('./models/user.model');
 require('./models/amount.model');
 require('./models/house-insurance-category.model');
 require('./models/car-insurance-service.model');
+require('./models/transaction.model');
 
 
 //csrf zastita testiranje
@@ -70,6 +71,7 @@ require('./routes/house-insurance-category.server.routes')(app);
 require('./routes/car-insurance-service.server.routes')(app);
 require('./routes/car-insurance.server.routes')(app);
 require('./routes/all-rules.server.routes')(app);
+require('./routes/transaction.server.routes')(app);
 
 
 https.createServer(httpsOptions, app).listen(3000, function() {

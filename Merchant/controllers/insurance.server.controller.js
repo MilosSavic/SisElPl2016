@@ -13,6 +13,7 @@ module.exports.createInsurance = createInsurance;
 module.exports.getInsuranceById = getInsuranceById;
 
 var usersFunctions = require('./user.server.controller.js');
+var transactionFunctions = require('./transaction.server.controller.js')
 var crypto = require("./encrypt-decrypt");
 
 
@@ -108,16 +109,29 @@ function createInsurance(req, res, next){
     else{
       req.body.carInsurance = carInsurance._id;
       console.log('Car insurance saved');
-      addInsurance();
+      addTransaction();
  
     }
     })
   }
   else{
-    addInsurance();
+    addTransaction();
   }
 }
   //WE ALSO NEED TO ROLLBACK CHANGES IN CASE THERE'S AN ERROR!!!
+  function addTransaction(){
+	  var reqForTrans = {
+		  body: {
+			  amount: req.body.price
+		  } 
+	  }
+	  var transaction = transactionFunctions.createTransactionServer(reqForTrans,function(transaction){
+		req.body.transaction = transaction._id; 
+		addInsurance();
+	  });
+	 
+	  
+  }
   function addInsurance(){
     //console.log(JSON.stringify(req.body));
     var insurance = new Insurance(req.body);

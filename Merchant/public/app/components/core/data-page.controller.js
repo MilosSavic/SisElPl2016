@@ -5,8 +5,8 @@
 		.module('merchant-app.core')
 		.controller('DataPageController', DataPageController);
 
-	DataPageController.$inject = ['$location','SideBar','$scope','$state','InsuranceData','Region','Insurance','Amount','UserRules','TotalRules','HouseInsuranceRules','CarInsuranceRules','AllRules'];
-	function DataPageController($location,SideBar,$scope,$state,InsuranceData,Region,Insurance,Amount,UserRules,TotalRules,HouseInsuranceRules,CarInsuranceRules,AllRules) {
+	DataPageController.$inject = ['$location','SideBar','$scope','$state','InsuranceData','Region','Insurance','Amount','UserRules','TotalRules','HouseInsuranceRules','CarInsuranceRules','AllRules','Acquirer','$window'];
+	function DataPageController($location,SideBar,$scope,$state,InsuranceData,Region,Insurance,Amount,UserRules,TotalRules,HouseInsuranceRules,CarInsuranceRules,AllRules,Acquirer,$window) {
 		
 		if(!SideBar.isDataActive())
 		{
@@ -138,8 +138,20 @@
 		{
 			InsuranceData.getInsuranceData().carInsurance = undefined;
 		}
+			InsuranceData.getInsuranceData().price = dpc.price;
 			console.log(JSON.stringify(InsuranceData.getInsuranceData()));
 			InsuranceData.getInsuranceData().$save(success);
+			
+			var paymentData = {merchantID:"TEST PROMENITI",merchantPassword:"TEST PROMENITI",errorURL:"TEST PROMENITI",transactionID:"TEST PROMENITI",transactionAmount:666666};
+			var acquirer = new Acquirer(paymentData);
+			acquirer.$save(function(result){
+				console.log(result);
+				$window.location.href = result.url;
+			})
+			
+			//paymentData = Payment.getURLandID();
+			//savePaymentID
+			//go to payment url
 		}
 		
 		dpc.morePriceData = function(){

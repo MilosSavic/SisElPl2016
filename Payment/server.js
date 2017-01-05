@@ -33,6 +33,7 @@ app.use(express.static(__dirname + '/public'));
 var buyers = require('./controllers/buyer.server.controller.js');
 var sellers = require('./controllers/seller.server.controller.js');
 var payments = require('./controllers/payment.server.controller.js');
+var mainServices = require('./controllers/communication.server.controller.js');
 
  app.route('/api/buyers')
     .get(buyers.list)
@@ -45,9 +46,23 @@ app.route('/api/sellers')
 app.route('/api/payments')
     .get(payments.list)
     .post(payments.createPayment);
+	
+app.route('/api/getURLandID')
+	.get(mainServices.getURLandID)
+    .post(mainServices.getURLandID);
+
+var fs = require("fs");
+
+var https = require("https");
+var path = require("path");
+var httpsOptions = {
+    key: fs.readFileSync(path.resolve(__dirname, "./cert/key.pem")),
+    cert: fs.readFileSync(path.resolve(__dirname, "./cert/cert.pem")),
+    passphrase: "insuranceapp"
+};
 
 
 
-app.listen(8000, function() {
-    console.log("Server started");
+https.createServer(httpsOptions, app).listen(8000, function() {
+    console.log("Express https server listening on port " + "8000");
 });

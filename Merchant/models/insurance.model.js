@@ -39,6 +39,11 @@ var insuranceSchema = new Schema({
   amount: {
     type: Schema.Types.ObjectId,
     ref: 'Amount'
+  },
+  
+  transaction: {
+	  type: Schema.Types.ObjectId,
+	  ref: 'Transaction'
   }
 });
 
