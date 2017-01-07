@@ -5,8 +5,8 @@
 		.module('merchant-app.core')
 		.controller('DataPageController', DataPageController);
 
-	DataPageController.$inject = ['$location','SideBar','$scope','$state','InsuranceData','Region','Insurance','Amount','UserRules','TotalRules','HouseInsuranceRules','CarInsuranceRules','AllRules','Acquirer','$window'];
-	function DataPageController($location,SideBar,$scope,$state,InsuranceData,Region,Insurance,Amount,UserRules,TotalRules,HouseInsuranceRules,CarInsuranceRules,AllRules,Acquirer,$window) {
+	DataPageController.$inject = ['$location','SideBar','$scope','$state','InsuranceData','Region','Insurance','Amount','UserRules','TotalRules','HouseInsuranceRules','CarInsuranceRules','AllRules','Acquirer','$window','Transaction'];
+	function DataPageController($location,SideBar,$scope,$state,InsuranceData,Region,Insurance,Amount,UserRules,TotalRules,HouseInsuranceRules,CarInsuranceRules,AllRules,Acquirer,$window,Transaction) {
 		
 		if(!SideBar.isDataActive())
 		{
@@ -142,12 +142,6 @@
 			console.log(JSON.stringify(InsuranceData.getInsuranceData()));
 			InsuranceData.getInsuranceData().$save(success);
 			
-			var paymentData = {merchantID:"TEST PROMENITI",merchantPassword:"TEST PROMENITI",errorURL:"TEST PROMENITI",transactionID:"TEST PROMENITI",transactionAmount:666666};
-			var acquirer = new Acquirer(paymentData);
-			acquirer.$save(function(result){
-				console.log(result);
-				$window.location.href = result.url;
-			})
 			
 			//paymentData = Payment.getURLandID();
 			//savePaymentID
@@ -163,8 +157,20 @@
 		}
 
 		function success() {
-			console.log("Insurance added...")
+			var transactionNumberId = 0;
+			Transaction.get({id: InsuranceData.getInsuranceData().transaction},function(response)
+			{
+				var paymentData = {merchantID:"TEST PROMENITI",merchantPassword:"TEST PROMENITI",errorURL:"TEST PROMENITI",transactionID:response.idNumber,transactionAmount:response.amount};
+				var acquirer = new Acquirer(paymentData);
+				acquirer.$save(function(result){
+				console.log(result);
+				$window.location.href = result.url;
+			})
+				
+			})
+
 			console.log(JSON.stringify(InsuranceData.getInsuranceData()));
+			//zasto sam ja ovo radio?!
 			Region.get({regionId: InsuranceData.getInsuranceData().region},function(response){
 			InsuranceData.getInsuranceData().region = response;
 		});

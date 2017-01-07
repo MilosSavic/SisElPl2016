@@ -5,8 +5,8 @@
 		.module('merchant-app.insurance')
 		.controller('InsuranceController', InsuranceController);
 
-	InsuranceController.$inject = ['$location','Insurance','Region','Test','$state','$rootScope','User','InsuranceData','SideBar','Amount'];
-	function InsuranceController($location,Insurance,Region,Test,$state,$rootScope,User,InsuranceData,SideBar,Amount) {
+	InsuranceController.$inject = ['$location','Insurance','Region','$state','$rootScope','User','InsuranceData','SideBar','Amount'];
+	function InsuranceController($location,Insurance,Region,$state,$rootScope,User,InsuranceData,SideBar,Amount) {
 		var ic = this;
 		
 		if(!$rootScope.insurance)
@@ -39,9 +39,6 @@
 
 		Region.get(function(response){ic.regions = response.regions;});
 		Amount.get(function(response){ic.amounts = response.amounts;});
-		Test.get(function(response){console.log(response.payments);});
-
-
 
 		ic.addInsurance = function() {
 				ic.insurance.$save(success);

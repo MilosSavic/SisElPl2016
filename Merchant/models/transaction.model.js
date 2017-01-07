@@ -3,6 +3,10 @@ var Schema = mongoose.Schema;
 
 var transactionSchema = new Schema({
 
+  idNumber:{
+  	type: Number,
+  	unique: "id number must be unique"
+  },
   amount: {
 	  type: Number,
 	  required: "Amount in transaction is required"
