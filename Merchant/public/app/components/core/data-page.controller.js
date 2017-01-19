@@ -5,8 +5,8 @@
 		.module('merchant-app.core')
 		.controller('DataPageController', DataPageController);
 
-	DataPageController.$inject = ['$location','SideBar','$scope','$state','InsuranceData','Region','Insurance','Amount','UserRules','TotalRules','HouseInsuranceRules','CarInsuranceRules','AllRules','Acquirer','$window','Transaction'];
-	function DataPageController($location,SideBar,$scope,$state,InsuranceData,Region,Insurance,Amount,UserRules,TotalRules,HouseInsuranceRules,CarInsuranceRules,AllRules,Acquirer,$window,Transaction) {
+	DataPageController.$inject = ['$location','SideBar','$scope','$state','InsuranceData','Region','Insurance','Amount','UserRules','TotalRules','HouseInsuranceRules','CarInsuranceRules','AllRules','Acquirer','$window','Transaction','MerchantData'];
+	function DataPageController($location,SideBar,$scope,$state,InsuranceData,Region,Insurance,Amount,UserRules,TotalRules,HouseInsuranceRules,CarInsuranceRules,AllRules,Acquirer,$window,Transaction,MerchantData) {
 		
 		if(!SideBar.isDataActive())
 		{
@@ -140,7 +140,7 @@
 		}
 			InsuranceData.getInsuranceData().price = dpc.price;
 			console.log(JSON.stringify(InsuranceData.getInsuranceData()));
-			InsuranceData.getInsuranceData().$save(success);
+			InsuranceData.getInsuranceData().$save(getMerchantData);
 			
 			
 			//paymentData = Payment.getURLandID();
@@ -154,17 +154,33 @@
 		
 		dpc.lessPriceData = function(){
 			dpc.displayMoreData = false;
+			
+		}
+		
+		var id;
+		var pass;
+		var errorURL;
+		function getMerchantData(){
+			MerchantData.get(function(response){
+				id = response.merchantID;
+				pass = response.merchantPassword;
+				errorURL = response.errorURL;
+				success();
+			});
 		}
 
 		function success() {
 			var transactionNumberId = 0;
+			alert(id);
+			alert(pass);
+			alert(errorURL);
 			Transaction.get({id: InsuranceData.getInsuranceData().transaction},function(response)
 			{
-				var paymentData = {merchantID:"TEST PROMENITI",merchantPassword:"TEST PROMENITI",errorURL:"TEST PROMENITI",transactionID:response.idNumber,transactionAmount:response.amount};
+				var paymentData = {merchantID:id,merchantPassword:pass,errorURL:errorURL,transactionID:response.idNumber,transactionAmount:response.amount};
 				var acquirer = new Acquirer(paymentData);
 				acquirer.$save(function(result){
 				console.log(result);
-				$window.location.href = result.url;
+				$window.location.href = result.url+'/'+result.paymentID;
 			})
 				
 			})

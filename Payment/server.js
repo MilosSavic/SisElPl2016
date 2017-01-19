@@ -9,6 +9,8 @@ db.once('open', function() {
   console.log("Connected to Mongo database");
 });
 
+var path = require('path');
+global.appRoot = path.resolve(__dirname);
 
 require('./models/buyer.model');
 require('./models/seller.model');
@@ -50,6 +52,10 @@ app.route('/api/payments')
 app.route('/api/getURLandID')
 	.get(mainServices.getURLandID)
     .post(mainServices.getURLandID);
+	
+app.route('/api/checkCodeValidity')
+	.get(mainServices.checkCodeValidity)
+	.post(mainServices.checkCodeValidity);
 
 var fs = require("fs");
 

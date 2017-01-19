@@ -53,7 +53,7 @@
 				<label class="control-label col-sm-2" for="amount" translate>{{"INSURANCE.INSURANCEVALUE"}}</label>
 					<div class="col-sm-6 col-md-4">
 			        <select class="form-control" id="amount" ng-model="ic.insurance.amount._id" required>
-			          <option ng-repeat="amount in ic.amounts" value="{{amount._id}}">{{ amount.amount }}</option>
+			          <option ng-repeat="amount in ic.amounts" value="{{amount._id}}">{{ amount.amount }} EUR</option>
 			        </select>
 			        <span class="validationText" ng-show="ic.amounts.length==0" translate>{{"INSURANCE.ERROR.AMOUNT"}}</span>
 			        </div>

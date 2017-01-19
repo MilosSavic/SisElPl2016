@@ -8,7 +8,7 @@
 	Payment.$inject = ['$resource'];
 	function Payment($resource) {
 		var collectionName = "payments";
-		var paymentService = $resource("http://localhost:8000/api/:collectionName/:id",
+		var paymentService = $resource("https://localhost:8000/api/:collectionName/:id",
 			{id: "@_id", collectionName: collectionName},
 			{ update: { method: 'PUT' } });
 
@@ -25,4 +25,22 @@
 		});
 		return paymentService;
 	}
+})();
+
+(function() {
+	"use strict";
+
+	angular
+		.module('payment-app.payment')
+		.factory('CodeValidity', CodeValidity);
+
+
+	CodeValidity.$inject = ['$resource'];
+	function CodeValidity($resource) {
+		var collectionName = "checkCodeValidity";
+		return $resource("https://localhost:8000/api/:collectionName/:id",
+			{id: "@_id", collectionName: collectionName},
+			{ update: { method: 'PUT' } });
+	}
+
 })();

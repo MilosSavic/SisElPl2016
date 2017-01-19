@@ -6,6 +6,7 @@ var nools = require('nools');
 var mongoose = require('mongoose');
 mongoose.Promise = global.Promise;
 var fs = require("fs");
+var helmet = require('helmet');
 
 
 
@@ -22,6 +23,9 @@ require('./models/amount.model');
 require('./models/house-insurance-category.model');
 require('./models/car-insurance-service.model');
 require('./models/transaction.model');
+require('./models/merchant.model');
+
+
 
 
 //csrf zastita testiranje
@@ -41,6 +45,26 @@ var httpsOptions = {
     passphrase: "insuranceapp"
 };
                
+//A5 misconfig
+		app.use(helmet());
+        // Prevent opening page in frame or iframe to protect from clickjacking
+        app.disable("x-powered-by");
+
+        // Prevent opening page in frame or iframe to protect from clickjacking
+        app.use(helmet.frameguard());
+
+        // Prevents browser from caching and storing page
+        app.use(helmet.noCache());
+
+        // Allow loading resources only from white-listed domains
+        //app.use(helmet.csp());
+
+        // Allow communication only on HTTPS
+        app.use(helmet.hsts());
+
+        // Forces browser to only use the Content-Type set in the response header instead of sniffing or guessing it
+        app.use(helmet.noSniff());
+
 
 // Start secure HTTPS server
 
@@ -59,6 +83,9 @@ app.use(express.static(__dirname + '/public'));
 //});
 
 require('./controllers/encrypt-decrypt');
+
+
+
 //da li je ovo dobro?
 
 require('./routes/region.server.routes')(app);
@@ -72,6 +99,7 @@ require('./routes/car-insurance-service.server.routes')(app);
 require('./routes/car-insurance.server.routes')(app);
 require('./routes/all-rules.server.routes')(app);
 require('./routes/transaction.server.routes')(app);
+require('./routes/merchant.server.routes')(app);
 
 
 https.createServer(httpsOptions, app).listen(3000, function() {

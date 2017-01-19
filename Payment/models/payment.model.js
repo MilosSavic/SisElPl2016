@@ -3,7 +3,10 @@ var Schema = mongoose.Schema;
 
 var paymentSchema = new Schema({
 
-    id : String,
+    id : {
+		type: Number,
+		unique: "id number must be unique"
+		},
     url : String,
     pan: String,
     security_code: String,

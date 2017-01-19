@@ -1,0 +1,141 @@
+Sat Dec 31 2016 15:06:56 GMT+0100 (Central Europe Standard Time):     Cast to ObjectId failed for value "fsdfsd" at path "_id" for model "Amount"
+Sat Dec 31 2016 15:07:20 GMT+0100 (Central Europe Standard Time):     Cast to ObjectId failed for value "fsdfsd" at path "_id" for model "Amount"
+Sat Dec 31 2016 15:07:21 GMT+0100 (Central Europe Standard Time):     Cast to ObjectId failed for value "fsdfsd" at path "_id" for model "Amount"
+Sat Dec 31 2016 15:07:21 GMT+0100 (Central Europe Standard Time):     Cast to ObjectId failed for value "fsdfsd" at path "_id" for model "Amount"
+Sat Dec 31 2016 15:07:21 GMT+0100 (Central Europe Standard Time):     Cast to ObjectId failed for value "fsdfsd" at path "_id" for model "Amount"
+Sat Dec 31 2016 15:07:21 GMT+0100 (Central Europe Standard Time):     Cast to ObjectId failed for value "fsdfsd" at path "_id" for model "Amount"
+Sat Dec 31 2016 15:07:21 GMT+0100 (Central Europe Standard Time):     Cast to ObjectId failed for value "fsdfsd" at path "_id" for model "Amount"
+Sat Dec 31 2016 15:07:22 GMT+0100 (Central Europe Standard Time):     Cast to ObjectId failed for value "fsdfsd" at path "_id" for model "Amount"
+Sat Dec 31 2016 15:07:22 GMT+0100 (Central Europe Standard Time):     Cast to ObjectId failed for value "fsdfsd" at path "_id" for model "Amount"
+Sat Dec 31 2016 15:07:25 GMT+0100 (Central Europe Standard Time):     Cast to ObjectId failed for value "fsdfsd" at path "_id" for model "Amount"
+Sat Dec 31 2016 15:07:26 GMT+0100 (Central Europe Standard Time):     Cast to ObjectId failed for value "fsdfsd" at path "_id" for model "Amount"
+Sat Dec 31 2016 15:07:26 GMT+0100 (Central Europe Standard Time):     Cast to ObjectId failed for value "fsdfsd" at path "_id" for model "Amount"
+Sat Dec 31 2016 15:07:26 GMT+0100 (Central Europe Standard Time):     Cast to ObjectId failed for value "fsdfsd" at path "_id" for model "Amount"
+Sat Dec 31 2016 15:07:26 GMT+0100 (Central Europe Standard Time):     Cast to ObjectId failed for value "fsdfsd" at path "_id" for model "Amount"
+Sat Dec 31 2016 15:07:33 GMT+0100 (Central Europe Standard Time):     Cast to ObjectId failed for value "fsdfsd" at path "_id" for model "Amount"
+Sat Dec 31 2016 15:07:33 GMT+0100 (Central Europe Standard Time):     Cast to ObjectId failed for value "fsdfsd" at path "_id" for model "Amount"
+Sat Dec 31 2016 15:07:34 GMT+0100 (Central Europe Standard Time):     Cast to ObjectId failed for value "fsdfsd" at path "_id" for model "Amount"
+Sat Dec 31 2016 15:07:34 GMT+0100 (Central Europe Standard Time):     Cast to ObjectId failed for value "fsdfsd" at path "_id" for model "Amount"
+Sat Dec 31 2016 15:07:34 GMT+0100 (Central Europe Standard Time):     Cast to ObjectId failed for value "fsdfsd" at path "_id" for model "Amount"
+Sat Dec 31 2016 15:07:34 GMT+0100 (Central Europe Standard Time):     Cast to ObjectId failed for value "fsdfsd" at path "_id" for model "Amount"
+Sat Dec 31 2016 15:07:34 GMT+0100 (Central Europe Standard Time):     Cast to ObjectId failed for value "fsdfsd" at path "_id" for model "Amount"
+Sat Dec 31 2016 15:07:34 GMT+0100 (Central Europe Standard Time):     Cast to ObjectId failed for value "fsdfsd" at path "_id" for model "Amount"
+Sat Dec 31 2016 15:07:34 GMT+0100 (Central Europe Standard Time):     Cast to ObjectId failed for value "fsdfsd" at path "_id" for model "Amount"
+Sat Dec 31 2016 15:07:35 GMT+0100 (Central Europe Standard Time):     Cast to ObjectId failed for value "fsdfsd" at path "_id" for model "Amount"
+Sat Dec 31 2016 15:13:28 GMT+0100 (Central Europe Standard Time):     Cast to ObjectId failed for value "fsdfsd" at path "_id" for model "Amount"
+Sat Dec 31 2016 15:14:40 GMT+0100 (Central Europe Standard Time):     Cast to ObjectId failed for value "fsdfsd" at path "_id" for model "User"
+Sat Dec 31 2016 15:14:48 GMT+0100 (Central Europe Standard Time):     Cast to ObjectId failed for value "fsdfsd" at path "_id" for model "Region"
+Sat Dec 31 2016 15:19:11 GMT+0100 (Central Europe Standard Time):     Amount is required
+Sat Dec 31 2016 15:24:46 GMT+0100 (Central Europe Standard Time):     Amount is required
+Sat Dec 31 2016 15:25:09 GMT+0100 (Central Europe Standard Time):     Cast to Number failed for value "fdsffs" at path "amount"
+Sat Dec 31 2016 15:26:50 GMT+0100 (Central Europe Standard Time):     E11000 duplicate key error collection: insurance2.houseinsurances index: _id_ dup key: { : ObjectId('5867c00207dee1155029c7f3') }
+Sat Dec 31 2016 15:31:29 GMT+0100 (Central Europe Standard Time):     Cast to ObjectID failed for value "{ size: '43',
+  age: '34',
+  estimatedValue: '4344343',
+  adress: 'efwef',
+  ownerFirstName: '324432',
+  ownerLastName: '324324234',
+  ownerJMBG: '3443343434344',
+  coveredByInsurance: [ { _id: '584bf7505acf0a2bc4c23b94' } ] }" at path "houseInsurance"
+Sat Dec 31 2016 15:37:53 GMT+0100 (Central Europe Standard Time):     Cast to ObjectID failed for value "{ services: [ { _id: '584d61cb46179f29648a7e24' } ],
+  vehicle: 'f',
+  vehicleYear: '1455',
+  plateNumber: 'sdf',
+  chassisNumber: 'fe',
+  ownerFirstName: 'fd',
+  ownerLastName: 'rereerere',
+  ownerJmbg: '3434343444446' }" at path "carInsurance"
+Sat Dec 31 2016 16:15:32 GMT+0100 (Central Europe Standard Time):     Cast to ObjectID failed for value "{ services: [ { _id: '584d61cb46179f29648a7e24' } ],
+  vehicle: 'f',
+  vehicleYear: '1455',
+  plateNumber: 'sdf',
+  chassisNumber: 'fe',
+  ownerFirstName: 'fd',
+  ownerLastName: 'rereerere',
+  ownerJmbg: '3434343444446' }" at path "carInsurance"
+Sat Dec 31 2016 16:17:43 GMT+0100 (Central Europe Standard Time):     Cast to ObjectID failed for value "{ services: [ { _id: '584d61cb46179f29648a7e24' } ],
+  vehicle: 'f',
+  vehicleYear: '1455',
+  plateNumber: 'sdf',
+  chassisNumber: 'fe',
+  ownerFirstName: 'fd',
+  ownerLastName: 'rereerere',
+  ownerJmbg: '3434343444446' }" at path "carInsurance"
+Sat Dec 31 2016 16:21:15 GMT+0100 (Central Europe Standard Time):     Cast to ObjectID failed for value "{ services: [ { _id: '584d61cb46179f29648a7e24' } ],
+  vehicle: 'f',
+  vehicleYear: '1455',
+  plateNumber: 'sdf',
+  chassisNumber: 'fe',
+  ownerFirstName: 'fd',
+  ownerLastName: 'rereerere',
+  ownerJmbg: '3434343444446' }" at path "carInsurance"
+Sat Dec 31 2016 16:23:56 GMT+0100 (Central Europe Standard Time):     Cast to ObjectID failed for value "{ services: [ { _id: '584d61cb46179f29648a7e24' } ],
+  vehicle: 'f',
+  vehicleYear: '1455',
+  plateNumber: 'sdf',
+  chassisNumber: 'fe',
+  ownerFirstName: 'fd',
+  ownerLastName: 'rereerere',
+  ownerJmbg: '3434343444446' }" at path "carInsurance"
+Sat Dec 31 2016 16:27:12 GMT+0100 (Central Europe Standard Time):     Cast to ObjectID failed for value "{ services: [ { _id: '584d61cb46179f29648a7e24' } ],
+  vehicle: 'f',
+  vehicleYear: '1455',
+  plateNumber: 'sdf',
+  chassisNumber: 'fe',
+  ownerFirstName: 'fd',
+  ownerLastName: 'rereerere',
+  ownerJmbg: '3434343444446' }" at path "carInsurance"
+Sat Dec 31 2016 16:29:45 GMT+0100 (Central Europe Standard Time):     Cast to ObjectID failed for value "{ services: [ { _id: '584d61cb46179f29648a7e24' } ],
+  vehicle: 'f',
+  vehicleYear: '1455',
+  plateNumber: 'sdf',
+  chassisNumber: 'fe',
+  ownerFirstName: 'fd',
+  ownerLastName: 'rereerere',
+  ownerJmbg: '3434343444446' }" at path "carInsurance"
+Sat Dec 31 2016 16:30:22 GMT+0100 (Central Europe Standard Time):     Cast to ObjectID failed for value "{ services: [ { _id: '584d61cb46179f29648a7e24' } ],
+  vehicle: 'f',
+  vehicleYear: '1455',
+  plateNumber: 'sdf',
+  chassisNumber: 'fe',
+  ownerFirstName: 'fd',
+  ownerLastName: 'rereerere',
+  ownerJmbg: '3434343444446' }" at path "carInsurance"
+Sat Dec 31 2016 16:33:06 GMT+0100 (Central Europe Standard Time):     Cast to ObjectID failed for value "{ services: [ { _id: '584d61cb46179f29648a7e24' } ],
+  vehicle: 'f',
+  vehicleYear: '1455',
+  plateNumber: 'sdf',
+  chassisNumber: 'fe',
+  ownerFirstName: 'fd',
+  ownerLastName: 'rereerere',
+  ownerJmbg: '3434343444446' }" at path "carInsurance"
+Sat Dec 31 2016 16:33:46 GMT+0100 (Central Europe Standard Time):     Cast to ObjectID failed for value "{ services: [ { _id: '584d61cb46179f29648a7e24' } ],
+  vehicle: 'f',
+  vehicleYear: '1455',
+  plateNumber: 'sdf',
+  chassisNumber: 'fe',
+  ownerFirstName: 'fd',
+  ownerLastName: 'rereerere',
+  ownerJmbg: '3434343444446' }" at path "carInsurance"
+Sat Dec 31 2016 16:52:36 GMT+0100 (Central Europe Standard Time):     Cast to ObjectID failed for value "{ services: [ { _id: '584d61cb46179f29648a7e24' } ],
+  vehicle: 'f',
+  vehicleYear: '1455',
+  plateNumber: 'sdf',
+  chassisNumber: 'fe',
+  ownerFirstName: 'fd',
+  ownerLastName: 'rereerere',
+  ownerJmbg: '3434343444446' }" at path "carInsurance"
+Sat Dec 31 2016 17:19:58 GMT+0100 (Central Europe Standard Time):     Cast to ObjectID failed for value "{ _id: 'f58496d3a24d4140b4411695b' }" at path "sport"
+Sat Dec 31 2016 17:24:15 GMT+0100 (Central Europe Standard Time):     Cast to ObjectID failed for value "{ _id: 'f58496d3a24d4140b4411695b' }" at path "sport"
+Sat Dec 31 2016 17:37:31 GMT+0100 (Central Europe Standard Time):     Path `services` is required.
+Thu Jan 05 2017 11:55:59 GMT+0100 (Central Europe Standard Time):     Amount in transaction is required
+Thu Jan 05 2017 16:20:55 GMT+0100 (Central Europe Standard Time):     Cast to ObjectId failed for value "{$ne:null}" at path "_id" for model "Insurance"
+Sat Jan 07 2017 12:55:31 GMT+0100 (Central Europe Standard Time):     E11000 duplicate key error collection: insurance2.transactions index: idNumber_1 dup key: { : null }
+Sat Jan 07 2017 12:57:36 GMT+0100 (Central Europe Standard Time):     E11000 duplicate key error collection: insurance2.transactions index: idNumber_1 dup key: { : null }
+Sat Jan 07 2017 12:59:56 GMT+0100 (Central Europe Standard Time):     Nubmer ID in transaction is not unique: 
+Sat Jan 07 2017 12:59:56 GMT+0100 (Central Europe Standard Time):     E11000 duplicate key error collection: insurance2.transactions index: idNumber_1 dup key: { : null }
+Sat Jan 07 2017 13:02:58 GMT+0100 (Central Europe Standard Time):     E11000 duplicate key error collection: insurance2.transactions index: idNumber_1 dup key: { : null }
+Sat Jan 07 2017 13:04:42 GMT+0100 (Central Europe Standard Time):     E11000 duplicate key error collection: insurance2.transactions index: idNumber_1 dup key: { : null }
+Sat Jan 07 2017 13:06:41 GMT+0100 (Central Europe Standard Time):     E11000 duplicate key error collection: insurance2.transactions index: idNumber_1 dup key: { : null }
+Sat Jan 07 2017 13:06:42 GMT+0100 (Central Europe Standard Time):     E11000 duplicate key error collection: insurance2.transactions index: idNumber_1 dup key: { : null }
+Sat Jan 07 2017 13:06:43 GMT+0100 (Central Europe Standard Time):     E11000 duplicate key error collection: insurance2.transactions index: idNumber_1 dup key: { : null }

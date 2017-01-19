@@ -5,9 +5,21 @@
 		.module('payment-app.payment')
 		.controller('PaymentController', PaymentController);
 
-	PaymentController.$inject = ['$location','Payment'];
-	function PaymentController($location, Payment) {
+	PaymentController.$inject = ['$location','Payment','$stateParams','$state','CodeValidity'];
+	function PaymentController($location, Payment,$stateParams,$state,CodeValidity) {
 		var pay = this;
+		var codeValidity = new CodeValidity();
+		codeValidity.code = $stateParams.code;
+		codeValidity.id = $stateParams.paymentID;
+		var codeValid = false;
+		codeValidity.$save(function(response){
+			if(!response.valid)
+			{
+				$state.go('main.home');
+				return;
+			}
+		});
+		
 
 		pay.datepicker = {
 			minDate: new Date(),
