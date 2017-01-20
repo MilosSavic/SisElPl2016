@@ -7,6 +7,8 @@
 
 	InsuranceController.$inject = ['$location','Insurance','Region','$state','$rootScope','User','InsuranceData','SideBar','Amount'];
 	function InsuranceController($location,Insurance,Region,$state,$rootScope,User,InsuranceData,SideBar,Amount) {
+		
+
 		var ic = this;
 		
 		if(!$rootScope.insurance)

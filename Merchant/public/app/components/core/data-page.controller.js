@@ -176,7 +176,7 @@
 			alert(errorURL);
 			Transaction.get({id: InsuranceData.getInsuranceData().transaction},function(response)
 			{
-				var paymentData = {merchantID:id,merchantPassword:pass,errorURL:errorURL,transactionID:response.idNumber,transactionAmount:response.amount};
+				var paymentData = {merchantID:id,merchantPassword:pass,errorURL:errorURL,transactionID:response.idNumber,transactionAmount:response.amount,merchantTimestamp: response.timestamp};
 				var acquirer = new Acquirer(paymentData);
 				acquirer.$save(function(result){
 				console.log(result);

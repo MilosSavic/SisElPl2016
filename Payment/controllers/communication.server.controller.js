@@ -11,7 +11,7 @@ var id;
 function getURLandID(req, res, next){
 	//!!!!!!!!!!
 	//za sada samo proveravamo da li svi PODACI POSTOJE!!! MOZDA TREBA VISE!!!
-	var isDataOk = req.body.merchantID && req.body.merchantPassword && req.body.transactionID && req.body.transactionAmount && req.body.errorURL;
+	var isDataOk = req.body.merchantID && req.body.merchantPassword && req.body.transactionID && req.body.transactionAmount && req.body.errorURL && req.body.merchantTimestamp;
 	if(isDataOk)
 	{
 		generatedString = crypto.randomBytes(20).toString('hex');

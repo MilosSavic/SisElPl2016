@@ -7,6 +7,11 @@
 
 	CarInsuranceController.$inject = ['$location','CarInsurance','$state','InsuranceData','SideBar','CarInsuranceService','crTranslator', 'crTranslations','services'];
 	function CarInsuranceController($location,CarInsurance,$state,InsuranceData,SideBar,CarInsuranceService,crTranslator,crTranslations,services) {
+		if(!SideBar.isCarActive())
+		{
+			$state.go('main.insuranceForm');
+			return;
+		}
 		var cic = this;
 		cic.carInsurance = InsuranceData.getInsuranceData().carInsurance;
 

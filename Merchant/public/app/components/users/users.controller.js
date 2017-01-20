@@ -7,8 +7,15 @@
 
 	UsersController.$inject = ['$location','Insurance','$state','User','$stateParams','HouseInsurance','InsuranceData','SideBar','Sport'];
 	function UsersController($location,Insurance,$state,User,$stateParams,HouseInsurance,InsuranceData,SideBar,Sport) {
+		if(!SideBar.isUsersActive())
+		{
+			$state.go('main.insuranceForm');
+			return;
+		}
 		var uc = this;
 		uc.page = $stateParams.userIndex;
+		
+		
 
 		console.log(InsuranceData.getInsuranceData());
 		//uc.user = $rootScope.insurance.users[uc.page-1];

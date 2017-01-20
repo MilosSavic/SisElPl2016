@@ -7,6 +7,12 @@
 
 	HouseInsuranceController.$inject = ['$location','HouseInsuranceCategory','$state','CarInsurance','InsuranceData','SideBar','crTranslator', 'crTranslations'];
 	function HouseInsuranceController($location,HouseInsuranceCategory,$state,CarInsurance,InsuranceData,SideBar,crTranslator,crTranslations) {
+		if(!SideBar.isHouseActive())
+		{
+			$state.go('main.insuranceForm');
+			return;
+		}
+		
 		var hic = this;
 		hic.houseInsurance = InsuranceData.getInsuranceData().houseInsurance;
 
