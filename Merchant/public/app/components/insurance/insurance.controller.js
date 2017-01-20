@@ -5,11 +5,13 @@
 		.module('merchant-app.insurance')
 		.controller('InsuranceController', InsuranceController);
 
-	InsuranceController.$inject = ['$location','Insurance','Region','$state','$rootScope','User','InsuranceData','SideBar','Amount'];
-	function InsuranceController($location,Insurance,Region,$state,$rootScope,User,InsuranceData,SideBar,Amount) {
-		
 
+	InsuranceController.$inject = ['$location','Insurance','Region','$state','$rootScope','User','InsuranceData','SideBar','Amount','crTranslator', 'crTranslations'];
+	function InsuranceController($location,Insurance,Region,$state,$rootScope,User,InsuranceData,SideBar,Amount,crTranslator, crTranslations) {
 		var ic = this;
+
+		ic.currentLanguage = crTranslations[crTranslator.getLanguage()].LANGUAGE;
+		console.log(ic.currentLanguage);
 		
 		if(!$rootScope.insurance)
 			$rootScope.insurance = new Insurance();

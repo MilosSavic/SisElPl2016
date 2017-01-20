@@ -81,6 +81,7 @@
 			{
 				var obj = {id: services.carInsuranceServices[i]._id,
 							label: services.carInsuranceServices[i].name,
+							labelSer: services.carInsuranceServices[i].nameSer,
 							group: services.carInsuranceServices[i].serviceGroup,
 							selected: false};
 				if(cic.serviceSelection.indexOf(obj.id)>-1)
@@ -94,7 +95,7 @@
 						if(cic.serviceData[j][0].group == services.carInsuranceServices[i].serviceGroup)
 						{
 							
-							if(obj.label) cic.serviceData[j].push(obj);
+							if(obj.label || obj.labelSer ) cic.serviceData[j].push(obj);
 							break;
 						}
 					}
@@ -103,7 +104,7 @@
 				{	
 					serviceGroups.push(services.carInsuranceServices[i].serviceGroup);
 					var servicesArray = [];
-					if(obj.label) {
+					if(obj.label || obj.labelSer) {
 						servicesArray.push(obj);
 						cic.serviceData.push(servicesArray);
 					}

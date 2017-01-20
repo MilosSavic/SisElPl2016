@@ -5,8 +5,8 @@
 		.module('merchant-app.core')
 		.controller('DataPageController', DataPageController);
 
-	DataPageController.$inject = ['$location','SideBar','$scope','$state','InsuranceData','Region','Insurance','Amount','UserRules','TotalRules','HouseInsuranceRules','CarInsuranceRules','AllRules','Acquirer','$window','Transaction','MerchantData'];
-	function DataPageController($location,SideBar,$scope,$state,InsuranceData,Region,Insurance,Amount,UserRules,TotalRules,HouseInsuranceRules,CarInsuranceRules,AllRules,Acquirer,$window,Transaction,MerchantData) {
+	DataPageController.$inject = ['$location','SideBar','$scope','$state','InsuranceData','Region','Insurance','Amount','UserRules','TotalRules','HouseInsuranceRules','CarInsuranceRules','AllRules','Acquirer','$window','Transaction','MerchantData','crTranslator', 'crTranslations'];
+	function DataPageController($location,SideBar,$scope,$state,InsuranceData,Region,Insurance,Amount,UserRules,TotalRules,HouseInsuranceRules,CarInsuranceRules,AllRules,Acquirer,$window,Transaction,MerchantData,crTranslator,crTranslations) {
 		
 		if(!SideBar.isDataActive())
 		{
@@ -14,6 +14,8 @@
 			return;
 		}
 		var dpc = this;
+
+		dpc.currentLanguage = crTranslations[crTranslator.getLanguage()].LANGUAGE;
 		
 		var insurance = JSON.parse(JSON.stringify(InsuranceData.getInsuranceData()));
 		var startDate = new Date(insurance.startDate);
@@ -28,6 +30,8 @@
 
 		dpc.price = insurance.price;
 		Region.get({regionId: insurance.region._id},function(response){
+			
+			dpc.regionSer = response.nameSer;
 			dpc.region = response.name;
 		});
 		dpc.users = insurance.users;

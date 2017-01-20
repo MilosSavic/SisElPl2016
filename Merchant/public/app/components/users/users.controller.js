@@ -4,23 +4,24 @@
 	angular
 		.module('merchant-app.users')
 		.controller('UsersController', UsersController);
-
-	UsersController.$inject = ['$location','Insurance','$state','User','$stateParams','HouseInsurance','InsuranceData','SideBar','Sport'];
-	function UsersController($location,Insurance,$state,User,$stateParams,HouseInsurance,InsuranceData,SideBar,Sport) {
+		
+	UsersController.$inject = ['$location','Insurance','$state','User','$stateParams','HouseInsurance','InsuranceData','SideBar','Sport','crTranslator', 'crTranslations'];
+	function UsersController($location,Insurance,$state,User,$stateParams,HouseInsurance,InsuranceData,SideBar,Sport,crTranslator, crTranslations) {
 		if(!SideBar.isUsersActive())
 		{
 			$state.go('main.insuranceForm');
 			return;
 		}
 		var uc = this;
-		uc.page = $stateParams.userIndex;
-		
-		
+		uc.page = $stateParams.userIndex;	
 
 		console.log(InsuranceData.getInsuranceData());
 		//uc.user = $rootScope.insurance.users[uc.page-1];
 		uc.user = InsuranceData.getInsuranceData().users[uc.page-1];
 		Sport.get(function(response){uc.sports = response.sports;});
+
+		uc.currentLanguage = crTranslations[crTranslator.getLanguage()].LANGUAGE;
+		console.log(uc.currentLanguage);
 
 		if(uc.page==1)
 		{

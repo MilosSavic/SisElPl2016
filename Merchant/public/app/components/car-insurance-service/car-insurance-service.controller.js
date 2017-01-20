@@ -13,7 +13,7 @@
 		CarInsuranceService.get(function(response){cisc.listOfCarInsuranceServices = response.carInsuranceServices;});
 
 		cisc.submit = function(){
-			 $window.location.reload();
+			 $state.reload();
 			cisc.carInsuranceService.$save(success);
 		}
 		function success() {

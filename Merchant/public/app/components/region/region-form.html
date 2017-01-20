@@ -34,7 +34,7 @@
 
 
         <div class="form-group" ng-class="{ 'has-error': rc.regionForm.name.$touched && rc.regionForm.name.$invalid }">
-		<label class="control-label col-sm-2" translate>{{"REGION.NAME"}}</label>
+		<label class="control-label col-sm-2" translate>{{"REGION.NAME_ENG"}}</label>
 		<div class="col-sm-6 col-md-4">
 		<input class="form-control" type="text" ng-model="rc.region.name"  name="name" required>
 
@@ -43,6 +43,17 @@
                 </div>
 		</div>
 		</div>
+
+       <div class="form-group" ng-class="{ 'has-error': rc.regionForm.nameSer.$touched && rc.regionForm.nameSer.$invalid }">
+    <label class="control-label col-sm-2" translate>{{"REGION.NAME_SER"}}</label>
+    <div class="col-sm-6 col-md-4">
+    <input class="form-control" type="text" ng-model="rc.region.nameSer"  name="nameSer" required>
+
+        <div ng-messages="rc.regionForm.nameSer.$error" ng-show="rc.regionForm.nameSer.$touched">
+                    <p ng-message="required"><span translate>{{"REGION.ERROR.REQUIRED"}}</span></p>
+                </div>
+    </div>
+    </div>
 
 
         <div class="form-group" ng-class="{ 'has-error': rc.regionForm.risk.$touched && rc.regionForm.risk.$invalid }">
@@ -72,7 +83,8 @@
   <tr >
     <th>&nbsp;</th>
     <th >ID</th>
-    <th translate>{{"REGION.NAME"}}</th>
+    <th translate>{{"REGION.NAME_ENG"}}</th>
+    <th translate>{{"REGION.NAME_SER"}}</th>
     <th translate>{{"REGION.RISK"}}</th>
 
   </tr>
@@ -80,6 +92,7 @@
     <td style="width:4%;">{{$index+1}}&nbsp;</td>
     <td style="width:11%;">{{element._id}}</td>
     <td style="width:9%;">{{element.name}}</td>
+    <td style="width:9%;">{{element.nameSer}}</td>
     <td style="width:9%;">{{element.risk}}</td>
   </tr>
   </table>

@@ -13,7 +13,7 @@
 		Amount.get(function(response){ac.listOfAmounts = response.amounts;});
 
 		ac.submitAmount = function(){
-			 $window.location.reload();
+			 $state.reload();
 			ac.amount.$save(success);
 		}
 		function success() {

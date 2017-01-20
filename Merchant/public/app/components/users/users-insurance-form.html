@@ -116,8 +116,9 @@
 		<div class="form-group">
 		<label class="control-label col-sm-2" translate>{{"USER.SPORT"}}</label>
 				<div class="col-sm-6 col-md-4">
-		        <select class="form-control" id="sport" name="sport._id" ng-model="uc.user.sport._id">
-		          <option ng-repeat="sport in uc.sports" value="{{sport._id}}">{{ sport.name }}</option>
+		        <select class="form-control" id="sport" name="sport._id" ng-model="uc.user.sport._id" >
+		         <option ng-show="uc.currentLanguage == 'En'" ng-repeat="sport in uc.sports" value="{{sport._id}}">{{ sport.name }}</option>
+		           <option ng-show="uc.currentLanguage == 'Sr'" ng-repeat="sport in uc.sports" value="{{sport._id}}">{{ sport.nameSer }}</option>
 		        </select>
 		        <span class="validationText" ng-show="uc.sports.length==0" translate>{{"USER.ERROR.SPORT"}}</span>
 		        </div>

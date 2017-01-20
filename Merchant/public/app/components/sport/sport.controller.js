@@ -13,7 +13,7 @@
 		Sport.get(function(response){sc.listOfSports = response.sports;});
 
 		sc.submitSport = function(){
-			 $window.location.reload();
+			 $state.reload();
 			sc.sport.$save(success);
 		}
 		function success() {

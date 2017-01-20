@@ -96,7 +96,8 @@
 
 			"CARSERVICE": {
 
-				"NAME":"Name",
+				"NAME_ENG":"Name in English",
+				"NAME_SER":"Name in Serbian",
 				"GROUP":"Group",
 				"RISKFACTOR":"Risk factor",
 				"CARINSURANCESERVICE":"Car insurance service",
@@ -130,7 +131,8 @@
 
 			"HOUSECATEGORY": {
 
-				"NAME":"Name",
+				"NAME_ENG":"Name in English",
+				"NAME_SER":"Name in Serbian",
 				"RISKFACTOR":"Risk factor",
 				"HOUSEINSURANCECATEGORY":"House insurance category",
 
@@ -165,7 +167,8 @@
 
 			"REGION": {
 
-				"NAME":"Name",
+				"NAME_ENG":"Name in English",
+				"NAME_SER":"Name in Serbian",
 				"RISK":"Risk",
 
 				"ERROR": {
@@ -177,7 +180,8 @@
 
 			"SPORT": {
 
-				"NAME":"Name",
+				"NAME_ENG":"Name in English",
+				"NAME_SER":"Name in Serbian",
 				"COEFFICIENT":"Coefficient",
 
 				"ERROR": {
@@ -377,7 +381,8 @@
 
 			"REGION": {
 
-				"NAME":"Naziv",
+				"NAME_ENG":"Naziv na engleskom",
+				"NAME_SER":"Naziv na srpskom",
 				"RISK":"Rizik",
 
 				"ERROR": {
@@ -389,7 +394,8 @@
 
 			"SPORT": {
 
-				"NAME":"Naziv",
+				"NAME_ENG":"Naziv na engleskom",
+				"NAME_SER":"Naziv na srpskom",
 				"COEFFICIENT":"Koeficijent",
 
 
@@ -402,7 +408,8 @@
 
 			"HOUSECATEGORY": {
 
-				"NAME":"Naziv",
+				"NAME_ENG":"Naziv na engleskom",
+				"NAME_SER":"Naziv na srpskom",
 				"RISKFACTOR":"Faktor rizika",
 				"HOUSEINSURANCECATEGORY":"Kategorija kućnog osiguranja",
 
@@ -415,7 +422,8 @@
 
 			"CARSERVICE": {
 
-				"NAME":"Naziv",
+				"NAME_ENG":"Naziv na engleskom",
+				"NAME_SER":"Naziv na srpskom",
 				"GROUP":"Grupa",
 				"RISKFACTOR":"Faktor rizika",
 				"CARINSURANCESERVICE":"Paket za pomoć na putu",
