@@ -4,6 +4,7 @@ var Schema = mongoose.Schema;
 var sportSchema = new Schema({
 
   name: String,
+  nameSer: String,
   coefficient: Number
 });
 

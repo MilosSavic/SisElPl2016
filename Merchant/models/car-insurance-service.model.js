@@ -6,6 +6,10 @@ var carInsuranceServiceSchema = new Schema({ //defining UserScehma object using 
       	type: String,
       	required: "Name is required"
       },
+      nameSer: {
+         type: String,
+         required: "Name is required"
+      },
       serviceGroup: {
       	type: Number,
       	required: "You have to insert a service group"

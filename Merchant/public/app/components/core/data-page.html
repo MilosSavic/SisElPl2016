@@ -57,7 +57,8 @@
 			</div>
 			<div class="form-group">
 			<label class="control-label col-sm-2" translate>{{"DATA.REGION"}}</label>
-			<label class="control-label col-sm-2">{{dpc.region}}</label>
+			<label ng-show="dpc.currentLanguage == 'En'" class="control-label col-sm-2">{{dpc.region}}</label>
+			<label ng-show="dpc.currentLanguage == 'Sr'" class="control-label col-sm-2">{{dpc.regionSer}}</label>
 			</div>
 
 			<div ng-repeat="user in dpc.users" class="form-group">

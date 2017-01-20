@@ -56,12 +56,13 @@
 			{
 				var obj = {id: response.houseInsuranceCategories[i]._id,
 							label: response.houseInsuranceCategories[i].name,
+							labelSer: response.houseInsuranceCategories[i].nameSer,
 							selected: false};
 				if(hic.insuranceSelection.indexOf(obj.id)>-1)
 				{
 					obj.selected = true;
 				}
-				if(obj.label)
+				if(obj.label || obj.labelSer)
 				hic.insuranceData.push(obj);
 			}
 

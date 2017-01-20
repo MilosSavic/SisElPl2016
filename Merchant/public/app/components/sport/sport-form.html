@@ -29,7 +29,7 @@
 
 
     <div class="form-group" ng-class="{ 'has-error': sc.sportForm.name.$touched && sc.sportForm.name.$invalid }">
-		<label class="control-label col-sm-2" translate>{{"SPORT.NAME"}}</label>
+		<label class="control-label col-sm-2" translate>{{"SPORT.NAME_ENG"}}</label>
 		<div class="col-sm-6 col-md-4">
 		<input class="form-control" type="text" ng-model="sc.sport.name"  name="name" required>
     <div ng-messages="sc.sportForm.name.$error" ng-show="sc.sportForm.name.$touched">
@@ -37,6 +37,16 @@
                 </div>
 		</div>
 		</div>
+
+     <div class="form-group" ng-class="{ 'has-error': sc.sportForm.nameSer.$touched && sc.sportForm.nameSer.$invalid }">
+    <label class="control-label col-sm-2" translate>{{"SPORT.NAME_SER"}}</label>
+    <div class="col-sm-6 col-md-4">
+    <input class="form-control" type="text" ng-model="sc.sport.nameSer"  name="nameSer" required>
+    <div ng-messages="sc.sportForm.nameSer.$error" ng-show="sc.sportForm.nameSer.$touched">
+                    <p ng-message="required"><span translate>{{"SPORT.ERROR.REQUIRED"}}</span></p>
+                </div>
+    </div>
+    </div>
 
 
     <div class="form-group" ng-class="{ 'has-error': sc.sportForm.coefficient.$touched && sc.sportForm.coefficient.$invalid }">
@@ -65,7 +75,8 @@
   <tr>
     <th>&nbsp;</th>
     <th>ID</th>
-    <th translate>{{"SPORT.NAME"}}</th>
+    <th translate>{{"SPORT.NAME_ENG"}}</th>
+    <th translate>{{"SPORT.NAME_SER"}}</th>
     <th translate>{{"SPORT.COEFFICIENT"}}</th>
 
   </tr>
@@ -73,6 +84,7 @@
     <td style="width:4%;">{{$index+1}}&nbsp;</td>
     <td style="width:11%;">{{element._id}}</td>
     <td style="width:9%;">{{element.name}}</td>
+     <td style="width:9%;">{{element.nameSer}}</td>
     <td style="width:9%;">{{element.coefficient}}</td>
   </tr>
   </table>

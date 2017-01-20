@@ -28,7 +28,7 @@
 
 
       <div class="form-group" ng-class="{ 'has-error': cisc.carInsuranceServiceForm.name.$touched && cisc.carInsuranceServiceForm.name.$invalid }">
-		<label class="control-label col-sm-2" translate>{{"CARSERVICE.NAME"}}</label>
+		<label class="control-label col-sm-2" translate>{{"CARSERVICE.NAME_ENG"}}</label>
 		<div class="col-sm-6 col-md-4">
 		<input class="form-control" type="text" ng-model="cisc.carInsuranceService.name"  name="name" required>
     <div ng-messages="cisc.carInsuranceServiceForm.name.$error" ng-show="cisc.carInsuranceServiceForm.name.$touched">
@@ -36,6 +36,16 @@
                 </div>
 		</div>
 		</div>
+
+    <div class="form-group" ng-class="{ 'has-error': cisc.carInsuranceServiceForm.nameSer.$touched && cisc.carInsuranceServiceForm.nameSer.$invalid }">
+    <label class="control-label col-sm-2" translate>{{"CARSERVICE.NAME_SER"}}</label>
+    <div class="col-sm-6 col-md-4">
+    <input class="form-control" type="text" ng-model="cisc.carInsuranceService.nameSer"  name="nameSer" required>
+    <div ng-messages="cisc.carInsuranceServiceForm.nameSer.$error" ng-show="cisc.carInsuranceServiceForm.nameSer.$touched">
+                    <p ng-message="required"><span translate>{{"CARSERVICE.ERROR.REQUIRED"}}</span></p>
+                </div>
+    </div>
+    </div>
 
      <div class="form-group" ng-class="{ 'has-error': cisc.carInsuranceServiceForm.serviceGroup.$touched && cisc.carInsuranceServiceForm.serviceGroup.$invalid }">
     <label class="control-label col-sm-2" translate>{{"CARSERVICE.GROUP"}}</label>
@@ -75,7 +85,8 @@
   <tr>
     <th>&nbsp;</th>
     <th>ID</th>
-    <th translate>{{"CARSERVICE.NAME"}}</th>
+    <th translate>{{"CARSERVICE.NAME_ENG"}}</th>
+    <th translate>{{"CARSERVICE.NAME_SER"}}</th>
       <th translate>{{"CARSERVICE.GROUP"}}</th>
     <th translate>{{"CARSERVICE.RISKFACTOR"}}</th>
 
@@ -85,6 +96,7 @@
     <td style="width:4%;">{{$index+1}}&nbsp;</td>
     <td style="width:11%;">{{element._id}}</td>
     <td style="width:9%;">{{element.name}}</td>
+    <td style="width:9%;">{{element.nameSer}}</td>
     <td style="width:9%;">{{element.serviceGroup}}</td>
     <td style="width:9%;">{{element.riskFactor}}</td>
   </tr>

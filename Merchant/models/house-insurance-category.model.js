@@ -3,6 +3,7 @@ var mongoose = require('mongoose'),
 
 var houseInsuranceCategorySchema = new Schema({ //defining UserScehma object using Schema constructor
       name: String,
+      nameSer: String,
       riskFactor: Number
    });
 
