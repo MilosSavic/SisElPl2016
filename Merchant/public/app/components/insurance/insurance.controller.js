@@ -82,7 +82,44 @@
 
 		function success() {
 			console.log("Insurance added...")
-			$location.path('/employee');
+			$location.path('/insurance');
+		}
+
+
+		
+	}
+})();
+
+
+(function() {
+	'use strict';
+
+	angular
+		.module('merchant-app.insurance')
+		.controller('InsController', InsController);
+
+	InsController.$inject = ['insuranceService'];
+	function InsController(insuranceService) {
+		var ic = this;
+		ic.insurances = insuranceService.getInsurances();
+		ic.saveInsurance = saveInsurance;
+		ic.reset = reset;
+		ic.deleteInsurance = deleteInsurance;
+
+		ic.lastSaveSuccess = true;
+		ic.lastDeleteIndex = -1;
+
+		function saveInsurance() {
+			ic.lastSaveSuccess = insuranceService.addInsurance(ic.insurance);
+			ic.insurance = {};
+		}
+
+		function reset() {
+			ic.insurance = {};
+		}
+
+		function deleteInsurance(_id) {
+			insuranceService.removeInsurance(_id);
 		}
 	}
 })();

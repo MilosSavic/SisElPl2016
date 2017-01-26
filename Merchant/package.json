@@ -1,10 +1,10 @@
-﻿{
+{
   "name": "NodeBackend",
   "version": "1.0.0",
   "description": "A simple backend for an angular app.",
   "main": "server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "karma start tests/karma.conf.js",
     "start": "node src/server.js"
   },
   "author": "Nikola Luburić, Milos Savic",
@@ -14,8 +14,14 @@
     "body-parser": "^1.14.1",
     "cors": "^2.7.1",
     "mongoose": "^4.4.17",
-    "nools" : "0.4.4",
-    "csurf":"1.9.0",
-	"helmet": "3.4.0"
+    "nools": "0.4.4",
+    "csurf": "1.9.0",
+    "helmet": "3.4.0"
+  },
+  "devDependencies": {
+    "jasmine-core": "^2.5.2",
+    "karma": "^1.3.0",
+    "karma-chrome-launcher": "^2.0.0",
+    "karma-jasmine": "^1.0.2"
   }
 }
