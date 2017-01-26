@@ -6,13 +6,14 @@ Projekat iz sistema elektronskog plaćanja. U pitanju su aplikacije koje omoguć
 Neophodno je imati instalirane NodeJS i MongoDB
 ## Pokretanje
 ### Merchant
-1. Otvoriti cmd u folderu Merchant
-2. Izvršiti 'npm install' komandu
-3. Prebaciti se u Merchant/public folder
-4. Izvršiti 'bower install' komandu
-5. Vratiti se u Merchant folder
-6. Izvršiti 'node server' komandu
-7. Otvoriti https://localhost:3000/ u browseru
+1. Pokrenuti MongoDB
+2. Otvoriti cmd u folderu Merchant
+3. Izvršiti 'npm install' komandu
+4. Prebaciti se u Merchant/public folder
+5. Izvršiti 'bower install' komandu
+6. Vratiti se u Merchant folder
+7. Izvršiti 'node server' komandu
+8. Otvoriti https://localhost:3000/ u browseru
 
 ### Payment/Acquirer
 
