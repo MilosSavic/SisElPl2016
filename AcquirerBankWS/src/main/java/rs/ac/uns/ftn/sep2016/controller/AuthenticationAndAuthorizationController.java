@@ -67,4 +67,27 @@ public class AuthenticationAndAuthorizationController {
 		return destinationService.findAll();
 	}
 	
+	@RequestMapping(value = "/test/ssl", method = RequestMethod.GET)
+	AuthResponse getSSLResponse() {
+		AuthRequest request = new AuthRequest(1234567890, new Date(), "378282246310005", "123", "Vladimir Baumgartner", new Date(), 500.00);
+		try {
+			AuthRequest.validate(request);
+			ObjectMapper mapper = new ObjectMapper();
+			String jsonRequest = mapper.writeValueAsString(request);
+			HttpHeaders headers = new HttpHeaders();
+			headers.setContentType(MediaType.APPLICATION_JSON);
+			HttpEntity<String> requestBody = new HttpEntity<String>(jsonRequest, headers);
+			return restTemplateBuilder.build().exchange(destinationService.findById("PCC").getDestinationUri(), HttpMethod.POST, requestBody, AuthResponse.class).getBody();
+		} catch (InvalidAuthentificationAndAuthorizationRequest e) {
+			e.printStackTrace();
+			return new AuthResponse(request.getAcquirerOrderId(), request.getAcquirerTimestamp(), null, null, HttpStatus.BAD_REQUEST, "Request body was not properly validated.");
+		} catch (JsonProcessingException e) {
+			e.printStackTrace();
+			return new AuthResponse(request.getAcquirerOrderId(), request.getAcquirerTimestamp(), null, null, HttpStatus.INTERNAL_SERVER_ERROR, "Request body was not properly serialized.");
+		} catch (RestClientException e){
+			e.printStackTrace();
+			return new AuthResponse(request.getAcquirerOrderId(), request.getAcquirerTimestamp(), null, null, HttpStatus.SERVICE_UNAVAILABLE, "Request redirection failed.");
+		}
+	}
+	
 }

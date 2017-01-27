@@ -6,6 +6,14 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 @SpringBootApplication
 public class IssuerBankWsApplication {
 
+	static
+	{
+		System.setProperty("javax.net.ssl.trustStore", "C:\\Users\\Vladimir\\git\\sep\\SisElPl2016\\PaymentCardCenterWS\\src\\main\\resources\\pcc.jks");
+		System.setProperty("javax.net.ssl.trustStorePassword", "password");
+		System.setProperty("javax.net.ssl.keyStore",  "C:\\Users\\Vladimir\\git\\sep\\SisElPl2016\\PaymentCardCenterWS\\src\\main\\resources\\pcc.jks");
+		System.setProperty("javax.net.ssl.keyStorePassword", "password");
+	}
+	
 	public static void main(String[] args) {
 		SpringApplication.run(IssuerBankWsApplication.class, args);
 	}
