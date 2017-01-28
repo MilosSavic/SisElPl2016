@@ -6,6 +6,7 @@ module.exports.createMerchant = createMerchant;
 var mongoose = require('mongoose'),
     Merchant = mongoose.model('Merchant'),
     errorHandler = require(appRoot+'/controllers/errors.server.controller'),
+    xss = require('xss'),
 	crypto = require('./encrypt-decrypt');
 
 const url = "https://localhost:3000/#!/error"

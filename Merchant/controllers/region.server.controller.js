@@ -2,7 +2,8 @@
 
 var mongoose = require('mongoose'),
     Region = mongoose.model('Region'),
-    errorHandler = require(appRoot+'/controllers/errors.server.controller');
+    errorHandler = require(appRoot+'/controllers/errors.server.controller'),
+    xss = require('xss');
 
 module.exports.list = list;
 module.exports.createRegion = createRegion;
@@ -32,6 +33,7 @@ function list(req, res, next){
 }
 
 function createRegion(req, res, next){
+     req.body = JSON.parse(xss(JSON.stringify(req.body)));
     var region = new Region(req.body);
 
 crypto.encryptData(region);

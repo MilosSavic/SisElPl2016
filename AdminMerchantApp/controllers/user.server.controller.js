@@ -2,7 +2,8 @@
 
 var mongoose = require('mongoose'),
     User = mongoose.model('User'),
-    errorHandler = require(appRoot+'/controllers/errors.server.controller');
+    errorHandler = require(appRoot+'/controllers/errors.server.controller'),
+    xss = require('xss');
 
 module.exports.list = list;
 module.exports.createUser = createUser;
@@ -32,7 +33,7 @@ function list(req, res, next){
 }
 
 function createUser(req, res, next){
-	 
+	  req.body = JSON.parse(xss(JSON.stringify(req.body)));
     var user = new User(req.body);
     crypto.encryptData(user);
 

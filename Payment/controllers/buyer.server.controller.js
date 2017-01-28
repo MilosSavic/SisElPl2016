@@ -1,7 +1,8 @@
 "use strict"
 
 var mongoose = require('mongoose'),
-    Buyer = mongoose.model('Buyer');
+    Buyer = mongoose.model('Buyer'),
+    xss = require('xss');
 
 module.exports.list = list;
 module.exports.createBuyer = createBuyer;
@@ -21,7 +22,7 @@ function list(req, res, next){
 }
 
 function createBuyer(req, res, next){
-
+    req.body = JSON.parse(xss(JSON.stringify(req.body)));
     var buyer = new Buyer(req.body);
     buyer.save(function (err, buyer) {
       if (err) return console.error(err);

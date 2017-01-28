@@ -63,10 +63,14 @@
 		<div class="form-group" ng-class="{ 'has-error': ic.insuranceForm.region._id.$touched && ic.insuranceForm.region._id.$invalid }">
 		<label class="control-label col-sm-2" translate> {{"INSURANCE.REGION"}}</label>
 				<div class="col-sm-6 col-md-4">
-		        <select class="form-control" id="region" name="region._id" ng-model="ic.insurance.region._id" required>
-		          <option ng-show="ic.currentLanguage == 'En'" ng-repeat="region in ic.regions" value="{{region._id}}">{{ region.name }}</option>
-		          <option ng-show="ic.currentLanguage == 'Sr'" ng-repeat="region in ic.regions" value="{{region._id}}">{{ region.nameSer }}</option>
+		        <select ng-show="ic.currentLanguage == 'En'" class="form-control" id="region" name="region._id" ng-model="ic.insurance.region._id" required>
+		          <option ng-repeat="region in ic.regions" value="{{region._id}}">{{ region.name }}</option>
 		        </select>
+
+		        <select ng-show="ic.currentLanguage == 'Sr'" class="form-control" id="region" name="region._id" ng-model="ic.insurance.region._id" required>
+		          <option ng-repeat="region in ic.regions" value="{{region._id}}">{{ region.nameSer }}</option>
+		        </select>
+
 		        <span class="validationText" ng-show="ic.regions.length==0" translate>{{"INSURANCE.ERROR.REGION"}}</span>
 		        </div>
 		</div>

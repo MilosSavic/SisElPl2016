@@ -2,7 +2,8 @@
 
 var mongoose = require('mongoose'),
     Payment = mongoose.model('Payment'),
-	errorHandler = require(appRoot+'/controllers/errors.server.controller');
+	errorHandler = require(appRoot+'/controllers/errors.server.controller'),
+    xss = require('xss');
 
 module.exports.list = list;
 module.exports.createPayment = createPayment;
@@ -60,6 +61,7 @@ function createUniqueRandomNumber(payment, result){
 }
 
 function createPayment(req, res, next){
+    req.body = JSON.parse(xss(JSON.stringify(req.body)));
     var payment = new Payment(req.body);    
     createUniqueRandomNumber(payment, function(result){
       if(result == createdResult)

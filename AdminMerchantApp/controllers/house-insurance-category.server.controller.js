@@ -2,7 +2,8 @@
 
 var mongoose = require('mongoose'),
     HouseInsuranceCategory = mongoose.model('HouseInsuranceCategory'),
-    errorHandler = require(appRoot+'/controllers/errors.server.controller');
+    errorHandler = require(appRoot+'/controllers/errors.server.controller'),
+    xss = require('xss');
 
 module.exports.list = list;
 module.exports.createHouseInsuranceCategory = createHouseInsuranceCategory;
@@ -32,6 +33,7 @@ function list(req, res, next){
 }
 
 function createHouseInsuranceCategory(req, res, next){
+     req.body = JSON.parse(xss(JSON.stringify(req.body)));
     var houseInsuranceCategory = new HouseInsuranceCategory(req.body);
     crypto.encryptData(houseInsuranceCategory);
 houseInsuranceCategory.save(function (err, result) {

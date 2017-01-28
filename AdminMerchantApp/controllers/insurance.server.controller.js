@@ -6,7 +6,8 @@ var mongoose = require('mongoose'),
     HouseInsurance = mongoose.model('HouseInsurance'),
     CarInsurance = mongoose.model('CarInsurance'),
     Region = mongoose.model('Region'),
-    errorHandler = require(appRoot+'/controllers/errors.server.controller');
+    errorHandler = require(appRoot+'/controllers/errors.server.controller'),
+    xss = require('xss');
 
 module.exports.list = list;
 module.exports.createInsurance = createInsurance;
@@ -35,6 +36,7 @@ console.log('Get all insurances...');
 }
 
 function createInsurance(req, res, next){
+   req.body = JSON.parse(xss(JSON.stringify(req.body)));
   function addUsers(){
     var user = {};
     var users = [];

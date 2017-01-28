@@ -2,7 +2,8 @@
 
 var mongoose = require('mongoose'),
     HouseInsurance = mongoose.model('HouseInsurance'),
-    errorHandler = require(appRoot+'/controllers/errors.server.controller');
+    errorHandler = require(appRoot+'/controllers/errors.server.controller'),
+    xss = require('xss');
 
 module.exports.list = list;
 module.exports.createHouseInsurance = createHouseInsurance;
@@ -26,6 +27,7 @@ console.log('Get all house insurances...');
 }
 
 function createHouseInsurance(req, res, next){
+     req.body = JSON.parse(xss(JSON.stringify(req.body)));
     var houseInsurance = new HouseInsurance(req.body);
     crypto.encryptData(houseInsurance);
     houseInsurance.save(function (err, houseInsurance) {

@@ -1,7 +1,8 @@
 "use strict"
 
 var mongoose = require('mongoose'),
-    Seller = mongoose.model('Seller');
+    Seller = mongoose.model('Seller'),
+    xss = require('xss');
 
 module.exports.list = list;
 module.exports.createSeller = createSeller;
@@ -21,7 +22,7 @@ function list(req, res, next){
 }
 
 function createSeller(req, res, next){
-
+    req.body = JSON.parse(xss(JSON.stringify(req.body)));
     var seller = new Seller(req.body);
     console.log(req.body);
     console.log(seller);

@@ -32,7 +32,26 @@
 		sbc.dataActive = SideBar.isDataActive();
 		
 		sbc.isActive = function(path) {
+			if($location.path().includes('carInsurance'))
+			{
+				sbc.carInsurancePartsEnabled = true;
+				
+			}
+			else sbc.carInsurancePartsEnabled = false;
+			if($location.path().includes('houseInsurance'))
+			{
+				sbc.houseInsurancePartsEnabled = true;
+				
+			}
+			else sbc.houseInsurancePartsEnabled = false;
+			if($location.path().includes('users'))
+			{
+				sbc.usersPartsEnabled = true;
+				
+			}
+			else sbc.usersPartsEnabled = false;
 			return $location.path().indexOf(path) != -1;
+
 		};
 	}
 })();

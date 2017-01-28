@@ -9,10 +9,10 @@
         <a ui-sref='main.insuranceForm' translate><span>{{"SIDEBAR.INSURANCE"}}</span></a>
     </li>
   <li ng-show="sbc.usersActive" ng-class="{activeItem:sbc.isActive('usersInsuranceForm')}">
-        <a translate><span>{{"SIDEBAR.USERS"}}</span></a>
+        <a ui-sref='main.usersInsuranceForm({userIndex:1})' translate><span>{{"SIDEBAR.USERS"}}</span></a>
 
         <!-- ja stavio subSideBar umesto sideBar i uneo sitne izmene u css-->
-        <ul class="nav nav-sidebar nav-sidebar-padding subSideBar">
+        <ul ng-show="sbc.usersPartsEnabled" class="nav nav-sidebar nav-sidebar-padding subSideBar">
             <li ng-repeat="userIndex in sbc.usersIndices" ng-class="{activeItem:sbc.isActive('usersInsuranceForm/{{userIndex}}')}" >
             <a ui-sref='main.usersInsuranceForm({userIndex:{{userIndex}}})'><span translate>{{"SIDEBAR.USER"}}</span><span>{{userIndex}}</span></a>
             </li>
@@ -37,6 +37,14 @@
 
     <li ng-show="sbc.houseActive" ng-class="{activeItem: sbc.isActive('houseInsuranceCheckboxes') || sbc.isActive('houseInsuranceForm')}">
         <a ui-sref='main.houseInsuranceCheckboxes' translate><span>{{"SIDEBAR.HOUSEINSURANCE"}}</span></a>
+        <ul  ng-show="sbc.houseInsurancePartsEnabled" class="nav nav-sidebar nav-sidebar-padding subSideBar">
+            <li  ng-class="{activeItem:sbc.isActive('houseInsuranceCheckboxes')}" >
+            <a ui-sref='main.houseInsuranceCheckboxes'><span translate>{{"SIDEBAR.PART"}}</span><span>1</span></a>
+            </li>
+             <li  ng-class="{activeItem:sbc.isActive('houseInsuranceForm')}" >
+            <a ui-sref='main.houseInsuranceForm'><span translate>{{"SIDEBAR.PART"}}</span><span>2</span></a>
+            </li>
+        </ul>
     </li>
 
     <!--BITNO: promene u css-u: dodat .inactive u company.css-->
@@ -46,6 +54,14 @@
 
      <li ng-show="sbc.carActive" ng-class="{activeItem: sbc.isActive('carInsuranceForm') || sbc.isActive('carInsuranceCheckboxes')}">
         <a ui-sref='main.carInsuranceCheckboxes' translate><span>{{"SIDEBAR.CARINSURANCE"}}</span></a>
+        <ul  ng-show="sbc.carInsurancePartsEnabled" class="nav nav-sidebar nav-sidebar-padding subSideBar">
+            <li  ng-class="{activeItem:sbc.isActive('carInsuranceCheckboxes')}" >
+            <a ui-sref='main.carInsuranceCheckboxes'><span translate>{{"SIDEBAR.PART"}}</span><span>1</span></a>
+            </li>
+             <li  ng-class="{activeItem:sbc.isActive('carInsuranceForm')}" >
+            <a ui-sref='main.carInsuranceForm'><span translate>{{"SIDEBAR.PART"}}</span><span>2</span></a>
+            </li>
+        </ul>
     </li>
 
      <li ng-show="!sbc.carActive" class="inactive">

@@ -16,7 +16,8 @@
     "mongoose": "^4.4.17",
     "nools": "0.4.4",
     "csurf": "1.9.0",
-    "helmet": "3.4.0"
+    "helmet": "3.4.0",
+    "xss": "0.3.2"
   },
   "devDependencies": {
     "jasmine-core": "^2.5.2",

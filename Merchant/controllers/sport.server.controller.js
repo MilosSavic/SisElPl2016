@@ -2,7 +2,8 @@
 
 var mongoose = require('mongoose'),
     Sport = mongoose.model('Sport'),
-    errorHandler = require(appRoot+'/controllers/errors.server.controller');
+    errorHandler = require(appRoot+'/controllers/errors.server.controller'),
+    xss = require('xss');
 
 module.exports.list = list;
 module.exports.createSport = createSport;
@@ -32,6 +33,7 @@ function list(req, res, next){
 }
 
 function createSport(req, res, next){
+     req.body = JSON.parse(xss(JSON.stringify(req.body)));
     var sport = new Sport(req.body);
 
 crypto.encryptData(sport);

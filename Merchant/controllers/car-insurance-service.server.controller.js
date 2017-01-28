@@ -2,7 +2,8 @@
 
 var mongoose = require('mongoose'),
     CarInsuranceService = mongoose.model('CarInsuranceService'),
-    errorHandler = require(appRoot+'/controllers/errors.server.controller');
+    errorHandler = require(appRoot+'/controllers/errors.server.controller'),
+    xss = require('xss');
 
 module.exports.list = list;
 module.exports.createCarInsuranceService = createCarInsuranceService;
@@ -32,6 +33,7 @@ function list(req, res, next){
 }
 
 function createCarInsuranceService(req, res, next){
+    req.body = JSON.parse(xss(JSON.stringify(req.body)));
     var carInsuranceService = new CarInsuranceService(req.body);
     crypto.encryptData(carInsuranceService);
     // console.log(carInsuranceService);
