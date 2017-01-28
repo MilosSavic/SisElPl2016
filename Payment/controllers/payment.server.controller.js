@@ -3,11 +3,13 @@
 var mongoose = require('mongoose'),
     Payment = mongoose.model('Payment'),
 	errorHandler = require(appRoot+'/controllers/errors.server.controller'),
-    xss = require('xss');
+    xss = require('xss'),
+    crypto = require("./encrypt-decrypt");
 
 module.exports.list = list;
 module.exports.createPayment = createPayment;
 module.exports.createPaymentServer = createPaymentServer;
+module.exports.updatePayment = updatePayment;
 
 function list(req, res, next){
 
@@ -18,6 +20,11 @@ function list(req, res, next){
            message: "Something happened :D"
          });
     }else {
+      for(var i=0; i<payments.length; i++)
+      { 
+        var decrypted = crypto.decryptData(payments[i]);
+        payments[i] = decrypted;
+      }
       res.json({payments});
     }
   });
@@ -60,6 +67,35 @@ function createUniqueRandomNumber(payment, result){
 
 }
 
+function createUniqueRandomAcquirerNumber(payment, result){
+  var randomNumber = Math.floor(Math.random()*9000000000+1000000000);
+  //var randomNumber = Math.floor(Math.random()*60);
+    //check if random nubmer already exists
+    Payment.find({ acquirerId: randomNumber }).exec(function(err,findresult){
+    if(err)
+   {
+
+      var errMessage = errorHandler.getErrorMessage(err);
+       errorHandler.logErrorMessage(errMessage);
+       result(errorResult);
+       return;
+      
+    }else if(findresult.length == 0)
+      {
+        payment.acquirerId = randomNumber;
+        result(createdResult);
+        return;
+      }
+      else {
+         result(notCreatedResult)
+         return;
+      }
+
+  })
+
+}
+
+
 function createPayment(req, res, next){
     req.body = JSON.parse(xss(JSON.stringify(req.body)));
     var payment = new Payment(req.body);    
@@ -87,8 +123,7 @@ function createPayment(req, res, next){
           });;
     })
     function encryptAndSave(){
-    //crypto.encryptData(transaction);
-
+    crypto.encryptData(payment);
     payment.save(function (err,payment) {
       if (err){
           var errMessage = errorHandler.getErrorMessage(err);
@@ -131,8 +166,7 @@ function createPaymentServer(req, res, next){
     })
 
     function encryptAndSave(){
-    //crypto.encryptData(transaction);
-
+  crypto.encryptData(payment);
   payment.save(function (err, payment) {
   if (err){
       var errMessage = errorHandler.getErrorMessage(err);
@@ -146,4 +180,60 @@ function createPaymentServer(req, res, next){
 });
     
    }
+
+}
+
+function updatePayment(req,res,next,id){
+  Payment.findById(id,function(err,result)
+  {
+    result.pan = req.body.pan;
+    result.security_code = req.body.security_code;
+    result.card_holder_name = req.body.card_holder_name,
+    result.expiry_date = req.body.expiry_date;
+    result.acquirerTimestamp = new Date();
+
+
+        createUniqueRandomAcquirerNumber(result, function(genResult){
+      if(genResult == createdResult)
+        encryptAndSave();
+      else if (genResult == notCreatedResult){
+        errorHandler.logErrorMessage("WARNING: retrying acquirer ID generation");
+        createUniqueRandomNumber(result,function(genResult){
+          if(genResult == createdResult)
+            encryptAndSave();
+          else if (genResult == notCreatedResult){
+            errorHandler.logErrorMessage("acquirer ID number generation failed for the second time. Something is obviously very wrong. It's possible that there are too many IDs in the database and too few random numbers.");
+            return res.status(400).send({
+            message: "acquirer ID number generation failed"
+          });
+          }
+          else return res.status(400).send({
+            message: "Server error during acquirer ID number generation"
+          });;
+        });
+      }
+      else return res.status(400).send({
+            message: "Server error during acquirer ID number generation"
+          });;
+    })
+
+    function encryptAndSave(){
+        result.save(function(err,updatedPayment){
+          if (err){
+          var errMessage = errorHandler.getErrorMessage(err);
+          errorHandler.logErrorMessage(errMessage);
+            return res.status(400).send({
+                message: errMessage
+              });
+
+        //return {message: errMessage};
+        }
+        else{
+        console.log("Save successful");
+        res.json(updatedPayment);
+       }
+        })
+      }
+  })
+
 }

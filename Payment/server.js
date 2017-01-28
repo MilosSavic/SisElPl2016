@@ -48,6 +48,11 @@ app.route('/api/sellers')
 app.route('/api/payments')
     .get(payments.list)
     .post(payments.createPayment);
+
+
+app.route('/api/payments/:paymentId')
+    .put(payments.updatePayment);
+app.param('paymentId', payments.updatePayment);
 	
 app.route('/api/getURLandID')
 	.get(mainServices.getURLandID)
@@ -56,6 +61,8 @@ app.route('/api/getURLandID')
 app.route('/api/checkCodeValidity')
 	.get(mainServices.checkCodeValidity)
 	.post(mainServices.checkCodeValidity);
+
+
 
 var fs = require("fs");
 

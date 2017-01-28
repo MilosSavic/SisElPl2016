@@ -5,8 +5,8 @@
 		.module('payment-app.payment')
 		.controller('PaymentController', PaymentController);
 
-	PaymentController.$inject = ['$location','Payment','$stateParams','$state','CodeValidity'];
-	function PaymentController($location, Payment,$stateParams,$state,CodeValidity) {
+	PaymentController.$inject = ['$location','Payment','$stateParams','$state','CodeValidity','TransactionAuthorization'];
+	function PaymentController($location, Payment,$stateParams,$state,CodeValidity,TransactionAuthorization) {
 		var pay = this;
 		var codeValidity = new CodeValidity();
 		codeValidity.code = $stateParams.code;
@@ -17,6 +17,9 @@
 			{
 				$state.go('main.home');
 				return;
+			}
+			else{
+				pay.payment._id = response.payment_id;
 			}
 		});
 		
@@ -31,8 +34,23 @@
 		pay.payment = new Payment();
 
 		pay.addPayment = function() {
-			 console.log('savee');
-				pay.payment.$saveOrUpdate(success);
+				pay.payment.$saveOrUpdate(function(result){
+
+					var reqForAuthorization = {
+						acquirerOrderId:result.acquirerId,
+						acquirerTimestamp:result.acquirerTimestamp,
+						pan:result.pan,
+						securityCode:result.security_code,
+						cardHolderName:result.card_holder_name,
+						expirationDate:result.expiry_date,
+						transactionAmount:result.transaction_amount
+					}
+
+					var authorization = new TransactionAuthorization(reqForAuthorization);
+					authorization.$save(function(result){
+						alert(JSON.stringify(result));
+					});
+				});
 
 		};
 

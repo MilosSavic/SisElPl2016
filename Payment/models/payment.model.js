@@ -11,7 +11,25 @@ var paymentSchema = new Schema({
     pan: String,
     security_code: String,
     card_holder_name: String,
-    expiry_date: Date
+    expiry_date: Date,
+    transaction_amount: Number,
+    date_created: {
+    type: Date,
+    default: Date.now
+  },
+    merchant: {
+            type: Schema.Types.ObjectId,
+            ref: 'Seller',
+            required:true
+    },
+    acquirerId : {
+        type: Number,
+        unique: "acquirer id number must be unique"
+    },
+    acquirerTimestamp: {
+        type: Date
+    }
+
 
 });
 

@@ -184,7 +184,17 @@
 				var acquirer = new Acquirer(paymentData);
 				acquirer.$save(function(result){
 				console.log(result);
-				$window.location.href = result.url+'/'+result.paymentID;
+				if(result.message)
+				{
+					//$window.location.href = error stranica u ovom slucaju
+					$window.location.href = errorURL;
+					alert('ERROR:'+result.message);
+
+				}
+				else
+				{
+					$window.location.href = result.url+'/'+result.paymentID;
+				}
 			})
 				
 			})

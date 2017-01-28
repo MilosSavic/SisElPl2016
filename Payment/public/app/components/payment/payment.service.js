@@ -44,3 +44,21 @@
 	}
 
 })();
+
+(function() {
+	"use strict";
+
+	angular
+		.module('payment-app.payment')
+		.factory('TransactionAuthorization', TransactionAuthorization);
+
+
+	TransactionAuthorization.$inject = ['$resource'];
+	function TransactionAuthorization($resource) {
+		var collectionName = "auth";
+		return $resource("http://localhost:8443/:collectionName/:id",
+			{id: "@_id", collectionName: collectionName},
+			{ update: { method: 'PUT' } });
+	}
+
+})();

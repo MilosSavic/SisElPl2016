@@ -36,7 +36,7 @@ function createAmount(req, res, next){
     req.body = JSON.parse(xss(JSON.stringify(req.body)));
     var amount = new Amount(req.body);
     crypto.encryptData(amount);
-amount.save(function (err, amount) {
+  amount.save(function (err, amount) {
   if (err){
       var errMessage = errorHandler.getErrorMessage(err);
       errorHandler.logErrorMessage(errMessage);
@@ -45,7 +45,7 @@ amount.save(function (err, amount) {
       });
     }
     else{
-  console.log("Save successful");
+   console.log("Save successful");
    res.json(amount); 
  }
 });
