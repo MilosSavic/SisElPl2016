@@ -99,18 +99,65 @@
 		.module('merchant-app.insurance')
 		.factory('insuranceService', insuranceService);
 
-	function insuranceService() {
-		var insurances = [];
+	insuranceService.$inject = ['$resource'];
+	function insuranceService($resource) {
+		var insurancesDB = [];
+		var insuranceService = $resource("http://localhost:3000/api/insurances/:id", { id: "@_id"}, { update: { method: 'PUT' } });
 
-		var service = {
+		angular.extend(insuranceService, {
+			saveInsuranceDB: saveInsuranceDB,
+			getInsurancesDB: getInsurancesDB,
+			
+		});
+
+		return insuranceService;
+
+		function saveInsuranceDB(insurance) {
+			if(insurance._id) {
+				return insurance.$update().then(function(data) {
+					insurancesDB.push(data);
+				});
+			} else {
+				return insurance.$save().then(function(data) {
+					insurancesDB.push(data);
+				});
+			}
+		}
+
+		function getInsurancesDB() {
+			return insuranceService.get().$promise.then(function(data) {
+				insurancesDB = data.results;
+				return insurancesDB;
+			});
+		}
+
+	}
+})();
+
+(function() {
+	'use strict';
+
+	angular
+		.module('merchant-app.insurance')
+		.factory('insuranceServiceInit', insuranceServiceInit);
+
+	function insuranceServiceInit() {
+		var insurances = [];
+		
+
+		var insuranceServiceInit = {
+
 			getInsurances: getInsurances,
 			addInsurance: addInsurance,
-			removeInsurance: removeInsurance
+			removeInsurance: removeInsurance,
+			
 		};
 
 		init();
 
-		return service;
+		return insuranceServiceInit;
+
+
 
 		function getInsurances() {
 			return insurances;

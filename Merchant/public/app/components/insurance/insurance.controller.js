@@ -101,7 +101,45 @@
 	InsController.$inject = ['insuranceService'];
 	function InsController(insuranceService) {
 		var ic = this;
-		ic.insurances = insuranceService.getInsurances();
+
+		ic.insuranceDB = new insuranceService();
+		insuranceService.getInsurancesDB().then(function(insurancesDB) {
+			ic.insurancesDB = insurancesDB;
+		});
+		ic.saveInsuranceDB = saveInsuranceDB;
+		ic.resetDB = resetDB;
+		ic.deleteInsuranceDB = deleteInsuranceDB;
+
+		ic.lastSaveSuccessDB = true;
+		ic.lastDeleteIndexDB = -1;
+
+		function saveInsuranceDB() {
+			insuranceService.saveInsuranceDB(ic.insuranceDB);
+			ic.resetDB();
+		}
+
+		function resetDB() {
+			ic.insuranceDB = new insuranceService();
+		}
+
+		function deleteInsuranceDB(insuranceDB) {
+			insuranceService.removeInsuranceDB(insuranceDB);
+		}
+	}
+})();
+
+
+(function() {
+	'use strict';
+
+	angular
+		.module('merchant-app.insurance')
+		.controller('InsControllerInit', InsControllerInit);
+
+	InsControllerInit.$inject = ['insuranceServiceInit'];
+	function InsControllerInit(insuranceServiceInit) {
+		var ic = this;
+		ic.insurances = insuranceServiceInit.getInsurances();
 		ic.saveInsurance = saveInsurance;
 		ic.reset = reset;
 		ic.deleteInsurance = deleteInsurance;
@@ -110,7 +148,7 @@
 		ic.lastDeleteIndex = -1;
 
 		function saveInsurance() {
-			ic.lastSaveSuccess = insuranceService.addInsurance(ic.insurance);
+			ic.lastSaveSuccess = insuranceServiceInit.addInsurance(ic.insurance);
 			ic.insurance = {};
 		}
 
@@ -119,7 +157,7 @@
 		}
 
 		function deleteInsurance(_id) {
-			insuranceService.removeInsurance(_id);
+			insuranceServiceInit.removeInsurance(_id);
 		}
 	}
 })();

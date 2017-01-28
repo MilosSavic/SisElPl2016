@@ -35,7 +35,6 @@ module.exports = function(config) {
         "app/components/region/region.module.js",
         "app/components/sport/sport.module.js",
         "app/components/users/user.module.js",
-        "app/components/employee/employee.module.js",
         "app/shared/shared.module.js",
         "app/shared/i18n/i18n.module.js",
         'app/**/*.js'
