@@ -38,6 +38,7 @@
 				"HOUSEINSURANCE":"House insurance",
 				"CARINSURANCE":"Car insurance",
 				"YOURDATA":"Your data",
+				"PART":"Part",
 			},
 
 			"AMOUNT": {
@@ -258,6 +259,7 @@
 				"HOUSEINSURANCE":"Kućno osiguranje",
 				"CARINSURANCE":"Putno osiguranje",
 				"YOURDATA":"Vaši podaci",
+				"PART":"Deo",
 			},
 
 

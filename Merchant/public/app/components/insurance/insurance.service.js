@@ -8,10 +8,39 @@
 
 	Insurance.$inject = ['$resource'];
 	function Insurance($resource) {
+		var insurancesDB = [];
 		var collectionName = "insurances";
-		return $resource("https://localhost:3000/api/:collectionName/:id",
+		var insuranceService= $resource("https://localhost:3000/api/:collectionName/:id",
 			{id: "@_id", collectionName: collectionName},
 			{ update: { method: 'PUT' } });
+
+		
+
+		angular.extend(insuranceService, {
+			saveInsuranceDB: saveInsuranceDB,
+			getInsurancesDB: getInsurancesDB,
+		});
+
+		return insuranceService;
+
+		function saveInsuranceDB(insurance) {
+			if(insurance._id) {
+				return insurance.$update().then(function(data) {
+					insurancesDB.push(data);
+				});
+			} else {
+				return insurance.$save().then(function(data) {
+					insurancesDB.push(data);
+				});
+			}
+		}
+
+		function getInsurancesDB() {
+			return insuranceService.get().$promise.then(function(data) {
+				insurancesDB = data.results;
+				return insurancesDB;
+			});
+		}
 	}
 
 })();
@@ -28,6 +57,8 @@
 	  var insurance = new Insurance();
 	  var carInsuranceChosen = false;
 	  var houseInsuranceChosen = false;
+
+
 
 	  var addUsers = function(userNumber) {
 	  	if(!insurance.users)
@@ -76,8 +107,7 @@
 	  var getHouseInsuranceChosen = function(){
 	  	return houseInsuranceChosen;
 	  }
-	  ;
-
+	  
 	  return {
 	    addUsers: addUsers,
 	    getInsuranceData: getInsuranceData,
@@ -92,7 +122,7 @@
 })();
 
 
-(function() {
+/*(function() {
 	'use strict';
 
 	angular
@@ -195,4 +225,4 @@
 			addInsurance({_id: '5', startDate: '2018-6-2', endDate: '2019-11-7', amount: '100000', region:'Katalonija', users:'5'});
 		}
 	}
-})();
+})();*/

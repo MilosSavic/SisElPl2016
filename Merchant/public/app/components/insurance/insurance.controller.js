@@ -9,13 +9,14 @@
 	InsuranceController.$inject = ['$location','Insurance','Region','$state','$rootScope','User','InsuranceData','SideBar','Amount','crTranslator', 'crTranslations'];
 	function InsuranceController($location,Insurance,Region,$state,$rootScope,User,InsuranceData,SideBar,Amount,crTranslator, crTranslations) {
 		var ic = this;
-
+		
 		ic.currentLanguage = crTranslations[crTranslator.getLanguage()].LANGUAGE;
 		console.log(ic.currentLanguage);
 		
 		if(!$rootScope.insurance)
 			$rootScope.insurance = new Insurance();
 		ic.insurance = InsuranceData.getInsuranceData();
+
 
 		ic.datepickerStart = {
 			minDate: new Date(),
@@ -51,6 +52,8 @@
 
 		ic.goToUsersForm = function(){
 			if(ic.insurance.numberOfUsers){
+
+				ic.lastSaveSuccess = true;
 
 				SideBar.setUsersActive(true);
 				if(InsuranceData.getInsuranceData().users)
@@ -91,7 +94,7 @@
 })();
 
 
-(function() {
+/*(function() {
 	'use strict';
 
 	angular
@@ -160,4 +163,4 @@
 			insuranceServiceInit.removeInsurance(_id);
 		}
 	}
-})();
+})();*/
