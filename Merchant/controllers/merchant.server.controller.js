@@ -9,7 +9,9 @@ var mongoose = require('mongoose'),
 	crypto = require('./encrypt-decrypt');
 
 //error URL!!!
-const url = "https://localhost:3000/#!/error"
+const url = "https://localhost:3000/#!/error";
+const successUrl = "https://localhost:3000/#!/success";
+const failedUrl = "https://localhost:3000/#!/failed";
 
 function list(req,res,next){
 	
@@ -28,7 +30,7 @@ Merchant.find()
         merchants[i] = decrypted;
       }
 	  if(merchants.length>0){
-      var jsObject = {merchantID: merchants[0].id, merchantPassword: merchants[0].pass,errorURL: url};
+      var jsObject = {merchantID: merchants[0].id, merchantPassword: merchants[0].pass,errorURL: url, successURL: successUrl, failedURL: failedUrl};
       res.json(jsObject);
 	  }
 	  else res.json({message:'noMerchants'});

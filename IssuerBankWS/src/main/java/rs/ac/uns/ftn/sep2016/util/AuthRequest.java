@@ -9,7 +9,7 @@ public class AuthRequest implements Serializable {
 
 	private static final long serialVersionUID = -4151214170561144062L;
 
-	private Integer acquirerOrderId;
+	private Long acquirerOrderId;
 	private Date acquirerTimestamp;
 	private String pan;
 	private String securityCode;
@@ -21,7 +21,7 @@ public class AuthRequest implements Serializable {
 		
 	}
 	
-	public AuthRequest(Integer acquirerOrderId, Date acquirerTimestamp, String pan, String securityCode,
+	public AuthRequest(Long acquirerOrderId, Date acquirerTimestamp, String pan, String securityCode,
 			String cardHolderName, Date expirationDate, Double transactionAmount) {
 		super();
 		this.acquirerOrderId = acquirerOrderId;
@@ -61,11 +61,11 @@ public class AuthRequest implements Serializable {
 		return mod10;
 	}
 
-	public Integer getAcquirerOrderId() {
+	public Long getAcquirerOrderId() {
 		return acquirerOrderId;
 	}
 
-	public void setAcquirerOrderId(Integer acquirerOrderId) {
+	public void setAcquirerOrderId(Long acquirerOrderId) {
 		this.acquirerOrderId = acquirerOrderId;
 	}
 

@@ -100,6 +100,7 @@ require('./routes/car-insurance.server.routes')(app);
 require('./routes/all-rules.server.routes')(app);
 require('./routes/transaction.server.routes')(app);
 require('./routes/merchant.server.routes')(app);
+require('./routes/communication.server.routes')(app);
 
 
 https.createServer(httpsOptions, app).listen(3000, function() {

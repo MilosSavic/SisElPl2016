@@ -15,6 +15,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.client.RestClientException;
+//OBRISATI KASNIJE!!!
+import org.springframework.web.bind.annotation.CrossOrigin;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -25,6 +27,7 @@ import rs.ac.uns.ftn.sep2016.model.service.DestinationService;
 import rs.ac.uns.ftn.sep2016.util.AuthRequest;
 import rs.ac.uns.ftn.sep2016.util.AuthResponse;
 
+
 @RestController
 @RequestMapping("/auth")
 public class AuthenticationAndAuthorizationController {
@@ -34,7 +37,7 @@ public class AuthenticationAndAuthorizationController {
 	
 	@Autowired
 	private RestTemplateBuilder restTemplateBuilder;
-	
+	@CrossOrigin(origins = "https://localhost:8000")
 	@RequestMapping(method = RequestMethod.POST)
 	AuthResponse authenticateAndAuthorize(@RequestBody AuthRequest request) {
 		try {
@@ -59,7 +62,7 @@ public class AuthenticationAndAuthorizationController {
 	
 	@RequestMapping(value = "/test/request", method = RequestMethod.GET)
 	AuthRequest getTestRequest() {
-		return new AuthRequest(1234567890, new Date(), "378282246310005", "123", "Vladimir Baumgartner", new Date(), 500.00);
+		return new AuthRequest(new Long(1234567890), new Date(), "378282246310005", "123", "Vladimir Baumgartner", new Date(), 500.00);
 	}
 	
 	@RequestMapping(value = "/test/destinations", method = RequestMethod.GET)
@@ -69,7 +72,7 @@ public class AuthenticationAndAuthorizationController {
 	
 	@RequestMapping(value = "/test/ssl", method = RequestMethod.GET)
 	AuthResponse getSSLResponse() {
-		AuthRequest request = new AuthRequest(1234567890, new Date(), "378282246310005", "123", "Vladimir Baumgartner", new Date(), 500.00);
+		AuthRequest request = new AuthRequest(new Long(1234567890), new Date(), "378282246310005", "123", "Vladimir Baumgartner", new Date(), 500.00);
 		try {
 			AuthRequest.validate(request);
 			ObjectMapper mapper = new ObjectMapper();

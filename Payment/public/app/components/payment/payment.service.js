@@ -62,3 +62,21 @@
 	}
 
 })();
+
+(function() {
+	"use strict";
+
+	angular
+		.module('payment-app.payment')
+		.factory('MerchantCommunication', MerchantCommunication);
+
+
+	MerchantCommunication.$inject = ['$resource'];
+	function MerchantCommunication($resource) {
+		var collectionName = "getURL";
+		return $resource("https://localhost:3000/api/:collectionName/:id",
+			{id: "@_id", collectionName: collectionName},
+			{ update: { method: 'PUT' } });
+	}
+
+})();

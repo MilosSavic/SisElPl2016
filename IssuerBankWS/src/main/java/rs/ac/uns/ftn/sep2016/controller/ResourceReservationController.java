@@ -35,7 +35,8 @@ public class ResourceReservationController {
 				userAccount.setAccountAmount(userAccount.getAccountAmount() - request.getTransactionAmount());
 				userAccount.setReservationAmount(userAccount.getReservationAmount() + request.getTransactionAmount());
 				userAccountService.persist(userAccount);
-				return new AuthResponse(request.getAcquirerOrderId(), request.getAcquirerTimestamp(), request.getAcquirerOrderId(), new Date(), HttpStatus.OK, "Issuer: Transaction completed. " + request.getTransactionAmount() + " was successfully reserved from account " + request.getPan());
+				//issuer order id stavljam 1 000 000 000 kao konstantu. OBAVEZNO PROMENITI!
+				return new AuthResponse(request.getAcquirerOrderId(), request.getAcquirerTimestamp(), 1000000000, new Date(), HttpStatus.OK, "Issuer: Transaction completed. " + request.getTransactionAmount() + " was successfully reserved from account " + request.getPan());
 			} else {
 				return new AuthResponse(request.getAcquirerOrderId(), request.getAcquirerTimestamp(), null, null, HttpStatus.BAD_REQUEST, "Issuer: Transaction failed. Pan code account doesn't have " + request.getTransactionAmount() + " or more resources");
 			}

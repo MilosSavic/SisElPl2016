@@ -8,7 +8,7 @@ import org.springframework.http.HttpStatus;
 public class AuthResponse implements Serializable {
 
 	private static final long serialVersionUID = 1883782881767272235L;
-	private Integer acquirerOrderId;
+	private Long acquirerOrderId;
 	private Date acquirerTimestamp;
 	private Integer issuerOrderId;
 	private Date issuerTimestamp;
@@ -19,7 +19,7 @@ public class AuthResponse implements Serializable {
 		
 	}
 	
-	public AuthResponse(Integer acquirerOrderId, Date acquirerTimestamp, Integer issuerOrderId, Date issuerTimestamp,
+	public AuthResponse(Long acquirerOrderId, Date acquirerTimestamp, Integer issuerOrderId, Date issuerTimestamp,
 			HttpStatus httpStatus, String message) {
 		super();
 		this.acquirerOrderId = acquirerOrderId;
@@ -30,11 +30,11 @@ public class AuthResponse implements Serializable {
 		this.message = message;
 	}
 
-	public Integer getAcquirerOrderId() {
+	public Long getAcquirerOrderId() {
 		return acquirerOrderId;
 	}
 
-	public void setAcquirerOrderId(Integer acquirerOrderId) {
+	public void setAcquirerOrderId(Long acquirerOrderId) {
 		this.acquirerOrderId = acquirerOrderId;
 	}
 

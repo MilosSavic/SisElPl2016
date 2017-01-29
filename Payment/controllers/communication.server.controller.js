@@ -6,6 +6,8 @@ module.exports.checkCodeValidity = checkCodeValidity;
 var paymentFunctions = require('./payment.server.controller');
 var codeValid = false;
 var _paymentID = "";
+var _errorURL = "";
+var _merchantOrderId;
 var crypto = require("crypto");
 var generatedString;
 var id;
@@ -95,7 +97,9 @@ function getURLandID(req, res, next){
 			})
 			//da li je u ovom slucaju setTimetout bezbedan?
 			//kako bi ovo radilo ako bi vise korisnika koristilo sajt u isto vreme?
-			setTimeout(function(){ generatedString = undefined; id = undefined; _paymentID = undefined;}, 600000);
+			_errorURL = req.body.errorURL;
+			_merchantOrderId = req.body.transactionID;
+			setTimeout(function(){ generatedString = undefined; id = undefined; _paymentID = undefined; _errorURL = undefined;}, 600000);
 			
 		}
 	
@@ -106,7 +110,7 @@ function getURLandID(req, res, next){
 
 function checkCodeValidity(req,res,next){
 	if(req.body.code === generatedString && req.body.id == id)
-		res.json({valid: true, payment_id: _paymentID});
+		res.json({valid: true, payment_id: _paymentID, errorURL: _errorURL, merchantOrderId: _merchantOrderId });
 	else res.json({valid:false});
 	
 	
