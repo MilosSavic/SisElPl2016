@@ -65,7 +65,8 @@ function getRegionById(req, res, next,id){
         message: errMessage
       });
     }else {
-      res.json(region);
+      var decryptedRegion = crypto.decryptData(region);
+      res.json(decryptedRegion);
     }
 
   });

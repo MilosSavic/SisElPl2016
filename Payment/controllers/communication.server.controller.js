@@ -8,9 +8,13 @@ var codeValid = false;
 var _paymentID = "";
 var _errorURL = "";
 var _merchantOrderId;
-var crypto = require("crypto");
 var generatedString;
 var id;
+
+var users = [];
+
+var crypto = require("crypto");
+
 var mongoose = require('mongoose')
 var Seller = mongoose.model('Seller');
 var	errorHandler = require(appRoot+'/controllers/errors.server.controller'),
@@ -93,13 +97,28 @@ function getURLandID(req, res, next){
 			paymentFunctions.createPaymentServer(reqForPayment,function(response){
 				id = response.id;
 				_paymentID = response._id;
+
+				_errorURL = req.body.errorURL;
+				_merchantOrderId = req.body.transactionID;
+
+				var generationTime = new Date();
+				users.push(
+				{
+					generatedString:generatedString,
+					id: id,
+					_merchantOrderId: _merchantOrderId,
+					_paymentID: _paymentID,
+					_errorURL: _errorURL,
+					generationTime: generationTime
+				});
+
 				res.json({url:"https://localhost:8000/#!/add/paymentForm/"+generatedString, paymentID: id});
 			})
 			//da li je u ovom slucaju setTimetout bezbedan?
 			//kako bi ovo radilo ako bi vise korisnika koristilo sajt u isto vreme?
-			_errorURL = req.body.errorURL;
-			_merchantOrderId = req.body.transactionID;
-			setTimeout(function(){ generatedString = undefined; id = undefined; _paymentID = undefined; _errorURL = undefined;}, 600000);
+			
+
+			//setTimeout(function(){ generatedString = undefined; id = undefined; _paymentID = undefined; _errorURL = undefined;}, 600000);
 			
 		}
 	
@@ -109,8 +128,27 @@ function getURLandID(req, res, next){
 }
 
 function checkCodeValidity(req,res,next){
-	if(req.body.code === generatedString && req.body.id == id)
-		res.json({valid: true, payment_id: _paymentID, errorURL: _errorURL, merchantOrderId: _merchantOrderId });
+
+	var user = undefined;
+	var currentTime = new Date();
+
+	for(var i=0; i<users.length; i++)
+	{
+		if(Math.abs(currentTime-users[i].generationTime)<180000){
+			if(users[i].id == req.body.id && users[i].generatedString == req.body.code)	
+				{
+					user = users[i];
+					break;
+				}
+		}
+		else {
+			users.splice(i,1);
+		}
+	}
+
+	console.log('BROJ USERA ZA PAYMENT SAJT: '+users.length);
+	if(user)
+		res.json({valid: true, payment_id: user._paymentID, errorURL: user._errorURL, merchantOrderId: user._merchantOrderId });
 	else res.json({valid:false});
 	
 	
