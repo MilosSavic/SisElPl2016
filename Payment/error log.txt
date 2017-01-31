@@ -4,3 +4,8 @@ Sat Jan 28 2017 21:11:31 GMT+0100 (Central Europe Standard Time):     Path `merc
 Sat Jan 28 2017 21:13:31 GMT+0100 (Central Europe Standard Time):     Path `merchant` is required.
 Sat Jan 28 2017 21:16:01 GMT+0100 (Central Europe Standard Time):     Cast to ObjectID failed for value "32232442" at path "merchant"
 Sat Jan 28 2017 21:18:01 GMT+0100 (Central Europe Standard Time):     Cast to ObjectID failed for value "32232442" at path "merchant"
+Mon Jan 30 2017 16:29:36 GMT+0100 (Central Europe Standard Time):     E11000 duplicate key error index: payment.payments.$acquirerId_1 dup key: { : null }
+Mon Jan 30 2017 16:32:25 GMT+0100 (Central Europe Standard Time):     E11000 duplicate key error index: payment.payments.$acquirerId_1 dup key: { : null }
+Mon Jan 30 2017 16:34:26 GMT+0100 (Central Europe Standard Time):     E11000 duplicate key error index: payment.payments.$acquirerId_1 dup key: { : null }
+Tue Jan 31 2017 18:09:20 GMT+0100 (Central Europe Standard Time):     E11000 duplicate key error index: payment.payments.$acquirerId_1 dup key: { : null }
+Tue Jan 31 2017 18:11:29 GMT+0100 (Central Europe Standard Time):     E11000 duplicate key error index: payment.payments.$acquirerId_1 dup key: { : null }

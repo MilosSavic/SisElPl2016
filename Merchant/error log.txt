@@ -139,3 +139,5 @@ Sat Jan 07 2017 13:04:42 GMT+0100 (Central Europe Standard Time):     E11000 dup
 Sat Jan 07 2017 13:06:41 GMT+0100 (Central Europe Standard Time):     E11000 duplicate key error collection: insurance2.transactions index: idNumber_1 dup key: { : null }
 Sat Jan 07 2017 13:06:42 GMT+0100 (Central Europe Standard Time):     E11000 duplicate key error collection: insurance2.transactions index: idNumber_1 dup key: { : null }
 Sat Jan 07 2017 13:06:43 GMT+0100 (Central Europe Standard Time):     E11000 duplicate key error collection: insurance2.transactions index: idNumber_1 dup key: { : null }
+Mon Jan 30 2017 00:53:23 GMT+0100 (Central Europe Standard Time):     Amount in transaction is required
+Tue Jan 31 2017 18:11:07 GMT+0100 (Central Europe Standard Time):     Amount in transaction is required

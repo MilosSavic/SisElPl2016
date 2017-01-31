@@ -7,13 +7,12 @@
 
 	Payment.$inject = ['$resource'];
 	function Payment($resource) {
+		var paymentsDB = [];
 		var collectionName = "payments";
 		var paymentService = $resource("https://localhost:8000/api/:collectionName/:id",
 			{id: "@_id", collectionName: collectionName},
 			{ update: { method: 'PUT' } });
 
-		//Mogli smo da ekstendujemo paymentService, pa da onda u kontroleru koristimo Payment.$saveOrUpdate(pay.payment, successCallback)
-		//Kada extendujemo prototip onda kažemo da će ovu metodu imati svaka instanca paymentService-a.
 		angular.extend(paymentService.prototype, {
 			$saveOrUpdate: function(successCallback) {
 				if(!this._id) {
@@ -23,6 +22,31 @@
 				}
 			}
 		});
+
+		angular.extend(paymentService, {
+
+			savePaymentDB: savePaymentDB,
+			getPaymentsDB: getPaymentsDB,
+		});
+
+		function savePaymentDB(payment) {
+			if(payment._id) {
+				return payment.$update().then(function(data) {
+					paymentsDB.push(data);
+				});
+			} else {
+				return payment.$save().then(function(data) {
+					paymentsDB.push(data);
+				});
+			}
+		}
+
+		function getPaymentsDB() {
+			return paymentService.get().$promise.then(function(data) {
+				paymentsDB = data.results;
+				return paymentsDB;
+			});
+		}
 		return paymentService;
 	}
 })();

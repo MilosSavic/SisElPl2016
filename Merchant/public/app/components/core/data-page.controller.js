@@ -187,8 +187,9 @@
 				if(result.message)
 				{
 					//$window.location.href = error stranica u ovom slucaju
-					$window.location.href = errorURL;
+					
 					alert('ERROR:'+result.message);
+					$window.location.href = errorURL;
 
 				}
 				else

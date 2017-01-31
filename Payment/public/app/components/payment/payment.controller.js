@@ -39,6 +39,7 @@
 		pay.payment = new Payment();
 
 		pay.addPayment = function() {
+
 				pay.payment.$saveOrUpdate(function(result){
 					var message = "Something went wrong. Communication with Acquirer services failed."
 					var acquirerOrderId = 0;
@@ -69,7 +70,7 @@
 						issuerOrderId: result.issuerOrderId,
 						status: result.httpStatus,
 						merchantOrderId: merchantOrderId
-					}
+						}
 						alert(JSON.stringify(result));
 						var merchantCommunication = new MerchantCommunication(reqForMerchant);
 						merchantCommunication.$save(function(result2){
@@ -82,7 +83,14 @@
 						})
 
 					});
+
+					
+
+
 				});
+
+				var getPay = Payment.getPaymentsDB();
+					console.log(getPay);
 
 		};
 
