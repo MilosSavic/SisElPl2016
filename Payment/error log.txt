@@ -1,11 +1,11 @@
-Sat Jan 28 2017 18:15:08 GMT+0100 (Central Europe Standard Time):     Cast to Number failed for value "c4a9e744cc0ae2ae4d8220411a1c5a49" at path "id"
-Sat Jan 28 2017 18:21:51 GMT+0100 (Central Europe Standard Time):     Cast to Number failed for value "6823142becb1a38dfc5c37a776354dc2" at path "id"
-Sat Jan 28 2017 21:11:31 GMT+0100 (Central Europe Standard Time):     Path `merchant` is required.
-Sat Jan 28 2017 21:13:31 GMT+0100 (Central Europe Standard Time):     Path `merchant` is required.
-Sat Jan 28 2017 21:16:01 GMT+0100 (Central Europe Standard Time):     Cast to ObjectID failed for value "32232442" at path "merchant"
-Sat Jan 28 2017 21:18:01 GMT+0100 (Central Europe Standard Time):     Cast to ObjectID failed for value "32232442" at path "merchant"
-Mon Jan 30 2017 16:29:36 GMT+0100 (Central Europe Standard Time):     E11000 duplicate key error index: payment.payments.$acquirerId_1 dup key: { : null }
-Mon Jan 30 2017 16:32:25 GMT+0100 (Central Europe Standard Time):     E11000 duplicate key error index: payment.payments.$acquirerId_1 dup key: { : null }
-Mon Jan 30 2017 16:34:26 GMT+0100 (Central Europe Standard Time):     E11000 duplicate key error index: payment.payments.$acquirerId_1 dup key: { : null }
-Tue Jan 31 2017 18:09:20 GMT+0100 (Central Europe Standard Time):     E11000 duplicate key error index: payment.payments.$acquirerId_1 dup key: { : null }
-Tue Jan 31 2017 18:11:29 GMT+0100 (Central Europe Standard Time):     E11000 duplicate key error index: payment.payments.$acquirerId_1 dup key: { : null }
+Wed Feb 01 2017 22:28:24 GMT+0100 (Central Europe Standard Time):     Path `merchant` is required.
+Wed Feb 01 2017 23:36:35 GMT+0100 (Central Europe Standard Time):     Path `merchant` is required.
+Wed Feb 01 2017 23:38:04 GMT+0100 (Central Europe Standard Time):     Path `merchant` is required.
+Wed Feb 01 2017 23:40:23 GMT+0100 (Central Europe Standard Time):     Path `merchant` is required.
+Wed Feb 01 2017 23:40:26 GMT+0100 (Central Europe Standard Time):     Path `merchant` is required.
+Wed Feb 01 2017 23:41:10 GMT+0100 (Central Europe Standard Time):     Path `merchant` is required.
+Wed Feb 01 2017 23:52:50 GMT+0100 (Central Europe Standard Time):     Path `merchant` is required.
+Wed Feb 01 2017 23:52:53 GMT+0100 (Central Europe Standard Time):     Path `merchant` is required.
+Wed Feb 01 2017 23:53:38 GMT+0100 (Central Europe Standard Time):     Path `merchant` is required.
+Wed Feb 01 2017 23:53:40 GMT+0100 (Central Europe Standard Time):     Path `merchant` is required.
+Wed Feb 01 2017 23:55:27 GMT+0100 (Central Europe Standard Time):     Path `merchant` is required.

@@ -17,8 +17,9 @@
 		codeValidity.$save(function(response){
 			if(!response.valid)
 			{
-				$state.go('main.home');
-				return;
+				$state.go('main.errorURL');
+				$.get("https://localhost:8000/errorURL");
+				//return;
 			}
 			else{
 				pay.payment._id = response.payment_id;
@@ -60,6 +61,8 @@
 					//NAPOMENA: trenutno ne radi jer smo mi na https-u a Vladimir na http-u. U stvari radi jer sam omogucio cross origin kod njega, ali ne treba tako da bude xD
 					var authorization = new TransactionAuthorization(reqForAuthorization);
 					authorization.$save(function(result){
+						if(result.url){
+							
 						var acqDate = new Date(result.acquirerTimestamp);
 						var issDate = new Date(result.issuerTimestamp);
 						var reqForMerchant = {
@@ -76,13 +79,25 @@
 						merchantCommunication.$save(function(result2){
 							if(result2.url)
 							{
-								alert(result2.message + ", " + result.message + ", redirecting to: " +result2.url);
-								$window.location.href = result2.url;
+								alert(result2.message + "," + result.message + ", redirecting to: " +result2.url);
+							//	$window.location.href = result2.url;
+								$state.go('main.successURL');
+								$.get("https://localhost:8000/successURL");
 							}
-							else $window.location.href = errorUrl;
+							else {
+							//	$window.location.href = errorUrl;
+								$state.go('main.failedURL');
+								$.get("https://localhost:8000/failedURL");
+							}
 						})
+					}else{
+						$state.go('main.failedURL');
+						$.get("https://localhost:8000/failedURL");
+
+					}
 
 					});
+					
 
 					
 
@@ -90,7 +105,6 @@
 				});
 
 				var getPay = Payment.getPaymentsDB();
-					console.log(getPay);
 
 		};
 

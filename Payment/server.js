@@ -9,6 +9,7 @@ db.once('open', function() {
   console.log("Connected to Mongo database");
 });
 
+
 var path = require('path');
 global.appRoot = path.resolve(__dirname);
 
@@ -17,10 +18,12 @@ require('./models/seller.model');
 require('./models/payment.model');
 
 
-var express = require("express"),
-	app = express(),
-    bodyParser = require("body-parser"),
-    cors = require("cors")
+var express = require("express");
+var nodemailer = require("nodemailer");
+var	app = express();
+var smtpTransport = require('nodemailer-smtp-transport');
+var bodyParser = require("body-parser");
+var cors = require("cors");
 
 //var db = mongoose();
 
@@ -37,13 +40,7 @@ var sellers = require('./controllers/seller.server.controller.js');
 var payments = require('./controllers/payment.server.controller.js');
 var mainServices = require('./controllers/communication.server.controller.js');
 
- app.route('/api/buyers')
-    .get(buyers.list)
-    .post(buyers.createBuyer);
 
-app.route('/api/sellers')
-    .get(sellers.list)
-    .post(sellers.createSeller);
 
 app.route('/api/payments')
     .get(payments.list)
@@ -73,6 +70,79 @@ var httpsOptions = {
     cert: fs.readFileSync(path.resolve(__dirname, "./cert/cert.pem")),
     passphrase: "insuranceapp"
 };
+
+
+
+
+
+var transporter = nodemailer.createTransport(smtpTransport({
+    host: 'smtp.gmail.com',
+    port: 587,
+    auth: {
+        user: 'siselup2017@gmail.com',
+        pass: 'sep_2017'
+    },
+    tls: {rejectUnauthorized: false},
+    debug:true
+}));
+
+
+app.get('/successURL',function(req,res){
+    var mailOptions={
+        from : 'siselup2017@gmail.com',
+        to : 'siselup2017@gmail.com',
+        subject : 'Success',
+        text : 'Successfully completed payments'
+    }
+    console.log(mailOptions);
+    transporter.sendMail(mailOptions, function(error, response){
+     if(error){
+            console.log(error);
+       // res.end("error");
+     }else{
+            console.log("Message sent: " + response.message);
+      //  res.end("sent");
+         }
+    });
+});
+
+app.get('/errorURL',function(req,res){
+    var mailOptions={
+        from : 'siselup2017@gmail.com',
+        to : 'siselup2017@gmail.com',
+        subject : 'Error',
+        text : 'There was an error'
+    }
+    console.log(mailOptions);
+    transporter.sendMail(mailOptions, function(error, response){
+     if(error){
+            console.log(error);
+       // res.end("error");
+     }else{
+            console.log("Message sent: " + response.message);
+      //  res.end("sent");
+         }
+    });
+});
+
+app.get('/failedURL',function(req,res){
+    var mailOptions={
+        from : 'siselup2017@gmail.com',
+        to : 'siselup2017@gmail.com',
+        subject : 'Failed',
+        text : 'Transaction failed'
+    }
+    console.log(mailOptions);
+    transporter.sendMail(mailOptions, function(error, response){
+     if(error){
+            console.log(error);
+       // res.end("error");
+     }else{
+            console.log("Message sent: " + response.message);
+      //  res.end("sent");
+         }
+    });
+});
 
 
 

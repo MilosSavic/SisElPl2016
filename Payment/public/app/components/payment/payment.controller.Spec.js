@@ -63,12 +63,7 @@ describe("PaymentController", function() {
 	/*beforeEach(module(function($provide){
 		$provide.factory('Payment', function(){
 			return {
-				getCarInsuranceChosen: function() {return false;},
-				getHouseInsuranceChosen: function() {return false;},
-				getInsuranceData: function() {return [{_id:'2'}, {_id:'3'}];},
-				addUsers: function(_id) {return 2;},
-				setCarInsuranceChosen: function() {return true;},
-				setHouseInsuranceChosen: function() {return true;},
+				
 			};
 		});
 	}));*/

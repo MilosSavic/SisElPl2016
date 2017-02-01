@@ -1,13 +1,17 @@
 {
   "author": "Nikola Luburić",
   "name": "Company-Registry",
-  "version": "0.0.0",
+  "version": "1.0.0",
   "description": "This web application represents a registry which tracks companies and their employees",
   "main": "gulpfile.js",
   "keywords": [
     "form validation",
     "custom directives"
   ],
+   "dependencies": {
+    "nodemailer": "latest",
+    "express": "latest"
+  },
   "devDependencies": {
     "gulp": "^3.9.1",
     "gulp-concat": "^2.6.0",
