@@ -66,7 +66,8 @@ function getUserById(req, res, next,id){
         message: errMessage
       });
     }else {
-      res.json(user);
+	  var decryptedUser = crypto.decryptData(user);
+      res.json(decryptedUser);
     }
 
   });

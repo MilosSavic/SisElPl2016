@@ -7,6 +7,7 @@ var mongoose = require('mongoose'),
 
 module.exports.list = list;
 module.exports.createHouseInsurance = createHouseInsurance;
+module.exports.getHouseInsuranceById = getHouseInsuranceById;
 var crypto = require("./encrypt-decrypt");
 
 function list(req, res, next){
@@ -45,4 +46,22 @@ function createHouseInsurance(req, res, next){
     });
 
   
+}
+
+function getHouseInsuranceById(req, res, next,id){
+	console.log('Get single house insurance...');
+  HouseInsurance.findById(id).exec(function(err,houseInsurance){
+    if(err)
+   {
+      var errMessage = errorHandler.getErrorMessage(err);
+      errorHandler.logErrorMessage(errMessage);
+      return res.status(400).send({
+        message: errMessage
+      });
+    }else {
+	  var decryptedHouseInsurance = crypto.decryptData(houseInsurance);
+      res.json(decryptedHouseInsurance);
+    }
+
+  });
 }

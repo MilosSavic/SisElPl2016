@@ -137,21 +137,31 @@
 		{
 			InsuranceData.getInsuranceData().houseInsurance = undefined;
 		}
+		
+		
 
 		if(!InsuranceData.getCarInsuranceChosen())
 		{
 			InsuranceData.getInsuranceData().carInsurance = undefined;
 		}
+		
+		
 			InsuranceData.getInsuranceData().price = dpc.price;
 			console.log(JSON.stringify(InsuranceData.getInsuranceData()));
-			InsuranceData.getInsuranceData().$save(getMerchantData);
+			InsuranceData.getInsuranceData().$save(function(result,err){
+				
+			Insurance.get({id: InsuranceData.getInsuranceData()._id},function(response){						
+			InsuranceData.setInsuranceData(response);
+			getMerchantData();
+				
+			});
 			
 			
 			//paymentData = Payment.getURLandID();
 			//savePaymentID
 			//go to payment url
+		});
 		}
-		
 		dpc.morePriceData = function(){
 			dpc.displayMoreData = true;
 		}
@@ -164,6 +174,7 @@
 		var id;
 		var pass;
 		var errorURL;
+		
 		function getMerchantData(){
 			MerchantData.get(function(response){
 				id = response.merchantID;
@@ -183,19 +194,19 @@
 				var paymentData = {merchantID:id,merchantPassword:pass,errorURL:errorURL,transactionID:response.idNumber,transactionAmount:response.amount,merchantTimestamp: response.timestamp};
 				var acquirer = new Acquirer(paymentData);
 				acquirer.$save(function(result){
-				console.log(result);
-				if(result.message)
-				{
-					//$window.location.href = error stranica u ovom slucaju
-					
-					alert('ERROR:'+result.message);
-					$window.location.href = errorURL;
+					console.log(result);
+					if(result.message)
+					{
+						//$window.location.href = error stranica u ovom slucaju
+						
+						alert('ERROR:'+result.message);
+						$window.location.href = errorURL;
 
-				}
-				else
-				{
-					$window.location.href = result.url+'/'+result.paymentID;
-				}
+					}
+					else
+					{
+						$window.location.href = result.url+'/'+result.paymentID;
+					}
 			})
 				
 			})

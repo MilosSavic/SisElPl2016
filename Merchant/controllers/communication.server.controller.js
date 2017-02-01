@@ -43,7 +43,7 @@ function getURL(req, res, next){
 
 
     function checkTheRequest(){
-		if(request.status == "OK" && request.message.includes("Issuer: Transaction completed."))
+		if(request.status == "OK" && request.message.includes("Issuer: Transaction completed.") && request.acquirerOrderId && request.acquirerTimestamp)
 		{
 			   Transaction.find({ idNumber: request.merchantOrderId }).exec(function(err,findresult){
 				    if(err)
@@ -62,6 +62,8 @@ function getURL(req, res, next){
 				      else {
 				      	 findresult = findresult[0];
 				      	 findresult.successful = true;
+						 findresult.acquirerOrderId = request.acquirerOrderId;
+						 findresult.acquirerTimestamp = request.acquirerTimestamp;
 				      	 findresult.save(function(err,result){
 							if (err){
 					          var errMessage = errorHandler.getErrorMessage(err);
@@ -72,7 +74,7 @@ function getURL(req, res, next){
 					        }
 					        else{
 					        console.log("Update successful");
-					        res.status(200).send({url: successUrl});
+					        res.status(200).send({url: successUrl, message:'Transaction successfuly completed. '});
 					       }
 				      	 })
 				      }
@@ -83,7 +85,7 @@ function getURL(req, res, next){
 		}
 		else
 		{
-			res.status(200).send({url: failedUrl}); //doslo je do greske u komunikaciji, vrati failed url
+			res.status(200).send({url: failedUrl,message:'Transaction failed.'}); //doslo je do greske u komunikaciji, vrati failed url
 		}
 	}
 

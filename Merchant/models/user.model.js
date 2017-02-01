@@ -11,7 +11,11 @@ var userSchema = new Schema({
   telephone: String,
   isContractor: Boolean,       //ugovarac na engleskom? :D
   email: String,
-  age: Number,
+  age: {
+	  type: Number,
+	  min: 0, 
+	  max: 135
+  },
   sport: {
     type: Schema.Types.ObjectId,
     ref: 'Sport'

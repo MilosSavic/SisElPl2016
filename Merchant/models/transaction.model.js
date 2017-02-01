@@ -15,7 +15,13 @@ var transactionSchema = new Schema({
 	type: Date,
     default: Date.now
 	},
-  successful: Boolean
+  successful: Boolean,
+  acquirerOrderId: {
+	  type: Number
+  },
+  acquirerTimestamp: {
+	  type: Date
+  }
   
 });
 

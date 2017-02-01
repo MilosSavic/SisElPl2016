@@ -91,6 +91,72 @@
 	  var getInsuranceData = function(){
 	      return insurance;
 	  }
+	  
+	  var setInsuranceData = function(_insurance){
+		  var ins = new Insurance(_insurance);
+		  var regionId = ins.region;
+		  ins.region = {};
+		  ins.region._id = regionId;
+		  var amountId = ins.amount;
+		  ins.amount = {};
+		  ins.amount._id = amountId;
+		  ins.users = [];
+		  ins.startDate = new Date(ins.startDate);
+		  ins.endDate = new Date(ins.endDate);
+		  for(var i=0; i<_insurance.users.length; i++)
+		  {
+			
+			User.get({userId: _insurance.users[i]},function(response){
+				var sportId = response.sport;
+				response.sport = {};
+				response.sport._id = sportId;
+				var newUser = new User(response);
+				newUser._id = undefined;
+				ins.users.push(newUser);
+							
+			})
+			
+		  }  
+		  
+		  insurance = ins;
+		  
+		  if(ins.houseInsurance)
+		  {
+			 setHouseInsuranceChosen(true); 
+			 HouseInsurance.get({id: ins.houseInsurance},function(response){
+				 if(response){
+				 var newHouseInsurance = new HouseInsurance(response);
+				 newHouseInsurance._id = undefined;
+				 insurance.houseInsurance = newHouseInsurance;
+				
+				 }
+			 })
+		  }
+		  else addHouseInsurance();
+		  
+		  if(ins.carInsurance)
+		  {
+			  setCarInsuranceChosen(true);
+			  CarInsurance.get({id: ins.carInsurance},function(response){
+				 if(response){
+				 var newCarInsurance = new CarInsurance(response);
+				 newCarInsurance._id = undefined;
+				 insurance.carInsurance = newCarInsurance;
+				 
+				 }
+			 })
+		  }
+		  else addCarInsurance();
+		  
+		  insurance._id = undefined;
+		  
+		  
+		  if(insurance.houseInsurance._id)
+			  insurance.houseInsurance._id = undefined;
+		  if(insurance.carInsurance._id)
+			  insurance.carInsurance._id = undefined;
+		  
+	  }
 
 	  var setCarInsuranceChosen = function(chosen){
 	  	carInsuranceChosen = chosen;
@@ -111,6 +177,7 @@
 	  return {
 	    addUsers: addUsers,
 	    getInsuranceData: getInsuranceData,
+		setInsuranceData: setInsuranceData,
 	    addHouseInsurance: addHouseInsurance,
 	    addCarInsurance: addCarInsurance,
 	    setCarInsuranceChosen : setCarInsuranceChosen,
