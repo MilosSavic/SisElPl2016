@@ -19,39 +19,6 @@
 					}
 				}
 			})
-			.state('main.successURL', {
-				url: '/successURL',
-				views: {
-					'content@': {
-
-						templateUrl: 'app/components/payment/success.html',
-						controller: 'PaymentController',
-						controllerAs: 'pay'
-					}
-				}
-			})
-			.state('main.failedURL', {
-				url: '/failedURL',
-				views: {
-					'content@': {
-
-						templateUrl: 'app/components/payment/failed.html',
-						controller: 'PaymentController',
-						controllerAs: 'pay'
-					}
-				}
-			})
-			.state('main.errorURL', {
-				url: '/errorURL',
-				views: {
-					'content@': {
-
-						templateUrl: 'app/components/payment/error.html',
-						controller: 'PaymentController',
-						controllerAs: 'pay'
-					}
-				}
-			});
 
 	}
 })();

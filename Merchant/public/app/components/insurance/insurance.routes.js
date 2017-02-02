@@ -22,8 +22,8 @@
 					}
 				}
 			})
-			.state('main.successURL', {
-				url: '/successURL',
+			.state('main.success', {
+				url: '/success',
 				views: {
 					'content@': {
 
@@ -32,8 +32,8 @@
 					}
 				}
 			})
-			.state('main.failedURL', {
-				url: '/failedURL',
+			.state('main.failed', {
+				url: '/failed',
 				views: {
 					'content@': {
 
@@ -42,8 +42,8 @@
 					}
 				}
 			})
-			.state('main.errorURL', {
-				url: '/errorURL',
+			.state('main.error', {
+				url: '/error',
 				views: {
 					'content@': {
 
