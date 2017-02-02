@@ -46,6 +46,15 @@ app.route('/api/payments')
     .get(payments.list)
     .post(payments.createPayment);
 
+app.route('/api/buyers')
+    .get(buyers.list)
+    .post(buyers.createBuyer);
+
+app.route('/api/sellers')
+    .get(sellers.list)
+    .post(sellers.createSeller);
+
+
 
 app.route('/api/payments/:paymentId')
     .put(payments.updatePayment);

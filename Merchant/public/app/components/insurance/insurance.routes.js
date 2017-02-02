@@ -22,6 +22,36 @@
 					}
 				}
 			})
+			.state('main.successURL', {
+				url: '/successURL',
+				views: {
+					'content@': {
+
+						templateUrl: 'app/components/insurance/success.html',
+						
+					}
+				}
+			})
+			.state('main.failedURL', {
+				url: '/failedURL',
+				views: {
+					'content@': {
+
+						templateUrl: 'app/components/insurance/failed.html',
+						
+					}
+				}
+			})
+			.state('main.errorURL', {
+				url: '/errorURL',
+				views: {
+					'content@': {
+
+						templateUrl: 'app/components/insurance/error.html',
+						
+					}
+				}
+			});
 			/*.state('main.carInsuranceForm', {
 				url: '/carInsuranceForm',
 				views: {
