@@ -28,6 +28,8 @@
 					'content@': {
 
 						templateUrl: 'app/components/insurance/success.html',
+						controller: 'InsuranceController',
+						controllerAs: 'ic'
 						
 					}
 				}
@@ -38,6 +40,8 @@
 					'content@': {
 
 						templateUrl: 'app/components/insurance/failed.html',
+						controller: 'FailedController',
+						controllerAs: 'fc'
 						
 					}
 				}
@@ -48,6 +52,8 @@
 					'content@': {
 
 						templateUrl: 'app/components/insurance/error.html',
+						controller: 'ErrorController',
+						controllerAs: 'er'
 						
 					}
 				}

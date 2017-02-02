@@ -83,7 +83,7 @@ var httpsOptions = {
 
 
 
-
+/*
 var transporter = nodemailer.createTransport(smtpTransport({
     host: 'smtp.gmail.com',
     port: 587,
@@ -96,7 +96,7 @@ var transporter = nodemailer.createTransport(smtpTransport({
 }));
 
 
-app.get('/successURL',function(req,res){
+app.get('/success',function(req,res){
     var mailOptions={
         from : 'siselup2017@gmail.com',
         to : 'siselup2017@gmail.com',
@@ -115,7 +115,7 @@ app.get('/successURL',function(req,res){
     });
 });
 
-app.get('/errorURL',function(req,res){
+app.get('/error',function(req,res){
     var mailOptions={
         from : 'siselup2017@gmail.com',
         to : 'siselup2017@gmail.com',
@@ -134,7 +134,7 @@ app.get('/errorURL',function(req,res){
     });
 });
 
-app.get('/failedURL',function(req,res){
+app.get('/failed',function(req,res){
     var mailOptions={
         from : 'siselup2017@gmail.com',
         to : 'siselup2017@gmail.com',
@@ -151,7 +151,7 @@ app.get('/failedURL',function(req,res){
       //  res.end("sent");
          }
     });
-});
+});*/
 
 
 

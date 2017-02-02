@@ -20,5 +20,36 @@
 				}
 			})
 
+			.state('main.successURL', {
+				url: '/successURL',
+				views: {
+					'content@': {
+
+						templateUrl: 'app/components/payment/success.html',
+						
+					}
+				}
+			})
+			.state('main.failedURL', {
+				url: '/failedURL',
+				views: {
+					'content@': {
+
+						templateUrl: 'app/components/payment/failed.html',
+						
+					}
+				}
+			})
+			.state('main.errorURL', {
+				url: '/errorURL',
+				views: {
+					'content@': {
+
+						templateUrl: 'app/components/payment/error.html',
+						
+					}
+				}
+			});
+
 	}
 })();

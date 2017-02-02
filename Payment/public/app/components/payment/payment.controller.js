@@ -80,16 +80,14 @@
 							if(result2.url)
 							{
 								alert(result2.message + "," + result.message + ", redirecting to: " +result2.url);
-								$.get("https://localhost:8000/successURL");
+								$.get("https://localhost:3000/#!/success");
 								$window.location.href = result2.url;
 								
-							//	$state.go('main.successURL');
+							
 								
 							}
 							else {
 								$window.location.href = errorUrl;
-								/*$state.go('main.failedURL');
-								$.get("https://localhost:8000/failedURL");*/
 							}
 						})
 

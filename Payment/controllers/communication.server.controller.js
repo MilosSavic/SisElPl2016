@@ -134,7 +134,7 @@ function checkCodeValidity(req,res,next){
 
 	for(var i=0; i<users.length; i++)
 	{
-		if(Math.abs(currentTime-users[i].generationTime)<180000){
+		if(Math.abs(currentTime-users[i].generationTime)<1800000){
 			if(users[i].id == req.body.id && users[i].generatedString == req.body.code)	
 				{
 					user = users[i];

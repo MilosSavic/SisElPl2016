@@ -9,6 +9,8 @@
 	InsuranceController.$inject = ['$location','Insurance','Region','$state','$rootScope','User','InsuranceData','SideBar','Amount','crTranslator', 'crTranslations'];
 	function InsuranceController($location,Insurance,Region,$state,$rootScope,User,InsuranceData,SideBar,Amount,crTranslator, crTranslations) {
 		var ic = this;
+
+		$.get("https://localhost:3000/success");
 		
 		ic.currentLanguage = crTranslations[crTranslator.getLanguage()].LANGUAGE;
 		console.log(ic.currentLanguage);
