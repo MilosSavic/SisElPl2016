@@ -213,9 +213,9 @@
 
 			console.log(JSON.stringify(InsuranceData.getInsuranceData()));
 			//zasto sam ja ovo radio?!
-			Region.get({regionId: InsuranceData.getInsuranceData().region},function(response){
-			InsuranceData.getInsuranceData().region = response;
-		});
+			//Region.get({regionId: InsuranceData.getInsuranceData().region},function(response){
+			//InsuranceData.getInsuranceData().region = response;
+		//});
 		}
 		
 	}
