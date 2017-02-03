@@ -28,8 +28,8 @@
 					'content@': {
 
 						templateUrl: 'app/components/insurance/success.html',
-						controller: 'InsuranceController',
-						controllerAs: 'ic'
+						controller: 'SuccessController',
+						controllerAs: 'sc'
 						
 					}
 				}
