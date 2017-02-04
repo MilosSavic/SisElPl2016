@@ -81,13 +81,13 @@
 							{
 								alert(result2.message + "," + result.message + ", redirecting to: " +result2.url);
 							//	$.get("https://localhost:3000/#!/success");
-								$window.location.href = result2.url;
+								$window.location.href = result2.url+"/"+merchantOrderId;
 								
 								
 								
 							}
 							else {
-								$window.location.href = errorUrl;
+								$window.location.href = errorUrl+"/"+merchantOrderId;
 							}
 						})
 

@@ -23,7 +23,7 @@
 				}
 			})
 			.state('main.success', {
-				url: '/success',
+				url: '/success/:successfulOrderId',
 				views: {
 					'content@': {
 
@@ -35,7 +35,7 @@
 				}
 			})
 			.state('main.failed', {
-				url: '/failed',
+				url: '/failed/:failedOrderId',
 				views: {
 					'content@': {
 
@@ -47,7 +47,7 @@
 				}
 			})
 			.state('main.error', {
-				url: '/error',
+				url: '/error/:errorOrderId',
 				views: {
 					'content@': {
 

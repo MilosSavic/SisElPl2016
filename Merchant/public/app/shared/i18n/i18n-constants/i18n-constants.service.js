@@ -85,6 +85,8 @@
 				"OWNERFN":"Owner first name",
 				"OWNERLN":"Owner last name",
 				"OWNERJMBG":"Owner JMBG",
+				"CHOOSE_INSURANCE": "Choose insurance",
+				"CAR_DATA": "Car data",
 
 
 				"ERROR": {
@@ -120,6 +122,8 @@
 				"OWNERLN":"Owner last name",
 				"OWNERJMBG":"Owner JMBG",
 				"INSURANCE":"Insurance",
+				"CHOOSE_INSURANCE": "Choose insurance",
+				"HOUSE_DATA": "House data",
 
 				"ERROR": {
 
@@ -327,6 +331,10 @@
 				"OWNERLN":"Prezime vlasnika",
 				"OWNERJMBG":"JMBG vlasnika",
 				"INSURANCE":"Osiguranje",
+				"CHOOSE_INSURANCE": "Odabir osiguranja",
+				"HOUSE_DATA": "Podaci o stanu",
+
+
 
 				"ERROR": {
 
@@ -350,6 +358,8 @@
 				"OWNERFN":"Ime vlasnika",
 				"OWNERLN":"Prezime vlasnika",
 				"OWNERJMBG":"JMBG vlasnika",
+				"CHOOSE_INSURANCE": "Odabir osiguranja",
+				"CAR_DATA": "Podaci o automobilu",
 
 
 				"ERROR": {

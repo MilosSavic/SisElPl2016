@@ -8,9 +8,9 @@ public class PaymentCardCenterWsApplication {
 
 	static
 	{
-		System.setProperty("javax.net.ssl.trustStore", "C:\\Users\\Rale\\Documents\\GitHub\\SisElPl2016\\PaymentCardCenterWS\\src\\main\\resources\\pcc.jks");
+		System.setProperty("javax.net.ssl.trustStore", "C:\\Users\\Milos\\Documents\\GitHub\\SisElPl2016\\PaymentCardCenterWS\\src\\main\\resources\\pcc.jks");
 		System.setProperty("javax.net.ssl.trustStorePassword", "password");
-		System.setProperty("javax.net.ssl.keyStore",  "C:\\Users\\Rale\\Documents\\GitHub\\SisElPl2016\\PaymentCardCenterWS\\src\\main\\resources\\pcc.jks");
+		System.setProperty("javax.net.ssl.keyStore",  "C:\\Users\\Milos\\Documents\\GitHub\\SisElPl2016\\PaymentCardCenterWS\\src\\main\\resources\\pcc.jks");
 		System.setProperty("javax.net.ssl.keyStorePassword", "password");
 	}
 	

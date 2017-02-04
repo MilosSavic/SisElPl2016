@@ -6,10 +6,10 @@
 		.controller('FailedController', FailedController);
 
 
-	FailedController.$inject = ['$location','$state','$rootScope'];
-	function FailedController($location,$state,$rootScope) {
+	FailedController.$inject = ['$location','$state','$rootScope','$stateParams'];
+	function FailedController($location,$state,$rootScope,$stateParams) {
 		var fc = this;
-
+		alert($stateParams.failedOrderId);
 		$.get("https://localhost:3000/failed");
 	
 		

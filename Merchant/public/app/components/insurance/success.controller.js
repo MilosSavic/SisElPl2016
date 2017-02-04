@@ -6,10 +6,10 @@
 		.controller('SuccessController', SuccessController);
 
 
-	SuccessController.$inject = ['$location','$state','$rootScope'];
-	function SuccessController($location,$state,$rootScope) {
+	SuccessController.$inject = ['$location','$state','$rootScope','$stateParams'];
+	function SuccessController($location,$state,$rootScope,$stateParams) {
 		var sc = this;
-
+		alert($stateParams.successfulOrderId);
 		$.get("https://localhost:3000/success");
 	
 		
