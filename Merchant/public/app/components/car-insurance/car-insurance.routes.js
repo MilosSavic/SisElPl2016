@@ -22,21 +22,6 @@
 					}
 				}
 			})
-
-			.state('main.carInsuranceCheckboxes', {
-				url: '/add/carInsuranceCheckboxes',
-				views: {
-					'content@': {
-						resolve: {
-							services: getServices,
-							//payments: getPayments
-						},
-						templateUrl: 'app/components/car-insurance/car-insurance-checkboxes.html',
-						controller: 'CarInsuranceController',
-						controllerAs: 'cic'
-					}
-				}
-			})
 			getServices.$inject = ['CarInsuranceService'];
 			function getServices(CarInsuranceService) {
 				return CarInsuranceService.get().$promise;

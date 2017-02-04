@@ -22,20 +22,6 @@
 					}
 				}
 			})
-			.state('main.houseInsuranceCheckboxes', {
-				url: '/add/houseInsuranceCheckboxes',
-				views: {
-					'content@': {
-						resolve: {
-							//regions: getRegions,
-							//payments: getPayments
-						},
-						templateUrl: 'app/components/house-insurance/house-insurance-checkboxes.html',
-						controller: 'HouseInsuranceController',
-						controllerAs: 'hic'
-					}
-				}
-			})
 
 	}
 })();

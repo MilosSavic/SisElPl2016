@@ -8,6 +8,7 @@
     <link href="./assets/css/company.css" rel="stylesheet">
     <link href="./assets/css/font-awesome.css" rel="stylesheet">
     <link href="./assets/css/solution.css" rel="stylesheet">
+    <link href="./assets/css/test2.css" rel="stylesheet">
 </head>
 <body ng-app="merchant-app">
 <div class="container">
@@ -16,15 +17,37 @@
 
   <div class="form-top">
        <div class="form-top-left">
-           <h3 translate>{{"SIDEBAR.HOUSEINSURANCE"}}</h3>
-           <span style="color: white; font-size: 40pt"> 2/2  <button type="button" class="btn_medium btn-further" ng-click="hic.goToCheckboxForm()" translate>&lt;</button> </span> 
-                                
+           <h3 translate>{{"SIDEBAR.HOUSEINSURANCE"}}</h3>                                 
       </div>
       <div class="form-top-right">
          <i class="fa fa-lock"></i>
       </div>
     </div> 
-<div class="form-bottom">
+
+
+  <ul class="tab">
+  <li><a href="javascript:void(0)" class="tablinks" ng-click="hic.openTab('Part1')">Part 1</a></li>
+  <li><a href="javascript:void(0)" class="tablinks" ng-click="hic.openTab('Part2')">Part 2</a></li>
+</ul>
+
+<div id="Part1" class="tabcontent">
+  <div class="form-bottom">
+    <form class="form-horizontal" novalidate name="hic.houseInsuranceForm">
+        <div ng-repeat="option in hic.insuranceData" class="form-group">
+            <label ng-show="hic.currentLanguage == 'En'" class="control-label col-sm-2" for="code" translate>{{option.label}}: </label>
+            <label ng-show="hic.currentLanguage == 'Sr'" class="control-label col-sm-2" for="code" translate>{{option.labelSer}}: </label>
+            <div class="col-sm-6 col-md-4" busy-indicator>
+                <input type="checkbox" ng-model="option.selected" ng-value={{"option._id"}} id="coveredByInsurance" ng-click="hic.updateHouseInsurance()" name="coveredByInsurance" class="form-control">
+            </div>
+        </div>        
+        <br>
+    </form>
+</div>
+</div>
+    
+
+<div id="Part2" class="tabcontent">
+    <div class="form-bottom">
     <form class="form-horizontal" novalidate name="hic.houseInsuranceForm">
         <div class="form-group" ng-class="{ 'has-error': hic.houseInsuranceForm.size.$touched && hic.houseInsuranceForm.size.$invalid }">
             <label class="control-label col-sm-2" for="size" translate>{{"HOUSE.SIZE"}}</label>
@@ -111,14 +134,23 @@
 
             </div>
         </div>
+            </form>
+        </div>
+</div>
 
-
-        <div class="col-sm-offset-2" >
+<div class="col-sm-offset-2" >
             <button type="button" class="btn_medium btn-primary" ng-click="hic.addHouseInsurance()" translate ng-disabled="hic.houseInsuranceForm.$invalid">{{"COMMON.SUBMIT"}}</button>
             <button type="button" class="btn_medium btn-secondary" ng-click="hic.goToCarInsurance()" translate>{{"COMMON.SKIP"}}</button>
         </div>
-    </form>
+
+
+
+
+
+        
 </div>
+
+
 </div>
 
 
