@@ -35,7 +35,7 @@
     
 
 
-    <li ng-show="sbc.houseActive" ui-sref='main.houseInsuranceForm' ng-class="{activeItem: sbc.isActive('houseInsuranceForm')}">
+    <li ng-show="sbc.houseActive" ng-class="{activeItem: sbc.isActive('houseInsuranceForm')}">
         <a ui-sref='main.houseInsuranceForm' translate><span>{{"SIDEBAR.HOUSEINSURANCE"}}</span></a>
     </li>
 
@@ -44,7 +44,7 @@
         <a class="inactive" translate><span>{{"SIDEBAR.HOUSEINSURANCE"}}</span></a>
     </li>
 
-     <li ng-show="sbc.carActive" ui-sref="main.carInsuranceForm" ng-class="{activeItem: sbc.isActive('carInsuranceForm')}">
+     <li ng-show="sbc.carActive" ng-class="{activeItem: sbc.isActive('carInsuranceForm')}">
         <a ui-sref='main.carInsuranceForm' translate><span>{{"SIDEBAR.CARINSURANCE"}}</span></a>
     </li>
 
