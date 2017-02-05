@@ -10,6 +10,4 @@ public interface BankService {
 	
 	public Bank findById(String id);
 	
-	public Bank findByBankCode(String code);
-	
 }

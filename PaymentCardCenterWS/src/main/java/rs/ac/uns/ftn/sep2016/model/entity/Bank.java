@@ -11,10 +11,10 @@ public class Bank implements Serializable{
 
 	private static final long serialVersionUID = 5965345277949812946L;
 
-	@Id
 	@Column(name = "BANK_ID")
 	private String bankId;
 	
+	@Id
 	@Column(name = "BANK_CODE")
 	private String bankCode;
 	
