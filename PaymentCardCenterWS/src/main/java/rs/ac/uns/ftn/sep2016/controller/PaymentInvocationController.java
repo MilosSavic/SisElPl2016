@@ -34,7 +34,7 @@ public class PaymentInvocationController {
 	@Autowired
 	private RestTemplateBuilder restTemplateBuilder;
 	
-	@RequestMapping(value = "/reservation", method = RequestMethod.POST)
+	@RequestMapping(value = "/invoke", method = RequestMethod.POST)
 	AuthResponse authenticateAndAuthorize(@RequestBody AuthRequest request) {
 		try {
 			//Validacija polja zahteva
