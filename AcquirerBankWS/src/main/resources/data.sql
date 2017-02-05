@@ -1,1 +1,1 @@
-INSERT INTO DESTINATION VALUES ('PCC', 'Payment Card Center', 'https://127.0.0.1:8444/payment');
+INSERT INTO DESTINATION VALUES ('PCC', 'Payment Card Center', 'https://127.0.0.1:8444/payment/invoke');

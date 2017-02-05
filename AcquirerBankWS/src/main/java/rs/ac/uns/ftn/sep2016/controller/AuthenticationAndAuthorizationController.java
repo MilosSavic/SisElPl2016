@@ -10,13 +10,13 @@ import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpMethod;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
+//OBRISATI KASNIJE!!!
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.client.RestClientException;
-//OBRISATI KASNIJE!!!
-import org.springframework.web.bind.annotation.CrossOrigin;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -29,7 +29,7 @@ import rs.ac.uns.ftn.sep2016.util.AuthResponse;
 
 
 @RestController
-@RequestMapping("/auth")
+@RequestMapping("/payment")
 public class AuthenticationAndAuthorizationController {
 	
 	@Autowired
@@ -37,11 +37,14 @@ public class AuthenticationAndAuthorizationController {
 	
 	@Autowired
 	private RestTemplateBuilder restTemplateBuilder;
+	
 	@CrossOrigin(origins = "https://localhost:8000")
-	@RequestMapping(method = RequestMethod.POST)
+	@RequestMapping(value = "/authorize", method = RequestMethod.POST)
 	AuthResponse authenticateAndAuthorize(@RequestBody AuthRequest request) {
 		try {
+			//Validacija polja zahteva
 			AuthRequest.validate(request);
+			//Slanje zahteva
 			ObjectMapper mapper = new ObjectMapper();
 			String jsonRequest = mapper.writeValueAsString(request);
 			HttpHeaders headers = new HttpHeaders();
@@ -60,9 +63,14 @@ public class AuthenticationAndAuthorizationController {
 		}
 	}
 	
-	@RequestMapping(value = "/test/request", method = RequestMethod.GET)
-	AuthRequest getTestRequest() {
-		return new AuthRequest(new Long(1234567890), new Date(), "378282246310005", "123", "Vladimir Baumgartner", new Date(), 500.00);
+	@RequestMapping(value = "/test/exampleauthorization/valid", method = RequestMethod.GET)
+	AuthRequest getExampleValid() {
+		return new AuthRequest((long) 1000000000, new Date(), "4319403171195344", "477", "Ipce Ahmedovski", "12/22", 1000.0);
+	}
+
+	@RequestMapping(value = "/test/exampleauthorization/invalid", method = RequestMethod.GET)
+	AuthRequest getExampleInvalid() {
+		return new AuthRequest((long) 1000000000, new Date(), "4319408996487255", "444", "Milos Bojanic", "12/02", 1000.0);
 	}
 	
 	@RequestMapping(value = "/test/destinations", method = RequestMethod.GET)
@@ -72,9 +80,11 @@ public class AuthenticationAndAuthorizationController {
 	
 	@RequestMapping(value = "/test/ssl", method = RequestMethod.GET)
 	AuthResponse getSSLResponse() {
-		AuthRequest request = new AuthRequest(new Long(1234567890), new Date(), "378282246310005", "123", "Vladimir Baumgartner", new Date(), 500.00);
+		AuthRequest request = new AuthRequest(new Long(1000000000), new Date(), "4319403171195344", "477", "Ipce Ahmedovski", "12/22", 500.00);
 		try {
+			//Validacija polja zahteva
 			AuthRequest.validate(request);
+			//Slanje zahteva
 			ObjectMapper mapper = new ObjectMapper();
 			String jsonRequest = mapper.writeValueAsString(request);
 			HttpHeaders headers = new HttpHeaders();

@@ -14,7 +14,7 @@ public class AuthRequest implements Serializable {
 	private String pan;
 	private String securityCode;
 	private String cardHolderName;
-	private Date expirationDate;
+	private String expirationDate;
 	private Double transactionAmount;
 	
 	public AuthRequest(){
@@ -22,7 +22,7 @@ public class AuthRequest implements Serializable {
 	}
 	
 	public AuthRequest(Long acquirerOrderId, Date acquirerTimestamp, String pan, String securityCode,
-			String cardHolderName, Date expirationDate, Double transactionAmount) {
+			String cardHolderName, String expirationDate, Double transactionAmount) {
 		super();
 		this.acquirerOrderId = acquirerOrderId;
 		this.acquirerTimestamp = acquirerTimestamp;
@@ -34,11 +34,32 @@ public class AuthRequest implements Serializable {
 	}
 
 	public static void validate(AuthRequest request) throws InvalidAuthentificationAndAuthorizationRequest  {
+		if(request.getAcquirerOrderId() == null || request.getAcquirerOrderId() < 1000000000L || request.getAcquirerOrderId() > 9999999999L){
+			  throw new InvalidAuthentificationAndAuthorizationRequest("Invalid acquirer order identification format.");
+		}
+		if(request.getAcquirerTimestamp() == null){
+			  throw new InvalidAuthentificationAndAuthorizationRequest("Invalid acquirer order timestamp format.");
+		}
+		if(request.getSecurityCode() == null || request.getSecurityCode().equals("")){
+			  throw new InvalidAuthentificationAndAuthorizationRequest("Invalid security code format.");
+		}
+		if(request.getCardHolderName() == null || request.getCardHolderName().equals("")){
+			  throw new InvalidAuthentificationAndAuthorizationRequest("Invalid card holder name format.");
+		}
+		if(request.getExpirationDate() == null || request.getExpirationDate().equals("")){
+			  throw new InvalidAuthentificationAndAuthorizationRequest("Invalid expiration date format.");
+		}
+		if(request.getTransactionAmount() == null){
+			  throw new InvalidAuthentificationAndAuthorizationRequest("Invalid transaction amount format.");
+		}
+		if(request.getPan() == null || request.getPan().equals("")){
+			  throw new InvalidAuthentificationAndAuthorizationRequest("Invalid pan number format.");
+		}
 		String luhn = request.getPan();
 		int luhnDigit = Integer.parseInt(luhn.substring(luhn.length() - 1, luhn.length()));
 		String luhnLess = luhn.substring(0, luhn.length() - 1);
 		if (calculate(luhnLess) != luhnDigit) {
-		  throw new InvalidAuthentificationAndAuthorizationRequest("Request did not pass Luhn alghorytm test.");
+		  throw new InvalidAuthentificationAndAuthorizationRequest("Invalid pan number format. Luhn verification failed.");
 		}
 	}
 	
@@ -101,11 +122,11 @@ public class AuthRequest implements Serializable {
 		this.cardHolderName = cardHolderName;
 	}
 
-	public Date getExpirationDate() {
+	public String getExpirationDate() {
 		return expirationDate;
 	}
 
-	public void setExpirationDate(Date expirationDate) {
+	public void setExpirationDate(String expirationDate) {
 		this.expirationDate = expirationDate;
 	}
 
