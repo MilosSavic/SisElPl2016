@@ -97,7 +97,6 @@ require('./routes/amount.server.routes')(app);
 require('./routes/house-insurance-category.server.routes')(app);
 require('./routes/car-insurance-service.server.routes')(app);
 require('./routes/car-insurance.server.routes')(app);
-require('./routes/all-rules.server.routes')(app);
 require('./routes/transaction.server.routes')(app);
 require('./routes/merchant.server.routes')(app);
 

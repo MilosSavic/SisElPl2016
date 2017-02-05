@@ -241,8 +241,9 @@ function execute(insurance,result){
 			console.log('House insurance'+houseInsurance.houseInsurancePrice);
 			console.log('Car insurance'+carInsurance.carInsurancePrice);
 			//for frontend
-			price.houseInsurancePrice = houseInsurance.houseInsurancePrice*amount/1000*duration;
-			price.carInsurancePrice = carInsurance.carInsurancePrice*amount/1000*duration;
+			price.houseInsurancePrice = houseInsurance.houseInsurancePrice*amount/1000*duration/1000;
+			price.carInsurancePrice = carInsurance.carInsurancePrice*amount/1000*duration/1000;
+			price.value = price.value/1000;
 			price.basePrice = price.value-price.carInsurancePrice-price.houseInsurancePrice;
 	      	result.json(price);
 	    }

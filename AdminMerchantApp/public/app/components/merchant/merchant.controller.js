@@ -10,7 +10,7 @@
 		var mc = this;
 		mc.merchant = new Merchant();
 
-		Merchant.get(function(response){mc.listOfMerchants = [{id:response.merchantID, pass:response.merchantPassword}]});
+		Merchant.get(function(response){mc.listOfMerchants = [response]});
 
 		mc.submitMerchant = function(){
 			$state.reload();

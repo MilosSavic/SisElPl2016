@@ -37,7 +37,7 @@ Merchant.find()
       }
     if(merchants.length>0)
       {
-      var jsObject = {merchantID: merchants[0].id, merchantPassword: merchants[0].pass};
+      var jsObject = merchants[0];
     res.json(jsObject);
     }
     else res.json({message:"No merchants"});
