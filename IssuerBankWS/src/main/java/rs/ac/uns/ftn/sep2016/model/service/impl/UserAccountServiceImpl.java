@@ -24,7 +24,7 @@ public class UserAccountServiceImpl implements UserAccountService {
 	}
 
 	@Override
-	public UserAccount findById(String pan) {
+	public UserAccount findById(long pan) {
 		return userAccountRepository.findOne(pan);
 	}
 
