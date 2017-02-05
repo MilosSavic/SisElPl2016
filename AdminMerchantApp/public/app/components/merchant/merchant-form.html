@@ -50,7 +50,7 @@
 
 
     <div class="form-group" ng-class="{ 'has-error': mc.merchantForm.id.$touched && mc.merchantForm.id.$invalid }">
-		<label class="control-label col-sm-2" translate>{{"MERCHANT.USERNAME"}}</label>
+		<label class="control-label col-sm-2">ID</label>
 		<div class="col-sm-6 col-md-4">
 		<input class="form-control" type="text" ng-model="mc.merchant.id" name="id" required>
 		<div ng-messages="mc.merchantForm.id.$error" ng-show="mc.merchantForm.id.$touched">
