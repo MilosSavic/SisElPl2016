@@ -15,6 +15,8 @@
 				"ADDAMOUNT":"Add amount",
 				"ADDHOUSEINSURANCECATEGORY":"Add house insurance category",
 				"ADDCARINSURANCESERVICE" : "Add car insurance service",
+				"ADDMERCHANT" : "Add merchant",
+				"ADMIN":"Admin merchant app",
 				"INSURANCESALE":"Insurance sale",
 				"NEXT":"Next",
 				"NEXTUSER":"Next user",
@@ -96,7 +98,8 @@
 
 			"CARSERVICE": {
 
-				"NAME":"Name",
+				"NAME_ENG":"Name in English",
+				"NAME_SER":"Name in Serbian",
 				"GROUP":"Group",
 				"RISKFACTOR":"Risk factor",
 				"CARINSURANCESERVICE":"Car insurance service",
@@ -130,7 +133,8 @@
 
 			"HOUSECATEGORY": {
 
-				"NAME":"Name",
+				"NAME_ENG":"Name in English",
+				"NAME_SER":"Name in Serbian",
 				"RISKFACTOR":"Risk factor",
 				"HOUSEINSURANCECATEGORY":"House insurance category",
 
@@ -165,7 +169,8 @@
 
 			"REGION": {
 
-				"NAME":"Name",
+				"NAME_ENG":"Name in English",
+				"NAME_SER":"Name in Serbian",
 				"RISK":"Risk",
 
 				"ERROR": {
@@ -177,7 +182,8 @@
 
 			"SPORT": {
 
-				"NAME":"Name",
+				"NAME_ENG":"Name in English",
+				"NAME_SER":"Name in Serbian",
 				"COEFFICIENT":"Coefficient",
 
 				"ERROR": {
@@ -208,6 +214,21 @@
 				"CI_PRICE":"Car insurance price",
 			},
 
+			"MERCHANT": {
+
+				"MERCHANT":"Merchant",
+				"NAME":"Name",
+				"SURNAME":"Surname",
+				"USERNAME":"Username",
+				"PASSWORD":"Password",
+
+				"ERROR": {
+
+					"REQUIRED":"This field is required.",
+					"NUMBER":"Only numbers are allowed."
+				}
+			},
+
 			/*"SELECT": {
 
 				"CHECKALL":"Check All",
@@ -233,6 +254,8 @@
 				"ADDAMOUNT":"Dodaj iznos",
 				"ADDHOUSEINSURANCECATEGORY":"Dodaj kategoriju kućnog osiguranja",
 				"ADDCARINSURANCESERVICE" : "Dodaj paket za pomoć na putu",
+				"ADDMERCHANT" : "Dodaj trgovca",
+				"ADMIN":"Administratorska prava",
 				"INSURANCESALE":"Prodaja osiguranja",
 				"NEXT":"Dalje",
 				"NEXTUSER":"Sledeći korisnik",
@@ -377,7 +400,8 @@
 
 			"REGION": {
 
-				"NAME":"Naziv",
+				"NAME_ENG":"Naziv na engleskom",
+				"NAME_SER":"Naziv na srpskom",
 				"RISK":"Rizik",
 
 				"ERROR": {
@@ -389,7 +413,8 @@
 
 			"SPORT": {
 
-				"NAME":"Naziv",
+				"NAME_ENG":"Naziv na engleskom",
+				"NAME_SER":"Naziv na srpskom",
 				"COEFFICIENT":"Koeficijent",
 
 
@@ -402,7 +427,8 @@
 
 			"HOUSECATEGORY": {
 
-				"NAME":"Naziv",
+				"NAME_ENG":"Naziv na engleskom",
+				"NAME_SER":"Naziv na srpskom",
 				"RISKFACTOR":"Faktor rizika",
 				"HOUSEINSURANCECATEGORY":"Kategorija kućnog osiguranja",
 
@@ -415,7 +441,8 @@
 
 			"CARSERVICE": {
 
-				"NAME":"Naziv",
+				"NAME_ENG":"Naziv na engleskom",
+				"NAME_SER":"Naziv na srpskom",
 				"GROUP":"Grupa",
 				"RISKFACTOR":"Faktor rizika",
 				"CARINSURANCESERVICE":"Paket za pomoć na putu",
@@ -427,13 +454,21 @@
 				}
 			},
 
-			/*"SELECT": {
+			"MERCHANT": {
 
-				"CHECKALL":"Selektuj sve",
-				"UNCHECKALL":"Deselektuj sve",
-				"CHECKED":"čekirano",
-				"SELECT":"Izaberi",
-			},*/
+				"MERCHANT":"Trgovac",
+				"NAME":"Ime",
+				"SURNAME":"Prezime",
+				"USERNAME":"Korisnicko ime",
+				"PASSWORD":"Sifra",
+
+				"ERROR": {
+
+					"REQUIRED":"Ovo polje je obavezno.",
+					"NUMBER":"Samo brojevi su dozvoljeni.",
+				}
+			},
+
 
 
 			"LANGUAGE": "Sr"

@@ -10,6 +10,8 @@
   "author": "Nikola Luburić, Milos Savic",
   "license": "ISC",
   "dependencies": {
+    "nodemailer":"latest",
+    "nodemailer-smtp-transport":"latest",
     "express": "^4.13.3",
     "body-parser": "^1.14.1",
     "cors": "^2.7.1",

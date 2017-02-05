@@ -13,7 +13,7 @@
 		HouseInsuranceCategory.get(function(response){hicc.listOfHouseInsuranceCategories = response.houseInsuranceCategories;});
 
 		hicc.submit = function(){
-			 $window.location.reload();
+			$state.reload();
 			hicc.houseInsuranceCategory.$save(success);
 		}
 		function success() {

@@ -10,9 +10,9 @@ public class AcquirerBankWsApplication {
 
 	static
 	{
-		System.setProperty("javax.net.ssl.trustStore", "C:\\Users\\Milos\\Documents\\GitHub\\SisElPl2016\\AcquirerBankWS\\src\\main\\resources\\acquirer.jks");
+		System.setProperty("javax.net.ssl.trustStore", "C:\\Users\\Rale\\Documents\\GitHub\\SisElPl2016\\AcquirerBankWS\\src\\main\\resources\\acquirer.jks");
 		System.setProperty("javax.net.ssl.trustStorePassword","password");
-		System.setProperty("javax.net.ssl.keyStore",  "C:\\Users\\Milos\\Documents\\GitHub\\SisElPl2016\\AcquirerBankWS\\src\\main\\resources\\acquirer.jks");
+		System.setProperty("javax.net.ssl.keyStore",  "C:\\Users\\Rale\\Documents\\GitHub\\SisElPl2016\\AcquirerBankWS\\src\\main\\resources\\acquirer.jks");
 		System.setProperty("javax.net.ssl.keyStorePassword", "password");
 	}
 	

@@ -14,7 +14,7 @@
 
 		rc.submitRegion = function(){
 			console.log("reg");
-			 $window.location.reload();
+			$state.reload();
 			rc.region.$save(success);
 			
 		}

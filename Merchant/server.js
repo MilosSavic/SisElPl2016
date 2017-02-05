@@ -191,7 +191,7 @@ var mongoOpt = {
             "sslCert": fs.readFileSync('./cert/cert.pem')
           }
         }
-mongoose.connect('mongodb://localhost/insurance2',mongoOpt);
+mongoose.connect('mongodb://localhost/insurance',mongoOpt);
 var db = mongoose.connection;
 db.on('error', console.error.bind(console, 'connection error:'));
 db.once('open', function() {

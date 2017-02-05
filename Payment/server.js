@@ -19,9 +19,9 @@ require('./models/payment.model');
 
 
 var express = require("express");
-var nodemailer = require("nodemailer");
+//var nodemailer = require("nodemailer");
 var	app = express();
-var smtpTransport = require('nodemailer-smtp-transport');
+//var smtpTransport = require('nodemailer-smtp-transport');
 var bodyParser = require("body-parser");
 var cors = require("cors");
 

@@ -13,7 +13,7 @@
 		Merchant.get(function(response){mc.listOfMerchants = [{id:response.merchantID, pass:response.merchantPassword}]});
 
 		mc.submitMerchant = function(){
-			 $window.location.reload();
+			$state.reload();
 			mc.merchant.$save(success);
 		}
 		function success() {
