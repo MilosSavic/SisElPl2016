@@ -10,3 +10,5 @@ Wed Feb 01 2017 23:53:38 GMT+0100 (Central Europe Standard Time):     Path `merc
 Wed Feb 01 2017 23:53:40 GMT+0100 (Central Europe Standard Time):     Path `merchant` is required.
 Wed Feb 01 2017 23:55:27 GMT+0100 (Central Europe Standard Time):     Path `merchant` is required.
 Thu Feb 02 2017 19:02:17 GMT+0100 (Central Europe Standard Time):     E11000 duplicate key error index: payment.payments.$acquirerId_1 dup key: { : null }
+Mon Feb 06 2017 02:25:19 GMT+0100 (Central Europe Standard Time):     E11000 duplicate key error index: payment.payments.$acquirerId_1 dup key: { : null }
+Mon Feb 06 2017 03:10:16 GMT+0100 (Central Europe Standard Time):     E11000 duplicate key error index: payment.payments.$acquirerId_1 dup key: { : null }

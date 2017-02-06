@@ -104,7 +104,7 @@ var transporter = nodemailer.createTransport(smtpTransport({
 app.get('/success',function(req,res){
     var mailOptions={
         from : 'siselup2017@gmail.com',
-        to : 'siselup2017@gmail.com',
+        to : req.query.send,
         subject : 'Success',
         text : 'Successfully completed payments'
     }
@@ -123,7 +123,7 @@ app.get('/success',function(req,res){
 app.get('/error',function(req,res){
     var mailOptions={
         from : 'siselup2017@gmail.com',
-        to : 'siselup2017@gmail.com',
+        to : req.query.send,
         subject : 'Error',
         text : 'There was an error'
     }
@@ -142,7 +142,7 @@ app.get('/error',function(req,res){
 app.get('/failed',function(req,res){
     var mailOptions={
         from : 'siselup2017@gmail.com',
-        to : 'siselup2017@gmail.com',
+        to : req.query.send,
         subject : 'Failed',
         text : 'Transaction failed'
     }
