@@ -30,9 +30,7 @@ require('./models/merchant.model');
 
 //csrf zastita testiranje
 var express = require("express");
-var nodemailer = require("nodemailer");
 var	app = express();
-var smtpTransport = require('nodemailer-smtp-transport');
 var bodyParser = require("body-parser");
 var cors = require("cors");
 var csrf = require('csurf');
@@ -88,79 +86,6 @@ app.use(express.static(__dirname + '/public'));
 require('./controllers/encrypt-decrypt');
 
 
-
-var transporter = nodemailer.createTransport(smtpTransport({
-    host: 'smtp.gmail.com',
-    port: 587,
-    auth: {
-        user: 'siselup2017@gmail.com',
-        pass: 'sep_2017'
-    },
-    tls: {rejectUnauthorized: false},
-    debug:true
-}));
-
-
-app.get('/success',function(req,res){
-    var mailOptions={
-        from : 'siselup2017@gmail.com',
-        to : req.query.send,
-        subject : 'Success',
-        text : 'Successfully completed payments'
-    }
-    console.log(mailOptions);
-    transporter.sendMail(mailOptions, function(error, response){
-     if(error){
-            console.log(error);
-       // res.end("error");
-     }else{
-            console.log("Message sent: " + response.message);
-      //  res.end("sent");
-         }
-    });
-});
-
-app.get('/error',function(req,res){
-    var mailOptions={
-        from : 'siselup2017@gmail.com',
-        to : req.query.send,
-        subject : 'Error',
-        text : 'There was an error'
-    }
-    console.log(mailOptions);
-    transporter.sendMail(mailOptions, function(error, response){
-     if(error){
-            console.log(error);
-       // res.end("error");
-     }else{
-            console.log("Message sent: " + response.message);
-      //  res.end("sent");
-         }
-    });
-});
-
-app.get('/failed',function(req,res){
-    var mailOptions={
-        from : 'siselup2017@gmail.com',
-        to : req.query.send,
-        subject : 'Failed',
-        text : 'Transaction failed'
-    }
-    console.log(mailOptions);
-    transporter.sendMail(mailOptions, function(error, response){
-     if(error){
-            console.log(error);
-       // res.end("error");
-     }else{
-            console.log("Message sent: " + response.message);
-      //  res.end("sent");
-         }
-    });
-});
-
-
-
-
 //da li je ovo dobro?
 
 require('./routes/region.server.routes')(app);
@@ -176,6 +101,7 @@ require('./routes/all-rules.server.routes')(app);
 require('./routes/transaction.server.routes')(app);
 require('./routes/merchant.server.routes')(app);
 require('./routes/communication.server.routes')(app);
+require('./routes/email.server.routes')(app);
 
 
 https.createServer(httpsOptions, app).listen(3000, function() {

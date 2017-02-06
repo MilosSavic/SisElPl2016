@@ -16,6 +16,12 @@ var transactionSchema = new Schema({
     default: Date.now
 	},
   successful: Boolean,
+
+  emailsSent: {
+    type: Boolean,
+    default: false
+  },
+
   acquirerOrderId: {
 	  type: Number
   },

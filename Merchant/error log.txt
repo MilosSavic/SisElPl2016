@@ -163,3 +163,4 @@ Thu Feb 02 2017 02:10:19 GMT+0100 (Central Europe Standard Time):     Cast to Ob
 >>>>>>> 751ddaca84520d0948eb0fc0645911959d03bd1b
 Fri Feb 03 2017 02:40:34 GMT+0100 (Central Europe Standard Time):     Amount in transaction is required
 Sun Feb 05 2017 16:44:27 GMT+0100 (Central Europe Standard Time):     Amount in transaction is required
+Mon Feb 06 2017 15:59:32 GMT+0100 (Central Europe Standard Time):     Cast to ObjectId failed for value "65" at path "_id" for model "Insurance"
