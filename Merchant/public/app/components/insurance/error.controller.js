@@ -12,14 +12,14 @@
 		alert($stateParams.errorOrderId);
 		
 		var emailData = {
-			transactionId: $stateParams.successfulOrderId,
+			transactionId: $stateParams.errorOrderId,
 			emailText: "There was an error during insurance purchase.",
 			emailSubject: "Insurance purchase"
 		}
 
 		var emailService = new EmailService(emailData);
 				emailService.$save(function(result){
-					alert(result);
+					alert(JSON.stringify(result));
 		})
 	
 		

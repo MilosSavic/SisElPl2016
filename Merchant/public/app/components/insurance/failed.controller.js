@@ -12,7 +12,7 @@
 		alert($stateParams.failedOrderId);	
 
 		var emailData = {
-			transactionId: $stateParams.successfulOrderId,
+			transactionId: $stateParams.failedOrderId,
 			emailText: "Insurance purchase failed.",
 			emailSubject: "Insurance purchase"
 		}
