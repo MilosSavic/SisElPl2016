@@ -68,9 +68,12 @@
 					"NUMBER":"Only numbers are allowed.",
 					"EMAIL":"The email you have entered is not valid.",
 					"REQUIRED":"This field is required.",
-					"AMOUNT":"There are no amounts.",
-					"REGION":"There are no regions.",
+					"AMOUNT":"You must enter amount",
+					"REGION":"You must enter region",
 					"MIN":"Number of users must be greater than 0",
+					"MAX":"Number of users must be lesser than 15 ",
+					"DATESTART":"You must enter start date",
+					"DATEEND":"You must enter end date",
 				}
 			},
 
@@ -166,7 +169,7 @@
 					"NUMBER":"Only numbers are allowed.",
 					"EMAIL":"E-mail format is not valid.",
 					"JMBG":"This field should contain exactly 13 numeric characters.",
-					"SPORT":"Your don't have any sports.",
+					"SPORT":"You must enter sport.",
 				}
 			},
 
@@ -234,7 +237,7 @@
 				"SAVE":"Sačuvaj",
 				"REVERT":"Poništi",
 				"DELETE":"Obriši",
-				"BACK":"Povratak",
+				"BACK":"Nazad",
 				"HOME":"Početna",
 				"ABOUT":"O nama",
 				"ADDREGION":"Dodaj region",
@@ -293,9 +296,12 @@
 					"NUMBER":"Samo brojevi su dozvoljeni.",
 					"EMAIL":"Email koji ste uneli nije validan.",
 					"REQUIRED":"Ovo polje je obavezno.",
-					"AMOUNT":"Ne postoje vrednosti.",
-					"REGION":"Ne postoje regioni.",
+					"AMOUNT":"Morate uneti iznos",
+					"REGION":"Morate uneti region",
 					"MIN":"Broj korisnika mora biti veći od 0",
+					"MAX":"Broj korisnika mora biti manji 15",
+					"DATESTART":"Morate uneti pocetni datum",
+					"DATEEND":"Morate uneti krajnji datum",
 				}
 			},
 
@@ -317,7 +323,7 @@
 					"NUMBER":"Samo brojevi su dozvoljeni.",
 					"EMAIL":"Email koji ste uneli nije validan.",
 					"JMBG":"Ovo polje mora da sadrži tačno 13 numeričkih karaktera.",
-					"SPORT":"Ne postoji nijedan sport.",
+					"SPORT":"Morate uneti sport",
 				}
 			},
 

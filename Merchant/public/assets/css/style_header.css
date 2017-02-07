@@ -1,0 +1,20 @@
+@CHARSET "ISO-8859-1";
+
+/* ------ HEADER ------ */
+
+
+#header_logo {
+	float: left;
+	margin: 5px 20px 5px;
+	text-align: left;
+	font-family: "Monotype Corsiva", serif;
+	font-size: 35px;
+	font-weight: bold;
+	cursor: pointer;
+}
+
+#header_logo a {
+	text-decoration: none;
+	color: red;
+}
+

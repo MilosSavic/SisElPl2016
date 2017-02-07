@@ -31,6 +31,7 @@
 
 <div id="Part1" class="tabcontent">
  <div class="form-bottom">
+  
     <form class="form-horizontal" novalidate name="cic.carInsuranceForm">
         <div ng-repeat="optionGroup in cic.serviceData" class="form-group">
         <br>
@@ -42,14 +43,20 @@
               </div>
          </div>
         </div>
+
+        <div class="col-sm-offset-2">
+
+            <button type="button" class="btn_medium btn-primary" ng-click="cic.openTab('Part2')" translate>{{"COMMON.NEXT"}}</button>
+            <button type="button" class="btn_medium btn-secondary" ng-click="cic.goToFinalPage()" translate>{{"COMMON.SKIP"}}</button>
+
+        </div>
     </form>
 </div>
 </div>
     
 
-<div id="Part2" class="tabcontent">
+  <div id="Part2" class="tabcontent">
    <div class="form-bottom">
-
     <form class="form-horizontal" novalidate name="cic.carInsuranceForm">
 
      
@@ -131,17 +138,19 @@
                 </div>
 
             </div>
-        </div>     
+        </div>   
+
+         <div class="col-sm-offset-2">
+
+            <button type="button" class="btn_medium btn-primary" ng-click="cic.addCarInsurance()" translate ng-disabled="cic.carInsuranceForm.$invalid">{{"COMMON.SUBMIT"}}</button>
+            <button type="button" class="btn_medium btn-secondary" ng-click="cic.openTab('Part1')" translate>{{"COMMON.BACK"}}</button>
+
+        </div>  
     </form>
      </div>
 </div>
 
- <div class="col-sm-offset-2">
 
-            <button type="button" class="btn_medium btn-primary" ng-click="cic.addCarInsurance()" translate ng-disabled="cic.carInsuranceForm.$invalid">{{"COMMON.SUBMIT"}}</button>
-            <button type="button" class="btn_medium btn-secondary" ng-click="cic.goToFinalPage()" translate>{{"COMMON.SKIP"}}</button>
-
-        </div>
 </div>
 
 
