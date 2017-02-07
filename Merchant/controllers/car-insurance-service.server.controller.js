@@ -12,11 +12,13 @@ var crypto = require("./encrypt-decrypt");
 
 function list(req, res, next){
 
+  logger.info("GET Request for all car insurance services. ");
   CarInsuranceService.find()
     .exec(function(err, carInsuranceServices){
     if(err){
       var errMessage = errorHandler.getErrorMessage(err);
       errorHandler.logErrorMessage(errMessage);
+      logger.info("GET Car insurance service controller: " + errMessage);
       return res.status(400).send({
         message: errMessage
       });
@@ -27,6 +29,7 @@ function list(req, res, next){
         carInsuranceServices[i] = decrypted;
       }
       var jsObject = {carInsuranceServices};
+      logger.info("GET Car insurance services successfuly listed. Status: 200");
       res.json(jsObject);
     }    
   });

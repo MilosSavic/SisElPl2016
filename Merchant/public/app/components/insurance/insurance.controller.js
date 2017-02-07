@@ -18,6 +18,7 @@
 		if(!$rootScope.insurance)
 			$rootScope.insurance = new Insurance();
 		ic.insurance = InsuranceData.getInsuranceData();
+		ic.numberOfUsers = InsuranceData.getInsuranceData().numberOfUsers;
 
 		console.log(ic.currentLanguage);
 
@@ -55,6 +56,9 @@
 		};
 
 		ic.goToUsersForm = function(){
+			//broj korisnika se menja jedino ako kliknemo na next dugme.
+			ic.insurance.numberOfUsers = ic.numberOfUsers;
+
 			if(ic.insurance.numberOfUsers){
 
 				ic.lastSaveSuccess = true;

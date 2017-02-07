@@ -5,8 +5,8 @@
 		.module('payment-app.payment')
 		.controller('PaymentController', PaymentController);
 
-	PaymentController.$inject = ['$location','Payment','$stateParams','$state','CodeValidity','TransactionAuthorization','MerchantCommunication','$window'];
-	function PaymentController($location, Payment,$stateParams,$state,CodeValidity,TransactionAuthorization,MerchantCommunication,$window) {
+	PaymentController.$inject = ['$location','Payment','$stateParams','$state','CodeValidity','TransactionAuthorization','MerchantCommunication','$window','SideBar'];
+	function PaymentController($location, Payment,$stateParams,$state,CodeValidity,TransactionAuthorization,MerchantCommunication,$window,SideBar) {
 		var pay = this;
 		var codeValidity = new CodeValidity();
 		var merchantOrderId;
@@ -26,6 +26,7 @@
 				pay.payment._id = response.payment_id;
 				merchantOrderId = response.merchantOrderId;
 				errorUrl = response.errorURL;
+				SideBar.setURLData({code:$stateParams.code, id: $stateParams.paymentID});
 
 			}
 		});
