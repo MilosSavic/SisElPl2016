@@ -1,0 +1,24 @@
+[2017-02-07 16:19:53.336] [INFO] merchant - Connected to MongoDB
+[2017-02-07 16:24:26.420] [INFO] merchant - Express https server listening on port 3000
+[2017-02-07 16:24:26.440] [INFO] merchant - Connected to MongoDB
+[2017-02-07 16:27:43.139] [INFO] merchant - Express https server listening on port 3000
+[2017-02-07 16:27:43.159] [INFO] merchant - Connected to MongoDB
+[2017-02-07 16:28:18.771] [INFO] merchant - Express https server listening on port 3000
+[2017-02-07 16:28:18.791] [INFO] merchant - Connected to MongoDB
+[2017-02-07 16:28:23.461] [INFO] merchant - Calculating price done
+[2017-02-07 16:30:19.236] [INFO] merchant - Express https server listening on port 3000
+[2017-02-07 16:30:19.255] [INFO] merchant - Connected to MongoDB
+[2017-02-07 16:30:23.521] [INFO] merchant - Request for price calculation: {"startDate":"2017-02-14T23:00:00.000Z","endDate":"2017-02-26T23:00:00.000Z","amount":{"_id":"589757e8e808ea1de067b049"},"region":{"_id":"58975740eae341295037dd08"},"numberOfUsers":1,"users":[{"name":"4","surname":"f","jmbg":"2332233232333","passportNumber":"f","address":"f","telephone":"4","age":1,"sport":{"_id":"58975859e808ea1de067b050"},"email":"milossavicm1m2g@yahoo.com","index":1}]}
+[2017-02-07 16:30:23.914] [INFO] merchant - Calculating price done
+[2017-02-07 16:40:56.276] [INFO] merchant - Express https server listening on port 3000
+[2017-02-07 16:40:56.296] [INFO] merchant - Connected to MongoDB
+[2017-02-07 16:41:17.512] [INFO] merchant - Request for price calculation. 
+[2017-02-07 16:41:17.980] [INFO] merchant - Calculating price done
+[2017-02-07 16:41:17.980] [INFO] merchant - Price calculated. Response sent. Status: 200
+[2017-02-07 16:41:29.267] [INFO] merchant - Request for price calculation. 
+[2017-02-07 16:41:29.592] [INFO] merchant - Calculating price done
+[2017-02-07 16:41:29.593] [INFO] merchant - Price calculated. Response sent. Status: 200
+[2017-02-07 16:46:05.054] [INFO] merchant - Express https server listening on port 3000
+[2017-02-07 16:46:05.074] [INFO] merchant - Connected to MongoDB
+[2017-02-07 16:46:22.049] [INFO] merchant - Request for all amounts received.
+[2017-02-07 16:46:22.060] [INFO] merchant - List all amounts - response sent. Status: 200

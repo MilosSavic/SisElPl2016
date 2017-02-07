@@ -12,11 +12,13 @@ module.exports.getAmountById = getAmountById;
 var crypto = require("./encrypt-decrypt");
 
 function list(req, res, next){
+  logger.info("Request for all amounts received.");
   Amount.find()
     .exec(function(err, amounts){
     if(err){
       var errMessage = errorHandler.getErrorMessage(err);
       errorHandler.logErrorMessage(errMessage);
+      logger.error("Amount controller: " + errMessage);
       return res.status(400).send({
         message: errMessage
       });
@@ -27,6 +29,7 @@ function list(req, res, next){
         amounts[i] = decrypted;
       }
       var jsObject = {amounts};
+      logger.info("List all amounts - response sent. Status: 200");
       res.json(jsObject);
     }    
   });

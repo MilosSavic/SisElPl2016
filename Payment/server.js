@@ -2,6 +2,7 @@
 
 //var mongoose = require('./config/mongoose');
 var mongoose = require('mongoose');
+var helmet = require('helmet');
 mongoose.connect('mongodb://localhost/payment');
 var db = mongoose.connection;
 db.on('error', console.error.bind(console, 'connection error:'));
@@ -81,78 +82,25 @@ var httpsOptions = {
 };
 
 
+//A5 misconfig
+    app.use(helmet());
+        // Prevent opening page in frame or iframe to protect from clickjacking
+        app.disable("x-powered-by");
 
+        // Prevent opening page in frame or iframe to protect from clickjacking
+        app.use(helmet.frameguard());
 
-/*
-var transporter = nodemailer.createTransport(smtpTransport({
-    host: 'smtp.gmail.com',
-    port: 587,
-    auth: {
-        user: 'siselup2017@gmail.com',
-        pass: 'sep_2017'
-    },
-    tls: {rejectUnauthorized: false},
-    debug:true
-}));
+        // Prevents browser from caching and storing page
+        app.use(helmet.noCache());
 
+        // Allow loading resources only from white-listed domains
+        //app.use(helmet.csp());
 
-app.get('/success',function(req,res){
-    var mailOptions={
-        from : 'siselup2017@gmail.com',
-        to : 'siselup2017@gmail.com',
-        subject : 'Success',
-        text : 'Successfully completed payments'
-    }
-    console.log(mailOptions);
-    transporter.sendMail(mailOptions, function(error, response){
-     if(error){
-            console.log(error);
-       // res.end("error");
-     }else{
-            console.log("Message sent: " + response.message);
-      //  res.end("sent");
-         }
-    });
-});
+        // Allow communication only on HTTPS
+        app.use(helmet.hsts());
 
-app.get('/error',function(req,res){
-    var mailOptions={
-        from : 'siselup2017@gmail.com',
-        to : 'siselup2017@gmail.com',
-        subject : 'Error',
-        text : 'There was an error'
-    }
-    console.log(mailOptions);
-    transporter.sendMail(mailOptions, function(error, response){
-     if(error){
-            console.log(error);
-       // res.end("error");
-     }else{
-            console.log("Message sent: " + response.message);
-      //  res.end("sent");
-         }
-    });
-});
-
-app.get('/failed',function(req,res){
-    var mailOptions={
-        from : 'siselup2017@gmail.com',
-        to : 'siselup2017@gmail.com',
-        subject : 'Failed',
-        text : 'Transaction failed'
-    }
-    console.log(mailOptions);
-    transporter.sendMail(mailOptions, function(error, response){
-     if(error){
-            console.log(error);
-       // res.end("error");
-     }else{
-            console.log("Message sent: " + response.message);
-      //  res.end("sent");
-         }
-    });
-});*/
-
+        // Forces browser to only use the Content-Type set in the response header instead of sniffing or guessing it
+        app.use(helmet.noSniff());
 
 
 https.createServer(httpsOptions, app).listen(8000, function() {

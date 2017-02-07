@@ -100,6 +100,29 @@ require('./routes/car-insurance.server.routes')(app);
 require('./routes/transaction.server.routes')(app);
 require('./routes/merchant.server.routes')(app);
 
+var options = {
+  //whiteList: {
+ //   a: ['title', 'target']
+ // }
+};
+
+var log4js = require('log4js');
+//console log is loaded by default, so you won't normally need to do this 
+//log4js.loadAppender('console'); 
+log4js.loadAppender('file');
+//log4js.addAppender(log4js.appenders.console()); 
+log4js.addAppender(log4js.appenders.file('access.log'), 'cheese');
+ 
+var logger = log4js.getLogger('cheese');
+logger.setLevel('INFO');
+ 
+logger.trace('Entering cheese testing');
+logger.debug('Got cheese.');
+logger.info('Cheese is Gouda.');
+logger.warn('Cheese is quite smelly.');
+logger.error('Cheese is too ripe!');
+logger.fatal('Cheese was breeding ground for listeria.');
+
 
 https.createServer(httpsOptions, app).listen(7000, function() {
     console.log("Express https server listening on port " + "7000");

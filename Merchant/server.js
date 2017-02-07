@@ -7,11 +7,19 @@ var mongoose = require('mongoose');
 mongoose.Promise = global.Promise;
 var fs = require("fs");
 var helmet = require('helmet');
+var log4js = require('log4js');
 
 
 
 var path = require('path');
 global.appRoot = path.resolve(__dirname);
+
+log4js.loadAppender('file');
+//log4js.addAppender(log4js.appenders.console()); 
+log4js.addAppender(log4js.appenders.file('merchant-server.log'), 'merchant');
+ 
+global.logger = log4js.getLogger('merchant');
+logger.setLevel('INFO');
 
 require('./models/region.model');
 require('./models/insurance.model');
@@ -104,8 +112,20 @@ require('./routes/communication.server.routes')(app);
 require('./routes/email.server.routes')(app);
 
 
+//console log is loaded by default, so you won't normally need to do this 
+//log4js.loadAppender('console'); 
+
+ 
+//logger.trace('Entering cheese testing');
+//logger.debug('Got cheese.');
+//logger.info('Cheese is Gouda.');
+//logger.warn('Cheese is quite smelly.');
+//logger.error('Cheese is too ripe!');
+//logger.fatal('Cheese was breeding ground for listeria.');
+
+
 https.createServer(httpsOptions, app).listen(3000, function() {
-    console.log("Express https server listening on port " + "3000");
+   logger.info("Express https server listening on port " + "3000");
 });
 
 
@@ -121,6 +141,6 @@ mongoose.connect('mongodb://localhost/insurance',mongoOpt);
 var db = mongoose.connection;
 db.on('error', console.error.bind(console, 'connection error:'));
 db.once('open', function() {
-  console.log("Connected to Mongo database");
+  logger.info("Connected to MongoDB")
 });
 

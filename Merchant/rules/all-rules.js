@@ -10,7 +10,7 @@ module.exports.execute = execute;
 //	console.log(result);
 //})
 function execute(insurance,result){
-	console.log(JSON.stringify(insurance.body));
+	logger.info("Request for price calculation. ");
 	var mongoose = require('mongoose');
 	var nools = require('nools');
 	var ruleFilePath = __dirname + "/all-rules.nools";
@@ -234,17 +234,18 @@ function execute(insurance,result){
 
 	session.match(function(err){
 	    if(err){
-	        console.error(err.stack);
+	        logger.error(err.stack);
 	    }else{
-	        console.log("done");
+	        logger.info("Calculating price done");
 	        nools.deleteFlows();
-			console.log('House insurance'+houseInsurance.houseInsurancePrice);
-			console.log('Car insurance'+carInsurance.carInsurancePrice);
+			logger.debug('House insurance'+houseInsurance.houseInsurancePrice);
+			logger.debug('Car insurance'+carInsurance.carInsurancePrice);
 			//for frontend
 			price.houseInsurancePrice = houseInsurance.houseInsurancePrice*amount/1000*duration/1000;
 			price.carInsurancePrice = carInsurance.carInsurancePrice*amount/1000*duration/1000;
 			price.value = price.value/1000;
 			price.basePrice = price.value-price.carInsurancePrice-price.houseInsurancePrice;
+			logger.info("Price calculated. Response sent. Status: 200")
 	      	result.json(price);
 	    }
 	})
