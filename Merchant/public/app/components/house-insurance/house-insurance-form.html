@@ -20,7 +20,7 @@
            <h3 translate>{{"SIDEBAR.HOUSEINSURANCE"}}</h3>                                 
       </div>
       <div class="form-top-right">
-         <i class="fa fa-lock"></i>
+        <button type="button" class="btn_medium btn-primary" ng-click="hic.goToCarInsurance()" translate>{{"COMMON.SKIP"}}</button>
       </div>
     </div> 
 
@@ -33,18 +33,20 @@
 
   <div id="Part1" class="tabcontent">
   <div class="form-bottom">
-    <form class="form-horizontal" novalidate name="hic.houseInsuranceForm">
+    <form  class="form-horizontal" novalidate name="house" >
+
+
         <div ng-repeat="option in hic.insuranceData" class="form-group">
             <label ng-show="hic.currentLanguage == 'En'" class="control-label col-sm-2" for="code" translate>{{option.label}}: </label>
             <label ng-show="hic.currentLanguage == 'Sr'" class="control-label col-sm-2" for="code" translate>{{option.labelSer}}: </label>
             <div class="col-sm-6 col-md-4" busy-indicator>
-                <input type="checkbox" ng-model="option.selected" ng-value={{"option._id"}} id="coveredByInsurance" ng-click="hic.updateHouseInsurance()" name="coveredByInsurance" class="form-control">
+                <input type="checkbox" data-ng-model="option.selected" ng-value={{"option._id"}} id="coveredByInsurance" ng-click="hic.updateHouseInsurance()" name="coveredByInsurance" class="form-control" ng-required="hic.isOptionsRequired()" >
             </div>
-        </div>        
+        </div>         
 
         <div class="col-sm-offset-2" >
-            <button type="button" class="btn_medium btn-primary" ng-click="hic.openTab('Part2')" translate >{{"COMMON.NEXT"}}</button>
-            <button type="button" class="btn_medium btn-secondary" ng-click="hic.goToCarInsurance()" translate>{{"COMMON.SKIP"}}</button>
+            <button type="button" class="btn_medium btn-primary" ng-click="hic.openTab('Part2')" ng-disabled="!house.$valid" translate >{{"COMMON.NEXT"}}</button>
+            
         </div>
     </form>
 </div>

@@ -19,9 +19,12 @@
        <div class="form-top-left">
           <h3 translate>{{"SIDEBAR.CARINSURANCE"}}</h3>                                    
       </div>
-      <div class="form-top-right">
-         <i class="fa fa-lock"></i>
-      </div>
+      <div class="form-top-right" >
+         <button type="button" class="btn_medium btn-primary" ng-click="cic.goToFinalPage()" translate>{{"COMMON.SKIP"}}</button>
+       
+      </div> 
+
+
     </div>       
 
       <ul class="tab">
@@ -32,22 +35,22 @@
 <div id="Part1" class="tabcontent">
  <div class="form-bottom">
   
-    <form class="form-horizontal" novalidate name="cic.carInsuranceForm">
+    <form class="form-horizontal" novalidate name="car">
         <div ng-repeat="optionGroup in cic.serviceData" class="form-group">
         <br>
           <div ng-repeat="option in optionGroup" class="form-group">
               <label ng-show="cic.currentLanguage == 'En'" class="control-label col-sm-2" for="code" translate>{{option.label}}: </label>
                <label ng-show="cic.currentLanguage == 'Sr'" class="control-label col-sm-2" for="code" translate>{{option.labelSer}}: </label>
               <div class="col-sm-6 col-md-4" busy-indicator>
-                  <input type="checkbox" ng-model="option.selected" ng-value={{"option._id"}} id="services" ng-click="cic.updateCarInsurance(option)" name="services" class="form-control">
+                  <input type="checkbox" data-ng-model="option.selected" ng-value={{"option._id"}} id="services" ng-click="cic.updateCarInsurance(option)" name="services" class="form-control" ng-required="cic.isOptionsRequired()">
               </div>
          </div>
         </div>
 
         <div class="col-sm-offset-2">
 
-            <button type="button" class="btn_medium btn-primary" ng-click="cic.openTab('Part2')" translate>{{"COMMON.NEXT"}}</button>
-            <button type="button" class="btn_medium btn-secondary" ng-click="cic.goToFinalPage()" translate>{{"COMMON.SKIP"}}</button>
+            <button type="button" class="btn_medium btn-primary" ng-click="cic.openTab('Part2')" ng-disabled="!car.$valid" translate>{{"COMMON.NEXT"}}</button>
+           
 
         </div>
     </form>

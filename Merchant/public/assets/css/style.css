@@ -128,12 +128,12 @@ img { max-width: 100%; }
 .form-top-right {
 	float: left;
 	width: 25%;
-	padding-top: 5px;
-	font-size: 66px;
-	color: #fff;
-	line-height: 100px;
+	padding-top: 45px;
+	font-size: 20px;
+/*	color: #fff;*/
+	line-height: 30px;
 	text-align: right;
-	opacity: 0.3;
+	/*opacity: 0.3;*/
 }
 
 .form-bottom {
@@ -154,6 +154,20 @@ img { max-width: 100%; }
 
 .form-bottom form button.btn_medium {
 	width: 19%;
+}
+
+.btn_medium.disabled,
+.btn_medium[disabled],
+fieldset[disabled] .btn_medium {
+  cursor: not-allowed;
+  filter: alpha(opacity=65);
+  -webkit-box-shadow: none;
+          box-shadow: none;
+  opacity: .65;
+}
+a.btn_medium.disabled,
+fieldset[disabled] a.btn_medium {
+  pointer-events: none;
 }
 
 .form-bottom form button.btn_data {

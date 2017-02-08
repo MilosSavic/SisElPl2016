@@ -18,6 +18,23 @@
 		cic.currentLanguage = crTranslations[crTranslator.getLanguage()].LANGUAGE;
         cic.setLanguage = setLanguage;
 
+        cic.isOptionsRequired = function(){
+        	
+        	return !cic.serviceData.some(function(options){
+
+				
+			    for(var i=0; i<options.length; i++)
+				{
+							if(options[i].selected)
+							{	
+									return true;
+									break;
+							}
+				}
+
+		  });
+		}
+
         function setLanguage(language) {
             crTranslator.setLanguage(language);
             cic.currentLanguage = crTranslations[language].LANGUAGE;

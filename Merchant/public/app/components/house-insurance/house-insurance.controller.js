@@ -13,11 +13,20 @@
 			return;
 		}
 		
+
 		var hic = this;
 		hic.houseInsurance = InsuranceData.getInsuranceData().houseInsurance;
 
 		hic.currentLanguage = crTranslations[crTranslator.getLanguage()].LANGUAGE;
         hic.setLanguage = setLanguage;
+
+        hic.isOptionsRequired = function(){
+		  return !hic.insuranceData.some(function(options){
+		  	console.log("Rale");
+		    return options.selected;
+		  });
+		}
+
 
         function setLanguage(language) {
             crTranslator.setLanguage(language);
