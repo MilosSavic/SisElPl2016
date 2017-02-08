@@ -85,11 +85,18 @@ app.use(bodyParser.json());
 app.use(cors());
 
 app.use(express.static(__dirname + '/public'));
+
+var morgan = require('morgan');
+var accessLogStream = fs.createWriteStream(path.join(__dirname, 'merchant-server-reqres.log'), {flags: 'a'})
 //HOW TO USE CSURF?
 //app.use(function(req, res, next) {
  // res.locals._csrf = req.csrfToken();
  // next();
 //});
+app.use(morgan("dev"));
+app.use(morgan(":date :remote-addr :remote-user :method :url HTTP/:http-version :status :res[content-length] - :response-time ms",{stream: accessLogStream}));
+
+
 
 require('./controllers/encrypt-decrypt');
 
@@ -110,6 +117,9 @@ require('./routes/transaction.server.routes')(app);
 require('./routes/merchant.server.routes')(app);
 require('./routes/communication.server.routes')(app);
 require('./routes/email.server.routes')(app);
+
+
+
 
 
 //console log is loaded by default, so you won't normally need to do this 

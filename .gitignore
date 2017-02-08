@@ -1,5 +1,7 @@
 node_modules/
 /Merchant/merchant-server.log
+/Merchant/merchant-server-reqres.log
+/Payment/payment-server-reqres.log
 
 #bower libraries
 js/

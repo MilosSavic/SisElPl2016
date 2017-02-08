@@ -164,3 +164,72 @@ Thu Feb 02 2017 02:10:19 GMT+0100 (Central Europe Standard Time):     Cast to Ob
 Fri Feb 03 2017 02:40:34 GMT+0100 (Central Europe Standard Time):     Amount in transaction is required
 Sun Feb 05 2017 16:44:27 GMT+0100 (Central Europe Standard Time):     Amount in transaction is required
 Mon Feb 06 2017 15:59:32 GMT+0100 (Central Europe Standard Time):     Cast to ObjectId failed for value "65" at path "_id" for model "Insurance"
+Wed Feb 08 2017 11:37:33 GMT+0100 (Central Europe Standard Time):     failed to reconnect after 30 attempts with interval 1000 ms
+Wed Feb 08 2017 11:37:33 GMT+0100 (Central Europe Standard Time):     failed to reconnect after 30 attempts with interval 1000 ms
+Wed Feb 08 2017 11:37:33 GMT+0100 (Central Europe Standard Time):     failed to reconnect after 30 attempts with interval 1000 ms
+Wed Feb 08 2017 11:37:33 GMT+0100 (Central Europe Standard Time):     failed to reconnect after 30 attempts with interval 1000 ms
+Wed Feb 08 2017 11:37:33 GMT+0100 (Central Europe Standard Time):     failed to reconnect after 30 attempts with interval 1000 ms
+Wed Feb 08 2017 11:37:33 GMT+0100 (Central Europe Standard Time):     failed to reconnect after 30 attempts with interval 1000 ms
+Wed Feb 08 2017 11:37:41 GMT+0100 (Central Europe Standard Time):     Topology was destroyed
+Wed Feb 08 2017 11:37:41 GMT+0100 (Central Europe Standard Time):     Topology was destroyed
+Wed Feb 08 2017 11:38:36 GMT+0100 (Central Europe Standard Time):     Topology was destroyed
+Wed Feb 08 2017 11:38:36 GMT+0100 (Central Europe Standard Time):     Topology was destroyed
+Wed Feb 08 2017 11:38:37 GMT+0100 (Central Europe Standard Time):     Topology was destroyed
+Wed Feb 08 2017 11:38:37 GMT+0100 (Central Europe Standard Time):     Topology was destroyed
+Wed Feb 08 2017 11:38:38 GMT+0100 (Central Europe Standard Time):     Topology was destroyed
+Wed Feb 08 2017 11:38:38 GMT+0100 (Central Europe Standard Time):     Topology was destroyed
+Wed Feb 08 2017 11:38:39 GMT+0100 (Central Europe Standard Time):     Topology was destroyed
+Wed Feb 08 2017 11:38:39 GMT+0100 (Central Europe Standard Time):     Topology was destroyed
+Wed Feb 08 2017 11:38:40 GMT+0100 (Central Europe Standard Time):     Topology was destroyed
+Wed Feb 08 2017 11:38:40 GMT+0100 (Central Europe Standard Time):     Topology was destroyed
+Wed Feb 08 2017 11:38:41 GMT+0100 (Central Europe Standard Time):     Topology was destroyed
+Wed Feb 08 2017 11:38:41 GMT+0100 (Central Europe Standard Time):     Topology was destroyed
+Wed Feb 08 2017 11:38:42 GMT+0100 (Central Europe Standard Time):     Topology was destroyed
+Wed Feb 08 2017 11:38:43 GMT+0100 (Central Europe Standard Time):     Topology was destroyed
+Wed Feb 08 2017 11:38:43 GMT+0100 (Central Europe Standard Time):     Topology was destroyed
+Wed Feb 08 2017 11:43:27 GMT+0100 (Central Europe Standard Time):     Topology was destroyed
+Wed Feb 08 2017 11:43:27 GMT+0100 (Central Europe Standard Time):     Topology was destroyed
+Wed Feb 08 2017 11:43:30 GMT+0100 (Central Europe Standard Time):     Topology was destroyed
+Wed Feb 08 2017 11:43:30 GMT+0100 (Central Europe Standard Time):     Topology was destroyed
+Wed Feb 08 2017 11:43:30 GMT+0100 (Central Europe Standard Time):     Topology was destroyed
+Wed Feb 08 2017 11:43:30 GMT+0100 (Central Europe Standard Time):     Topology was destroyed
+Wed Feb 08 2017 11:45:13 GMT+0100 (Central Europe Standard Time):     failed to reconnect after 30 attempts with interval 1000 ms
+Wed Feb 08 2017 11:45:13 GMT+0100 (Central Europe Standard Time):     failed to reconnect after 30 attempts with interval 1000 ms
+Wed Feb 08 2017 11:45:13 GMT+0100 (Central Europe Standard Time):     failed to reconnect after 30 attempts with interval 1000 ms
+Wed Feb 08 2017 11:45:13 GMT+0100 (Central Europe Standard Time):     failed to reconnect after 30 attempts with interval 1000 ms
+Wed Feb 08 2017 11:45:13 GMT+0100 (Central Europe Standard Time):     failed to reconnect after 30 attempts with interval 1000 ms
+Wed Feb 08 2017 11:45:13 GMT+0100 (Central Europe Standard Time):     failed to reconnect after 30 attempts with interval 1000 ms
+Wed Feb 08 2017 11:45:13 GMT+0100 (Central Europe Standard Time):     Topology was destroyed
+Wed Feb 08 2017 11:45:13 GMT+0100 (Central Europe Standard Time):     Topology was destroyed
+Wed Feb 08 2017 11:45:13 GMT+0100 (Central Europe Standard Time):     Topology was destroyed
+Wed Feb 08 2017 11:45:13 GMT+0100 (Central Europe Standard Time):     Topology was destroyed
+Wed Feb 08 2017 11:45:13 GMT+0100 (Central Europe Standard Time):     Topology was destroyed
+Wed Feb 08 2017 11:45:13 GMT+0100 (Central Europe Standard Time):     Topology was destroyed
+Wed Feb 08 2017 11:45:13 GMT+0100 (Central Europe Standard Time):     Topology was destroyed
+Wed Feb 08 2017 11:45:13 GMT+0100 (Central Europe Standard Time):     Topology was destroyed
+Wed Feb 08 2017 11:45:13 GMT+0100 (Central Europe Standard Time):     Topology was destroyed
+Wed Feb 08 2017 11:45:13 GMT+0100 (Central Europe Standard Time):     Topology was destroyed
+Wed Feb 08 2017 11:45:13 GMT+0100 (Central Europe Standard Time):     Topology was destroyed
+Wed Feb 08 2017 11:45:13 GMT+0100 (Central Europe Standard Time):     Topology was destroyed
+Wed Feb 08 2017 11:45:13 GMT+0100 (Central Europe Standard Time):     Topology was destroyed
+Wed Feb 08 2017 11:45:13 GMT+0100 (Central Europe Standard Time):     Topology was destroyed
+Wed Feb 08 2017 11:45:13 GMT+0100 (Central Europe Standard Time):     Topology was destroyed
+Wed Feb 08 2017 11:45:13 GMT+0100 (Central Europe Standard Time):     Topology was destroyed
+Wed Feb 08 2017 11:45:13 GMT+0100 (Central Europe Standard Time):     Topology was destroyed
+Wed Feb 08 2017 11:45:13 GMT+0100 (Central Europe Standard Time):     Topology was destroyed
+Wed Feb 08 2017 11:45:13 GMT+0100 (Central Europe Standard Time):     Topology was destroyed
+Wed Feb 08 2017 11:45:13 GMT+0100 (Central Europe Standard Time):     Topology was destroyed
+Wed Feb 08 2017 11:45:13 GMT+0100 (Central Europe Standard Time):     Topology was destroyed
+Wed Feb 08 2017 11:45:13 GMT+0100 (Central Europe Standard Time):     Topology was destroyed
+Wed Feb 08 2017 11:45:13 GMT+0100 (Central Europe Standard Time):     Topology was destroyed
+Wed Feb 08 2017 11:45:13 GMT+0100 (Central Europe Standard Time):     Topology was destroyed
+Wed Feb 08 2017 11:45:13 GMT+0100 (Central Europe Standard Time):     Topology was destroyed
+Wed Feb 08 2017 11:45:13 GMT+0100 (Central Europe Standard Time):     Topology was destroyed
+Wed Feb 08 2017 11:45:13 GMT+0100 (Central Europe Standard Time):     Topology was destroyed
+Wed Feb 08 2017 11:45:13 GMT+0100 (Central Europe Standard Time):     Topology was destroyed
+Wed Feb 08 2017 11:45:23 GMT+0100 (Central Europe Standard Time):     Topology was destroyed
+Wed Feb 08 2017 11:45:24 GMT+0100 (Central Europe Standard Time):     Topology was destroyed
+Wed Feb 08 2017 11:45:25 GMT+0100 (Central Europe Standard Time):     Topology was destroyed
+Wed Feb 08 2017 11:45:25 GMT+0100 (Central Europe Standard Time):     Topology was destroyed
+Wed Feb 08 2017 11:45:25 GMT+0100 (Central Europe Standard Time):     Topology was destroyed
+Wed Feb 08 2017 11:45:26 GMT+0100 (Central Europe Standard Time):     Topology was destroyed

@@ -47,8 +47,8 @@
 			}
 		}
 
-		Region.get(function(response){ic.regions = response.regions;});
-		Amount.get(function(response){ic.amounts = response.amounts;});
+		Region.get(function(response){ic.regions = response.regions;}, function(err){$state.go('main.error',{errorOrderId: 1})});
+		Amount.get(function(response){ic.amounts = response.amounts;}, function(err){$state.go('main.error',{errorOrderId: 1})});
 
 		ic.addInsurance = function() {
 				ic.insurance.$save(success);

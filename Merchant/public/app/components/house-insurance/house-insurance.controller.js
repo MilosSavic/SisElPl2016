@@ -13,7 +13,6 @@
 			return;
 		}
 		
-
 		var hic = this;
 		hic.houseInsurance = InsuranceData.getInsuranceData().houseInsurance;
 
@@ -26,7 +25,6 @@
 		    return options.selected;
 		  });
 		}
-
 
         function setLanguage(language) {
             crTranslator.setLanguage(language);
@@ -82,7 +80,7 @@
 			}
 
 			
-		});
+		}, function(err){$state.go('main.error',{errorOrderId: 1})});
 
 
 		hic.updateHouseInsurance = function(){

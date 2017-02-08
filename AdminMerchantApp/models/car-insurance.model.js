@@ -6,13 +6,36 @@ var carInsuranceSchema = new Schema({
         ref: 'CarInsuranceService',
         required:true}
         ,
-    vehicle: String,
-    vehicleYear: String,
-    plateNumber: String,
-    chassisNumber: String,
-    ownerFirstName: String,
-    ownerLastName: String,
-    ownerJmbg: String
+    vehicle: {
+		type: String,
+		required: "Vehicle is required."
+	},
+    vehicleYear: {
+		type: String,
+		required: "Vehicle year is required"
+	},
+	
+    plateNumber: {
+		type: String,
+		required: "Plate number is required"
+	},
+	
+    chassisNumber: {
+		type: String,
+		required: "Chassis number is required"
+	},
+    ownerFirstName: {
+		type: String,
+		required: "Owner first name is required"
+	},
+    ownerLastName: {
+		type: String,
+		required: "Owner last name is required"
+	},
+    ownerJmbg: {
+		type: String,
+		required: "Owner JMBG is required."
+	}
 
 });
 

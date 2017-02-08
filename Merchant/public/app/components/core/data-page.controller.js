@@ -207,6 +207,8 @@
 					{
 						$window.location.href = result.url+'/'+result.paymentID;
 					}
+			}, function(error){
+					alert('Connection to payment failed.');
 			})
 				
 			})

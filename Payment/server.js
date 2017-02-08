@@ -3,6 +3,7 @@
 //var mongoose = require('./config/mongoose');
 var mongoose = require('mongoose');
 var helmet = require('helmet');
+var fs = require("fs");
 mongoose.connect('mongodb://localhost/payment');
 var db = mongoose.connection;
 db.on('error', console.error.bind(console, 'connection error:'));
@@ -34,6 +35,16 @@ app.use(bodyParser.json());
 app.use(cors());
 
 app.use(express.static(__dirname + '/public'));
+
+var morgan = require('morgan');
+var accessLogStream = fs.createWriteStream(path.join(__dirname, 'payment-server-reqres.log'), {flags: 'a'})
+//HOW TO USE CSURF?
+//app.use(function(req, res, next) {
+ // res.locals._csrf = req.csrfToken();
+ // next();
+//});
+app.use(morgan("dev"));
+app.use(morgan(":date :remote-addr :remote-user :method :url HTTP/:http-version :status :res[content-length] - :response-time ms",{stream: accessLogStream}));
 
 
 var buyers = require('./controllers/buyer.server.controller.js');

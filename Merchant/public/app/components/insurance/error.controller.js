@@ -9,19 +9,26 @@
 	ErrorController.$inject = ['$location','$state','$rootScope','$stateParams','Insurance','Transaction','User','EmailService'];
 	function ErrorController($location,$state,$rootScope,$stateParams,Insurance,Transaction,User,EmailService) {
 		var er = this;
-		alert($stateParams.errorOrderId);
+		const DATABASE_CONN_ERROR = 1;
+		
 		
 		var emailData = {
 			transactionId: $stateParams.errorOrderId,
 			emailText: "There was an error during insurance purchase.",
 			emailSubject: "Insurance purchase"
 		}
-
-		var emailService = new EmailService(emailData);
-				emailService.$save(function(result){
-					alert(JSON.stringify(result));
-		})
-	
+		
+		
+		if($stateParams.errorOrderId == DATABASE_CONN_ERROR)
+		{
+			er.message = "Couldn't connect to database. Please try again later."
+		}
+		else {
+			var emailService = new EmailService(emailData);
+			emailService.$save(function(result){
+				alert(JSON.stringify(result));
+			})
+		}
 		
 	}
 })();
