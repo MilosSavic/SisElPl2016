@@ -21,7 +21,6 @@
 
         hic.isOptionsRequired = function(){
 		  return !hic.insuranceData.some(function(options){
-		  	console.log("Rale");
 		    return options.selected;
 		  });
 		}

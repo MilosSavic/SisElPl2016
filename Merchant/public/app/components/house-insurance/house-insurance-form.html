@@ -26,9 +26,12 @@
 
 
   <ul class="tab">
-  <li><a href="javascript:void(0)" class="tablinks" ng-click="hic.openTab('Part1')" translate>{{"HOUSE.CHOOSE_INSURANCE"}}</a></li>
-  <li><a href="javascript:void(0)" class="tablinks" ng-click="hic.openTab('Part2')" translate>{{"HOUSE.HOUSE_DATA"}}</a></li>
-</ul>
+  <li><a href="javascript:void(0)" class="tablinks" ng-click="hic.openTab('Part1')" translate>{{"HOUSE.CHOOSE_INSURANCE"}}</a>
+  </li>
+  <li data-ng-show="!hic.isOptionsRequired()"><a href="javascript:void(0)" class="tablinks " ng-click="hic.openTab('Part2')"  translate>{{"HOUSE.HOUSE_DATA"}}</a></li>
+  <li data-ng-show="hic.isOptionsRequired()"><a href="javascript:void(0)" class="tablinks disabled" ng-click="hic.openTab('Part2')"  translate>{{"HOUSE.HOUSE_DATA"}}</a>
+  </li>
+  </ul>
 
 
   <div id="Part1" class="tabcontent">

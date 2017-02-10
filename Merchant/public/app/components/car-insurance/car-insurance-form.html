@@ -28,8 +28,9 @@
     </div>       
 
       <ul class="tab">
-  <li><a href="javascript:void(0)" class="tablinks" ng-click="cic.openTab('Part1')" translate>{{"CAR.CHOOSE_INSURANCE"}}</a></li>
-  <li><a href="javascript:void(0)" class="tablinks" ng-click="cic.openTab('Part2')" translate>{{"CAR.CAR_DATA"}}</a></li>
+  <li ><a href="javascript:void(0)" class="tablinks" ng-click="cic.openTab('Part1')" translate>{{"CAR.CHOOSE_INSURANCE"}}</a></li>
+  <li data-ng-show="!cic.isOptionsRequired()"><a href="javascript:void(0)" class="tablinks " ng-click="cic.openTab('Part2')" translate>{{"CAR.CAR_DATA"}}</a></li>
+  <li data-ng-show="cic.isOptionsRequired()"><a href="javascript:void(0)" class="tablinks disabled" ng-click="cic.openTab('Part2')" translate>{{"CAR.CAR_DATA"}}</a></li>
 </ul>
 
 <div id="Part1" class="tabcontent">

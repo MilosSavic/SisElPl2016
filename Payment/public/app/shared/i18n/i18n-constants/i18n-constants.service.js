@@ -25,11 +25,14 @@
 				"ABOUT":"About",
 
 				"ERROR": {
-					"UNIQUE":"An employee with the given JMBG already exists.",
-					"LENGTH13":"This field should contain exactly 13 characters.",
-					"NUM":"This field should contain exactly 10 characters.",
+
+					"NUMBER":"Only numbers are allowed.",
 					"EMAIL":"The email you have entered is not valid.",
-					"REQUIRED":"This field is required."
+					"REQUIRED":"This field is required.",
+					"PAN":"This field should contain exactly 15 numeric characters.",
+					"SECURITYCODE":"This field should contain exactly 3 numeric characters.",
+					"EXPIRYDATE":"You must enter expiry date",
+
 				}
 			},
 			"LANGUAGE": "En"
@@ -59,11 +62,13 @@
 
 
 				"ERROR": {
-					"UNIQUE":"An employee with the given JMBG already exists.",
-					"LENGTH13":"This field should contain exactly 13 characters.",
-					"NUM":"Ovo polje mora sadrzati tacno 10 karaktera.",
+			
+					"NUMBER":"Samo brojevi su dozvoljeni.",
 					"EMAIL":"The email you have entered is not valid.",
-					"REQUIRED":"Ovo polje je obavezno."
+					"REQUIRED":"Ovo polje je obavezno.",
+					"PAN":"Ovo polje mora da sadrži tačno 15 numeričkih karaktera.",
+					"SECURITYCODE":"Ovo polje mora da sadrži tačno 3 numerička karaktera.",
+					"EXPIRYDATE":"Morate uneti datum isteka.",
 				}
 			},
 			"LANGUAGE": "Sr"
