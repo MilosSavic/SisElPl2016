@@ -1,0 +1,127 @@
+[2017-02-10 01:24:33.696] [INFO] merchant - Express https server listening on port 3000
+[2017-02-10 01:24:34.012] [INFO] merchant - Connected to MongoDB
+[2017-02-10 03:12:47.552] [INFO] merchant - Request for price calculation. 
+[2017-02-10 03:12:51.908] [INFO] merchant - Calculating price done
+[2017-02-10 03:12:51.914] [INFO] merchant - Price calculated. Response sent. Status: 200
+[2017-02-10 03:45:47.961] [INFO] merchant - Request for price calculation. 
+[2017-02-10 03:45:52.110] [INFO] merchant - Calculating price done
+[2017-02-10 03:45:52.112] [INFO] merchant - Price calculated. Response sent. Status: 200
+[2017-02-10 03:47:46.211] [INFO] merchant - Request for price calculation. 
+[2017-02-10 03:47:50.075] [INFO] merchant - Calculating price done
+[2017-02-10 03:47:50.078] [INFO] merchant - Price calculated. Response sent. Status: 200
+[2017-02-10 03:57:57.179] [INFO] merchant - Request for price calculation. 
+[2017-02-10 03:58:01.253] [INFO] merchant - Calculating price done
+[2017-02-10 03:58:01.255] [INFO] merchant - Price calculated. Response sent. Status: 200
+[2017-02-12 17:14:43.381] [INFO] merchant - Express https server listening on port 3000
+[2017-02-12 17:14:43.729] [INFO] merchant - Connected to MongoDB
+[2017-02-12 17:21:18.001] [INFO] merchant - Request for price calculation. 
+[2017-02-12 17:21:22.063] [INFO] merchant - Calculating price done
+[2017-02-12 17:21:22.069] [INFO] merchant - Price calculated. Response sent. Status: 200
+[2017-02-12 17:50:28.048] [INFO] merchant - Request for price calculation. 
+[2017-02-12 17:50:33.111] [INFO] merchant - Calculating price done
+[2017-02-12 17:50:33.116] [INFO] merchant - Price calculated. Response sent. Status: 200
+[2017-02-12 18:08:48.343] [INFO] merchant - Request for price calculation. 
+[2017-02-12 18:08:52.306] [INFO] merchant - Calculating price done
+[2017-02-12 18:08:52.311] [INFO] merchant - Price calculated. Response sent. Status: 200
+[2017-02-12 19:37:27.325] [INFO] merchant - Request for price calculation. 
+[2017-02-12 19:37:32.060] [INFO] merchant - Calculating price done
+[2017-02-12 19:37:32.084] [INFO] merchant - Price calculated. Response sent. Status: 200
+[2017-02-12 19:38:51.061] [INFO] merchant - Request for price calculation. 
+[2017-02-12 19:38:54.376] [INFO] merchant - Calculating price done
+[2017-02-12 19:38:54.381] [INFO] merchant - Price calculated. Response sent. Status: 200
+[2017-02-12 22:24:28.365] [INFO] merchant - Express https server listening on port 3000
+[2017-02-12 22:45:57.246] [INFO] merchant - Express https server listening on port 3000
+[2017-02-12 22:45:57.436] [INFO] merchant - Connected to MongoDB
+[2017-02-12 22:58:40.538] [INFO] merchant - Request for price calculation. 
+[2017-02-12 22:58:44.350] [INFO] merchant - Calculating price done
+[2017-02-12 22:58:44.353] [INFO] merchant - Price calculated. Response sent. Status: 200
+[2017-02-12 23:56:28.084] [INFO] merchant - Request for price calculation. 
+[2017-02-12 23:56:31.953] [INFO] merchant - Calculating price done
+[2017-02-12 23:56:31.959] [INFO] merchant - Price calculated. Response sent. Status: 200
+[2017-02-12 23:57:38.533] [INFO] merchant - Request for price calculation. 
+[2017-02-12 23:57:41.982] [INFO] merchant - Calculating price done
+[2017-02-12 23:57:41.985] [INFO] merchant - Price calculated. Response sent. Status: 200
+[2017-02-13 00:11:50.906] [INFO] merchant - Request for price calculation. 
+[2017-02-13 00:11:54.103] [INFO] merchant - Calculating price done
+[2017-02-13 00:11:54.114] [INFO] merchant - Price calculated. Response sent. Status: 200
+[2017-02-13 00:14:02.929] [INFO] merchant - Request for price calculation. 
+[2017-02-13 00:14:06.632] [INFO] merchant - Calculating price done
+[2017-02-13 00:14:06.639] [INFO] merchant - Price calculated. Response sent. Status: 200
+[2017-02-13 00:15:43.277] [INFO] merchant - Express https server listening on port 3000
+[2017-02-13 00:15:43.918] [INFO] merchant - Connected to MongoDB
+[2017-02-13 00:16:23.357] [INFO] merchant - Request for price calculation. 
+[2017-02-13 00:16:26.800] [INFO] merchant - Calculating price done
+[2017-02-13 00:16:26.803] [INFO] merchant - Price calculated. Response sent. Status: 200
+[2017-02-13 00:21:01.691] [INFO] merchant - Express https server listening on port 3000
+[2017-02-13 00:21:01.883] [INFO] merchant - Connected to MongoDB
+[2017-02-13 01:01:46.218] [INFO] merchant - Request for price calculation. 
+[2017-02-13 01:01:49.478] [INFO] merchant - Calculating price done
+[2017-02-13 01:01:49.493] [INFO] merchant - Price calculated. Response sent. Status: 200
+[2017-02-13 01:05:25.668] [INFO] merchant - Request for price calculation. 
+[2017-02-13 01:05:29.490] [INFO] merchant - Calculating price done
+[2017-02-13 01:05:29.493] [INFO] merchant - Price calculated. Response sent. Status: 200
+[2017-02-13 01:31:37.346] [INFO] merchant - Request for price calculation. 
+[2017-02-13 01:31:40.771] [INFO] merchant - Calculating price done
+[2017-02-13 01:31:40.778] [INFO] merchant - Price calculated. Response sent. Status: 200
+[2017-02-13 01:37:36.520] [INFO] merchant - Request for price calculation. 
+[2017-02-13 01:37:40.371] [INFO] merchant - Calculating price done
+[2017-02-13 01:37:40.388] [INFO] merchant - Price calculated. Response sent. Status: 200
+[2017-02-13 01:42:15.937] [INFO] merchant - Request for price calculation. 
+[2017-02-13 01:42:19.707] [INFO] merchant - Calculating price done
+[2017-02-13 01:42:19.711] [INFO] merchant - Price calculated. Response sent. Status: 200
+[2017-02-13 01:43:30.151] [INFO] merchant - Request for price calculation. 
+[2017-02-13 01:43:33.399] [INFO] merchant - Calculating price done
+[2017-02-13 01:43:33.407] [INFO] merchant - Price calculated. Response sent. Status: 200
+[2017-02-13 02:05:30.655] [INFO] merchant - Request for price calculation. 
+[2017-02-13 02:05:34.349] [INFO] merchant - Calculating price done
+[2017-02-13 02:05:34.351] [INFO] merchant - Price calculated. Response sent. Status: 200
+[2017-02-13 02:45:13.504] [INFO] merchant - Request for price calculation. 
+[2017-02-13 02:45:19.627] [INFO] merchant - Calculating price done
+[2017-02-13 02:45:19.631] [INFO] merchant - Price calculated. Response sent. Status: 200
+[2017-02-13 02:47:07.183] [INFO] merchant - Request for price calculation. 
+[2017-02-13 02:47:11.784] [INFO] merchant - Calculating price done
+[2017-02-13 02:47:11.788] [INFO] merchant - Price calculated. Response sent. Status: 200
+[2017-02-13 03:17:20.163] [INFO] merchant - Request for price calculation. 
+[2017-02-13 03:17:25.469] [INFO] merchant - Calculating price done
+[2017-02-13 03:17:25.517] [INFO] merchant - Price calculated. Response sent. Status: 200
+[2017-02-13 03:19:26.584] [INFO] merchant - Request for price calculation. 
+[2017-02-13 03:19:30.402] [INFO] merchant - Calculating price done
+[2017-02-13 03:19:30.405] [INFO] merchant - Price calculated. Response sent. Status: 200
+[2017-02-13 03:53:09.102] [INFO] merchant - Request for price calculation. 
+[2017-02-13 03:53:13.026] [INFO] merchant - Calculating price done
+[2017-02-13 03:53:13.030] [INFO] merchant - Price calculated. Response sent. Status: 200
+[2017-02-13 03:54:48.422] [INFO] merchant - Request for price calculation. 
+[2017-02-13 03:54:52.134] [INFO] merchant - Calculating price done
+[2017-02-13 03:54:52.173] [INFO] merchant - Price calculated. Response sent. Status: 200
+[2017-02-13 04:05:27.995] [INFO] merchant - Request for price calculation. 
+[2017-02-13 04:05:31.401] [INFO] merchant - Calculating price done
+[2017-02-13 04:05:31.412] [INFO] merchant - Price calculated. Response sent. Status: 200
+[2017-02-13 04:07:49.203] [INFO] merchant - Request for price calculation. 
+[2017-02-13 04:07:53.070] [INFO] merchant - Calculating price done
+[2017-02-13 04:07:53.074] [INFO] merchant - Price calculated. Response sent. Status: 200
+[2017-02-13 04:19:25.474] [INFO] merchant - Request for price calculation. 
+[2017-02-13 04:19:29.027] [INFO] merchant - Calculating price done
+[2017-02-13 04:19:29.042] [INFO] merchant - Price calculated. Response sent. Status: 200
+[2017-02-13 04:23:17.482] [INFO] merchant - Request for price calculation. 
+[2017-02-13 04:23:20.786] [INFO] merchant - Calculating price done
+[2017-02-13 04:23:20.810] [INFO] merchant - Price calculated. Response sent. Status: 200
+[2017-02-13 04:34:49.818] [INFO] merchant - Express https server listening on port 3000
+[2017-02-13 04:34:50.162] [INFO] merchant - Connected to MongoDB
+[2017-02-13 04:35:32.501] [INFO] merchant - Request for price calculation. 
+[2017-02-13 04:35:36.208] [INFO] merchant - Calculating price done
+[2017-02-13 04:35:36.210] [INFO] merchant - Price calculated. Response sent. Status: 200
+[2017-02-13 04:49:49.155] [INFO] merchant - Express https server listening on port 3000
+[2017-02-13 04:49:49.290] [INFO] merchant - Connected to MongoDB
+[2017-02-13 04:51:23.527] [INFO] merchant - Express https server listening on port 3000
+[2017-02-13 04:51:23.724] [INFO] merchant - Connected to MongoDB
+[2017-02-13 04:52:38.086] [INFO] merchant - Request for price calculation. 
+[2017-02-13 04:52:42.006] [INFO] merchant - Calculating price done
+[2017-02-13 04:52:42.010] [INFO] merchant - Price calculated. Response sent. Status: 200
+[2017-02-13 05:19:24.437] [INFO] merchant - Request for price calculation. 
+[2017-02-13 05:19:28.280] [INFO] merchant - Calculating price done
+[2017-02-13 05:19:28.282] [INFO] merchant - Price calculated. Response sent. Status: 200
+[2017-02-13 21:17:29.919] [INFO] merchant - Express https server listening on port 3000
+[2017-02-13 21:17:30.150] [INFO] merchant - Connected to MongoDB
+[2017-02-13 21:52:50.651] [INFO] merchant - Request for price calculation. 
+[2017-02-13 21:52:56.533] [INFO] merchant - Calculating price done
+[2017-02-13 21:52:56.536] [INFO] merchant - Price calculated. Response sent. Status: 200

@@ -28,6 +28,7 @@
 				"FAILED":"Transaction failed",
 				"SUCCESS":"Successfully completed payments",
 				"ERROR":"There was an error",
+				"PURCHASE":"Insurance purchase",
 
 				
 
@@ -262,6 +263,7 @@
 				"FAILED":"Transakcija nije uspela",
 				"SUCCESS":"Uspešno izvršeno plaćanje",
 				"ERROR":"Došlo je do greške",
+				"PURCHASE":"Kupovina osiguranja",
 				
 			},
 
