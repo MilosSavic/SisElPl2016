@@ -16,7 +16,7 @@ global.appRoot = path.resolve(__dirname);
 
 log4js.loadAppender('file');
 //log4js.addAppender(log4js.appenders.console()); 
-log4js.addAppender(log4js.appenders.file('merchant-server.log'), 'merchant');
+log4js.addAppender(log4js.appenders.file('logs/merchant-server.log'), 'merchant');
  
 global.logger = log4js.getLogger('merchant');
 logger.setLevel('INFO');
@@ -87,7 +87,7 @@ app.use(cors());
 app.use(express.static(__dirname + '/public'));
 
 var morgan = require('morgan');
-var accessLogStream = fs.createWriteStream(path.join(__dirname, 'merchant-server-reqres.log'), {flags: 'a'})
+var accessLogStream = fs.createWriteStream(path.join(__dirname, 'logs/merchant-server-reqres.log'), {flags: 'a'})
 //HOW TO USE CSURF?
 //app.use(function(req, res, next) {
  // res.locals._csrf = req.csrfToken();

@@ -1,4 +1,0 @@
-Mon Feb 13 2017 01:05:29 GMT+0100 (Central Europe Standard Time):     Amount in transaction is required
-Mon Feb 13 2017 01:37:40 GMT+0100 (Central Europe Standard Time):     Amount in transaction is required
-Mon Feb 13 2017 04:19:28 GMT+0100 (Central Europe Standard Time):     Amount in transaction is required
-Mon Feb 13 2017 04:52:41 GMT+0100 (Central Europe Standard Time):     Amount in transaction is required

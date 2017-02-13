@@ -52,6 +52,7 @@ Neophodno je imati instalirane NodeJS i MongoDB
 ## Upotreba
 
 ## Licenca
+MIT
 
 ## Članovi tima 
 Miloš Savić, Rajko Ilić i Vladimir Baumgartner

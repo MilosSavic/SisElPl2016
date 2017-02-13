@@ -16,7 +16,7 @@ exports.getErrorMessage = function(err){
 
 exports.logErrorMessage = function(errMessage){
 	var fs = require('fs');
-	fs.appendFile(appRoot+"/error log.txt", new Date()+":     "+errMessage+"\n", function(err) {
+	fs.appendFile(appRoot+"/logs/error log.txt", new Date()+":     "+errMessage+"\n", function(err) {
     if(err) {
         return console.log(err);
     }

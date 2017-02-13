@@ -37,7 +37,7 @@ app.use(cors());
 app.use(express.static(__dirname + '/public'));
 
 var morgan = require('morgan');
-var accessLogStream = fs.createWriteStream(path.join(__dirname, 'payment-server-reqres.log'), {flags: 'a'})
+var accessLogStream = fs.createWriteStream(path.join(__dirname, 'logs/payment-server-reqres.log'), {flags: 'a'})
 //HOW TO USE CSURF?
 //app.use(function(req, res, next) {
  // res.locals._csrf = req.csrfToken();
