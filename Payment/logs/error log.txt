@@ -1,0 +1,1 @@
+Mon Feb 13 2017 19:51:12 GMT+0100 (Central Europe Standard Time):     failed to reconnect after 30 attempts with interval 1000 ms

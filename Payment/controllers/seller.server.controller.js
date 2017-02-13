@@ -3,6 +3,7 @@
 var mongoose = require('mongoose'),
     Seller = mongoose.model('Seller'),
     xss = require('xss'),
+    errorHandler = require(appRoot+'/controllers/errors.server.controller'),
     crypto = require("./encrypt-decrypt");
 
 module.exports.list = list;
@@ -13,6 +14,8 @@ function list(req, res, next){
   Seller.find()
     .exec(function(err, sellers){
     if(err){
+          var errMessage = errorHandler.getErrorMessage(err);
+      errorHandler.logErrorMessage(errMessage);
          return res.status(400).send({
            message: "Something happened :D"
          });
