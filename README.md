@@ -50,6 +50,7 @@ Neophodno je imati instalirane NodeJS i MongoDB
 6. Pokrenuti testove preko 'karma start tests\karma.conf.js'
 
 ## Upotreba
+Pogledati [wiki stranice](https://github.com/MilosSavic/SisElPl2016/wiki).
 
 ## Licenca
 MIT
