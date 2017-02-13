@@ -24,7 +24,7 @@
     </div>       
 <!-- ng-minlength="10" ng-maxlength="10" -->
 <div class="form-bottom">
-    <form class="form-horizontal" novalidate name="pay.paymentForm">
+    <form role="form" class="form-horizontal" novalidate name="pay.paymentForm">
         <div class="form-group" ng-class="{ 'has-error': pay.paymentForm.pan.$touched && pay.paymentForm.pan.$invalid }">
             <label class="control-label col-sm-2" for="pan" translate>{{"PAYMENT.PAN"}}</label>
             <div class="col-sm-6 col-md-4" busy-indicator>
@@ -60,17 +60,18 @@
             </div>
         </div>
 
-        <div class="form-group">
+        <div class="form-group" ng-class="{ 'has-error': pay.paymentForm.expiry_date.$touched && pay.paymentForm.expiry_date.$invalid }">
             <label class="control-label col-sm-2" for="expiry_date" translate>{{"PAYMENT.EXPIRYDATE"}}</label>
             <div class="col-sm-6 col-md-4">
-                <input id="expiry_date" name="date" type="text" class="form-control" ng-model="pay.payment.expiry_date" is-open="pay.datepicker.opened" datepicker-options="pay.datepicker" ng-click="pay.datepicker.opened = true" uib-datepicker-popup="{{pay.datepicker.format}}" required/>
-                <div ng-messages="pay.paymentForm.date.$error" ng-show="pay.paymentForm.date.$touched">
-                    <span class="validationText" ng-show="pay.paymentForm.date.$error.required" translate>{{"PAYMENT.ERROR.EXPIRYDATE"}}</span>
+            <input id="expiry_date" name="date2" type="text" class="form-control" ng-model="pay.payment.expiry_date" is-open="pay.datepicker.opened" datepicker-options="pay.datepicker" ng-click="pay.datepicker.opened = true" uib-datepicker-popup="{{pay.datepicker.format}}" required/>
+                
+                <div ng-messages="pay.paymentForm.date2.$error" ng-show="pay.paymentForm.date2.$touched">
+                    <span class="validationText" ng-show="pay.paymentForm.date2.$error.required" translate>{{"PAYMENT.ERROR.EXPIRYDATE"}}</span>
                 </div>
             </div>
         </div>
         <div class="col-sm-offset-2">
-            <button type="button" class="btn btn-primary" ng-click="pay.addPayment()" translate ng-disabled="pay.paymentForm.$invalid">{{"COMMON.SAVE"}}</button>
+            <button class="btn btn-primary" ng-click="pay.addPayment()" translate ng-disabled="pay.paymentForm.$invalid">{{"COMMON.SAVE"}}</button>
 
              <!-- <button type="button" class="btn btn-primary" onclick="location.href='http://localhost:3000/#/carInsuranceForm'" translate ng-disabled="pay.paymentForm.$invalid">Merchant</button> -->
         </div>

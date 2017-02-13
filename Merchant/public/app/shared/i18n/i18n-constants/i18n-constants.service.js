@@ -25,6 +25,10 @@
 				"ABOUT1":"Web app for buying insurance.",
 				"ABOUT2":"Our company works more than 10 years and our customers are very satisfied with the services which we offer them.",
 				"ABOUT3":"You can also contact us at the following e-mail addresses:",
+				"FAILED":"Transaction failed",
+				"SUCCESS":"Successfully completed payments",
+				"ERROR":"There was an error",
+
 				
 
 				
@@ -255,6 +259,9 @@
 				"ABOUT1":"Web aplikacija za kupovinu osiguranja.",
 				"ABOUT2":"Naša kompanija radi više od 10 godina i naši kupci su veoma zadovoljni sa uslugama koje im nudimo. ",
 				"ABOUT3":"Možete nam se obratiti na sledećim e-mail adresama:",
+				"FAILED":"Transakcija nije uspela",
+				"SUCCESS":"Uspešno izvršeno plaćanje",
+				"ERROR":"Došlo je do greške",
 				
 			},
 

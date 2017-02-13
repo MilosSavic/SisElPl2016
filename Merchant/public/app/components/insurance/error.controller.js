@@ -6,18 +6,41 @@
 		.controller('ErrorController', ErrorController);
 
 
-	ErrorController.$inject = ['$location','$state','$rootScope','$stateParams','Insurance','Transaction','User','EmailService'];
-	function ErrorController($location,$state,$rootScope,$stateParams,Insurance,Transaction,User,EmailService) {
+	ErrorController.$inject = ['$location','$state','$rootScope','$stateParams','Insurance','Transaction','User','EmailService','crTranslator', 'crTranslations'];
+	function ErrorController($location,$state,$rootScope,$stateParams,Insurance,Transaction,User,EmailService,crTranslator, crTranslations) {
 		var er = this;
 		const DATABASE_CONN_ERROR = 1;
-		
-		
-		var emailData = {
-			transactionId: $stateParams.errorOrderId,
-			emailText: "There was an error during insurance purchase.",
-			emailSubject: "Insurance purchase"
+
+		var lang=$stateParams.language;
+		var jezik;
+
+		if(lang=='Sr'){
+			jezik='sr-latn';
+		}else{
+			jezik='en';
 		}
+
+		crTranslator.setLanguage(jezik);
+        er.currentLanguage = crTranslations[jezik].LANGUAGE;
+
+
+	
 		
+		
+		if(jezik=='en'){
+			var emailData = {
+				transactionId: $stateParams.errorOrderId,
+				emailText: "There was an error during insurance purchase.",
+				emailSubject: "Insurance purchase"
+			}
+		}else{
+			var emailData = {
+				transactionId: $stateParams.errorOrderId,
+				emailText: "Doslo je do greške prilikom kupovine osiguranja.",
+				emailSubject: "Kupovina osiguranja"
+			}
+
+		}
 		
 		if($stateParams.errorOrderId == DATABASE_CONN_ERROR)
 		{
