@@ -5,8 +5,8 @@
 		.module('merchant-app.car-insurance')
 		.controller('CarInsuranceController', CarInsuranceController);
 
-	CarInsuranceController.$inject = ['$location','CarInsurance','$state','InsuranceData','SideBar','CarInsuranceService','crTranslator', 'crTranslations','services'];
-	function CarInsuranceController($location,CarInsurance,$state,InsuranceData,SideBar,CarInsuranceService,crTranslator,crTranslations,services) {
+	CarInsuranceController.$inject = ['$scope','$location','CarInsurance','$state','InsuranceData','SideBar','CarInsuranceService','crTranslator', 'crTranslations','services'];
+	function CarInsuranceController($scope,$location,CarInsurance,$state,InsuranceData,SideBar,CarInsuranceService,crTranslator,crTranslations,services) {
 		if(!SideBar.isCarActive())
 		{
 			$state.go('main.insuranceForm');
@@ -14,6 +14,17 @@
 		}
 		var cic = this;
 		cic.carInsurance = InsuranceData.getInsuranceData().carInsurance;
+		
+		var skipped = false;
+		$scope.$watch('cic.carInsuranceForm.$invalid', function(form) {
+		  if(form) {
+			  if(!skipped)
+			  {
+				InsuranceData.setCarInsuranceChosen(false);
+			  }
+			// your code...
+		  }
+		});
 
 		cic.currentLanguage = crTranslations[crTranslator.getLanguage()].LANGUAGE;
         cic.setLanguage = setLanguage;
@@ -21,12 +32,15 @@
         cic.isOptionsRequired = function(){
         	
         	return !cic.serviceData.some(function(options){
-
-				
+				var dataWasActive = InsuranceData.getCarInsuranceChosen();
+				if(!skipped)
+				InsuranceData.setCarInsuranceChosen(false);
 			    for(var i=0; i<options.length; i++)
 				{
 							if(options[i].selected)
 							{	
+									if(dataWasActive)
+									InsuranceData.setCarInsuranceChosen(true);
 									return true;
 									break;
 							}
@@ -52,6 +66,7 @@
 		}
 
 		cic.goToFinalPage = function(){
+			skipped = true;
 			SideBar.setDataActive(true);
 			$state.go('main.dataPage');
 		}

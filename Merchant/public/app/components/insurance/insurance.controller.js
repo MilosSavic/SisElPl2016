@@ -6,20 +6,25 @@
 		.controller('InsuranceController', InsuranceController);
 
 
-	InsuranceController.$inject = ['$location','Insurance','Region','$state','$rootScope','User','InsuranceData','SideBar','Amount','crTranslator', 'crTranslations'];
-	function InsuranceController($location,Insurance,Region,$state,$rootScope,User,InsuranceData,SideBar,Amount,crTranslator, crTranslations) {
+	InsuranceController.$inject = ['$scope','$location','Insurance','Region','$state','$rootScope','User','InsuranceData','SideBar','Amount','crTranslator', 'crTranslations'];
+	function InsuranceController($scope,$location,Insurance,Region,$state,$rootScope,User,InsuranceData,SideBar,Amount,crTranslator, crTranslations) {
 		var ic = this;
-
-		
 		
 		ic.currentLanguage = crTranslations[crTranslator.getLanguage()].LANGUAGE;
 		console.log(ic.currentLanguage);
 		
-		if(!$rootScope.insurance)
-			$rootScope.insurance = new Insurance();
+		$scope.$watch('ic.insuranceForm.$invalid', function(form) {
+		  if(form) {
+			  SideBar.setUsersActive(false);
+			  SideBar.setHouseActive(false);
+			  SideBar.setCarActive(false);
+			  SideBar.setDataActive(false);
+			// your code...
+		  }
+		});
+		
 		ic.insurance = InsuranceData.getInsuranceData();
 		ic.numberOfUsers = InsuranceData.getInsuranceData().numberOfUsers;
-
 		console.log(ic.currentLanguage);
 
 
@@ -30,20 +35,43 @@
 			opened: false
 		};
 
+		
 		ic.datepickerEnd = {
 			minDate: new Date(),
 			maxDate: new Date(2222,11,30),
 			format: 'mediumDate',
 			opened: false
 		};
+		ic.datepickerEnd.minDate = new Date(ic.datepickerEnd.minDate.valueOf()+86400000);
+		
+		if(ic.insurance.startDate)
+			ic.datepickerEnd.minDate = new Date(ic.insurance.startDate.valueOf()+86400000);
+		if(ic.insurance.endDate)
+		{
+			if(ic.insurance.startDate){
+			var startDatePlus1 = new Date(ic.insurance.startDate.valueOf()+86400000);
+				if(ic.insurance.endDate<startDatePlus1)
+				{	
+					ic.insurance.endDate = undefined;
+					
+				}
+			else {
+				//
+			}
+		}
+		}
 
 		ic.startDatePicked = function(){
+			
 			if(ic.insurance.startDate)
-			ic.datepickerEnd.minDate = ic.insurance.startDate;
+			ic.datepickerEnd.minDate = new Date(ic.insurance.startDate.valueOf()+86400000);
 			if(ic.insurance.endDate)
 			{
-				if(ic.insurance.endDate<ic.insurance.startDate)
-					ic.insurance.endDate = ic.insurance.startDate;
+				var startDatePlus1 = new Date(ic.insurance.startDate.valueOf()+86400000);
+				if(ic.insurance.endDate<startDatePlus1)
+				{	
+					ic.insurance.endDate = undefined;
+				}
 			}
 		}
 
@@ -58,7 +86,6 @@
 		ic.goToUsersForm = function(){
 			//broj korisnika se menja jedino ako kliknemo na next dugme.
 			ic.insurance.numberOfUsers = ic.numberOfUsers;
-
 			if(ic.insurance.numberOfUsers){
 
 				ic.lastSaveSuccess = true;
@@ -71,21 +98,10 @@
 				SideBar.setCarActive(false);
 				}
 				InsuranceData.addUsers(ic.insurance.numberOfUsers);
-				//$rootScope.insurance.users = [];
-				//for(var i=0; i<ic.insurance.numberOfUsers; i++)
-				//	$rootScope.insurance.users.push(new User());
 
 				$state.go('main.usersInsuranceForm',{userIndex:1});
 
 			}
-
-
-
-			//side bar
-			//$rootScope.usersIndices = [];
-			//for(var i=1; i<=InsuranceData.getInsuranceData().numberOfUsers;i++){
-			//	$rootScope.usersIndices.push(i);
-			//}
 				SideBar.setUserCount(InsuranceData.getInsuranceData().numberOfUsers);
 		}
 

@@ -10,6 +10,7 @@
 	function ErrorController($location,$state,$rootScope,$stateParams,Insurance,Transaction,User,EmailService,crTranslator, crTranslations) {
 		var er = this;
 		const DATABASE_CONN_ERROR = 1;
+		const MERCHANT_PAYMENT_ERROR = 2;
 
 		var lang=$stateParams.language;
 		var jezik;
@@ -22,9 +23,6 @@
 
 		crTranslator.setLanguage(jezik);
         er.currentLanguage = crTranslations[jezik].LANGUAGE;
-
-
-	
 		
 		
 		if(jezik=='en'){
@@ -45,6 +43,10 @@
 		if($stateParams.errorOrderId == DATABASE_CONN_ERROR)
 		{
 			er.message = "Couldn't connect to database. Please try again later."
+		}
+		else if($stateParams.errorOrderId == MERCHANT_PAYMENT_ERROR)
+		{
+			er.message = $rootScope.errorMessage;
 		}
 		else {
 			var emailService = new EmailService(emailData);

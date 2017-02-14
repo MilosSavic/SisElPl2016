@@ -5,8 +5,8 @@
 		.module('merchant-app.core')
 		.controller('DataPageController', DataPageController);
 
-	DataPageController.$inject = ['$location','SideBar','$scope','$state','InsuranceData','Region','Insurance','Amount','UserRules','TotalRules','HouseInsuranceRules','CarInsuranceRules','AllRules','Acquirer','$window','Transaction','MerchantData','crTranslator', 'crTranslations'];
-	function DataPageController($location,SideBar,$scope,$state,InsuranceData,Region,Insurance,Amount,UserRules,TotalRules,HouseInsuranceRules,CarInsuranceRules,AllRules,Acquirer,$window,Transaction,MerchantData,crTranslator,crTranslations) {
+	DataPageController.$inject = ['$location','SideBar','$scope','$state','InsuranceData','Region','Insurance','Amount','UserRules','TotalRules','HouseInsuranceRules','CarInsuranceRules','AllRules','Acquirer','$window','Transaction','MerchantData','crTranslator', 'crTranslations','$rootScope'];
+	function DataPageController($location,SideBar,$scope,$state,InsuranceData,Region,Insurance,Amount,UserRules,TotalRules,HouseInsuranceRules,CarInsuranceRules,AllRules,Acquirer,$window,Transaction,MerchantData,crTranslator,crTranslations,$rootScope) {
 		
 		if(!SideBar.isDataActive())
 		{
@@ -198,9 +198,9 @@
 					if(result.message)
 					{
 						//$window.location.href = error stranica u ovom slucaju
+						$rootScope.errorMessage = result.message;
+						$state.go('main.error',{errorOrderId: 2});
 						
-						alert('ERROR:'+result.message);
-						$window.location.href = errorURL;
 
 					}
 					else
@@ -208,7 +208,8 @@
 						$window.location.href = result.url+'/'+result.paymentID;
 					}
 			}, function(error){
-					alert('Connection to payment failed.');
+					$rootScope.errorMessage = "Connection to payment app failed";
+					$state.go('main.error',{errorOrderId: 2});
 			})
 				
 			})
