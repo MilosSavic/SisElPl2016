@@ -7,11 +7,19 @@ var mongoose = require('mongoose');
 mongoose.Promise = global.Promise;
 var fs = require("fs");
 var helmet = require('helmet');
+var log4js = require('log4js');
 
 
 
 var path = require('path');
 global.appRoot = path.resolve(__dirname);
+
+log4js.loadAppender('file');
+//log4js.addAppender(log4js.appenders.console()); 
+log4js.addAppender(log4js.appenders.file('logs/merchant-server.log'), 'merchant');
+ 
+global.logger = log4js.getLogger('merchant');
+logger.setLevel('INFO');
 
 require('./models/region.model');
 require('./models/insurance.model');
@@ -30,9 +38,7 @@ require('./models/merchant.model');
 
 //csrf zastita testiranje
 var express = require("express");
-var nodemailer = require("nodemailer");
 var	app = express();
-var smtpTransport = require('nodemailer-smtp-transport');
 var bodyParser = require("body-parser");
 var cors = require("cors");
 var csrf = require('csurf');
@@ -79,86 +85,20 @@ app.use(bodyParser.json());
 app.use(cors());
 
 app.use(express.static(__dirname + '/public'));
+
+var morgan = require('morgan');
+var accessLogStream = fs.createWriteStream(path.join(__dirname, 'logs/merchant-server-reqres.log'), {flags: 'a'})
 //HOW TO USE CSURF?
 //app.use(function(req, res, next) {
  // res.locals._csrf = req.csrfToken();
  // next();
 //});
+app.use(morgan("dev"));
+app.use(morgan(":date :remote-addr :remote-user :method :url HTTP/:http-version :status :res[content-length] - :response-time ms",{stream: accessLogStream}));
+
+
 
 require('./controllers/encrypt-decrypt');
-
-
-
-var transporter = nodemailer.createTransport(smtpTransport({
-    host: 'smtp.gmail.com',
-    port: 587,
-    auth: {
-        user: 'siselup2017@gmail.com',
-        pass: 'sep_2017'
-    },
-    tls: {rejectUnauthorized: false},
-    debug:true
-}));
-
-
-app.get('/success',function(req,res){
-    var mailOptions={
-        from : 'siselup2017@gmail.com',
-        to : 'siselup2017@gmail.com',
-        subject : 'Success',
-        text : 'Successfully completed payments'
-    }
-    console.log(mailOptions);
-    transporter.sendMail(mailOptions, function(error, response){
-     if(error){
-            console.log(error);
-       // res.end("error");
-     }else{
-            console.log("Message sent: " + response.message);
-      //  res.end("sent");
-         }
-    });
-});
-
-app.get('/error',function(req,res){
-    var mailOptions={
-        from : 'siselup2017@gmail.com',
-        to : 'siselup2017@gmail.com',
-        subject : 'Error',
-        text : 'There was an error'
-    }
-    console.log(mailOptions);
-    transporter.sendMail(mailOptions, function(error, response){
-     if(error){
-            console.log(error);
-       // res.end("error");
-     }else{
-            console.log("Message sent: " + response.message);
-      //  res.end("sent");
-         }
-    });
-});
-
-app.get('/failed',function(req,res){
-    var mailOptions={
-        from : 'siselup2017@gmail.com',
-        to : 'siselup2017@gmail.com',
-        subject : 'Failed',
-        text : 'Transaction failed'
-    }
-    console.log(mailOptions);
-    transporter.sendMail(mailOptions, function(error, response){
-     if(error){
-            console.log(error);
-       // res.end("error");
-     }else{
-            console.log("Message sent: " + response.message);
-      //  res.end("sent");
-         }
-    });
-});
-
-
 
 
 //da li je ovo dobro?
@@ -176,10 +116,26 @@ require('./routes/all-rules.server.routes')(app);
 require('./routes/transaction.server.routes')(app);
 require('./routes/merchant.server.routes')(app);
 require('./routes/communication.server.routes')(app);
+require('./routes/email.server.routes')(app);
+
+
+
+
+
+//console log is loaded by default, so you won't normally need to do this 
+//log4js.loadAppender('console'); 
+
+ 
+//logger.trace('Entering cheese testing');
+//logger.debug('Got cheese.');
+//logger.info('Cheese is Gouda.');
+//logger.warn('Cheese is quite smelly.');
+//logger.error('Cheese is too ripe!');
+//logger.fatal('Cheese was breeding ground for listeria.');
 
 
 https.createServer(httpsOptions, app).listen(3000, function() {
-    console.log("Express https server listening on port " + "3000");
+   logger.info("Express https server listening on port " + "3000");
 });
 
 
@@ -191,10 +147,10 @@ var mongoOpt = {
             "sslCert": fs.readFileSync('./cert/cert.pem')
           }
         }
-mongoose.connect('mongodb://localhost/insurance2',mongoOpt);
+mongoose.connect('mongodb://localhost/insurance',mongoOpt);
 var db = mongoose.connection;
 db.on('error', console.error.bind(console, 'connection error:'));
 db.once('open', function() {
-  console.log("Connected to Mongo database");
+  logger.info("Connected to MongoDB")
 });
 

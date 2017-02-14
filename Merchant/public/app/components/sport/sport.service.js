@@ -10,6 +10,6 @@
 		var collectionName = "sports";
 		return $resource("https://localhost:3000/api/:collectionName/:sportId",
 			{ sportId: "@_id", collectionName: collectionName},
-			{ update: { method: 'PUT' } });
+			{ update: { method: 'PUT' } , get: {timeout:10000 }});
 	}
 })();

@@ -18,6 +18,7 @@
 		if(!$rootScope.insurance)
 			$rootScope.insurance = new Insurance();
 		ic.insurance = InsuranceData.getInsuranceData();
+		ic.numberOfUsers = InsuranceData.getInsuranceData().numberOfUsers;
 
 		console.log(ic.currentLanguage);
 
@@ -46,8 +47,8 @@
 			}
 		}
 
-		Region.get(function(response){ic.regions = response.regions;});
-		Amount.get(function(response){ic.amounts = response.amounts;});
+		Region.get(function(response){ic.regions = response.regions;}, function(err){$state.go('main.error',{errorOrderId: 1})});
+		Amount.get(function(response){ic.amounts = response.amounts;}, function(err){$state.go('main.error',{errorOrderId: 1})});
 
 		ic.addInsurance = function() {
 				ic.insurance.$save(success);
@@ -55,6 +56,9 @@
 		};
 
 		ic.goToUsersForm = function(){
+			//broj korisnika se menja jedino ako kliknemo na next dugme.
+			ic.insurance.numberOfUsers = ic.numberOfUsers;
+
 			if(ic.insurance.numberOfUsers){
 
 				ic.lastSaveSuccess = true;

@@ -18,6 +18,23 @@
 		cic.currentLanguage = crTranslations[crTranslator.getLanguage()].LANGUAGE;
         cic.setLanguage = setLanguage;
 
+        cic.isOptionsRequired = function(){
+        	
+        	return !cic.serviceData.some(function(options){
+
+				
+			    for(var i=0; i<options.length; i++)
+				{
+							if(options[i].selected)
+							{	
+									return true;
+									break;
+							}
+				}
+
+		  });
+		}
+
         function setLanguage(language) {
             crTranslator.setLanguage(language);
             cic.currentLanguage = crTranslations[language].LANGUAGE;
@@ -40,7 +57,6 @@
 		}
 
 		function success() {
-			console.log("Car Insurance added...")
 			//VAZNO: ovo (ili nesto slicno) uraditi svuda gde je neophodno
 			//ovo se radi kako bi se omogucilo visestruko memorisanje bez resetovanja cele forme
 			//obratiti paznju kasnije i na suvisne objekte u bazi

@@ -11,7 +11,6 @@ import org.springframework.util.ResourceUtils;
 @SpringBootApplication
 public class PaymentCardCenterWsApplication {
 
-
 	public static void main(String[] args) {
 		SpringApplication.run(PaymentCardCenterWsApplication.class, args);
 	}

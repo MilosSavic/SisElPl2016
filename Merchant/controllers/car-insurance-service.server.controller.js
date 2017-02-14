@@ -12,11 +12,13 @@ var crypto = require("./encrypt-decrypt");
 
 function list(req, res, next){
 
+  //logger.info("GET Request for all car insurance services. ");
   CarInsuranceService.find()
     .exec(function(err, carInsuranceServices){
     if(err){
       var errMessage = errorHandler.getErrorMessage(err);
       errorHandler.logErrorMessage(errMessage);
+    //  logger.error("GET Car insurance service controller: " + errMessage);
       return res.status(400).send({
         message: errMessage
       });
@@ -27,12 +29,14 @@ function list(req, res, next){
         carInsuranceServices[i] = decrypted;
       }
       var jsObject = {carInsuranceServices};
+    //  logger.info("GET Car insurance services successfuly listed. Status: 200");
       res.json(jsObject);
     }    
   });
 }
 
 function createCarInsuranceService(req, res, next){
+	//logger.info("POST Request for creating car insurance service. ");
     req.body = JSON.parse(xss(JSON.stringify(req.body)));
     var carInsuranceService = new CarInsuranceService(req.body);
     crypto.encryptData(carInsuranceService);
@@ -41,12 +45,13 @@ function createCarInsuranceService(req, res, next){
   if (err){
       var errMessage = errorHandler.getErrorMessage(err);
       errorHandler.logErrorMessage(errMessage);
+	 // logger.error("POST Car insurance service controller: " + errMessage+" Status: 400");
       return res.status(400).send({
         message: errMessage
       });
     }
     else{
-  console.log("Save successful");
+ // logger.info("POST Response for creating car insurance service. Status: 200 ");
   res.json(carInsuranceService); 
 }
 });

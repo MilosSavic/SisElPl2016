@@ -33,7 +33,6 @@ function list(req, res, next){
 }
 
 function createRegion(req, res, next){
-	console.log(req.connection);
      req.body = JSON.parse(xss(JSON.stringify(req.body)));
     var region = new Region(req.body);
 

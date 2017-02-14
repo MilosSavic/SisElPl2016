@@ -7,6 +7,6 @@
     </li> -->
 
     <li ng-class="{activeItem:sbc.isActive('paymentForm')}">
-        <a ui-sref='main.paymentForm' translate><span>{{"PAYMENT.PAYMENT"}}</span></a>
+        <a ui-sref='main.paymentForm({code: sbc.ud.code, paymentID: sbc.ud.id})' translate><span>{{"PAYMENT.PAYMENT"}}</span></a>
     </li>
 </ul>

@@ -18,7 +18,7 @@
 		console.log(InsuranceData.getInsuranceData());
 		//uc.user = $rootScope.insurance.users[uc.page-1];
 		uc.user = InsuranceData.getInsuranceData().users[uc.page-1];
-		Sport.get(function(response){uc.sports = response.sports;});
+		Sport.get(function(response){uc.sports = response.sports;}, function(err){$state.go('main.error',{errorOrderId: 1})});
 
 		uc.currentLanguage = crTranslations[crTranslator.getLanguage()].LANGUAGE;
 		console.log(uc.currentLanguage);

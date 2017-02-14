@@ -10,10 +10,10 @@
 		var mc = this;
 		mc.merchant = new Merchant();
 
-		Merchant.get(function(response){mc.listOfMerchants = [{id:response.merchantID, pass:response.merchantPassword}]});
+		Merchant.get(function(response){mc.listOfMerchants = [response]});
 
 		mc.submitMerchant = function(){
-			 $window.location.reload();
+			$state.reload();
 			mc.merchant.$save(success);
 		}
 		function success() {

@@ -4,8 +4,14 @@ var Schema = mongoose.Schema;
 console.log("Prosli atributi");
 
 var sellerSchema = new Schema({
-	id: String,
-	password: String,
+	id: {
+		type: String,
+		required: "Merchant ID is required"
+	},
+	password: {
+		type: String,
+		required: "Merchant password is required"
+	},
     name: String,
     surname: String,
     address: String,

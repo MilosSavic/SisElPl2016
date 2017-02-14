@@ -15,7 +15,7 @@
 
   <div class="form-top">
        <div class="form-top-left">
-          <h3 translate>Merchant</h3>
+          <h3 translate>{{"MERCHANT.MERCHANT"}}</h3>
                                 
       </div>
       <div class="form-top-right">
@@ -28,40 +28,51 @@
 <form class="form-horizontal" novalidate name="mc.merchantForm">
 
 
-    <div class="form-group">
-		<label class="control-label col-sm-2" translate>Name</label>
+    <div class="form-group" ng-class="{ 'has-error': mc.merchantForm.name.$touched && mc.merchantForm.name.$invalid }">
+		<label class="control-label col-sm-2" translate>{{"MERCHANT.NAME"}}</label>
 		<div class="col-sm-6 col-md-4">
 		<input class="form-control" type="text" ng-model="mc.merchant.name"  name="name" required>
+		<div ng-messages="mc.merchantForm.name.$error" ng-show="mc.merchantForm.name.$touched">
+                    <p ng-message="required"><span translate>{{"MERCHANT.ERROR.REQUIRED"}}</span></p>
+                </div>
 		</div>
 		</div>
 		
-		 <div class="form-group">
-		<label class="control-label col-sm-2" translate>Surname</label>
+		 <div class="form-group" ng-class="{ 'has-error': mc.merchantForm.surname.$touched && mc.merchantForm.surname.$invalid }">
+		<label class="control-label col-sm-2" translate>{{"MERCHANT.SURNAME"}}</label>
 		<div class="col-sm-6 col-md-4">
 		<input class="form-control" type="text" ng-model="mc.merchant.surname"  name="surname" required>
+		<div ng-messages="mc.merchantForm.surname.$error" ng-show="mc.merchantForm.surname.$touched">
+                    <p ng-message="required"><span translate>{{"MERCHANT.ERROR.REQUIRED"}}</span></p>
+                </div>
 		</div>
 		</div>
 
 
-    <div class="form-group">
-		<label class="control-label col-sm-2" translate>ID</label>
+    <div class="form-group" ng-class="{ 'has-error': mc.merchantForm.id.$touched && mc.merchantForm.id.$invalid }">
+		<label class="control-label col-sm-2">ID</label>
 		<div class="col-sm-6 col-md-4">
 		<input class="form-control" type="text" ng-model="mc.merchant.id" name="id" required>
-
+		<div ng-messages="mc.merchantForm.id.$error" ng-show="mc.merchantForm.id.$touched">
+                    <p ng-message="required"><span translate>{{"MERCHANT.ERROR.REQUIRED"}}</span></p>
+                </div>
 		</div>
 		</div>
 		
-		<div class="form-group">
-		<label class="control-label col-sm-2" translate>Password</label>
+		<div class="form-group" ng-class="{ 'has-error': mc.merchantForm.pass.$touched && mc.merchantForm.pass.$invalid }">
+		<label class="control-label col-sm-2" translate>{{"MERCHANT.PASSWORD"}}</label>
 		<div class="col-sm-6 col-md-4">
 		<input class="form-control" type="text" ng-model="mc.merchant.pass" name="pass" required>
+		<div ng-messages="mc.merchantForm.pass.$error" ng-show="mc.merchantForm.pass.$touched">
+                    <p ng-message="required"><span translate>{{"MERCHANT.ERROR.REQUIRED"}}</span></p>
+                </div>
 
 		</div>
 		</div>
 
 
 		 <div class="col-sm-offset-2">
-		      <button class="btn btn-primary" ng-click="mc.submitMerchant()" translate>SUBMIT</button>
+		      <button class="btn btn-primary" ng-click="mc.submitMerchant()" ng-disabled="sc.sportForm.$invalid" translate>{{"COMMON.SUBMIT"}}</button>
 		</div>
 
 	</form>
@@ -73,10 +84,10 @@
   <tr>
     <th>&nbsp;</th>
     <th>ID</th>
-    <th translate>Name</th>
-    <th translate>Surname</th>
-	<th translate>id</th>
-	<th translate>password</th>
+    <th translate>{{"MERCHANT.NAME"}}</th>
+    <th translate>{{"MERCHANT.SURNAME"}}</th>
+	<th translate>{{"MERCHANT.USERNAME"}}</th>
+	<th translate>{{"MERCHANT.PASSWORD"}}</th>
 
   </tr>
   <tr ng-repeat="element in mc.listOfMerchants">

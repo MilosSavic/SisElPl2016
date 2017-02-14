@@ -10,6 +10,8 @@
   "author": "Nikola Luburić, Milos Savic",
   "license": "ISC",
   "dependencies": {
+    "nodemailer":"latest",
+    "nodemailer-smtp-transport":"latest",
     "express": "^4.13.3",
     "body-parser": "^1.14.1",
     "cors": "^2.7.1",
@@ -17,7 +19,9 @@
     "nools": "0.4.4",
     "csurf": "1.9.0",
     "helmet": "3.4.0",
-    "xss": "0.3.2"
+    "xss": "0.3.2",
+    "log4js": "1.1.0",
+	"morgan" : "1.8.0"
   },
   "devDependencies": {
     "jasmine-core": "^2.5.2",

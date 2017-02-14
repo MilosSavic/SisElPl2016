@@ -147,7 +147,7 @@ function checkCodeValidity(req,res,next){
 	}
 
 	console.log('BROJ USERA ZA PAYMENT SAJT: '+users.length);
-	console.log('REQUEST: ' +req.body);
+	console.log('REQUEST: ' +JSON.stringify(req.body));
 	if(user)
 		res.json({valid: true, payment_id: user._paymentID, errorURL: user._errorURL, merchantOrderId: user._merchantOrderId });
 	else res.json({valid:false});

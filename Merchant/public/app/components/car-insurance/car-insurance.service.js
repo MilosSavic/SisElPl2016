@@ -10,6 +10,6 @@
         var collectionName = "carInsurances";
         return $resource("https://localhost:3000/api/:collectionName/:id",
             {id: "@_id", collectionName: collectionName},
-            { update: { method: 'PUT' } });
+            { update: { method: 'PUT' } , get: {timeout:10000 }});
     }
 })();

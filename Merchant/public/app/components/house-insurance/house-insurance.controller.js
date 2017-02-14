@@ -19,6 +19,12 @@
 		hic.currentLanguage = crTranslations[crTranslator.getLanguage()].LANGUAGE;
         hic.setLanguage = setLanguage;
 
+        hic.isOptionsRequired = function(){
+		  return !hic.insuranceData.some(function(options){
+		    return options.selected;
+		  });
+		}
+
         function setLanguage(language) {
             crTranslator.setLanguage(language);
             hic.currentLanguage = crTranslations[language].LANGUAGE;
@@ -73,7 +79,7 @@
 			}
 
 			
-		});
+		}, function(err){$state.go('main.error',{errorOrderId: 1})});
 
 
 		hic.updateHouseInsurance = function(){

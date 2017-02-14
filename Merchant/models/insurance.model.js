@@ -4,24 +4,33 @@ var Schema = mongoose.Schema;
 var insuranceSchema = new Schema({
 
   startDate: {
-    type: Date
+    type: Date,
+	required: "Insurance start date is required"
   },
 
-  endDate: Date,
+  endDate: {
+	  type: Date,
+	  required: "Insurance end date is required"
+  },
   region: {
     type: Schema.Types.ObjectId,
     ref: 'Region'//,
     //require:true
   },
 
-  numberOfUsers: Number,
+  numberOfUsers: {
+	  type: Number,
+	  required: "Insurance number of users is required"
+  },
 
   created: {
     type: Date,
     default: Date.now
   },
 
-  price: Number,
+  price: {
+	  type: Number
+  },
 
   users:[{
     type: Schema.Types.ObjectId,

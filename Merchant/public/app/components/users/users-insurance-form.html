@@ -116,14 +116,22 @@
 		<div class="form-group">
 		<label class="control-label col-sm-2" translate>{{"USER.SPORT"}}</label>
 				<div class="col-sm-6 col-md-4">
-		        <select ng-show="uc.currentLanguage == 'En'" class="form-control" id="sport" name="sport._id" ng-model="uc.user.sport._id" >
+		        <select ng-show="uc.currentLanguage == 'En'" class="form-control" id="sport" name="sport" ng-model="uc.user.sport._id" required>
 		        <option  ng-repeat="sport in uc.sports" value="{{sport._id}}">{{ sport.name }}</option>
 		        </select>
 
-		        <select ng-show="uc.currentLanguage == 'Sr'" class="form-control" id="sport" name="sport._id" ng-model="uc.user.sport._id" >
+		        <select ng-show="uc.currentLanguage == 'Sr'" class="form-control" id="sport1" name="sport1" ng-model="uc.user.sport._id" required>
 		           <option ng-repeat="sport in uc.sports" value="{{sport._id}}">{{ sport.nameSer }}</option>
 		        </select>
-		        <span class="validationText" ng-show="uc.sports.length==0" translate>{{"USER.ERROR.SPORT"}}</span>
+
+		         <div ng-messages="uc.usersForm.sport.$error.required" ng-show="uc.usersForm.sport.$touched"> 
+			        <span class="validationText" ng-show="uc.usersForm.sport.$error.required" translate>{{"USER.ERROR.SPORT"}}</span>
+			       </div> 
+			        
+
+			        <div ng-messages="uc.usersForm.sport1.$error.required" ng-show="uc.usersForm.sport1.$touched">
+			        <span class="validationText" ng-show="uc.usersForm.sport1.$error.required" translate>{{"USER.ERROR.SPORT"}}</span>
+			        </div>
 		        </div>
 		</div>
  
