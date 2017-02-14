@@ -10,7 +10,7 @@ public class AuthResponse implements Serializable {
 	private static final long serialVersionUID = 1883782881767272235L;
 	private Long acquirerOrderId;
 	private Date acquirerTimestamp;
-	private Integer issuerOrderId;
+	private Long issuerOrderId;
 	private Date issuerTimestamp;
 	private HttpStatus httpStatus;
 	private String message;
@@ -19,7 +19,7 @@ public class AuthResponse implements Serializable {
 		
 	}
 	
-	public AuthResponse(Long acquirerOrderId, Date acquirerTimestamp, Integer issuerOrderId, Date issuerTimestamp,
+	public AuthResponse(Long acquirerOrderId, Date acquirerTimestamp, Long issuerOrderId, Date issuerTimestamp,
 			HttpStatus httpStatus, String message) {
 		super();
 		this.acquirerOrderId = acquirerOrderId;
@@ -46,11 +46,11 @@ public class AuthResponse implements Serializable {
 		this.acquirerTimestamp = acquirerTimestamp;
 	}
 
-	public Integer getIssuerOrderId() {
+	public Long getIssuerOrderId() {
 		return issuerOrderId;
 	}
 
-	public void setIssuerOrderId(Integer issuerOrderId) {
+	public void setIssuerOrderId(Long issuerOrderId) {
 		this.issuerOrderId = issuerOrderId;
 	}
 

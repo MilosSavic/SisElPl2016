@@ -31,18 +31,20 @@ public class PaymentInvocationController {
 	@Autowired
 	BankService bankService;
 	
-
 	@Autowired
 	private RestTemplateBuilder restTemplateBuilder;
 	
-	@RequestMapping(method = RequestMethod.POST)
+	@RequestMapping(value = "/invoke", method = RequestMethod.POST)
 	AuthResponse authenticateAndAuthorize(@RequestBody AuthRequest request) {
 		try {
+			//Validacija polja zahteva
 			AuthRequest.validate(request);
-			String bankCode = request.getPan().substring(0, 3);
-			Bank issuerBank = bankService.findByBankCode(bankCode);
+			//Pronalazak odredisne banke za zahtev
+			String bankCode = request.getPan().substring(0, 6);
+			Bank issuerBank = bankService.findById(bankCode);
 			if (issuerBank == null)
 				return new AuthResponse(request.getAcquirerOrderId(), request.getAcquirerTimestamp(), null, null, HttpStatus.BAD_REQUEST, "PCC: Issuer bank not found for code " + bankCode + ".");
+			//Slanje zahteva
 			ObjectMapper mapper = new ObjectMapper();
 			String jsonRequest = mapper.writeValueAsString(request);
 			HttpHeaders headers = new HttpHeaders();

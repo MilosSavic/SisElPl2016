@@ -5,13 +5,24 @@
 		.module('merchant-app.house-insurance')
 		.controller('HouseInsuranceController', HouseInsuranceController);
 
-	HouseInsuranceController.$inject = ['$location','HouseInsuranceCategory','$state','CarInsurance','InsuranceData','SideBar','crTranslator', 'crTranslations','$stateParams'];
-	function HouseInsuranceController($location,HouseInsuranceCategory,$state,CarInsurance,InsuranceData,SideBar,crTranslator,crTranslations,$stateParams) {
+	HouseInsuranceController.$inject = ['$scope','$location','HouseInsuranceCategory','$state','CarInsurance','InsuranceData','SideBar','crTranslator', 'crTranslations','$stateParams'];
+	function HouseInsuranceController($scope,$location,HouseInsuranceCategory,$state,CarInsurance,InsuranceData,SideBar,crTranslator,crTranslations,$stateParams) {
 		if(!SideBar.isHouseActive())
 		{
 			$state.go('main.insuranceForm');
 			return;
 		}
+		var skipped = false;
+		$scope.$watch('hic.houseInsuranceForm.$invalid', function(form) {
+		  if(form) {
+			  console.log("SKIPPED invalid:" + skipped);
+			  if(!skipped)
+			  {
+				  InsuranceData.setHouseInsuranceChosen(false);
+			  
+			  }
+		  }
+		});
 		
 		var hic = this;
 		hic.houseInsurance = InsuranceData.getInsuranceData().houseInsurance;
@@ -21,6 +32,10 @@
 
         hic.isOptionsRequired = function(){
 		  return !hic.insuranceData.some(function(options){
+			if(!options.selected && !skipped)
+			{
+				InsuranceData.setHouseInsuranceChosen(false);
+			}
 		    return options.selected;
 		  });
 		}
@@ -31,9 +46,11 @@
         }
 
 		hic.goToCarInsurance = function(){
+			skipped = true;
 			if(!InsuranceData.getInsuranceData().carInsurance)
 				InsuranceData.addCarInsurance();
-			SideBar.setCarActive(true);
+			SideBar.setCarActive(true);		
+			console.log("CAR ACTIVE" + SideBar.isCarActive());
 			$state.go('main.carInsuranceForm');
 		}
 
@@ -108,33 +125,33 @@
 
 
 		hic.openTab= function(tabName) {
-    // Declare all variables
-  tabcontent = document.getElementsByClassName("tabcontent");
-    // Get all elements with class="tabcontent" and hide them
-   
-   for (i = 0; i < tabcontent.length; i++) {
-        tabcontent[i].style.display = "none";
-   }
+      // Declare all variables
+	  tabcontent = document.getElementsByClassName("tabcontent");
+		// Get all elements with class="tabcontent" and hide them
+	   
+	   for (i = 0; i < tabcontent.length; i++) {
+			tabcontent[i].style.display = "none";
+	   }
 
-    // Get all elements with class="tablinks" and remove the class "active"
-   
-    for (i = 0; i < tablinks.length; i++) {
+		// Get all elements with class="tablinks" and remove the class "active"
+	   
+		for (i = 0; i < tablinks.length; i++) {
 
-    	while(tablinks[i].className.includes(" active"))
-       	 tablinks[i].className = tablinks[i].className.replace(" active", "");
-    }
+			while(tablinks[i].className.includes(" active"))
+			 tablinks[i].className = tablinks[i].className.replace(" active", "");
+		}
 
-    // Show the current tab, and add an "active" class to the link that opened the tab
-    document.getElementById(tabName).style.display = "block";
-    for(i=0; i<tablinks.length; i++)
-    {
-    	if(tabName=='Part2')
-    		tablinks[1].className +=" active";
-    	if(tabName=='Part1')
-    		tablinks[0].className +=" active";
-    }
-    //evt.currentTarget.className += " active";
-}
+		// Show the current tab, and add an "active" class to the link that opened the tab
+		document.getElementById(tabName).style.display = "block";
+		for(i=0; i<tablinks.length; i++)
+		{
+			if(tabName=='Part2')
+				tablinks[1].className +=" active";
+			if(tabName=='Part1')
+				tablinks[0].className +=" active";
+		}
+		//evt.currentTarget.className += " active";
+	}
 		
 	}
 })();

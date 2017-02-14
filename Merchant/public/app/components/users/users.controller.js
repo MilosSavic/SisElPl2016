@@ -5,8 +5,8 @@
 		.module('merchant-app.users')
 		.controller('UsersController', UsersController);
 		
-	UsersController.$inject = ['$location','Insurance','$state','User','$stateParams','HouseInsurance','InsuranceData','SideBar','Sport','crTranslator', 'crTranslations'];
-	function UsersController($location,Insurance,$state,User,$stateParams,HouseInsurance,InsuranceData,SideBar,Sport,crTranslator, crTranslations) {
+	UsersController.$inject = ['$scope','$location','Insurance','$state','User','$stateParams','HouseInsurance','InsuranceData','SideBar','Sport','crTranslator', 'crTranslations'];
+	function UsersController($scope,$location,Insurance,$state,User,$stateParams,HouseInsurance,InsuranceData,SideBar,Sport,crTranslator, crTranslations) {
 		if(!SideBar.isUsersActive())
 		{
 			$state.go('main.insuranceForm');
@@ -14,6 +14,15 @@
 		}
 		var uc = this;
 		uc.page = $stateParams.userIndex;	
+		
+		$scope.$watch('uc.usersForm.$invalid', function(form) {
+		  if(form) {
+			  SideBar.setHouseActive(false);
+			  SideBar.setCarActive(false);
+			  SideBar.setDataActive(false);
+			// your code...
+		  }
+		});
 
 		console.log(InsuranceData.getInsuranceData());
 		//uc.user = $rootScope.insurance.users[uc.page-1];

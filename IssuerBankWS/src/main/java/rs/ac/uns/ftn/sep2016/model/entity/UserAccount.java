@@ -1,7 +1,6 @@
 package rs.ac.uns.ftn.sep2016.model.entity;
 
 import java.io.Serializable;
-import java.util.Date;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -13,8 +12,8 @@ public class UserAccount implements Serializable {
 	private static final long serialVersionUID = 4574264098830551619L;
 
 	@Id
-	@Column(name = "PAN")
-	private String pan;
+	@Column(name = "ACCOUNT_NUMBER")
+	private long accountNumber;
 	
 	@Column(name = "SECURITY_CODE")
 	private String securityCode;
@@ -23,7 +22,7 @@ public class UserAccount implements Serializable {
 	private String cardHolderName;
 	
 	@Column(name = "EXPIRATION_DATE")
-	private Date expirationDate;
+	private String expirationDate;
 	
 	@Column(name = "ACCOUNT_AMOUNT")
 	private Double accountAmount;
@@ -35,10 +34,10 @@ public class UserAccount implements Serializable {
 		
 	}
 
-	public UserAccount(String pan, String securityCode, String cardHolderName, Date expirationDate,
+	public UserAccount(long accountNumber, String securityCode, String cardHolderName, String expirationDate,
 			Double accountAmount, Double reservationAmount) {
 		super();
-		this.pan = pan;
+		this.accountNumber = accountNumber;
 		this.securityCode = securityCode;
 		this.cardHolderName = cardHolderName;
 		this.expirationDate = expirationDate;
@@ -46,12 +45,12 @@ public class UserAccount implements Serializable {
 		this.reservationAmount = reservationAmount;
 	}
 
-	public String getPan() {
-		return pan;
+	public long getAccountNumber() {
+		return accountNumber;
 	}
 
-	public void setPan(String pan) {
-		this.pan = pan;
+	public void setAccountNumber(long accountNumber) {
+		this.accountNumber = accountNumber;
 	}
 
 	public String getSecurityCode() {
@@ -70,11 +69,11 @@ public class UserAccount implements Serializable {
 		this.cardHolderName = cardHolderName;
 	}
 
-	public Date getExpirationDate() {
+	public String getExpirationDate() {
 		return expirationDate;
 	}
 
-	public void setExpirationDate(Date expirationDate) {
+	public void setExpirationDate(String expirationDate) {
 		this.expirationDate = expirationDate;
 	}
 

@@ -8,7 +8,7 @@ public interface UserAccountService {
 	
 	public List<UserAccount> findAll();
 	
-	public UserAccount findById(String id);
+	public UserAccount findById(long id);
 	
 	public void persist(UserAccount userAccount);
 }
