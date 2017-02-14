@@ -45,10 +45,11 @@
             <div class="col-sm-6 col-md-4" busy-indicator>
                 <input type="checkbox" data-ng-model="option.selected" ng-value={{"option._id"}} id="coveredByInsurance" ng-click="hic.updateHouseInsurance()" name="coveredByInsurance" class="form-control" ng-required="hic.isOptionsRequired()" >
             </div>
-        </div>         
+        </div>   
+        <br>      
 
         <div class="col-sm-offset-2" >
-            <button type="button" class="btn_medium btn-primary" ng-click="hic.openTab('Part2')" ng-disabled="!house.$valid" translate >{{"COMMON.NEXT"}}</button>
+            <button type="button" class="btn_medium btn-primary" ng-click="hic.openTab('Part2')" ng-disabled="!house.$valid" translate >{{"COMMON.CONFIRM"}}</button>
             
         </div>
     </form>

@@ -192,32 +192,47 @@
 
 		cic.openTab= function(tabName) {
     // Declare all variables
-  tabcontent = document.getElementsByClassName("tabcontent");
-    // Get all elements with class="tabcontent" and hide them
-   
-   for (i = 0; i < tabcontent.length; i++) {
-        tabcontent[i].style.display = "none";
-   }
+		  tabcontent = document.getElementsByClassName("tabcontent");
+		    // Get all elements with class="tabcontent" and hide them
+		   
+		   for (i = 0; i < tabcontent.length; i++) {
+		        tabcontent[i].style.display = "none";
+		   }
 
-    // Get all elements with class="tablinks" and remove the class "active"
-   
-    for (i = 0; i < tablinks.length; i++) {
+		    // Get all elements with class="tablinks" and remove the class "active"
+		   
+		    for (i = 0; i < tablinks.length; i++) {
 
-    	while(tablinks[i].className.includes(" active"))
-       	 tablinks[i].className = tablinks[i].className.replace(" active", "");
-    }
+		    	while(tablinks[i].className.includes(" active"))
+		       	 tablinks[i].className = tablinks[i].className.replace(" active", "");
+		    }
 
-    // Show the current tab, and add an "active" class to the link that opened the tab
-    document.getElementById(tabName).style.display = "block";
-    for(i=0; i<tablinks.length; i++)
-    {
-    	if(tabName=='Part2')
-    		tablinks[1].className +=" active";
-    	if(tabName=='Part1')
-    		tablinks[0].className +=" active";
-    }
-    //evt.currentTarget.className += " active";
-}
+		    // Show the current tab, and add an "active" class to the link that opened the tab
+		    document.getElementById(tabName).style.display = "block";
+		    for(i=0; i<tablinks.length; i++)
+		    {
+		    	if(tabName=='Part2')
+		    		tablinks[1].className +=" active";
+		    	if(tabName=='Part1')
+		    		tablinks[0].className +=" active";
+		    }
+		    //evt.currentTarget.className += " active";
+		}
+
+		cic.changeTab = function() {
+			console.log("Usao u fju");
+            
+            if (cic.selectedTab === cic.serviceData.length-1) {
+            	cic.selectedTab=0;
+            }else{
+            	cic.selectedTab++;
+            }
+            var length=cic.serviceData.length-1;
+            console.log(cic.selectedTab);
+            console.log("Duzina"+length);
+        
+        
+   		}
 
 	}
 })();

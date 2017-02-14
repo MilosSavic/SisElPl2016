@@ -40,3 +40,11 @@ ul.tab li a:focus, .active {background-color: #ccc;}
     pointer-events:none; //This makes it not clickable
     opacity:0.6;         //This grays it out to look disabled
 }
+
+#horizontal-style {
+    width: 100%;
+}
+
+#horizontal-li {
+    width: 50%;
+}

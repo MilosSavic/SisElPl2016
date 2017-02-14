@@ -29,6 +29,8 @@
 				"SUCCESS":"Successfully completed payments",
 				"ERROR":"There was an error",
 				"PURCHASE":"Insurance purchase",
+				"GROUP":"Group",
+				"CONFIRM":"Confirm",
 
 				
 
@@ -264,6 +266,8 @@
 				"SUCCESS":"Uspešno izvršeno plaćanje",
 				"ERROR":"Došlo je do greške",
 				"PURCHASE":"Kupovina osiguranja",
+				"GROUP":"Grupa",
+				"CONFIRM":"Potvrdi",
 				
 			},
 

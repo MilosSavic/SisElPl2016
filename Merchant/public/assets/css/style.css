@@ -168,6 +168,7 @@ fieldset[disabled] .btn_medium {
 a.btn_medium.disabled,
 fieldset[disabled] a.btn_medium {
   pointer-events: none;
+  margin-right: 520px;
 }
 
 .form-bottom form button.btn_data {
