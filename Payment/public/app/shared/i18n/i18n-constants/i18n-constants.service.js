@@ -29,7 +29,7 @@
 					"NUMBER":"Only numbers are allowed.",
 					"EMAIL":"The email you have entered is not valid.",
 					"REQUIRED":"This field is required.",
-					"PAN":"This field should contain exactly 15 numeric characters.",
+					"PAN":"This field should contain exactly 16 numeric characters.",
 					"SECURITYCODE":"This field should contain exactly 3 numeric characters.",
 					"EXPIRYDATE":"You must enter expiry date",
 
@@ -66,7 +66,7 @@
 					"NUMBER":"Samo brojevi su dozvoljeni.",
 					"EMAIL":"The email you have entered is not valid.",
 					"REQUIRED":"Ovo polje je obavezno.",
-					"PAN":"Ovo polje mora da sadrži tačno 15 numeričkih karaktera.",
+					"PAN":"Ovo polje mora da sadrži tačno 16 numeričkih karaktera.",
 					"SECURITYCODE":"Ovo polje mora da sadrži tačno 3 numerička karaktera.",
 					"EXPIRYDATE":"Morate uneti datum isteka.",
 				}

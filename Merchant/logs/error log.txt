@@ -7,3 +7,4 @@ Mon Feb 13 2017 19:32:42 GMT+0100 (Central Europe Standard Time):     failed to 
 Mon Feb 13 2017 19:32:42 GMT+0100 (Central Europe Standard Time):     failed to reconnect after 30 attempts with interval 1000 ms
 Mon Feb 13 2017 19:32:42 GMT+0100 (Central Europe Standard Time):     failed to reconnect after 30 attempts with interval 1000 ms
 Mon Feb 13 2017 19:32:42 GMT+0100 (Central Europe Standard Time):     Topology was destroyed
+Thu Feb 16 2017 18:37:28 GMT+0100 (Central Europe Standard Time):     Amount in transaction is required

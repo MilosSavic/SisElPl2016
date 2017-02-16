@@ -2,3 +2,4 @@ Mon Feb 13 2017 19:51:12 GMT+0100 (Central Europe Standard Time):     failed to 
 Tue Feb 14 2017 00:31:26 GMT+0100 (Central Europe Standard Time):     E11000 duplicate key error index: payment.payments.$acquirerId_1 dup key: { : null }
 Tue Feb 14 2017 00:31:41 GMT+0100 (Central Europe Standard Time):     E11000 duplicate key error index: payment.payments.$acquirerId_1 dup key: { : null }
 Tue Feb 14 2017 00:32:46 GMT+0100 (Central Europe Standard Time):     E11000 duplicate key error index: payment.payments.$acquirerId_1 dup key: { : null }
+Thu Feb 16 2017 18:43:36 GMT+0100 (Central Europe Standard Time):     E11000 duplicate key error index: payment.payments.$acquirerId_1 dup key: { : null }

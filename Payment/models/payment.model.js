@@ -11,7 +11,7 @@ var paymentSchema = new Schema({
     pan: String,
     security_code: String,
     card_holder_name: String,
-    expiry_date: Date,
+    expiry_date: String,
     transaction_amount: Number,
     date_created: {
     type: Date,

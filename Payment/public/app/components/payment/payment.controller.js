@@ -17,6 +17,7 @@
 
 
 
+
 		pay.currentLanguage = crTranslations[crTranslator.getLanguage()].LANGUAGE;
 		console.log(pay.currentLanguage);
 		codeValidity.$save(function(response){
@@ -50,8 +51,7 @@
 		
 					
 
-		pay.addPayment = function() {
-			
+		pay.addPayment = function() {		
 
 				pay.payment.$saveOrUpdate(function(result){
 					var message = "Something went wrong. Communication with Acquirer services failed."
@@ -63,7 +63,6 @@
 					
 						
 					
-
 					var reqForAuthorization = {
 						acquirerOrderId:result.acquirerId,
 						acquirerTimestamp:result.acquirerTimestamp,
@@ -75,12 +74,15 @@
 					}
 
 					var oldDate = pay.payment.expiry_date;
-					pay.payment.expiry_date = new Date(oldDate);
+				//	pay.payment.expiry_date = new Date(oldDate);
+					pay.payment.expiry_date = oldDate;
+
 
 					//NAPOMENA: trenutno ne radi jer smo mi na https-u a Vladimir na http-u. U stvari radi jer sam omogucio cross origin kod njega, ali ne treba tako da bude xD
 					var authorization = new TransactionAuthorization(reqForAuthorization);
 					authorization.$save(function(result){
 							
+
 						var acqDate = new Date(result.acquirerTimestamp);
 						var issDate = new Date(result.issuerTimestamp);
 
@@ -97,7 +99,8 @@
 						}
 
 						
-						pay.payment.expiry_date = new Date(oldDate);
+					//	pay.payment.expiry_date = new Date(oldDate);
+						pay.payment.expiry_date = oldDate;
 
 
 					//	alert(JSON.stringify(result));
@@ -105,10 +108,13 @@
 
 						
 						pay.currentLanguage = crTranslations[crTranslator.getLanguage()].LANGUAGE;
-						
+
+
+
 						merchantCommunication.$save(function(result2){
 							if(result2.url)
 							{
+
 								alert(result2.message + "," + result.message + ", redirecting to: " +result2.url);
 							//	$.get("https://localhost:3000/#!/success");
 								$window.location.href = result2.url+"/"+pay.currentLanguage+"/"+merchantOrderId;
