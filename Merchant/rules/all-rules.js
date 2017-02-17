@@ -9,7 +9,7 @@ module.exports.execute = execute;
 //execute(i, function(result){
 //	console.log(result);
 //})
-function execute(insurance,result){
+function execute(insurance,res){
 	logger.info("Request for price calculation. ");
 	var mongoose = require('mongoose');
 	var nools = require('nools');
@@ -76,6 +76,74 @@ function execute(insurance,result){
 	var covers = [];
 	var services = [];
 	var amount = 0;
+
+	var dataPresent = true; 
+	var dataPresentMessage = "";
+	for(var i=0; i<insurance.body.users.length; i++)
+	{
+		if(!(insurance.body.users[i].sport && insurance.body.users[i].age))
+		{
+			console.log(JSON.stringify(insurance.body.users));
+			dataPresent = false;
+			dataPresentMessage = "User info not present."
+			break;
+		}
+	}
+
+	if(!insurance.body.region){
+		dataPresent = false;
+		dataPresentMessage = "Region not present."
+	}
+
+	if(insurance.body.houseInsurance){
+		if(!insurance.body.houseInsurance.coveredByInsurance)
+			dataPresent = false;
+		else if(!(insurance.body.houseInsurance.coveredByInsurance.length>0))
+			dataPresent = false;
+		if(!insurance.body.houseInsurance.age)
+			dataPresent = false;
+		if(!insurance.body.houseInsurance.size)
+			dataPresent = false;
+		if(!insurance.body.houseInsurance.estimatedValue)
+			dataPresent = false;
+	}
+
+	if(!insurance.body.startDate){
+		dataPresentMessage = "Start date not present."
+		dataPresent = false;
+	}
+
+	if(!insurance.body.endDate){
+		dataPresentMessage = "End date not present."
+		dataPresent = false;
+	}
+
+	if(!insurance.body.amount){
+		dataPresentMessage = "Amount not present."
+		dataPresent = false;
+	}
+
+	if(insurance.body.carInsurance){
+		if(!insurance.body.carInsurance.services)
+			dataPresent = false;
+		else if(!(insurance.body.carInsurance.services.length>0))
+			dataPresent = false;
+	}
+
+	if(!insurance.body.numberOfUsers){
+		dataPresentMessage = "Number of users not present."
+		dataPresent = false;
+	}
+
+	if(!dataPresent){
+		nools.deleteFlows();
+		return res.status(400).send({
+			message: "Bad request, not enough data"+dataPresentMessage
+		})
+	}
+
+
+
 	Region.findById(insurance.body.region._id).exec(function(err,region){
 	    if(err)
 	    {
@@ -94,6 +162,7 @@ function execute(insurance,result){
 
 	function findSportRisks(){
 	insurance.body.users.forEach(function(user){
+		if(user.sport)
 		var userSport = user.sport._id;
 		Sport.findById(userSport).exec(function(err,sport){
 	    if(err)
@@ -246,7 +315,7 @@ function execute(insurance,result){
 			price.value = price.value/1000;
 			price.basePrice = price.value-price.carInsurancePrice-price.houseInsurancePrice;
 			logger.info("Price calculated. Response sent. Status: 200")
-	      	result.json(price);
+	      	res.json(price);
 	    }
 	})
 	}
