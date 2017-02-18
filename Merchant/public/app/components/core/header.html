@@ -1,7 +1,16 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <meta charset="utf-8" />
+    <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <meta name="viewport" content="width=device-width">
+
+    <link href="./assets/css/bootstrap.css" rel="stylesheet">
+     <link rel="stylesheet" href="assets/css/style.css">
+    <link href="./assets/css/company.css" rel="stylesheet">
+    <link href="./assets/css/font-awesome.css" rel="stylesheet">
+    <link href="./assets/css/solution.css" rel="stylesheet">
+        <link  href="./assets/css/angular-social.css" rel="stylesheet">
 
 </head>
 <body>
@@ -32,6 +41,30 @@
                      <a  ui-sref='main.carInsuranceServiceForm' translate><span>{{"COMMON.ADDCARINSURANCESERVICE"}}</span></a>
                 </li>
                 </ul>
+                <div ng-controller="SocialController">
+
+        <ul ng-social-buttons
+             data-url="'http://google.com/'"
+             data-title="current_title"
+             data-description="current_description"
+             data-image="'https://www.google.com.ua/images/srpr/logo4w.png'"
+             showcounts="true">
+            <li>Share:</li>
+            <li class="ng-social-facebook">Facebook</li>
+            <li class="ng-social-github" user="esvit" repository="ng-table">GitHub</li>
+            <li class="ng-social-google-plus">Google+</li>
+            <li class="ng-social-twitter">Twitter</li>
+            <li class="ng-social-vk">Вконтакте</li>
+            <!-- <li class="ng-social-odnoklassniki">Одноклассники</li>
+            <li class="ng-social-mailru">Мой мир</li>
+            <li class="ng-social-pinterest">Pinterest</li>
+            
+            <li class="ng-social-github-forks" user="esvit" repository="ng-table">Forks</li>
+            <li class="ng-social-stumbleupon">StumbleUpon</li>
+            <li class="ng-social-moi-krug">Мой круг</li>
+            <li class="ng-social-linkedin">LinkedIn</li> -->
+        </ul>
+    </div>
 
     <a class="col-sm-offset-4 col-sm-4" href="#/home"><h2 translate>{{"COMMON.INSURANCESALE"}}</h2></a>
 

@@ -194,7 +194,7 @@
 				var paymentData = {merchantID:id,merchantPassword:pass,errorURL:errorURL,transactionID:response.idNumber,transactionAmount:response.amount,merchantTimestamp: response.timestamp};
 				var acquirer = new Acquirer(paymentData);
 				acquirer.$save(function(result){
-					console.log(result);
+				
 					if(result.message)
 					{
 						//$window.location.href = error stranica u ovom slucaju

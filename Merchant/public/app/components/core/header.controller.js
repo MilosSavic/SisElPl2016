@@ -5,9 +5,11 @@
         .module('merchant-app.core')
         .controller('HeaderController', HeaderController);
 
-    HeaderController.$inject = ['crTranslator', 'crTranslations','$location','$state','$window','$stateParams'];
-    function HeaderController(crTranslator, crTranslations,$location,$state,$window,$stateParams) {
+    HeaderController.$inject = ['crTranslator', 'crTranslations','$location','$state','$window','$stateParams','$scope'];
+    function HeaderController(crTranslator, crTranslations,$location,$state,$window,$stateParams,$scope) {
         var hc = this;
+
+        
 
         var lang=$stateParams.language;
         var jezik;

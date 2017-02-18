@@ -31,7 +31,7 @@
 
 	<form role="form" class="form-horizontal" novalidate name="ic.insuranceForm" >
 
-			<div class="form-group" ng-class="{ 'has-error': ic.insuranceForm.startDate.$touched && ic.insuranceForm.startDate.$invalid }">
+			<div class="form-group" ng-class="{ 'has-error': ic.insuranceForm.date.$touched && ic.insuranceForm.date.$invalid }">
 
 				<label class="control-label col-sm-2" for="startDate" translate>{{"INSURANCE.INSURANCESTARDATE"}}</label>
 				<div class="col-sm-6 col-md-4">
@@ -48,7 +48,7 @@
 			</div>
 
 
-			<div class="form-group" ng-class="{ 'has-error': ic.insuranceForm.endDate.$touched && ic.insuranceForm.endDate.$invalid }">
+			<div class="form-group" ng-class="{ 'has-error': ic.insuranceForm.date1.$touched && ic.insuranceForm.date1.$invalid }">
 
 				<label class="control-label col-sm-2" for="endDate" translate>{{"INSURANCE.INSURANCEENDDATE"}}</label>
 				<div class="col-sm-6 col-md-4">
@@ -61,7 +61,7 @@
 				</div>
 			</div>
 
-			<div class="form-group" ng-class="{ 'has-error': ic.insuranceForm.amount._id.$touched && ic.insuranceForm.amount._id.$invalid }">
+			<div class="form-group" ng-class="{ 'has-error': ic.insuranceForm.amount.$touched && ic.insuranceForm.amount.$invalid }">
 				<label class="control-label col-sm-2" for="amount" translate>{{"INSURANCE.INSURANCEVALUE"}}</label>
 					<div class="col-sm-6 col-md-4">
 			        <select class="form-control" name="amount" id="amount" ng-model="ic.insurance.amount._id" required>
@@ -75,7 +75,7 @@
 
 			</div>
 
-		<div class="form-group" ng-class="{ 'has-error': ic.insuranceForm.region._id.$touched && ic.insuranceForm.region._id.$invalid }">
+		<div class="form-group" ng-class="{ 'has-error': ic.insuranceForm.region.$touched && ic.insuranceForm.region.$invalid }">
 		<label class="control-label col-sm-2" translate> {{"INSURANCE.REGION"}}</label>
 				<div class="col-sm-6 col-md-4">
 		        <select ng-show="ic.currentLanguage == 'En'" class="form-control" id="region" name="region" ng-model="ic.insurance.region._id" required>
