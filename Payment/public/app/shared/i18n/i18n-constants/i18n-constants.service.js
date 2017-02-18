@@ -10,6 +10,10 @@
 				"BACK":"Back",
 				"ABOUT1":"This is the site for the transfer of funds between users.",
 				"ABOUT2":"You can also contact us at the following e-mail addresses:",
+				"PREVIOUS":"Previous",
+				"STOP":"Stop",
+				"PLAY":"Play",
+				"NEXT":"Next",
 
 			},
 			
@@ -45,6 +49,10 @@
 				"BACK":"Povratak",
 				"ABOUT1":"Ovo je sajt za razmenu novčanih sredstava izmedju korisnika.",
 				"ABOUT2":"Možete nam se obratiti na sledećim e-mail adresama: ",
+				"PREVIOUS":"Prethodni",
+				"STOP":"Zaustavi",
+				"PLAY":"Pusti",
+				"NEXT":"Dalje",
 			},
 			
 
