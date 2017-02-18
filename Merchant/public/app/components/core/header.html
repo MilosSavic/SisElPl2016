@@ -6,11 +6,11 @@
         <meta name="viewport" content="width=device-width">
 
     <link href="./assets/css/bootstrap.css" rel="stylesheet">
-     <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/style.css">
     <link href="./assets/css/company.css" rel="stylesheet">
     <link href="./assets/css/font-awesome.css" rel="stylesheet">
     <link href="./assets/css/solution.css" rel="stylesheet">
-        <link  href="./assets/css/angular-social.css" rel="stylesheet">
+    <link  href="./assets/css/angular-social.css" rel="stylesheet">
 
 </head>
 <body>
@@ -24,7 +24,8 @@
                     <li ng-class="{activeItem:sbc.isActive('about')}">
                         <a ui-sref='main.about' translate><span>{{"COMMON.ABOUT"}}</span></a>
                     </li>
-                     <li  ng-class="{activeItem:sbc.isActive('regionForm')}">
+
+                     <!-- <li  ng-class="{activeItem:sbc.isActive('regionForm')}">
                      <a  ui-sref='main.regionForm' translate><span>{{"COMMON.ADDREGION"}}</span></a>
                 </li>
                 <li  ng-class="{activeItem:sbc.isActive('sportForm')}">
@@ -39,9 +40,10 @@
 
                  <li  ng-class="{activeItem:sbc.isActive('carInsuranceServiceForm')}">
                      <a  ui-sref='main.carInsuranceServiceForm' translate><span>{{"COMMON.ADDCARINSURANCESERVICE"}}</span></a>
-                </li>
+                </li> -->
                 </ul>
-                <div ng-controller="SocialController">
+                
+                <div ng-controller="SocialController"  class=" pull-right" >
 
         <ul ng-social-buttons
              data-url="'http://google.com/'"
@@ -49,7 +51,7 @@
              data-description="current_description"
              data-image="'https://www.google.com.ua/images/srpr/logo4w.png'"
              showcounts="true">
-            <li>Share:</li>
+            <li translate>{{"COMMON.SHARE"}}:</li>
             <li class="ng-social-facebook">Facebook</li>
             <li class="ng-social-github" user="esvit" repository="ng-table">GitHub</li>
             <li class="ng-social-google-plus">Google+</li>
@@ -66,7 +68,9 @@
         </ul>
     </div>
 
-    <a class="col-sm-offset-4 col-sm-4" href="#/home"><h2 translate>{{"COMMON.INSURANCESALE"}}</h2></a>
+    <div >
+    <a class="col-sm-offset-4 col-sm-4 " href="#/home"><h2 align="left" translate>{{"COMMON.INSURANCESALE"}}</h2></a>
+    </div>
 
     <div class="btn-group pull-right" uib-dropdown is-open="hc.isopen">
         <button id="single-button" type="button" class="btn btn-primary" uib-dropdown-toggle ng-disabled="disabled">

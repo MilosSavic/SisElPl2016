@@ -22,11 +22,12 @@ ul.tab li a {
     font-size: 17px;
 }
 
+
 /* Change background color of links on hover */
-ul.tab li a:hover {background-color: #ddd;}
+ul.tab li a:hover {background-color: #ccc;}
 
 /* Create an active/current tablink class */
-ul.tab li a:focus, .active {background-color: #ccc;}
+ul.tab li a:focus, .active {background-color: #d61a2d;}
 
 /* Style the tab content */
 .tabcontent {
@@ -38,6 +39,7 @@ ul.tab li a:focus, .active {background-color: #ccc;}
 
 .disabled {
     pointer-events:none; //This makes it not clickable
+    background-color: #ccc;
     opacity:0.6;         //This grays it out to look disabled
 }
 

@@ -29,7 +29,9 @@
 				url: '/home',
 				views: {
 					'content@': {
-						templateUrl: 'app/components/core/home.html'
+						templateUrl: 'app/components/core/home.html',
+						controller: 'SliderController',
+						controllerAs: 'sc'
 					}
 				}
 			})

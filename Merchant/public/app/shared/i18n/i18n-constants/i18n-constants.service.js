@@ -31,6 +31,11 @@
 				"PURCHASE":"Insurance purchase",
 				"GROUP":"Group",
 				"CONFIRM":"Confirm",
+				"SHARE":"Share",
+				"PREVIOUS":"Previous",
+				"STOP":"Stop",
+				"PLAY":"Play",
+				
 
 				
 
@@ -268,6 +273,12 @@
 				"PURCHASE":"Kupovina osiguranja",
 				"GROUP":"Grupa",
 				"CONFIRM":"Potvrdi",
+				"SHARE":"Podeli",
+				"PREVIOUS":"Prethodni",
+				"STOP":"Zaustavi",
+				"PLAY":"Pusti",
+				
+
 				
 			},
 
