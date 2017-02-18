@@ -150,7 +150,9 @@
 		</div>
 
 		 <div class="col-sm-offset-2" ng-show="uc.lastPage">
-		      <button class="btn btn-primary" ng-click="uc.goToHouseInsurance()"  translate ng-disabled="uc.usersForm.$invalid" >{{"COMMON.NEXT"}}</button>
+
+		      <button class="btn btn-primary" ng-click="uc.goToHouseInsurance()" translate ng-disabled="!uc.usersValid">{{"COMMON.NEXT"}}</button>
+
 		</div>
 
 	<!--	ng-disabled="(uc.usersForm.$invalid || uc.sucess != uc.number) ?  true : false" -->
