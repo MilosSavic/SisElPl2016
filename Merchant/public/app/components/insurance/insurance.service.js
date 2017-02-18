@@ -173,6 +173,31 @@
 	  var getHouseInsuranceChosen = function(){
 	  	return houseInsuranceChosen;
 	  }
+	  var usersValidity = [];
+
+	  var setUserValidity = function(userIndex,validity){
+	  	var found = false;
+	  	for(var i=0; i<usersValidity.length; i++)
+	  	{
+	  		if(usersValidity[i].index == userIndex)
+	  			{
+	  				usersValidity[i].valid = validity;
+	  				return;
+	  			}
+	  	}
+	  	usersValidity.push({index: userIndex, valid: validity});
+	  }
+
+	  var getValidUserCount = function(){
+	  	var counter = 0;
+	  	for (var i = 0; i<usersValidity.length; i++)
+	  	{
+	  		if(usersValidity[i].valid == true)
+	  			counter++;
+	  	}
+	  	return counter;
+	  }
+
 	  
 	  return {
 	    addUsers: addUsers,
@@ -183,7 +208,9 @@
 	    setCarInsuranceChosen : setCarInsuranceChosen,
 	    setHouseInsuranceChosen: setHouseInsuranceChosen,
 	    getHouseInsuranceChosen : getHouseInsuranceChosen,
-	    getCarInsuranceChosen : getCarInsuranceChosen
+	    getCarInsuranceChosen : getCarInsuranceChosen,
+	    setUserValidity: setUserValidity,
+	    getValidUserCount: getValidUserCount
 	  };
 	}
 })();

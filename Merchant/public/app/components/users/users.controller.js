@@ -13,16 +13,32 @@
 			return;
 		}
 		var uc = this;
-		uc.page = $stateParams.userIndex;	
+		uc.page = $stateParams.userIndex;
+		uc.usersValid = false;	
 		
 		$scope.$watch('uc.usersForm.$invalid', function(form) {
 		  if(form) {
 			  SideBar.setHouseActive(false);
 			  SideBar.setCarActive(false);
 			  SideBar.setDataActive(false);
+			  InsuranceData.setUserValidity($stateParams.userIndex,false);
+		  	uc.usersValid = false;
+			 
 			// your code...
 		  }
+
 		});
+
+		$scope.$watch('uc.usersForm.$valid', function(form) {
+		  if(form) {
+			  InsuranceData.setUserValidity($stateParams.userIndex,true);
+		  	 var validCount = InsuranceData.getValidUserCount();
+			  if(validCount==InsuranceData.getInsuranceData().numberOfUsers){
+			  	uc.usersValid = true;
+			  }
+			 
+			// your code...
+		  }});
 
 		console.log(InsuranceData.getInsuranceData());
 		//uc.user = $rootScope.insurance.users[uc.page-1];
