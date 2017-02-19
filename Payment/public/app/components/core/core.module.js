@@ -2,5 +2,5 @@
 	"use strict";
 	
 	angular
-		.module('payment-app.core', ['ui.router']);
+		.module('payment-app.core', ['ui.router','bzSlider']);
 })();
