@@ -69,6 +69,11 @@
 	  		{
 	  			insurance.users.splice(i,1);
 	  		}
+	  		for(var i=0; i<usersValidity.length; i++)
+	  		{
+	  			if(usersValidity[i].index>userNumber)
+	  				usersValidity.splice(i,1);
+	  		}
 	  	}
 	  	else
 	  	{
@@ -198,6 +203,17 @@
 	  	return counter;
 	  }
 
+	  var removeUserValidity = function(){
+	  	for(var i=0; i<usersValidity.length; i++)
+	  	{
+	  		if(usersValidity[i].index == usersValidity.length)
+	  		{
+	  			usersValidity.splice(i,1);
+	  			break;
+	  		}
+	  	}
+	  }
+
 	  
 	  return {
 	    addUsers: addUsers,
@@ -210,7 +226,8 @@
 	    getHouseInsuranceChosen : getHouseInsuranceChosen,
 	    getCarInsuranceChosen : getCarInsuranceChosen,
 	    setUserValidity: setUserValidity,
-	    getValidUserCount: getValidUserCount
+	    getValidUserCount: getValidUserCount,
+	    removeUserValidity: removeUserValidity
 	  };
 	}
 })();

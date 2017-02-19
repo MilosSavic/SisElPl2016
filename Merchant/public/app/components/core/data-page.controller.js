@@ -124,6 +124,7 @@
 				dpc.users[i].index = i+1;
 			}
 			InsuranceData.getInsuranceData().numberOfUsers--;
+			InsuranceData.removeUserValidity();
 			insurance.numberOfUsers--;
 			dpc.sure=0;
 			totalPrice = 0;
