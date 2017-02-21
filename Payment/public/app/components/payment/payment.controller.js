@@ -19,7 +19,7 @@
 
 
 		pay.currentLanguage = crTranslations[crTranslator.getLanguage()].LANGUAGE;
-		console.log(pay.currentLanguage);
+
 		codeValidity.$save(function(response){
 			if(!response.valid)
 			{
@@ -135,7 +135,7 @@
 
 
 				});
-
+				
 				var getPay = Payment.getPaymentsDB();
 
 		};

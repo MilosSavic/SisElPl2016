@@ -2,7 +2,7 @@
   "name": "merchant-app",
   "version": "0.0.0",
   "authors": [
-    "Nikola Luburić <luburic91@gmail.com>"
+    "Nikola Luburić, Rajko Ilic"
   ],
   "description": "This web application represents a registry which tracks companies and their employees",
   "main": "index.html",
@@ -21,6 +21,7 @@
     "angular-animate": "^1.5.8",
     "angular-bootstrap": "^2.1.4",
     "angularjs-dropdown-multiselect": "latest",
+    "angular-material": "~0.10.0",
     "bz-slider": "*"
   },
   "devDependencies": {

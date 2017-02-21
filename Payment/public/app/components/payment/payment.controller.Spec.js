@@ -80,6 +80,8 @@ describe("PaymentController", function() {
 	it("should have some payments at start", function() {
 		expect(paymCtrl.payment).toBeDefined();
 		expect(paymCtrl.payment.length).toBe(undefined);
+		expect(paymCtrl.currentLanguage).toBeDefined();
+		expect(paymCtrl.datepicker).toBeDefined();
 	});
 
 	

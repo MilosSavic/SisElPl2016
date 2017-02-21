@@ -2,7 +2,7 @@
 	"use strict";
 
 	angular
-		.module('merchant-app.core')
+		.module('merchant-app.insurance')
 		.factory('EmailService', EmailService);
 
 	EmailService.$inject = ['$resource'];

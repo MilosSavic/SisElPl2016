@@ -6,12 +6,11 @@
 		.controller('InsuranceController', InsuranceController);
 
 
-	InsuranceController.$inject = ['$scope','$location','Insurance','Region','$state','$rootScope','User','InsuranceData','SideBar','Amount','crTranslator', 'crTranslations'];
-	function InsuranceController($scope,$location,Insurance,Region,$state,$rootScope,User,InsuranceData,SideBar,Amount,crTranslator, crTranslations) {
+	InsuranceController.$inject = ['$scope','$window','$location','Insurance','Region','$state','$rootScope','User','InsuranceData','SideBar','Amount','crTranslator','crTranslations','EmailService'];
+	function InsuranceController($scope,$window,$location,Insurance,Region,$state,$rootScope,User,InsuranceData,SideBar,Amount,crTranslator,crTranslations,EmailService) {
 		var ic = this;
 		
 		ic.currentLanguage = crTranslations[crTranslator.getLanguage()].LANGUAGE;
-		console.log(ic.currentLanguage);
 		
 		$scope.$watch('ic.insuranceForm.$invalid', function(form) {
 		  if(form) {
@@ -25,7 +24,6 @@
 		
 		ic.insurance = InsuranceData.getInsuranceData();
 		ic.numberOfUsers = InsuranceData.getInsuranceData().numberOfUsers;
-		console.log(ic.currentLanguage);
 
 
 		ic.datepickerStart = {
@@ -118,73 +116,3 @@
 })();
 
 
-/*(function() {
-	'use strict';
-
-	angular
-		.module('merchant-app.insurance')
-		.controller('InsController', InsController);
-
-	InsController.$inject = ['insuranceService'];
-	function InsController(insuranceService) {
-		var ic = this;
-
-		ic.insuranceDB = new insuranceService();
-		insuranceService.getInsurancesDB().then(function(insurancesDB) {
-			ic.insurancesDB = insurancesDB;
-		});
-		ic.saveInsuranceDB = saveInsuranceDB;
-		ic.resetDB = resetDB;
-		ic.deleteInsuranceDB = deleteInsuranceDB;
-
-		ic.lastSaveSuccessDB = true;
-		ic.lastDeleteIndexDB = -1;
-
-		function saveInsuranceDB() {
-			insuranceService.saveInsuranceDB(ic.insuranceDB);
-			ic.resetDB();
-		}
-
-		function resetDB() {
-			ic.insuranceDB = new insuranceService();
-		}
-
-		function deleteInsuranceDB(insuranceDB) {
-			insuranceService.removeInsuranceDB(insuranceDB);
-		}
-	}
-})();
-
-
-(function() {
-	'use strict';
-
-	angular
-		.module('merchant-app.insurance')
-		.controller('InsControllerInit', InsControllerInit);
-
-	InsControllerInit.$inject = ['insuranceServiceInit'];
-	function InsControllerInit(insuranceServiceInit) {
-		var ic = this;
-		ic.insurances = insuranceServiceInit.getInsurances();
-		ic.saveInsurance = saveInsurance;
-		ic.reset = reset;
-		ic.deleteInsurance = deleteInsurance;
-
-		ic.lastSaveSuccess = true;
-		ic.lastDeleteIndex = -1;
-
-		function saveInsurance() {
-			ic.lastSaveSuccess = insuranceServiceInit.addInsurance(ic.insurance);
-			ic.insurance = {};
-		}
-
-		function reset() {
-			ic.insurance = {};
-		}
-
-		function deleteInsurance(_id) {
-			insuranceServiceInit.removeInsurance(_id);
-		}
-	}
-})();*/

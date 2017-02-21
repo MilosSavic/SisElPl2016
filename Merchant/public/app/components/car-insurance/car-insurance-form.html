@@ -41,7 +41,7 @@
     <form class="form-horizontal" novalidate name="car">
       <md-tabs md-stretch-tabs="always"  md-selected="cic.selectedTab" >
 
-        <div ng-repeat="optionGroup in cic.serviceData" class="form-group">
+        <div data-ng-repeat="optionGroup in cic.serviceData.slice().reverse()" class="form-group">
         
           <md-tab md-selected="cic.selectedTab" >
           <md-tab-label>
