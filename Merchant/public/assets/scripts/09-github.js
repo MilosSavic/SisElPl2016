@@ -1,6 +1,7 @@
-'use strict';
-
 angular.module("ngSocial").directive('ngSocialGithub', function () {
+ 
+  'use strict';
+
   var options = {
     counter: {
       url: '//api.github.com/repos/MilosSavic/SisElPl2016?callback=JSON_CALLBACK',

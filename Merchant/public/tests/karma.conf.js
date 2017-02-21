@@ -15,7 +15,8 @@ module.exports = function(config) {
 
     // list of files / patterns to load in the browser
     files: [
-        'assets/js/angular/angular.js',
+       'assets/js/angular/angular.js',
+      //  'assets/js/angular/angular.min.js',
         'assets/js/angular-mocks/angular-mocks.js',
         "assets/js/angular-resource/angular-resource.js",
         "assets/js/angular-ui-router/release/angular-ui-router.js",
@@ -24,7 +25,10 @@ module.exports = function(config) {
         "assets/js/angular-bootstrap/ui-bootstrap-tpls.js",
         "assets/js/angular-animate/angular-animate.js",
         "assets/js/angular-messages/angular-messages.js",
-        'app/app.module.js',
+        "assets/js/angularjs-dropdown-multiselect/dist/angularjs-dropdown-multiselect.min.js",
+        "assets/js/angular-social.js",
+        "assets/js/bz-slider/bz-slider.js",
+        'app/app.module.js', 
         "app/components/amount/amount.module.js",
         "app/components/car-insurance/car-insurance.module.js",
         "app/components/car-insurance-service/car-insurance-service.module.js",

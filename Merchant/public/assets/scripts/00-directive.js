@@ -95,7 +95,7 @@ app.directive('ngSocialButtons', ['$compile', '$q', '$parse', '$http', '$locatio
                     if (showcounts) {
                         if (options.counter.get) {
                             options.counter.get(url, def, $http);
-                        } /*else {
+                        }/*else {
                             $http.jsonp(url).success(function (res) {
                                 if (options.counter.getNumber) {
                                     def.resolve(options.counter.getNumber(res));

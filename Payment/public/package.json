@@ -8,7 +8,7 @@
     "form validation",
     "custom directives"
   ],
-   "dependencies": {
+  "dependencies": {
     "nodemailer": "latest",
     "express": "latest"
   },

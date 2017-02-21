@@ -27,7 +27,7 @@
 				"ABOUT3":"You can also contact us at the following e-mail addresses:",
 				"FAILED":"Transaction failed",
 				"SUCCESS":"Successfully completed payments",
-				"ERROR":"There was an error",
+				"ERROR":"There was an error.",
 				"PURCHASE":"Insurance purchase",
 				"GROUP":"Group",
 				"CONFIRM":"Confirm",
@@ -35,6 +35,7 @@
 				"PREVIOUS":"Previous",
 				"STOP":"Stop",
 				"PLAY":"Play",
+				"ERROR1":"Couldn't connect to database. Please try again later.",
 				
 
 				
@@ -269,7 +270,7 @@
 				"ABOUT3":"Možete nam se obratiti na sledećim e-mail adresama:",
 				"FAILED":"Transakcija nije uspela",
 				"SUCCESS":"Uspešno izvršeno plaćanje",
-				"ERROR":"Došlo je do greške",
+				"ERROR":"Došlo je do greške.",
 				"PURCHASE":"Kupovina osiguranja",
 				"GROUP":"Grupa",
 				"CONFIRM":"Potvrdi",
@@ -277,6 +278,7 @@
 				"PREVIOUS":"Prethodni",
 				"STOP":"Zaustavi",
 				"PLAY":"Pusti",
+				"ERROR1":"Nije moguće uspostaviti konekciju ka bazi. Molimo pokušajte kasnije.",
 				
 
 				

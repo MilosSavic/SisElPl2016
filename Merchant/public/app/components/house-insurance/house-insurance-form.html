@@ -42,7 +42,7 @@
         <div ng-repeat="option in hic.insuranceData" class="form-group">
             <label ng-show="hic.currentLanguage == 'En'" class="control-label col-sm-2" for="code" translate>{{option.label}}: </label>
             <label ng-show="hic.currentLanguage == 'Sr'" class="control-label col-sm-2" for="code" translate>{{option.labelSer}}: </label>
-            <div class="col-sm-6 col-md-4" busy-indicator>
+            <div class="col-sm-2 col-md-2" busy-indicator>
                 <input type="checkbox" data-ng-model="option.selected" ng-value={{"option._id"}} id="coveredByInsurance" ng-click="hic.updateHouseInsurance()" name="coveredByInsurance" class="form-control" ng-required="hic.isOptionsRequired()" >
             </div>
         </div>   

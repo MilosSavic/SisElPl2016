@@ -47,7 +47,7 @@ app.use(morgan("dev"));
 app.use(morgan(":date :remote-addr :remote-user :method :url HTTP/:http-version :status :res[content-length] - :response-time ms",{stream: accessLogStream}));
 
 
-var buyers = require('./controllers/buyer.server.controller.js');
+/*var buyers = require('./controllers/buyer.server.controller.js');
 var sellers = require('./controllers/seller.server.controller.js');
 var payments = require('./controllers/payment.server.controller.js');
 var mainServices = require('./controllers/communication.server.controller.js');
@@ -78,7 +78,11 @@ app.route('/api/getURLandID')
 	
 app.route('/api/checkCodeValidity')
 	.get(mainServices.checkCodeValidity)
-	.post(mainServices.checkCodeValidity);
+	.post(mainServices.checkCodeValidity);*/
+
+require('./routes/communication.server.routes')(app);
+require('./routes/payment.server.routes')(app);
+require('./routes/seller.server.routes')(app);
 
 
 

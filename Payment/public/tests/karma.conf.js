@@ -24,6 +24,7 @@ module.exports = function(config) {
         "assets/js/angular-bootstrap/ui-bootstrap-tpls.js",
         "assets/js/angular-animate/angular-animate.js",
         "assets/js/angular-messages/angular-messages.js",
+        "assets/js/bz-slider/bz-slider.js",
         'app/app.module.js',
         "app/components/core/core.module.js",
         "app/components/payment/payment.module.js",

@@ -39,11 +39,11 @@
  <div class="form-bottom">
   
     <form class="form-horizontal" novalidate name="car">
-      <md-tabs md-stretch-tabs="always" md-dynamic-height md-selected="cic.selectedTab" >
+      <md-tabs md-stretch-tabs="always"  md-selected="cic.selectedTab" >
 
         <div ng-repeat="optionGroup in cic.serviceData" class="form-group">
         
-          <md-tab md-selected="cic.selectedTab">
+          <md-tab md-selected="cic.selectedTab" >
           <md-tab-label>
           <div ng-repeat="option in optionGroup" >
             <p><span translate>{{"COMMON.GROUP"}}</span> <span>{{option.group}}</span></p>
@@ -52,9 +52,9 @@
           <md-tab-body>
           <br>
           <div ng-repeat="option in optionGroup" class="form-group">
-              <label ng-show="cic.currentLanguage == 'En'" class="control-label col-sm-2" for="code" translate>{{option.label}}: </label>
-               <label ng-show="cic.currentLanguage == 'Sr'" class="control-label col-sm-2" for="code" translate>{{option.labelSer}}: </label>
-              <div class="col-sm-6 col-md-4" busy-indicator>
+              <label ng-show="cic.currentLanguage == 'En'" class="control-label col-sm-4" for="code" translate>{{option.label}}: </label>
+               <label ng-show="cic.currentLanguage == 'Sr'" class="control-label col-sm-4" for="code" translate>{{option.labelSer}}: </label>
+              <div class="col-sm-2 col-md-2" busy-indicator>
                   <input type="checkbox" data-ng-model="option.selected" ng-value={{"option._id"}} id="services" ng-click="cic.updateCarInsurance(option)" name="services" class="form-control" ng-required="cic.isOptionsRequired()">
                 </div>
            </div>
