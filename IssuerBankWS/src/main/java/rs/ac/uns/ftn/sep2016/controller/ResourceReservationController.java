@@ -69,7 +69,7 @@ public class ResourceReservationController {
 				userAccount.setAccountAmount(userAccount.getAccountAmount() - request.getTransactionAmount());
 				userAccount.setReservationAmount(userAccount.getReservationAmount() + request.getTransactionAmount());
 				userAccountService.persist(userAccount);
-				TransactionOrder order = new TransactionOrder(new Date(), request.getAcquirerOrderId(), request.getAcquirerTimestamp(), userAccount, bin);
+				TransactionOrder order = new TransactionOrder(new Date(), request.getAcquirerOrderId(), request.getAcquirerTimestamp(), request.getTransactionAmount(), userAccount, bin);
 				orderService.persist(order);
 				return new AuthResponse(request.getAcquirerOrderId(), request.getAcquirerTimestamp(), order.getIssuerOrderId(), order.getIssuerTimestamp(), HttpStatus.OK, "Issuer: Transaction completed. " + request.getTransactionAmount() + " was successfully reserved from account " + request.getPan());
 			} else {
