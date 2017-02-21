@@ -33,6 +33,9 @@ public class TransactionOrder implements Serializable {
 	@Column(name = "ACQUIRER_TIMESTAMP")
 	private Date acquirerTimestamp;
 	
+	@Column(name = "ORDER_AMOUNT")
+	private Double orderAmount;
+	
 	@ManyToOne(fetch=FetchType.EAGER)
 	@JoinColumn(name = "ORDER_USER_ACCOUNT")
 	private UserAccount orderUserAccount;
@@ -45,10 +48,11 @@ public class TransactionOrder implements Serializable {
 		
 	}
 	
-	public TransactionOrder(Date issuerTimestamp, long acquirerOrderId, Date acquirerTimestamp, UserAccount orderUserAccount, BankIdentificationNumber orderBin){
+	public TransactionOrder(Date issuerTimestamp, long acquirerOrderId, Date acquirerTimestamp, Double orderAmount, UserAccount orderUserAccount, BankIdentificationNumber orderBin){
 		this.issuerTimestamp = issuerTimestamp;
 		this.acquirerOrderId = acquirerOrderId;
 		this.acquirerTimestamp = acquirerTimestamp;
+		this.orderAmount = orderAmount;
 		this.orderUserAccount = orderUserAccount;
 		this.orderBin = orderBin;
 	}
@@ -83,6 +87,14 @@ public class TransactionOrder implements Serializable {
 
 	public void setAcquirerTimestamp(Date acquirerTimestamp) {
 		this.acquirerTimestamp = acquirerTimestamp;
+	}
+
+	public Double getOrderAmount() {
+		return orderAmount;
+	}
+
+	public void setOrderAmount(Double orderAmount) {
+		this.orderAmount = orderAmount;
 	}
 
 	public UserAccount getOrderUserAccount() {
