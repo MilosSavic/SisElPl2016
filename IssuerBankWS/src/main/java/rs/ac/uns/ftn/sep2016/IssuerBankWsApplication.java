@@ -49,9 +49,12 @@ public class IssuerBankWsApplication {
 	
 	@PostConstruct
 	public void postConstruct() throws FileNotFoundException{
-		System.setProperty("javax.net.ssl.trustStore", ResourceUtils.getFile("classpath:issuer.jks").getAbsolutePath());
-		System.setProperty("javax.net.ssl.trustStorePassword", "password");
-		System.setProperty("javax.net.ssl.keyStore", ResourceUtils.getFile("classpath:issuer.jks").getAbsolutePath());
-		System.setProperty("javax.net.ssl.keyStorePassword", "password");
+
+		if(System.getProperty("javax.net.ssl.trustStore") == null){
+			System.setProperty("javax.net.ssl.trustStore", ResourceUtils.getFile("classpath:issuer.jks").getAbsolutePath());
+			System.setProperty("javax.net.ssl.trustStorePassword", "password");
+			System.setProperty("javax.net.ssl.keyStore", ResourceUtils.getFile("classpath:issuer.jks").getAbsolutePath());
+			System.setProperty("javax.net.ssl.keyStorePassword", "password");
+		}
 	}
 }

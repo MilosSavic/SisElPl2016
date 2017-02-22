@@ -51,10 +51,12 @@ public class AcquirerBankWsApplication {
 	
 	@PostConstruct
 	public void postConstruct() throws IOException{
-		System.setProperty("javax.net.ssl.trustStore", ResourceUtils.getFile("classpath:acquirer.jks").getCanonicalPath());
-		System.setProperty("javax.net.ssl.trustStorePassword", "password");
-		System.setProperty("javax.net.ssl.keyStore", ResourceUtils.getFile("classpath:acquirer.jks").getCanonicalPath());
-		System.setProperty("javax.net.ssl.keyStorePassword", "password");
+		if(System.getProperty("javax.net.ssl.trustStore") == null){
+			System.setProperty("javax.net.ssl.trustStore", ResourceUtils.getFile("classpath:acquirer.jks").getCanonicalPath());
+			System.setProperty("javax.net.ssl.trustStorePassword", "password");
+			System.setProperty("javax.net.ssl.keyStore", ResourceUtils.getFile("classpath:acquirer.jks").getCanonicalPath());
+			System.setProperty("javax.net.ssl.keyStorePassword", "password");
+		}
 	}
 	
 }
