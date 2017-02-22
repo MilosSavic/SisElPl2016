@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Insurance</title>
+
+    <link href="./assets/css/bootstrap.css" rel="stylesheet">
+     <link rel="stylesheet" href="assets/css/style.css">
+    <link href="./assets/css/company.css" rel="stylesheet">
+    <link href="./assets/css/font-awesome.css" rel="stylesheet">
+    <link href="./assets/css/solution.css" rel="stylesheet">
+    <link href="./assets/css/test2.css" rel="stylesheet">
+</head>
+<body ng-app="merchant-app">
+<div class="container">
+
+
+
+  <div class="form-top">
+       <div class="form-top-left">
+           <h3 translate>{{"SIDEBAR.HOUSEINSURANCE"}}</h3>                                 
+      </div>
+      <div class="form-top-right">
+        <button type="button" class="btn_medium btn-primary" ng-click="hic.goToCarInsurance()" translate>{{"COMMON.SKIP"}}</button>
+      </div>
+    </div> 
+
+
+  <ul class="tab">
+  <li><a href="javascript:void(0)" class="tablinks" ng-click="hic.openTab('Part1')" translate>{{"HOUSE.CHOOSE_INSURANCE"}}</a>
+  </li>
+  <li data-ng-show="!hic.isOptionsRequired()"><a href="javascript:void(0)" class="tablinks " ng-click="hic.openTab('Part2')"  translate>{{"HOUSE.HOUSE_DATA"}}</a></li>
+  <li data-ng-show="hic.isOptionsRequired()"><a href="javascript:void(0)" class="tablinks disabled" ng-click="hic.openTab('Part2')"  translate>{{"HOUSE.HOUSE_DATA"}}</a>
+  </li>
+  </ul>
+
+
+  <div id="Part1" class="tabcontent">
+  <div class="form-bottom">
+    <form  class="form-horizontal" novalidate name="house" >
+
+
+        <div ng-repeat="option in hic.insuranceData" class="form-group">
+            <label ng-show="hic.currentLanguage == 'En'" class="control-label col-sm-2" for="code" translate>{{option.label}}: </label>
+            <label ng-show="hic.currentLanguage == 'Sr'" class="control-label col-sm-2" for="code" translate>{{option.labelSer}}: </label>
+            <div class="col-sm-2 col-md-2" busy-indicator>
+                <input type="checkbox" data-ng-model="option.selected" ng-value={{"option._id"}} id="coveredByInsurance" ng-click="hic.updateHouseInsurance()" name="coveredByInsurance" class="form-control" ng-required="hic.isOptionsRequired()" >
+            </div>
+        </div>   
+        <br>      
+
+        <div class="col-sm-offset-2" >
+            <button type="button" class="btn_medium btn-primary" ng-click="hic.openTab('Part2')" ng-disabled="!house.$valid" translate >{{"COMMON.CONFIRM"}}</button>
+            
+        </div>
+    </form>
+</div>
+</div>
+    
+    <div id="Part2" class="tabcontent">
+    <div class="form-bottom">
+    <form class="form-horizontal" novalidate name="hic.houseInsuranceForm">
+        <div class="form-group" ng-class="{ 'has-error': hic.houseInsuranceForm.size.$touched && hic.houseInsuranceForm.size.$invalid }">
+            <label class="control-label col-sm-2" for="size" translate>{{"HOUSE.SIZE"}}</label>
+            <div class="col-sm-6 col-md-4" busy-indicator>
+                <input type="text" ng-model="hic.houseInsurance.size" id="size" name="size" class="form-control" ng-pattern="/^[0-9]+$/" required  >
+
+                <div ng-messages="hic.houseInsuranceForm.size.$error" ng-show="hic.houseInsuranceForm.size.$touched">
+                    <p ng-message="required"><span translate>{{"HOUSE.ERROR.REQUIRED"}}</span></p>
+                     <p ng-message="pattern"><span translate>{{"HOUSE.ERROR.NUMBER"}}</span></p>
+                </div>
+            </div>
+        </div>
+        <div class="form-group" ng-class="{ 'has-error': hic.houseInsuranceForm.age.$touched && hic.houseInsuranceForm.age.$invalid }">
+            <label class="control-label col-sm-2" for="code" translate>{{"HOUSE.AGE"}}</label>
+            <div class="col-sm-6 col-md-4">
+                <input type="text" ng-model="hic.houseInsurance.age" id="age" name="age" class="form-control" ng-pattern="/^[0-9]+$/" required>
+
+                 <div ng-messages="hic.houseInsuranceForm.age.$error" ng-show="hic.houseInsuranceForm.age.$touched">
+                    <p ng-message="required"><span translate>{{"HOUSE.ERROR.REQUIRED"}}</span></p>
+                    <p ng-message="pattern"><span translate>{{"HOUSE.ERROR.NUMBER"}}</span></p>
+                </div>
+
+            </div>
+        </div>
+        <div class="form-group" ng-class="{ 'has-error': hic.houseInsuranceForm.estimatedValue.$touched && hic.houseInsuranceForm.estimatedValue.$invalid }">
+            <label class="control-label col-sm-2" for="estimatedValue" translate>{{"HOUSE.ESTIMATEDVALUE"}}</label>
+            <div class="col-sm-6 col-md-4">
+                <input type="text" ng-model="hic.houseInsurance.estimatedValue" id="estimatedValue" name="estimatedValue" ng-pattern="/^[0-9]+$/" class="form-control" required>
+
+                 <div ng-messages="hic.houseInsuranceForm.estimatedValue.$error" ng-show="hic.houseInsuranceForm.estimatedValue.$touched">
+                    <p ng-message="required"><span translate>{{"HOUSE.ERROR.REQUIRED"}}</span></p>
+                    <p ng-message="pattern"><span translate>{{"HOUSE.ERROR.NUMBER"}}</span></p>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="form-group" ng-class="{ 'has-error': hic.houseInsuranceForm.adress.$touched && hic.houseInsuranceForm.adress.$invalid }">
+            <label class="control-label col-sm-2" for="address" translate>{{"HOUSE.ADDRESS"}}</label>
+            <div class="col-sm-6 col-md-4">
+                <input type="text" ng-model="hic.houseInsurance.adress" id="adress" name="adress" class="form-control" required>
+
+                <div ng-messages="hic.houseInsuranceForm.adress.$error" ng-show="hic.houseInsuranceForm.adress.$touched">
+                    <p ng-message="required"><span translate>{{"HOUSE.ERROR.REQUIRED"}}</span></p>
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group" ng-class="{ 'has-error': hic.houseInsuranceForm.ownerFirstName.$touched && hic.houseInsuranceForm.ownerFirstName.$invalid }">
+            <label class="control-label col-sm-2" for="code" translate>{{"HOUSE.OWNERFN"}}</label>
+            <div class="col-sm-6 col-md-4">
+                <input type="text" ng-model="hic.houseInsurance.ownerFirstName" id="ownerFirstName" name="ownerFirstName" class="form-control" required>
+
+                 <div ng-messages="hic.houseInsuranceForm.ownerFirstName.$error" ng-show="hic.houseInsuranceForm.ownerFirstName.$touched">
+                    <p ng-message="required"><span translate>{{"HOUSE.ERROR.REQUIRED"}}</span></p>
+                </div>
+
+
+            </div>
+        </div>
+
+        <div class="form-group" ng-class="{ 'has-error': hic.houseInsuranceForm.ownerLastName.$touched && hic.houseInsuranceForm.ownerLastName.$invalid }">
+            <label class="control-label col-sm-2" for="code" translate>{{"HOUSE.OWNERLN"}}</label>
+            <div class="col-sm-6 col-md-4">
+                <input type="text" ng-model="hic.houseInsurance.ownerLastName" id="ownerLastName" name="ownerLastName" class="form-control" required>
+
+                 <div ng-messages="hic.houseInsuranceForm.ownerLastName.$error" ng-show="hic.houseInsuranceForm.ownerLastName.$touched">
+                    <p ng-message="required"><span translate>{{"HOUSE.ERROR.REQUIRED"}}</span></p>
+                </div>
+
+
+            </div>
+        </div>
+
+        <div class="form-group" ng-class="{ 'has-error': hic.houseInsuranceForm.ownerJMBG.$touched && hic.houseInsuranceForm.ownerJMBG.$invalid }">
+            <label class="control-label col-sm-2" for="code" translate>{{"HOUSE.OWNERJMBG"}}</label>
+            <div class="col-sm-6 col-md-4">
+                <input type="text" ng-model="hic.houseInsurance.ownerJMBG" id="ownerJMBG" name="ownerJMBG" ng-pattern="/^[0-9]{13}$/" class="form-control" required>
+
+                <div ng-messages="hic.houseInsuranceForm.ownerJMBG.$error" ng-show="hic.houseInsuranceForm.ownerJMBG.$touched">
+                    <p ng-message="required"><span translate>{{"HOUSE.ERROR.REQUIRED"}}</span></p>
+                    <p ng-message="pattern"><span translate>{{"HOUSE.ERROR.JMBG"}}</span></p>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="col-sm-offset-2" >
+            <button type="button" class="btn_medium btn-primary" ng-click="hic.addHouseInsurance()" translate ng-disabled="hic.houseInsuranceForm.$invalid">{{"COMMON.SUBMIT"}}</button>
+            <button type="button" class="btn_medium btn-secondary" ng-click="hic.openTab('Part1')" translate>{{"COMMON.BACK"}}</button>
+        </div>
+            </form>
+        </div>
+</div>
+
+
+
+
+
+
+
+        
+</div>
+
+
+</div>
+
+
+</body>
+</html>

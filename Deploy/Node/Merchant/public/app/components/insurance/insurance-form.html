@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Insurance</title>
+
+		 
+      <link href="./assets/css/bootstrap.css" rel="stylesheet">
+     <link rel="stylesheet" href="assets/css/style.css">
+    <link href="./assets/css/company.css" rel="stylesheet">
+    <link href="./assets/css/font-awesome.css" rel="stylesheet">
+    <link href="./assets/css/solution.css" rel="stylesheet">
+</head>
+<body  ng-app="merchant-app">
+
+	
+  <div class="container">
+
+
+
+	<div class="form-top">
+       <div class="form-top-left">
+          <h3 translate>{{"SIDEBAR.INSURANCE"}}</h3>
+                            		
+      </div>
+    </div>       
+
+<div class="form-bottom">
+
+	<form role="form" class="form-horizontal" novalidate name="ic.insuranceForm" >
+
+			<div class="form-group" ng-class="{ 'has-error': ic.insuranceForm.date.$touched && ic.insuranceForm.date.$invalid }">
+
+				<label class="control-label col-sm-2" for="startDate" translate>{{"INSURANCE.INSURANCESTARDATE"}}</label>
+				<div class="col-sm-6 col-md-4">
+				<input id="startDate" name="date" type="text" class="form-control" ng-model="ic.insurance.startDate" is-open="ic.datepickerStart.opened" datepicker-options="ic.datepickerStart" ng-change="ic.startDatePicked()" ng-click="ic.datepickerStart.opened = true" uib-datepicker-popup="{{ic.datepickerStart.format}}" required/>
+				
+
+				<div ng-messages="ic.insuranceForm.date.$error.required" ng-show="ic.insuranceForm.date.$touched">
+			        <span class="validationText" ng-show="ic.insuranceForm.date.$error.required" translate>{{"INSURANCE.ERROR.DATESTART"}}</span>
+			        
+			    </div>
+			    </div>
+
+				
+			</div>
+
+
+			<div class="form-group" ng-class="{ 'has-error': ic.insuranceForm.date1.$touched && ic.insuranceForm.date1.$invalid }">
+
+				<label class="control-label col-sm-2" for="endDate" translate>{{"INSURANCE.INSURANCEENDDATE"}}</label>
+				<div class="col-sm-6 col-md-4">
+				<input id="endDate" type="text" name="date1" class="form-control" ng-model="ic.insurance.endDate" is-open="ic.datepickerEnd.opened" datepicker-options="ic.datepickerEnd" ng-click="ic.datepickerEnd.opened = true" uib-datepicker-popup="{{ic.datepickerEnd.format}}" required/>
+
+				<div ng-messages="ic.insuranceForm.date1.$error.required" ng-show="ic.insuranceForm.date1.$touched">
+			        <span class="validationText" ng-show="ic.insuranceForm.date1.$error.required" translate>{{"INSURANCE.ERROR.DATEEND"}}</span>
+			        
+			    </div>
+				</div>
+			</div>
+
+			<div class="form-group" ng-class="{ 'has-error': ic.insuranceForm.amount.$touched && ic.insuranceForm.amount.$invalid }">
+				<label class="control-label col-sm-2" for="amount" translate>{{"INSURANCE.INSURANCEVALUE"}}</label>
+					<div class="col-sm-6 col-md-4">
+			        <select class="form-control" name="amount" id="amount" ng-model="ic.insurance.amount._id" required>
+			          <option ng-repeat="amount in ic.amounts" value="{{amount._id}}">{{ amount.amount }} EUR</option>
+			        </select>
+
+			        <div ng-messages="ic.insuranceForm.amount.$error.required" ng-show="ic.insuranceForm.amount.$touched">
+			        <span class="validationText" ng-show="ic.insuranceForm.amount.$error.required" translate>{{"INSURANCE.ERROR.AMOUNT"}}</span>
+			        </div>
+			    	</div>
+
+			</div>
+
+		<div class="form-group" ng-class="{ 'has-error': ic.insuranceForm.region.$touched && ic.insuranceForm.region.$invalid }">
+		<label class="control-label col-sm-2" translate> {{"INSURANCE.REGION"}}</label>
+				<div class="col-sm-6 col-md-4">
+		        <select ng-show="ic.currentLanguage == 'En'" class="form-control" id="region" name="region" ng-model="ic.insurance.region._id" required>
+		          <option ng-repeat="region in ic.regions" value="{{region._id}}">{{ region.name }}</option>
+		        </select>
+
+		        <select ng-show="ic.currentLanguage == 'Sr'" class="form-control" id="region" name="region1" ng-model="ic.insurance.region._id" required>
+		          <option ng-repeat="region in ic.regions" value="{{region._id}}">{{ region.nameSer }}</option>
+		        </select>
+
+		        <div ng-messages="ic.insuranceForm.region.$error.required" ng-show="ic.insuranceForm.region.$touched">
+			        <span class="validationText" ng-show="ic.insuranceForm.region.$error.required" translate>{{"INSURANCE.ERROR.REGION"}}</span>
+			     </div>
+			     <div ng-messages="ic.insuranceForm.region1.$error.required" ng-show="ic.insuranceForm.region1.$touched">
+			        <span class="validationText" ng-show="ic.insuranceForm.region1.$error.required" translate>{{"INSURANCE.ERROR.REGION"}}</span>
+			     </div>
+
+		        </div>
+		</div>
+
+		<div class="form-group" ng-class="{ 'has-error': ic.insuranceForm.numberOfUsers.$touched && ic.insuranceForm.numberOfUsers.$invalid }">
+			<label class="control-label col-sm-2" translate>{{"INSURANCE.NUMBEROFUSERS"}}</label>
+			<div class="col-sm-6 col-md-4">
+			<input id="numberOfUsers" name="numberOfUsers" class="form-control" type="number" min="1" max="15" ng-model="ic.numberOfUsers"
+			ng-pattern="/^[0-9]+$/" required>
+
+			<div ng-messages="ic.insuranceForm.numberOfUsers.$error" ng-show="ic.insuranceForm.numberOfUsers.$touched">
+                    <p ng-message="required"><span translate>{{"INSURANCE.ERROR.REQUIRED"}}</span></p>
+                    <p ng-message="pattern"><span translate>{{"INSURANCE.ERROR.NUMBER"}}</span></p>
+                    <p ng-message="min"><span translate>{{"INSURANCE.ERROR.MIN"}}</span></p>
+                    <p ng-message="max"><span translate>{{"INSURANCE.ERROR.MAX"}}</span></p>
+
+                </div>
+
+			</div>
+		</div>
+
+		 <div class="col-sm-offset-2 ">
+		      <button class="btn btn-primary" ng-click="ic.goToUsersForm()" translate ng-disabled="ic.insuranceForm.$invalid">{{"COMMON.NEXT"}}</button>
+		</div>
+	</form>
+</div>
+
+</div>
+
+
+</body>
+</html>

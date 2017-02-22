@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Add amount</title>
+   
+    <link href="./assets/css/bootstrap.css" rel="stylesheet">
+     <link rel="stylesheet" href="assets/css/style.css">
+    <link href="./assets/css/company.css" rel="stylesheet">
+    <link href="./assets/css/font-awesome.css" rel="stylesheet">
+    <link href="./assets/css/solution.css" rel="stylesheet">
+</head>
+<body ng-app="merchant-admin-app">
+<div class="container">
+
+
+
+  <div class="form-top">
+       <div class="form-top-left">
+          <h3 translate>{{"AMOUNT.AMOUNT"}}</h3>
+                                
+      </div>
+    </div> 
+
+<div class="form-bottom">
+
+<form class="form-horizontal" novalidate name="ac.amountForm">
+
+
+    <div class="form-group" ng-class="{ 'has-error': ac.amountForm.amount.$touched && ac.amountForm.amount.$invalid }">
+    <label class="control-label col-sm-2" translate>{{"AMOUNT.AMOUNT"}}</label>
+    <div class="col-sm-6 col-md-4">
+    <input class="form-control" type="text" ng-model="ac.amount.amount"  name="amount" ng-pattern="/^[0-9]+$/" required>
+    <div ng-messages="ac.amountForm.amount.$error" ng-show="ac.amountForm.amount.$touched">
+                    <p ng-message="required"><span translate>{{"AMOUNT.ERROR.REQUIRED"}}</span></p>
+                    <p ng-message="pattern"><span translate>{{"AMOUNT.ERROR.NUMBER"}}</span></p>
+                </div>
+    </div>
+    </div>
+
+     <div class="col-sm-offset-2">
+          <button class="btn btn-primary" ng-click="ac.submitAmount()" ng-disabled="ac.amountForm.$invalid" translate>{{"COMMON.SUBMIT"}}</button>
+    </div>
+
+  </form>
+  </div>
+
+    <br><br><br>
+
+  <table id="t01" align="center" width="75%;" class="table table-striped table-hover table-bordered table-condensed">
+  <tr>
+    <th>&nbsp;</th>
+    <th>ID</th>
+    <th translate>{{"AMOUNT.AMOUNT"}}</th>
+
+  </tr>
+  <tr ng-repeat="element in ac.listOfAmounts">
+    <td style="width:4%;">{{$index+1}}&nbsp;</td>
+    <td style="width:11%;">{{element._id}}</td>
+    <td style="width:9%;">{{element.amount}}</td>
+  </tr>
+  </table>
+
+</div>
+</body>
+</html>

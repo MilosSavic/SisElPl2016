@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html >
+<head>
+    <title>Insurance</title>
+
+  <!--   <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <meta name="viewport" content="width=device-width"> -->
+
+    <link href="./assets/css/bootstrap.css" rel="stylesheet">
+     <link rel="stylesheet" href="assets/css/style.css">
+    <link href="./assets/css/company.css" rel="stylesheet">
+    <link href="./assets/css/font-awesome.css" rel="stylesheet">
+    <link href="./assets/css/solution.css" rel="stylesheet">
+       <!--  <link  href="./assets/css/angular-social.css" rel="stylesheet"> --> 
+
+
+  <!--       <link rel="stylesheet" href="./assets/bootstrap.css">
+        <link rel="stylesheet" href="./assets/js/animate.css/animate.css">
+        <script src="./assets/js/jquery-1.9.1.min.js"></script>
+        <script src="./assets/js/angular/angular.min.js"></script>
+        <script src="./assets/js/angular-animate/angular-animate.js"></script>
+        <script src="./assets/js/bz-slider/bz-slider.src.js"></script>
+        <link rel="stylesheet" href="./assets/js/bz-slider/bz-slider.css"> -->
+
+        <style>
+            .bz-slider {
+                width: 800px;
+                height: 600px;
+                overflow: hidden;
+                background-color: black;
+                border: 1px solid black;
+            }
+            .bz-slide {
+                width: 800px;
+                height: 600px;
+            }
+            .controls {
+                position: absolute;
+                bottom: 0;
+                z-index: 2;
+            }
+        </style> 
+</head>
+<body ng-app="merchant-app">
+
+		<!--  <div>
+          <img src="assets/img/insurance7.jpg" width="75%" height="100%"/>
+     	 </div> -->
+       
+                                
+     
+
+<div ng-controller="SliderController">
+
+
+        <div bz-slider delay="delay" autoplay="true">
+            <div class="bz-slide" ng-repeat="(i, slide) in slides" ng-show="i == $slideIndex" ng-class="slide.class">
+                <img ng-src="{{ slide.image }}" />
+            </div>
+
+            <div class="controls">
+                <button ng-click="prev()" class="btn btn-primary" translate>{{"COMMON.PREVIOUS"}}</button>
+
+                <button ng-click="play()" ng-if="!$play" class="btn btn-primary" translate>{{"COMMON.PLAY"}}</button>
+                <button ng-click="stop()" ng-if="$play" class="btn btn-primary" translate>{{"COMMON.STOP"}}</button>
+
+                <button ng-click="next()" class="btn btn-primary" translate>{{"COMMON.NEXT"}}</button>
+            </div>
+        </div>
+
+
+</div>
+
+
+  
+  </body>
+
+</html> 

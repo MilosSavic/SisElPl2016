@@ -1,0 +1,460 @@
+define Price {
+ value: 1000,
+ constructor: function(value){
+  this.value=value;
+ }
+}
+
+
+define CarInsurance {
+  services: [],
+  carInsurancePrice: 100,
+  constructor: function(services){
+    this.services = services;
+    this.carInsurancePrice = 100;
+  }
+}
+
+define ServicesFired{
+  fired: false,
+  constructor: function(fired){
+    this.fired = fired;
+  }
+}
+
+define HouseInsurance {
+  size: 70,
+  age: 40,
+  estimatedValue: 40000,
+  covers: [],
+  houseInsurancePrice: 0,
+  constructor: function(size,age,estimatedValue,covers,houseInsurancePrice){
+    this.size = size;
+    this.age = age;
+    this.estimatedValue = estimatedValue;
+    this.covers = covers;
+    this.houseInsurancePrice = houseInsurancePrice;
+  }
+}
+
+define InsurancePrice {
+ value: 1000,
+ constructor: function(value){
+  this.value=value;
+ }
+}
+
+define CarInsurancePrice {
+ value: 1000,
+ constructor: function(value){
+  this.value=value;
+ }
+}
+
+
+define SizeFired{
+  fired: false,
+  constructor: function(fired){
+    this.fired = fired;
+  }
+}
+
+define ValueFired{
+  fired: false,
+  constructor: function(fired){
+    this.fired = fired;
+  }
+}
+
+define AgeFired{
+  fired: false,
+  constructor: function(fired){
+    this.fired = fired;
+  }
+}
+
+define CoversFired{
+  fired: false,
+  constructor: function(fired){
+    this.fired = fired;
+  }
+}
+
+define Users{
+  users: [],
+  constructor: function(users)
+  {
+    this.users = users;
+  }
+}
+
+define User {
+  sportRisk: 1,
+  age: 50,
+  sportRiskFired: false,
+  userAgeFired:false,
+  userPrice: 100,
+  constructor: function(sportRisk,age,sportRiskFired,userAgeFired,userPrice){
+    this.sportRisk = sportRisk;
+    this.age = age;
+    this.sportRiskFired = sportRiskFired;
+    this.userAgeFired = userAgeFired;
+    this.userPrice = userPrice;
+  }
+}
+
+define Insurance{
+  regionRisk: 1,
+  amount: 10000,
+  duration: 10,
+  numberOfUsers: 1,
+  constructor: function(regionRisk,amount,duration,numberOfUsers)
+  {
+    this.regionRisk = regionRisk;
+    this.amount = amount;
+    this.duration = duration;
+    this.numberOfUsers = numberOfUsers;
+  }
+}
+
+define NumberOfUsersFired{
+  fired: false,
+  constructor: function(fired){
+    this.fired = fired;
+  }
+}
+
+define AmountFired{
+  fired: false,
+  constructor: function(fired){
+    this.fired = fired;
+  }
+}
+
+define DurationFired{
+  fired: false,
+  constructor: function(fired){
+    this.fired = fired;
+  }
+}
+
+define UserAgeFired{
+  fired: false,
+  constructor: function(fired){
+    this.fired = fired;
+  }
+}
+
+define RiskFired{
+  fired: false,
+  constructor: function(fired){
+    this.fired = fired;
+  }
+}
+
+define RegionRiskFired{
+  fired: false,
+  constructor: function(fired){
+    this.fired = fired;
+  }
+}
+
+rule "services"{
+       priority:17,
+    when {
+        c:CarInsurance;
+      fired: ServicesFired !fired.fired;
+    }
+    then {
+  logger.debug("Services pravilo CAR: ");
+  logger.debug(c);
+  var totalRisk = 0;
+  for(var i=0; i<c.services.length; i++){
+    totalRisk+=c.services[i]
+  }
+  modify(c,function(){this.carInsurancePrice *= totalRisk;});
+  modify(fired,function(){this.fired = true;});
+  logger.debug(c.carInsurancePrice);
+    }
+  }
+
+
+
+rule "size"{
+       priority:18,
+    when {
+        h:HouseInsurance;
+      fired: SizeFired !fired.fired;
+    }
+    then {
+  logger.debug("Size pravilo HOME: ");
+  modify(h,function(){this.houseInsurancePrice *= Math.sqrt(h.size/100);});
+  modify(fired,function(){this.fired = true;});
+  logger.debug(h.houseInsurancePrice);
+    }
+  }
+
+rule "age over 5 and below 15"{
+       priority:18,
+    when {
+        h:HouseInsurance h.age>5 && h.age<15;
+      fired: AgeFired !fired.fired;
+    }
+    then {
+  logger.debug("Age pravilo HOME: ");
+   modify(h,function(){this.houseInsurancePrice *= 1.05;});
+  modify(fired,function(){this.fired = true;});
+ logger.debug(h.houseInsurancePrice);
+    }
+  }
+
+  rule "age >=15 && age<40"{
+       priority:18,
+    when {
+        h:HouseInsurance h.age>=15 && h.age<40;
+      fired: AgeFired !fired.fired;
+    }
+    then {
+  logger.debug("Age pravilo HOME: ");
+   modify(h,function(){this.houseInsurancePrice *= 1.1;});
+  modify(fired,function(){this.fired = true;});
+  logger.debug(h.houseInsurancePrice);
+    }
+  }
+
+  rule "age >=40 && age<70"{
+       priority:18,
+    when {
+        h:HouseInsurance h.age>=40 && h.age<70;
+      fired: AgeFired !fired.fired;
+    }
+    then {
+  logger.debug("Age pravilo HOME: ");
+   modify(h,function(){this.houseInsurancePrice *= 1.2;});
+  modify(fired,function(){this.fired = true;});
+  logger.debug(h.houseInsurancePrice);
+    }
+  }
+
+  rule "age >=70"{
+       priority:18,
+    when {
+        h:HouseInsurance h.age>=70;
+      fired: AgeFired !fired.fired;
+    }
+    then {
+  logger.debug("Age pravilo HOME: ");
+  modify(h,function(){this.houseInsurancePrice *= 1.4;});
+  modify(fired,function(){this.fired = true;});
+  logger.debug(h.houseInsurancePrice);
+    }
+  }
+
+
+
+rule "estimated value"{
+       priority:19,
+    when {
+        h:HouseInsurance;
+      fired: ValueFired !fired.fired;
+    }
+    then {
+  logger.debug("Value pravilo HOME: ");
+  logger.debug(h);
+  modify(h,function(){this.houseInsurancePrice = h.estimatedValue/1000;});
+  modify(fired,function(){this.fired = true;});
+  logger.debug(h.houseInsurancePrice);
+    }
+  }
+
+rule "covered perils"{
+       priority:18,
+    when {
+        h:HouseInsurance;
+      fired: CoversFired !fired.fired;
+    }
+    then {
+  logger.debug("Covers pravilo HOME: ");
+  var totalRisk = 0;
+  for(var i=0; i<h.covers.length; i++){
+    totalRisk+=h.covers[i]
+  }
+  modify(h,function(){h.houseInsurancePrice *= totalRisk;});
+  modify(fired,function(){this.fired = true;});
+  logger.debug(h.houseInsurancePrice);
+    }
+  }
+
+
+rule RegionRiskFactor {
+    priority:15,
+ when {
+        ins : Insurance;
+       price: Price;
+       fired: RegionRiskFired !fired.fired;
+       users: Users;
+    }
+    then {
+    logger.debug("Region risk pravilo: ");
+    modify(fired,function(){this.fired = true;});
+    for(var i=0; i<users.users.length; i++)
+    {
+      logger.debug("PETLJA U NOOLSU");
+      modify(price,function(){
+        this.value+=(users.users[i].userPrice*ins.regionRisk);
+      })
+    }
+   
+    logger.debug(price.value);
+  }
+}
+
+rule "2-4 users"{
+  priority:14,
+ when {
+        ins : Insurance ins.numberOfUsers>=2 && ins.numberOfUsers<=3;
+       price: Price;
+       fired: NumberOfUsersFired !fired.fired;
+    }
+    then {
+    logger.debug("number of users pravilo: ");
+    modify(fired,function(){this.fired = true;});
+    modify(price,function(){this.value *= 0.9});
+    logger.debug(price.value);
+  }
+
+}
+
+rule "4-7 users"{
+ priority:14,
+ when {
+        ins : Insurance ins.numberOfUsers>=4 && ins.numberOfUsers<=7;
+       price: Price;
+       fired: NumberOfUsersFired !fired.fired;
+    }
+    then {
+    logger.debug("number of users pravilo: ");
+    modify(fired,function(){this.fired = true;});
+    modify(price,function(){this.value *= 0.8});
+    logger.debug(price.value);
+  }
+}
+
+rule "more than 7 users"{
+ priority:14,
+ when {
+        ins : Insurance ins.numberOfUsers>7;
+       price: Price;
+       fired: NumberOfUsersFired !fired.fired;
+    }
+    then {
+    logger.debug("number of users pravilo: ");
+    modify(fired,function(){this.fired = true;});
+    modify(price,function(){this.value *= 0.7});
+    logger.debug(price.value);
+  }
+}
+
+rule "duration"{
+  priority:2,
+ when {
+        ins : Insurance;
+       price: Price;
+       fired: DurationFired !fired.fired;
+    }
+    then {
+    logger.debug("Duration pravilo: ");
+    modify(fired,function(){this.fired = true;});
+    modify(price,function(){this.value *= ins.duration});
+    logger.debug(price.value);
+  }
+}
+
+rule "amount"{
+  priority:10,
+ when {
+        ins : Insurance;
+       price: Price;
+       fired: AmountFired !fired.fired;
+       users: Users;
+       hi: HouseInsurance;
+       ci: CarInsurance;
+    }
+    then {
+    logger.debug("Amount pravilo: ");
+    modify(fired,function(){this.fired = true;});
+    modify(price,function(){
+      this.value +=hi.houseInsurancePrice;
+      this.value +=ci.carInsurancePrice;
+      this.value *= ins.amount/1000;
+      //(ins.amount/1000);
+    });
+    logger.debug(price.value);
+  }
+}
+
+rule "sport risk"{
+       priority:20,
+    when {
+        u:User !u.sportRiskFired;
+       price: Price;
+    }
+    then {
+  logger.debug("Risk pravilo USERUSERUSER: ");
+  //modify(price,function(){this.value *= u.sportRisk;});
+  modify(u,function(){this.sportRiskFired = true;
+   this.userPrice*=this.sportRisk;});
+  logger.debug(u.userPrice);
+  
+    }
+  }
+
+   rule "user age above 65"{
+       priority:20,
+    when {
+        u:User u.age>65 && !u.userAgeFired;
+       price: Price;
+    }
+    then {
+  logger.debug("Age pravilo USERUSERUSER: ");
+  //modify(price,function(){this.value *= 2;});
+  modify(u,function(){this.userAgeFired = true;
+    this.userPrice*=2;});
+  logger.debug(u.userPrice);
+    }
+  }
+
+
+   rule "user age between 20 and 65"{
+       priority:20,
+    when {
+        u:User u.age<=65 && u.age>=20 && !u.userAgeFired;
+       price: Price;
+    }
+    then {
+  logger.debug("Age pravilo USERUSERUSER: ");
+  //modify(price,function(){this.value *= 1;});
+  modify(u,function(){this.userAgeFired = true;
+    this.userPrice*=1;});
+  logger.debug(u.userPrice);
+  
+    }
+  }
+
+
+   rule "user age below 20"{
+       priority:20,
+    when {
+        u:User u.age<20 && !u.userAgeFired;
+       price: Price;
+    }
+    then {
+  logger.debug("Age pravilo USERUSERUSER: ");
+  //modify(price,function(){this.value /= 2;});
+  modify(u,function(){this.userAgeFired = true;
+    this.userPrice*=0.5;
+  });
+  logger.debug(u.userPrice);
+  
+    }
+  }

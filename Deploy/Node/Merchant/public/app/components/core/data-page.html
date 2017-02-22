@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Insurance</title>
+
+    
+    <link href="./assets/css/bootstrap.css" rel="stylesheet">
+     <link rel="stylesheet" href="assets/css/style.css">
+    <link href="./assets/css/company.css" rel="stylesheet">
+    <link href="./assets/css/font-awesome.css" rel="stylesheet">
+    <link href="./assets/css/solution.css" rel="stylesheet">
+</head>
+<body ng-app="merchant-app">
+
+	 <div class="container">
+
+
+
+	<div class="form-top">
+       <div class="form-top-left">
+          <h3 translate>{{"SIDEBAR.YOURDATA"}}</h3>
+                            		
+      </div>
+    </div>   
+
+
+<div class="form-bottom">
+	<form class="form-horizontal" novalidate name="dpc.data">
+		<table align="center" width="75%;" class="table table-striped table-hover table-bordered table-condensed">
+
+			<tr>
+			    <th colspan="3" style="text-align:center" translate><span>{{"COMMON.PURCHASE"}}</span></th>
+			 </tr>
+
+			<tr >
+				<td  translate>{{"DATA.START"}}</td>
+				<td >{{dpc.startDate}}</td>
+				<td >&nbsp;</td>
+			</tr>
+
+			<tr >
+			<td  translate>{{"DATA.END"}}</td>
+			<td >{{dpc.endDate}}</td>
+			<td >&nbsp;</td>
+			</tr>
+
+			<tr >
+			<td  translate>{{"DATA.HOUSE"}}</td>
+			<td ><span ng-show="dpc.houseInsuranceChosen" translate>{{"DATA.YES"}}</span><span ng-show="!dpc.houseInsuranceChosen" translate>{{"DATA.NO"}}</span></td>
+			<td align="center"><button  ng-show="dpc.houseInsuranceChosen" type="button" class=" btn btn-primary" ng-click="dpc.cancelHouseInsurance()" translate>{{"DATA.CANCEL"}}</button>
+			</td>
+			</tr>
+
+			<tr >
+			<td  translate>{{"DATA.CAR"}}</td>
+			<td ><span ng-show="dpc.carInsuranceChosen" translate>{{"DATA.YES"}}</span><span ng-show="!dpc.carInsuranceChosen" translate>{{"DATA.NO"}}</span></td></td>
+				<td align="center"><button  ng-show="dpc.carInsuranceChosen" type="button" class=" btn btn-primary" ng-click="dpc.cancelCarInsurance()" translate>{{"DATA.CANCEL"}}</button></td>
+			</tr>
+
+			<tr >
+			<td  translate>{{"DATA.AMOUNT"}}</td>
+			<td >{{dpc.amount}} EUR</td>
+			<td >&nbsp;</td>
+			</tr>
+			<tr >
+			<td  translate>{{"DATA.REGION"}}</td>
+			<td ng-show="dpc.currentLanguage == 'En'" class="   ">{{dpc.region}}</td>
+			<td ng-show="dpc.currentLanguage == 'Sr'" class="   ">{{dpc.regionSer}}</td>
+			<td >&nbsp;</td>
+			</tr>
+
+			<tr ng-repeat="user in dpc.users" class=" ">
+			<td  ><span ng-show="user.index==1" translate>{{"DATA.USERS"}}</span></td>
+			<td ><a class="activeLink" ui-sref="main.usersInsuranceForm({userIndex:{{user.index}}})">{{user.name}} {{user.surname}}</a></td>
+			<td align="center"><button  ng-show="user.index!=1 && dpc.sure!=user.index" type="button" class=" btn btn-primary" ng-click="dpc.deleteUser(user.index)" translate>{{"COMMON.REMOVEUSER"}}</button></td>
+			<td  ng-show="dpc.sure==user.index" translate>{{"DATA.AREYOUSURE"}}</td>
+			<td ng-show="dpc.sure==user.index"><button align="center"  type="button" class="btn btn-primary" ng-click="dpc.confirmDeleteUser(user.index)" translate>{{"DATA.YES"}}</button></td>
+			<td ng-show="dpc.sure==user.index"><button align="center"  type="button" class="btn btn-primary" ng-click="dpc.notSure()" translate>{{"DATA.NO"}}</button></td>
+			</tr>
+
+			<tr >
+			<td  translate>{{"DATA.TOTAL"}}</td>
+			<td >{{dpc.price}} EUR</td>
+			<td align="center" ng-show="!dpc.displayMoreData"><button  type="button" class=" btn btn-primary" ng-click="dpc.morePriceData()" translate>{{"DATA.MORE"}}</button></td>
+			<td align="center" ng-show="dpc.displayMoreData"><button  type="button" class=" btn btn-primary" ng-click="dpc.lessPriceData()" translate>{{"DATA.LESS"}}</button></td>
+			</tr>
+			
+			<tr ng-show="dpc.displayMoreData" class=" ">
+			<td ><label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label><label translate>{{"DATA.B_PRICE"}}</label></td>
+			<td >&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{dpc.basePrice}} EUR</td>
+			<td >&nbsp;</td>			
+			</tr>
+			
+			<tr ng-show="dpc.displayMoreData" class=" ">
+			<td  ><label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label><label translate>{{"DATA.HI_PRICE"}}</label></td>
+			<td >&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{dpc.houseInsurancePrice}} EUR</td>
+			<td >&nbsp;</td>		
+			</tr>
+			
+			<tr ng-show="dpc.displayMoreData" class=" ">
+			<td  ><label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label><label translate>{{"DATA.CI_PRICE"}}</label></td>
+			<td >&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{dpc.carInsurancePrice}} EUR</td>
+			<td >&nbsp;</td>			
+			</tr>
+	
+			<tr >
+			<td colspan="3" align="center">
+			<button type="button" class="btn btn-primary" ng-click="dpc.saveAll()" translate ng-disabled="cic.carInsuranceForm.$invalid" translate>{{"COMMON.BUY"}}</button>
+			</td>
+			</tr>
+		</table>
+			</form>
+
+</div>
+</div>
+</body>
+</html>
+

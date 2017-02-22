@@ -1,0 +1,4 @@
+[2017-02-22 21:00:22.372] [INFO] cheese - Cheese is Gouda.
+[2017-02-22 21:00:22.414] [WARN] cheese - Cheese is quite smelly.
+[2017-02-22 21:00:22.556] [ERROR] cheese - Cheese is too ripe!
+[2017-02-22 21:00:22.557] [FATAL] cheese - Cheese was breeding ground for listeria.
