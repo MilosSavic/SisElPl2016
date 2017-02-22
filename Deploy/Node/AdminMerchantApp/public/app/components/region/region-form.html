@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Add region</title>
+    
+    <link href="./assets/css/bootstrap.css" rel="stylesheet">
+     <link rel="stylesheet" href="assets/css/style.css">
+   <link href="./assets/css/company.css" rel="stylesheet">
+   <link href="./assets/css/font-awesome.css" rel="stylesheet">
+   <link href="./assets/css/solution.css" rel="stylesheet">
+  <!--   <link href="./assets/css/test.css" rel="stylesheet">
+     <link href="./assets/css/test2.css" rel="stylesheet"> -->
+
+     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script> 
+
+
+</head>
+<body ng-app="merchant-admin-app">
+<div class="container">
+
+<!-- <div ng-init="tab=1">
+
+        <div class="cb" ng-click="tab = 1">tab 1</div>
+        <div class="cb" ng-click="tab = 2">tab 2</div>
+        
+        <div ng-show="tab == 1">
+            <p>first</p>
+         </div>
+    
+        <div ng-show="tab == 2">
+            <p>second</p>
+        </div>
+</div>
+
+
+  <ul class="tab">
+  <li><a href="javascript:void(0)" class="tablinks" ng-click="rc.openCity(event, 'London')">London</a></li>
+  <li><a href="javascript:void(0)" class="tablinks" ng-click="rc.openCity(event, 'Paris')">Paris</a></li>
+  <li><a href="javascript:void(0)" class="tablinks" ng-click="rc.openCity(event, 'Tokyo')">Tokyo</a></li>
+</ul>
+
+<div id="London" class="tabcontent">
+  <h3>London</h3>
+  <p>London is the capital city of England.</p>
+</div>
+
+<div id="Paris" class="tabcontent">
+  <h3>Paris</h3>
+  <p>Paris is the capital of France.</p>
+</div>
+
+<div id="Tokyo" class="tabcontent">
+  <h3>Tokyo</h3>
+  <p>Tokyo is the capital of Japan.</p>
+</div> -->
+
+
+  <div class="form-top">
+       <div class="form-top-left">
+          <h3 translate>Region</h3>
+                                
+      </div>
+      
+    </div> 
+
+
+   
+<div class="form-bottom">
+
+<form class="form-horizontal" novalidate name="rc.regionForm">
+
+
+        <div class="form-group" ng-class="{ 'has-error': rc.regionForm.name.$touched && rc.regionForm.name.$invalid }">
+    <label class="control-label col-sm-2" translate>{{"REGION.NAME_ENG"}}</label>
+    <div class="col-sm-6 col-md-4">
+    <input class="form-control" type="text" ng-model="rc.region.name"  name="name" required>
+
+        <div ng-messages="rc.regionForm.name.$error" ng-show="rc.regionForm.name.$touched">
+                    <p ng-message="required"><span translate>{{"REGION.ERROR.REQUIRED"}}</span></p>
+                </div>
+    </div>
+    </div>
+
+       <div class="form-group" ng-class="{ 'has-error': rc.regionForm.nameSer.$touched && rc.regionForm.nameSer.$invalid }">
+    <label class="control-label col-sm-2" translate>{{"REGION.NAME_SER"}}</label>
+    <div class="col-sm-6 col-md-4">
+    <input class="form-control" type="text" ng-model="rc.region.nameSer"  name="nameSer" required>
+
+        <div ng-messages="rc.regionForm.nameSer.$error" ng-show="rc.regionForm.nameSer.$touched">
+                    <p ng-message="required"><span translate>{{"REGION.ERROR.REQUIRED"}}</span></p>
+                </div>
+    </div>
+    </div>
+
+
+        <div class="form-group" ng-class="{ 'has-error': rc.regionForm.risk.$touched && rc.regionForm.risk.$invalid }">
+    <label class="control-label col-sm-2" translate>{{"REGION.RISK"}}</label>
+    <div class="col-sm-6 col-md-4">
+    <input class="form-control" type="text" ng-model="rc.region.risk" name="risk" ng-pattern="/^[0-9]+$/" required>
+
+        <div ng-messages="rc.regionForm.risk.$error" ng-show="rc.regionForm.risk.$touched">
+                    <p ng-message="required"><span translate>{{"REGION.ERROR.REQUIRED"}}</span></p>
+                    <p ng-message="pattern"><span translate>{{"REGION.ERROR.NUMBER"}}</span></p>
+                </div>
+    </div>
+    </div>
+
+
+     <div class="col-sm-offset-2">
+          <button class="btn btn-primary" ng-click="rc.submitRegion()" translate ng-disabled="rc.regionForm.$invalid">{{"COMMON.SUBMIT"}}</button>
+    </div>
+
+  </form>
+    </div>
+
+    <br><br><br>
+
+<div class="container">
+  <table id="t01" align="center" border="1" width="75%;"  class="table table-striped table-hover table-bordered table-condensed">
+  <tr >
+    <th>&nbsp;</th>
+    <th >ID</th>
+    <th translate>{{"REGION.NAME_ENG"}}</th>
+    <th translate>{{"REGION.NAME_SER"}}</th>
+    <th translate>{{"REGION.RISK"}}</th>
+
+  </tr>
+  <tr ng-repeat="element in rc.listOfRegions">
+    <td style="width:4%;">{{$index+1}}&nbsp;</td>
+    <td style="width:11%;">{{element._id}}</td>
+    <td style="width:9%;">{{element.name}}</td>
+    <td style="width:9%;">{{element.nameSer}}</td>
+    <td style="width:9%;">{{element.risk}}</td>
+  </tr>
+  </table>
+</div>
+
+</div>
+</body>
+</html>

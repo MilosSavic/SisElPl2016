@@ -1,0 +1,39 @@
+.assignment {
+	color:#e3103b;
+}
+
+.link {
+	cursor:pointer;
+}
+
+.sideBar {
+	background-color: #F8F8F8;
+}
+
+.subSideBar{
+    padding-left: 2em;
+}
+
+.inactive{
+    background-color: gray;
+    color: black;
+}
+
+.activeLink{
+	color: blue;
+}
+
+.th{
+	background-color: #d61a2d;
+}
+
+
+
+.nav-sidebar > .activeItem > a,
+.nav-sidebar > .activeItem > a:hover,
+.nav-sidebar > .activeItem > a:focus {
+  color: #fff;
+  background-color: #d61a2d;
+}
+
+

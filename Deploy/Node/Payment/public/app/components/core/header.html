@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+</head>
+<body>
+    <nav class="navbar navbar-default navbar-inverse ">
+
+      <div class="navbar-collapse collapse ">
+                <ul class="nav navbar-nav ">
+                    <li ng-class="{activeItem:sbc.isActive('home')}">
+                         <a ui-sref='main.home' translate><span>{{"PAYMENT.HOME"}}</span></a>
+                     </li>
+                    <li ng-class="{activeItem:sbc.isActive('about')}">
+                        <a ui-sref='main.about' translate><span>{{"PAYMENT.ABOUT"}}</span></a>
+                    </li>
+                </ul>
+
+                <a class="col-sm-offset-4 col-sm-4" href="#/home" ><h2 align="left" translate>{{"PAYMENT.PAYMENTSITE"}}</h2></a>
+
+                <div class="btn-group pull-right" uib-dropdown is-open="hc.isopen">
+                    <button id="single-button" type="button" class="btn btn-primary" uib-dropdown-toggle ng-disabled="disabled">
+                        {{hc.currentLanguage}} <span class="caret"></span>
+                    </button>
+                    <ul class="dropdown-menu" role="menu" aria-labelledby="single-button">
+                        <li role="menuitem"><a ng-href ng-click="hc.setLanguage('en')">En</a></li>
+                        <li role="menuitem"><a ng-href ng-click="hc.setLanguage('sr-latn')">Sr<a></li>
+                    </ul>
+                </div>
+    </div>
+
+    </nav>
+
+</body>
+</html>

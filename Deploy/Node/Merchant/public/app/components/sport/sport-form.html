@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Add sport</title>
+    <link href="./assets/css/bootstrap.css" rel="stylesheet">
+     <link rel="stylesheet" href="assets/css/style.css">
+    <link href="./assets/css/company.css" rel="stylesheet">
+    <link href="./assets/css/font-awesome.css" rel="stylesheet">
+    <link href="./assets/css/solution.css" rel="stylesheet">
+</head>
+<body ng-app="merchant-app">
+<div class="container">
+
+
+
+  <div class="form-top">
+       <div class="form-top-left">
+          <h3 translate>Sport</h3>
+                                
+      </div>
+      <div class="form-top-right">
+         <i class="fa fa-lock"></i>
+      </div>
+    </div> 
+
+<div class="form-bottom">
+
+<form class="form-horizontal" novalidate name="sc.sportForm">
+
+
+    <div class="form-group" ng-class="{ 'has-error': sc.sportForm.name.$touched && sc.sportForm.name.$invalid }">
+		<label class="control-label col-sm-2" translate>{{"SPORT.NAME_ENG"}}</label>
+		<div class="col-sm-6 col-md-4">
+		<input class="form-control" type="text" ng-model="sc.sport.name"  name="name" required>
+    <div ng-messages="sc.sportForm.name.$error" ng-show="sc.sportForm.name.$touched">
+                    <p ng-message="required"><span translate>{{"SPORT.ERROR.REQUIRED"}}</span></p>
+                </div>
+		</div>
+		</div>
+
+     <div class="form-group" ng-class="{ 'has-error': sc.sportForm.nameSer.$touched && sc.sportForm.nameSer.$invalid }">
+    <label class="control-label col-sm-2" translate>{{"SPORT.NAME_SER"}}</label>
+    <div class="col-sm-6 col-md-4">
+    <input class="form-control" type="text" ng-model="sc.sport.nameSer"  name="nameSer" required>
+    <div ng-messages="sc.sportForm.nameSer.$error" ng-show="sc.sportForm.nameSer.$touched">
+                    <p ng-message="required"><span translate>{{"SPORT.ERROR.REQUIRED"}}</span></p>
+                </div>
+    </div>
+    </div>
+
+
+    <div class="form-group" ng-class="{ 'has-error': sc.sportForm.coefficient.$touched && sc.sportForm.coefficient.$invalid }">
+		<label class="control-label col-sm-2" translate>{{"SPORT.COEFFICIENT"}}</label>
+		<div class="col-sm-6 col-md-4">
+		<input class="form-control" type="text" ng-model="sc.sport.coefficient" name="coefficient" ng-pattern="/^[0-9]+$/" required>
+    <div ng-messages="sc.sportForm.coefficient.$error" ng-show="sc.sportForm.coefficient.$touched">
+                    <p ng-message="required"><span translate>{{"SPORT.ERROR.REQUIRED"}}</span></p>
+                    <p ng-message="pattern"><span translate>{{"SPORT.ERROR.NUMBER"}}</span></p>
+                </div>
+
+		</div>
+		</div>
+
+
+		 <div class="col-sm-offset-2">
+		      <button class="btn btn-primary" ng-click="sc.submitSport()" ng-disabled="sc.sportForm.$invalid" translate>{{"COMMON.SUBMIT"}}</button>
+		</div>
+
+	</form>
+    </div>
+
+    <br><br><br><br><br>
+
+	<table id="t01" align="center" width="75%;" class="table table-striped table-hover table-bordered table-condensed">
+  <tr>
+    <th>&nbsp;</th>
+    <th>ID</th>
+    <th translate>{{"SPORT.NAME_ENG"}}</th>
+    <th translate>{{"SPORT.NAME_SER"}}</th>
+    <th translate>{{"SPORT.COEFFICIENT"}}</th>
+
+  </tr>
+  <tr ng-repeat="element in sc.listOfSports">
+    <td style="width:4%;">{{$index+1}}&nbsp;</td>
+    <td style="width:11%;">{{element._id}}</td>
+    <td style="width:9%;">{{element.name}}</td>
+     <td style="width:9%;">{{element.nameSer}}</td>
+    <td style="width:9%;">{{element.coefficient}}</td>
+  </tr>
+  </table>
+
+</div>
+</body>
+</html>

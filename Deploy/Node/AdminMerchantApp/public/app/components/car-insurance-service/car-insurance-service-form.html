@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Add car insurance service</title>
+     <link href="./assets/css/bootstrap.css" rel="stylesheet">
+     <link rel="stylesheet" href="assets/css/style.css">
+    <link href="./assets/css/company.css" rel="stylesheet">
+    <link href="./assets/css/font-awesome.css" rel="stylesheet">
+    <link href="./assets/css/solution.css" rel="stylesheet">
+</head>
+<body ng-app="merchant-admin-app">
+<div><div class="container">
+
+
+
+  <div class="form-top">
+       <div class="form-top-left">
+          <h3 translate>{{"CARSERVICE.CARINSURANCESERVICE"}}</h3>
+                                
+      </div>
+      
+    </div> 
+
+<div class="form-bottom">
+<form class="form-horizontal" novalidate name="cisc.carInsuranceServiceForm">
+
+
+      <div class="form-group" ng-class="{ 'has-error': cisc.carInsuranceServiceForm.name.$touched && cisc.carInsuranceServiceForm.name.$invalid }">
+    <label class="control-label col-sm-2" translate>{{"CARSERVICE.NAME_ENG"}}</label>
+    <div class="col-sm-6 col-md-4">
+    <input class="form-control" type="text" ng-model="cisc.carInsuranceService.name"  name="name" required>
+    <div ng-messages="cisc.carInsuranceServiceForm.name.$error" ng-show="cisc.carInsuranceServiceForm.name.$touched">
+                    <p ng-message="required"><span translate>{{"CARSERVICE.ERROR.REQUIRED"}}</span></p>
+                </div>
+    </div>
+    </div>
+
+    <div class="form-group" ng-class="{ 'has-error': cisc.carInsuranceServiceForm.nameSer.$touched && cisc.carInsuranceServiceForm.nameSer.$invalid }">
+    <label class="control-label col-sm-2" translate>{{"CARSERVICE.NAME_SER"}}</label>
+    <div class="col-sm-6 col-md-4">
+    <input class="form-control" type="text" ng-model="cisc.carInsuranceService.nameSer"  name="nameSer" required>
+    <div ng-messages="cisc.carInsuranceServiceForm.nameSer.$error" ng-show="cisc.carInsuranceServiceForm.nameSer.$touched">
+                    <p ng-message="required"><span translate>{{"CARSERVICE.ERROR.REQUIRED"}}</span></p>
+                </div>
+    </div>
+    </div>
+
+     <div class="form-group" ng-class="{ 'has-error': cisc.carInsuranceServiceForm.serviceGroup.$touched && cisc.carInsuranceServiceForm.serviceGroup.$invalid }">
+    <label class="control-label col-sm-2" translate>{{"CARSERVICE.GROUP"}}</label>
+    <div class="col-sm-6 col-md-4">
+    <input class="form-control" type="text" ng-model="cisc.carInsuranceService.serviceGroup"  name="serviceGroup" ng-pattern="/^[0-9]+$/" required>
+    <div ng-messages="cisc.carInsuranceServiceForm.serviceGroup.$error" ng-show="cisc.carInsuranceServiceForm.serviceGroup.$touched">
+                    <p ng-message="required"><span translate>{{"CARSERVICE.ERROR.REQUIRED"}}</span></p>
+                    <p ng-message="pattern"><span translate>{{"CARSERVICE.ERROR.NUMBER"}}</span></p>
+                </div>
+    </div>
+
+    </div>
+    
+       <div class="form-group" ng-class="{ 'has-error': cisc.carInsuranceServiceForm.riskFactor.$touched && cisc.carInsuranceServiceForm.riskFactor.$invalid }">
+    <label class="control-label col-sm-2" translate>{{"CARSERVICE.RISKFACTOR"}}</label>
+    <div class="col-sm-6 col-md-4">
+    <input class="form-control" type="text" ng-model="cisc.carInsuranceService.riskFactor" name="riskFactor" ng-pattern="/^[0-9]+$/" required>
+    <div ng-messages="cisc.carInsuranceServiceForm.riskFactor.$error" ng-show="cisc.carInsuranceServiceForm.riskFactor.$touched">
+                    <p ng-message="required"><span translate>{{"CARSERVICE.ERROR.REQUIRED"}}</span></p>
+                    <p ng-message="pattern"><span translate>{{"CARSERVICE.ERROR.NUMBER"}}</span></p>
+                </div>
+
+    </div>
+    </div>
+
+
+     <div class="col-sm-offset-2">
+          <button class="btn btn-primary" ng-click="cisc.submit()" ng-disabled="cisc.carInsuranceServiceForm.$invalid" translate>{{"COMMON.SUBMIT"}}</button>
+    </div>
+
+  </form>
+  </div>
+
+    <br><br><br>
+
+  <table id="t01" align="center" width="75%;" class="table table-striped table-hover table-bordered table-condensed">
+  <tr>
+    <th>&nbsp;</th>
+    <th>ID</th>
+    <th translate>{{"CARSERVICE.NAME_ENG"}}</th>
+    <th translate>{{"CARSERVICE.NAME_SER"}}</th>
+      <th translate>{{"CARSERVICE.GROUP"}}</th>
+    <th translate>{{"CARSERVICE.RISKFACTOR"}}</th>
+
+
+  </tr>
+  <tr ng-repeat="element in cisc.listOfCarInsuranceServices">
+    <td style="width:4%;">{{$index+1}}&nbsp;</td>
+    <td style="width:11%;">{{element._id}}</td>
+    <td style="width:9%;">{{element.name}}</td>
+    <td style="width:9%;">{{element.nameSer}}</td>
+    <td style="width:9%;">{{element.serviceGroup}}</td>
+    <td style="width:9%;">{{element.riskFactor}}</td>
+  </tr>
+  </table>
+
+</div>
+</body>
+</html>
