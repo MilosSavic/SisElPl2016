@@ -7,7 +7,7 @@
 
     SliderController.$inject = ['$location','$state','$window','$stateParams','$scope','crTranslator', 'crTranslations'];
     function SliderController($location,$state,$window,$stateParams,$scope,crTranslator, crTranslations) {
-        $scope.delay = 2000;
+        $scope.delay = 8000;
             $scope.slides = [
                 {'title': 'ins1', 'class': 'animation-slide', 'image': './assets/img/insurance1.png'},
                 {'title': 'ins2', 'class': 'animation-fade', 'image': './assets/img/insurance2.png'},
