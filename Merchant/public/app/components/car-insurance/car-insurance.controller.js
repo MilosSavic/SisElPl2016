@@ -30,11 +30,11 @@
         cic.setLanguage = setLanguage;
 
         cic.isOptionsRequired = function(){
-        	
-        	return !cic.serviceData.some(function(options){
-				var dataWasActive = InsuranceData.getCarInsuranceChosen();
-				if(!skipped)
+        	var dataWasActive = InsuranceData.getCarInsuranceChosen();
+			if(!skipped)
 				InsuranceData.setCarInsuranceChosen(false);
+        	return !cic.serviceData.some(function(options){
+				
 			    for(var i=0; i<options.length; i++)
 				{
 							if(options[i].selected)

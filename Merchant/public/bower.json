@@ -2,9 +2,9 @@
   "name": "merchant-app",
   "version": "0.0.0",
   "authors": [
-    "Nikola Luburić, Rajko Ilic"
+    "Milos Savic, Rajko Ilic"
   ],
-  "description": "This web application represents a registry which tracks companies and their employees",
+  "description": "This web application is used to buy insurance",
   "main": "index.html",
   "keywords": [
     "angular best practices",
@@ -22,7 +22,8 @@
     "angular-bootstrap": "^2.1.4",
     "angularjs-dropdown-multiselect": "latest",
     "angular-material": "~0.10.0",
-    "bz-slider": "*"
+    "bz-slider": "*",
+    "angular-loading-bar": "*"
   },
   "devDependencies": {
     "angular-mocks": "^1.6.2"
